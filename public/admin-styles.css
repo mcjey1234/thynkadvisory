@@ -1,0 +1,174 @@
+/* ===== ADMIN PANEL CUSTOM STYLING ===== */
+/* This file is loaded directly - no Vite needed! */
+
+/* 1. SIDEBAR - Dark Background */
+.fi-sidebar {
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
+    border-right: 1px solid #334155 !important;
+}
+
+.fi-sidebar .fi-sidebar-header {
+    background-color: transparent !important;
+    border-bottom: 1px solid #334155 !important;
+    padding: 1rem 0 !important;
+}
+
+.fi-sidebar .fi-sidebar-item {
+    color: #94a3b8 !important;
+    border-radius: 0.5rem !important;
+    margin: 0.125rem 0.75rem !important;
+    transition: all 0.2s ease !important;
+    padding: 0.5rem 0.75rem !important;
+}
+
+.fi-sidebar .fi-sidebar-item:hover {
+    background-color: #334155 !important;
+    color: #ffffff !important;
+}
+
+.fi-sidebar .fi-sidebar-item-active {
+    background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3) !important;
+}
+
+.fi-sidebar .fi-sidebar-item-active:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+}
+
+.fi-sidebar .fi-sidebar-item .fi-sidebar-item-label {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+}
+
+.fi-sidebar .fi-sidebar-item .fi-sidebar-item-icon {
+    color: #64748b !important;
+    transition: color 0.2s ease !important;
+}
+
+.fi-sidebar .fi-sidebar-item:hover .fi-sidebar-item-icon {
+    color: #ffffff !important;
+}
+
+.fi-sidebar .fi-sidebar-item-active .fi-sidebar-item-icon {
+    color: #ffffff !important;
+}
+
+/* 2. SIDEBAR GROUP HEADINGS */
+.fi-sidebar-group-label {
+    color: #64748b !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    padding: 0.75rem 1.25rem 0.5rem !important;
+}
+
+/* 3. TOP HEADER - Clean */
+.fi-topbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 4. CARDS */
+.fi-section {
+    background-color: #ffffff !important;
+    border-radius: 0.75rem !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.fi-section-header {
+    border-bottom: 1px solid #f1f5f9 !important;
+}
+
+.fi-section-header .fi-section-header-heading {
+    color: #1e293b !important;
+    font-weight: 600 !important;
+}
+
+/* 5. BUTTONS */
+.fi-btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 4px 0 rgba(37, 99, 235, 0.2) !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-btn-primary:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+    box-shadow: 0 4px 8px 0 rgba(37, 99, 235, 0.3) !important;
+    transform: translateY(-1px) !important;
+}
+
+.fi-btn-success {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    color: #ffffff !important;
+}
+
+.fi-btn-success:hover {
+    background: linear-gradient(135deg, #059669, #047857) !important;
+    transform: translateY(-1px) !important;
+}
+
+.fi-btn-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+    color: #ffffff !important;
+}
+
+.fi-btn-danger:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* 6. TABLE */
+.fi-ta-table {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.75rem !important;
+    overflow: hidden !important;
+}
+
+.fi-ta-header-cell {
+    background-color: #f8fafc !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.fi-ta-row:hover {
+    background-color: #eff6ff !important;
+}
+
+/* 7. BADGES */
+.fi-badge-success {
+    background-color: #d1fae5 !important;
+    color: #065f46 !important;
+}
+
+.fi-badge-danger {
+    background-color: #fee2e2 !important;
+    color: #991b1b !important;
+}
+
+.fi-badge-warning {
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+}
+
+.fi-badge-info {
+    background-color: #dbeafe !important;
+    color: #1e40af !important;
+}
+
+/* 8. LOGO AREA */
+.fi-sidebar .fi-brand {
+    padding: 1.5rem 0.75rem 1rem !important;
+}
+
+/* 9. GLOBAL */
+body {
+    background-color: #f1f5f9 !important;
+}

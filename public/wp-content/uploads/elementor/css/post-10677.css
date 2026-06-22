@@ -1,0 +1,129 @@
+.elementor-kit-10677 {
+    --e-global-color-primary: #40BAC8;
+    --e-global-color-secondary: #404040;
+    --e-global-color-text: #404040;
+    --e-global-color-accent: #E44481;
+    --e-global-color-d2a957d: #40BAC8;
+    --e-global-color-9dd6d9f: #404040;
+    --e-global-color-90b6da1: #F2C72E;
+    --e-global-color-2630ea2: #E87881;
+    --e-global-color-108bbb8: #E44481;
+    --e-global-typography-primary-font-family: "Roboto";
+    --e-global-typography-primary-font-weight: 600;
+    --e-global-typography-secondary-font-family: "Roboto Slab";
+    --e-global-typography-secondary-font-weight: 400;
+    --e-global-typography-text-font-family: "Roboto";
+    --e-global-typography-text-font-weight: 400;
+    --e-global-typography-accent-font-family: "Roboto";
+    --e-global-typography-accent-font-weight: 500;
+    --e-global-typography-5811f60-font-size: 20px;
+    --e-global-typography-5811f60-font-weight: 600;
+    --e-global-typography-52b6c7e-font-size: 55px;
+    --e-global-typography-52b6c7e-font-weight: 600;
+    font-family: "Roboto", Sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.3em;
+}
+
+.elementor-kit-10677 button,
+.elementor-kit-10677 input[type="button"],
+.elementor-kit-10677 input[type="submit"],
+.elementor-kit-10677 .elementor-button {
+    background-color: var( --e-global-color-d2a957d);
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 25% 25% 25% 25%;
+}
+
+.elementor-kit-10677 e-page-transition {
+    background-color: #FFBC7D;
+}
+
+.elementor-kit-10677 h1 {
+    color: var( --e-global-color-astglobalcolor5);
+    font-family: "Cabin", Sans-serif;
+    font-size: 65px;
+    font-weight: 700;
+}
+
+.elementor-kit-10677 h2 {
+    color: var( --e-global-color-astglobalcolor5);
+    font-family: "Cabin", Sans-serif;
+    font-size: 55px;
+    font-weight: 700;
+}
+
+.elementor-kit-10677 h3 {
+    color: var( --e-global-color-astglobalcolor5);
+    font-family: "Cabin", Sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.elementor-kit-10677 h4 {
+    color: var( --e-global-color-astglobalcolor5);
+    font-family: "Cabin", Sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.elementor-kit-10677 h5 {
+    color: var( --e-global-color-astglobalcolor5);
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.elementor-kit-10677 h6 {
+    font-family: "Cabin", Sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.elementor-section.elementor-section-boxed>.elementor-container {
+    max-width: 1500px;
+}
+
+.e-con {
+    --container-max-width: 1500px;
+}
+
+.elementor-widget:not(:last-child) {
+    margin-block-end: 20px;
+}
+
+.elementor-element {
+    --widgets-spacing: 20px 20px;
+    --widgets-spacing-row: 20px;
+    --widgets-spacing-column: 20px;
+}
+
+{}
+
+h1.entry-title {
+    display: var(--page-title-display);
+}
+
+@media(max-width:1024px) {
+    .elementor-section.elementor-section-boxed>.elementor-container {
+        max-width: 1024px;
+    }
+    .e-con {
+        --container-max-width: 1024px;
+    }
+}
+
+@media(max-width:767px) {
+    .elementor-kit-10677 h2 {
+        font-size: 40px;
+    }
+    .elementor-kit-10677 h3 {
+        font-size: 30px;
+    }
+    .elementor-section.elementor-section-boxed>.elementor-container {
+        max-width: 767px;
+    }
+    .e-con {
+        --container-max-width: 767px;
+    }
+}

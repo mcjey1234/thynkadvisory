@@ -1,0 +1,288 @@
+/* ===== CUSTOM ADMIN PANEL STYLING ===== */
+/* Using standard CSS - no @apply directives */
+
+/* 1. SIDEBAR - Dark Blue/Gray Classic */
+.fi-sidebar {
+    background-color: #111827 !important;
+    border-right: 1px solid #1f2937 !important;
+}
+
+.fi-sidebar .fi-sidebar-header {
+    background-color: #111827 !important;
+    border-bottom: 1px solid #1f2937 !important;
+}
+
+.fi-sidebar .fi-sidebar-item {
+    color: #9ca3af !important;
+    border-radius: 0.5rem !important;
+    margin: 0.125rem 0.5rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-sidebar .fi-sidebar-item:hover {
+    background-color: #1f2937 !important;
+    color: #ffffff !important;
+}
+
+.fi-sidebar .fi-sidebar-item-active {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+}
+
+.fi-sidebar .fi-sidebar-item-active:hover {
+    background-color: #1d4ed8 !important;
+}
+
+.fi-sidebar .fi-sidebar-item .fi-sidebar-item-label {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+}
+
+.fi-sidebar .fi-sidebar-item .fi-sidebar-item-icon {
+    color: #6b7280 !important;
+}
+
+.fi-sidebar .fi-sidebar-item-active .fi-sidebar-item-icon {
+    color: #ffffff !important;
+}
+
+.fi-sidebar-group-label {
+    color: #6b7280 !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 0.75rem 0.75rem !important;
+}
+
+/* 2. TOP HEADER - Clean White */
+.fi-topbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.fi-topbar .fi-topbar-heading {
+    color: #1f2937 !important;
+    font-weight: 600 !important;
+}
+
+/* 3. PAGE HEADER */
+.fi-page-header {
+    border-bottom: 1px solid #e5e7eb !important;
+    padding-bottom: 1rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.fi-page-header .fi-page-header-heading {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+}
+
+/* 4. CARDS / SECTIONS */
+.fi-section {
+    background-color: #ffffff !important;
+    border-radius: 0.75rem !important;
+    border: 1px solid #f3f4f6 !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+    transition: box-shadow 0.2s ease !important;
+}
+
+.fi-section:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.fi-section-header {
+    border-bottom: 1px solid #f3f4f6 !important;
+    padding: 1rem 1.5rem !important;
+}
+
+.fi-section-header .fi-section-header-heading {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    color: #1f2937 !important;
+}
+
+.fi-section-header .fi-section-header-description {
+    font-size: 0.875rem !important;
+    color: #6b7280 !important;
+    margin-top: 0.25rem !important;
+}
+
+.fi-section-content {
+    padding: 1rem 1.5rem !important;
+}
+
+/* 5. BUTTONS - Modern Colors */
+.fi-btn-primary {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-btn-primary:hover {
+    background-color: #1d4ed8 !important;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3) !important;
+}
+
+.fi-btn-success {
+    background-color: #059669 !important;
+    color: #ffffff !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-btn-success:hover {
+    background-color: #047857 !important;
+    box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.3) !important;
+}
+
+.fi-btn-danger {
+    background-color: #dc2626 !important;
+    color: #ffffff !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-btn-danger:hover {
+    background-color: #b91c1c !important;
+    box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.3) !important;
+}
+
+.fi-btn-warning {
+    background-color: #f59e0b !important;
+    color: #ffffff !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-btn-warning:hover {
+    background-color: #d97706 !important;
+    box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.3) !important;
+}
+
+/* 6. TABLES */
+.fi-ta-table {
+    border: 1px solid #e5e7eb !important;
+    border-radius: 0.75rem !important;
+    overflow: hidden !important;
+}
+
+.fi-ta-header-cell {
+    background-color: #f9fafb !important;
+    color: #374151 !important;
+    font-weight: 600 !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 0.75rem 1rem !important;
+}
+
+.fi-ta-row {
+    transition: background-color 0.15s ease !important;
+}
+
+.fi-ta-row:hover {
+    background-color: #eff6ff !important;
+}
+
+.fi-ta-row-even {
+    background-color: #ffffff !important;
+}
+
+.fi-ta-row-odd {
+    background-color: #f9fafb !important;
+}
+
+/* 7. BADGES */
+.fi-badge-success {
+    background-color: #d1fae5 !important;
+    color: #065f46 !important;
+}
+
+.fi-badge-danger {
+    background-color: #fee2e2 !important;
+    color: #991b1b !important;
+}
+
+.fi-badge-warning {
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+}
+
+.fi-badge-info {
+    background-color: #dbeafe !important;
+    color: #1e40af !important;
+}
+
+/* 8. FORM FIELDS */
+.fi-input {
+    border-color: #d1d5db !important;
+    border-radius: 0.5rem !important;
+}
+
+.fi-input:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+.fi-label {
+    color: #374151 !important;
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+}
+
+/* 9. NOTIFICATIONS */
+.fi-notification {
+    border-radius: 0.75rem !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #e5e7eb !important;
+}
+
+/* 10. DROPDOWN MENUS */
+.fi-dropdown-list {
+    border-radius: 0.75rem !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #e5e7eb !important;
+    overflow: hidden !important;
+}
+
+.fi-dropdown-list-item:hover {
+    background-color: #eff6ff !important;
+}
+
+/* 11. PAGINATION */
+.fi-pagination {
+    border-radius: 0.5rem !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+}
+
+.fi-pagination-item:hover {
+    background-color: #eff6ff !important;
+}
+
+.fi-pagination-item-active {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+}
+
+.fi-pagination-item-active:hover {
+    background-color: #1d4ed8 !important;
+}
+
+/* 12. GLOBAL */
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+    color: #1f2937 !important;
+    background-color: #f8fafc !important;
+}
+
+/* 13. RESPONSIVE */
+@media (max-width: 768px) {
+    .fi-sidebar {
+        width: 16rem !important;
+    }
+}

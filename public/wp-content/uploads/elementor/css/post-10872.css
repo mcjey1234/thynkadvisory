@@ -1,0 +1,26 @@
+.elementor-10872 .elementor-element.elementor-element-4da9157:not(.elementor-motion-effects-element-type-background),
+.elementor-10872 .elementor-element.elementor-element-4da9157>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+    background-color: var( --e-global-color-9dd6d9f);
+}
+
+.elementor-10872 .elementor-element.elementor-element-4da9157 {
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    padding: 100px 0px 100px 0px;
+}
+
+.elementor-10872 .elementor-element.elementor-element-4da9157>.elementor-background-overlay {
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.elementor-10872 .elementor-element.elementor-element-3a5cd3a .elementor-heading-title {
+    color: var( --e-global-color-d2a957d);
+}
+
+.elementor-10872 .elementor-element.elementor-element-74eb69a .elementor-nav-menu--main .elementor-item {
+    color: var( --e-global-color-astglobalcolor5);
+    fill: var( --e-global-color-astglobalcolor5);
+}
+
+.elementor-10872 .elementor-element.elementor-element-0ce2783 .elementor-heading-title {
+    color: var( --e-global-color-d2a957d);
+}

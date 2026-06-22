@@ -1,0 +1,95 @@
+.elementor-11464 .elementor-element.elementor-element-2c49dd8>.elementor-container {
+    max-width: 500px;
+}
+
+.elementor-11464 .elementor-element.elementor-element-2c49dd8:hover>.elementor-background-overlay {
+    opacity: 0.5;
+}
+
+.elementor-11464 .elementor-element.elementor-element-2c49dd8 {
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+}
+
+.elementor-11464 .elementor-element.elementor-element-2c49dd8>.elementor-background-overlay {
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.elementor-11464 .elementor-element.elementor-element-89d9df1:hover>.elementor-element-populated {
+    background-color: var( --e-global-color-primary);
+}
+
+.elementor-11464 .elementor-element.elementor-element-89d9df1>.elementor-element-populated>.elementor-background-overlay {
+    opacity: 0.5;
+}
+
+.elementor-11464 .elementor-element.elementor-element-89d9df1:hover>.elementor-element-populated>.elementor-background-overlay {
+    background-position: bottom center;
+    background-size: cover;
+    opacity: 0.15;
+}
+
+.elementor-11464 .elementor-element.elementor-element-89d9df1>.elementor-element-populated {
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #F0F0F0;
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    padding: 50px 50px 50px 50px;
+}
+
+.elementor-11464 .elementor-element.elementor-element-89d9df1>.elementor-element-populated,
+.elementor-11464 .elementor-element.elementor-element-89d9df1>.elementor-element-populated>.elementor-background-overlay,
+.elementor-11464 .elementor-element.elementor-element-89d9df1>.elementor-background-slideshow {
+    border-radius: 25px 25px 25px 25px;
+}
+
+.elementor-11464 .elementor-element.elementor-element-89d9df1>.elementor-element-populated>.elementor-background-overlay {
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.elementor-11464 .elementor-element.elementor-element-808f663>.elementor-widget-container {
+    padding: 0px 0px 0px 0px;
+}
+
+.elementor-11464 .elementor-element.elementor-element-808f663 {
+    z-index: 10;
+}
+
+.elementor-11464 .elementor-element.elementor-element-808f663 .elementor-heading-title {
+    color: var( --e-global-color-primary);
+}
+
+.elementor-11464 .elementor-element.elementor-element-115ee60 .elementor-heading-title {
+    font-size: 40px;
+    color: var( --e-global-color-secondary);
+}
+
+/* Start custom CSS for heading, class: .elementor-element-808f663 */
+
+.elementor-11464 .elementor-element.elementor-element-808f663 i {
+    color: #40BAC8;
+}
+
+/* End custom CSS */
+
+/* Start custom CSS for text-editor, class: .elementor-element-349fa41 */
+
+.elementor-11464 .elementor-element.elementor-element-349fa41 {
+    min-height: 120px;
+}
+
+/* End custom CSS */
+
+/* Start custom CSS for column, class: .elementor-element-89d9df1 */
+
+.carte:hover h2,
+.carte:hover p,
+.carte:hover i {
+    color: #fff !important;
+}
+
+.elementor-background-overlay {
+    transition: background 1s !important;
+    transition-timing-function: ease-in-out;
+}
+
+/* End custom CSS */
