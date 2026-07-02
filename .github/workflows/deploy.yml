@@ -21,29 +21,34 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT || 22 }}
           script: |
-            echo "🚀 Starting deployment..."
-            cd /var/www/sofellabs-website
+            echo "🚀 Starting Docker deployment..."
             
-            echo " Pulling latest changes..."
+            # Navigate to website directory
+            cd /home/thynkadv/domains/thynkadvisory.co.ke/public_html
+            
+            echo "📦 Pulling latest code..."
             git pull origin main
             
-            echo " Installing dependencies..."
-            composer install --no-dev --optimize-autoloader
+            echo "🐳 Stopping current containers..."
+            docker-compose down || true
             
-            echo " Running migrations..."
-            php artisan migrate --force
+            echo "🐳 Rebuilding and starting containers..."
+            docker-compose up -d --build
+            
+            echo "📦 Installing dependencies inside container..."
+            docker exec -it admin-panel-laravel.test-1 composer install --no-dev --optimize-autoloader
+            
+            echo "🗄️ Running migrations..."
+            docker exec -it admin-panel-laravel.test-1 php artisan migrate --force
             
             echo "🧹 Clearing cache..."
-            php artisan optimize:clear
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:cache
+            docker exec -it admin-panel-laravel.test-1 php artisan optimize:clear
+            docker exec -it admin-panel-laravel.test-1 php artisan config:cache
+            docker exec -it admin-panel-laravel.test-1 php artisan route:cache
+            docker exec -it admin-panel-laravel.test-1 php artisan view:cache
             
-            echo " Setting permissions..."
-            sudo chown -R www-data:www-data storage bootstrap/cache
-            sudo chmod -R 775 storage bootstrap/cache
+            echo "🔒 Setting permissions..."
+            docker exec -it admin-panel-laravel.test-1 chown -R www-data:www-data storage bootstrap/cache
+            docker exec -it admin-panel-laravel.test-1 chmod -R 775 storage bootstrap/cache
             
-            echo " Restarting queue..."
-            php artisan queue:restart
-            
-            echo "Deployment complete!"
+            echo "✅ Deployment complete!"
