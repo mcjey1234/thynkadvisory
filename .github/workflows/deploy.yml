@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT || 22 }}
           script: |
-            echo "🚀 Starting Docker deployment..."
+            echo "🚀 Starting deployment..."
             
             # Navigate to website directory
             cd /home/thynkadv/domains/thynkadvisory.co.ke/public_html
@@ -36,19 +36,19 @@ jobs:
             docker-compose up -d --build
             
             echo "📦 Installing dependencies inside container..."
-            docker exec -it admin-panel-laravel.test-1 composer install --no-dev --optimize-autoloader
+            docker exec admin-panel-laravel.test-1 composer install --no-dev --optimize-autoloader
             
             echo "🗄️ Running migrations..."
-            docker exec -it admin-panel-laravel.test-1 php artisan migrate --force
+            docker exec admin-panel-laravel.test-1 php artisan migrate --force
             
             echo "🧹 Clearing cache..."
-            docker exec -it admin-panel-laravel.test-1 php artisan optimize:clear
-            docker exec -it admin-panel-laravel.test-1 php artisan config:cache
-            docker exec -it admin-panel-laravel.test-1 php artisan route:cache
-            docker exec -it admin-panel-laravel.test-1 php artisan view:cache
+            docker exec admin-panel-laravel.test-1 php artisan optimize:clear
+            docker exec admin-panel-laravel.test-1 php artisan config:cache
+            docker exec admin-panel-laravel.test-1 php artisan route:cache
+            docker exec admin-panel-laravel.test-1 php artisan view:cache
             
             echo "🔒 Setting permissions..."
-            docker exec -it admin-panel-laravel.test-1 chown -R www-data:www-data storage bootstrap/cache
-            docker exec -it admin-panel-laravel.test-1 chmod -R 775 storage bootstrap/cache
+            docker exec admin-panel-laravel.test-1 chown -R www-data:www-data storage bootstrap/cache
+            docker exec admin-panel-laravel.test-1 chmod -R 775 storage bootstrap/cache
             
             echo "✅ Deployment complete!"
