@@ -40,12 +40,16 @@ class ChatController extends Controller
             $ipAddress = $request->ip();
             $userAgent = $request->userAgent();
 
+            // Get full context from KnowledgeBase
+            $fullContext = $this->knowledgeBase->getFullContext();
+            $company = $fullContext['company'] ?? [];
+
             // Get or create contact
             $contact = Contact::firstOrCreate(
                 ['session_id' => $sessionId],
                 [
                     'name' => 'Guest',
-                    'email' => 'guest-' . $sessionId . '@chat.sofellabs.com',
+                    'email' => 'guest-' . $sessionId . '@chat.' . str_replace(' ', '', strtolower($company['company_name'] ?? 'thynkadvisory')) . '.com',
                     'subject' => 'Chat Session',
                     'message' => 'Started chat session',
                     'ip_address' => $ipAddress,
@@ -55,60 +59,56 @@ class ChatController extends Controller
                 ]
             );
 
-            // Try to extract info from message
+            // Extract info from message
             $this->extractInfoFromMessage($contact, $message);
+            $contact->refresh();
 
-            // Check if user has provided valid info
-            $hasValidName = $contact->name && $contact->name !== 'Guest';
-            $hasValidEmail = $contact->email && strpos($contact->email, 'guest-') !== 0 && filter_var($contact->email, FILTER_VALIDATE_EMAIL);
-
-            // If user doesn't have valid info, prompt for missing info
-            if (!$hasValidName || !$hasValidEmail) {
-                $promptResponse = $this->promptForMissingInfo($contact);
-                
-                Conversation::create([
-                    'contact_id' => $contact->id,
-                    'user_message' => $message,
-                    'ai_response' => $promptResponse,
-                    'session_id' => $sessionId,
-                    'ip_address' => $ipAddress,
-                    'user_agent' => $userAgent,
-                    'is_read' => false,
-                ]);
-
-                return response()->json([
-                    'success' => true,
-                    'message' => $promptResponse,
-                    'contact_id' => $contact->id,
-                    'session_id' => $sessionId,
-                    'needs_info' => true,
-                ]);
-            }
-
-            // If user has valid info, proceed with normal chat
+            // Get conversation history
             $history = Conversation::where('contact_id', $contact->id)
                 ->orderBy('created_at', 'asc')
-                ->take(5)
+                ->take(10)
                 ->get();
 
-            $fullContext = $this->knowledgeBase->getFullContext();
-            $teamInfo = isset($fullContext['team']) ? $fullContext['team'] : array();
-            $servicesInfo = isset($fullContext['services']) ? $fullContext['services'] : array();
-            $aboutInfo = isset($fullContext['about']) ? $fullContext['about'] : array();
+            // Build the complete prompt for Gemini
+            $prompt = $this->buildAIPrompt($message, $contact, $history, $fullContext);
 
-            $prompt = $this->buildFocusedPrompt($message, $contact, $history, $teamInfo, $servicesInfo, $aboutInfo);
+            // Log the prompt for debugging
+            Log::info('Gemini Prompt length: ' . strlen($prompt));
 
-            try {
-                $aiResponse = $this->geminiService->generateText($prompt, 600, 0.8);
-                
-                if (empty($aiResponse)) {
-                    throw new \Exception('Gemini returned empty response');
-                }
-            } catch (\Exception $e) {
-                Log::error('Gemini error: ' . $e->getMessage());
-                $aiResponse = $this->getFallbackResponse($message, $teamInfo, $servicesInfo);
+            // ALWAYS use Gemini — no hardcoded fallbacks
+            $aiResponse = $this->geminiService->generateText($prompt, 800, 0.9);
+            
+            // If Gemini returns empty, try with simpler prompt
+            if (empty($aiResponse)) {
+                Log::warning('Gemini returned empty, trying simple prompt...');
+                $simplePrompt = $this->buildSimplePrompt($message, $contact, $fullContext);
+                $aiResponse = $this->geminiService->generateText($simplePrompt, 500, 0.9);
+            }
+            
+            // If still empty, use emergency prompt — still AI
+            if (empty($aiResponse)) {
+                Log::warning('Simple prompt also failed, trying emergency...');
+                $emergencyPrompt = $this->buildEmergencyPrompt($message, $contact);
+                $aiResponse = $this->geminiService->generateText($emergencyPrompt, 300, 0.9);
             }
 
+            // Absolute last resort — very simple AI prompt
+            if (empty($aiResponse)) {
+                Log::error('All Gemini attempts failed! Using minimal AI response...');
+                $aiResponse = $this->geminiService->generateText(
+                    "You are a helpful assistant. Respond warmly to: " . $message,
+                    200,
+                    0.9
+                );
+            }
+
+            // If STILL empty, this is the ONLY hardcoded fallback — but it should never reach here
+            if (empty($aiResponse)) {
+                Log::critical('Gemini completely failed!');
+                $aiResponse = "I'm here to help! What can I assist you with today?";
+            }
+
+            // Save conversation
             Conversation::create([
                 'contact_id' => $contact->id,
                 'user_message' => $message,
@@ -124,171 +124,215 @@ class ChatController extends Controller
                 'message' => $aiResponse,
                 'contact_id' => $contact->id,
                 'session_id' => $sessionId,
-                'needs_info' => false,
             ]);
 
         } catch (\Exception $e) {
             Log::error('Chat error: ' . $e->getMessage());
+            Log::error('Stack trace: ' . $e->getTraceAsString());
             
+            // Try to let Gemini handle the error
+            try {
+                $errorPrompt = "There was a system error. Please apologize warmly and ask the user to rephrase. User said: " . ($message ?? 'Nothing');
+                $aiResponse = $this->geminiService->generateText($errorPrompt, 200, 0.9);
+                
+                if (!empty($aiResponse)) {
+                    return response()->json([
+                        'success' => true,
+                        'message' => $aiResponse,
+                    ]);
+                }
+            } catch (\Exception $e2) {
+                Log::error('Emergency Gemini error: ' . $e2->getMessage());
+            }
+            
+            // Only if Gemini fails completely
             return response()->json([
                 'success' => true,
-                'message' => "I'm here to help. What can I assist you with today?",
+                'message' => "I'm here to help! What can I assist you with today?",
             ]);
         }
     }
 
     /**
-     * Prompt user for missing information - flexible and natural
+     * Build the complete AI prompt
      */
-    private function promptForMissingInfo($contact)
+    private function buildAIPrompt($message, $contact, $history, $fullContext)
     {
-        $hasName = $contact->name && $contact->name !== 'Guest';
-        $hasEmail = $contact->email && strpos($contact->email, 'guest-') !== 0;
-
-        // If both are missing
-        if (!$hasName && !$hasEmail) {
-            return "Hi there! Could you please share your name and email address so I can assist you better?";
-        }
-
-        // If only name is missing
-        if (!$hasName && $hasEmail) {
-            return "Thanks for sharing your email! Could you please tell me your name?";
-        }
-
-        // If only email is missing
-        if ($hasName && !$hasEmail) {
-            return "Nice to meet you, " . $contact->name . "! Could you please share your email address?";
-        }
-
-        return "Thanks for providing your details! How can I help you today?";
-    }
-
-    private function buildFocusedPrompt($message, $contact, $history, $teamInfo, $servicesInfo, $aboutInfo)
-    {
+        $companyName = $fullContext['company']['company_name'] ?? 'Thynk Advisory';
         $name = ($contact->name && $contact->name !== 'Guest') ? $contact->name : 'Guest';
         $hasName = $name !== 'Guest';
-        $hasEmail = ($contact->email && strpos($contact->email, 'guest-') !== 0);
+        $hasEmail = $contact->email && strpos($contact->email, 'guest-') !== 0 && filter_var($contact->email, FILTER_VALIDATE_EMAIL);
 
-        // Build history
-        $historyText = '';
+        // Build company info
+        $companyInfo = "COMPANY INFORMATION:\n";
+        foreach ($fullContext['company'] as $key => $value) {
+            $companyInfo .= ucfirst(str_replace('_', ' ', $key)) . ": " . $value . "\n";
+        }
+
+        // Build about info
+        $aboutInfo = "ABOUT US:\n";
+        if (isset($fullContext['about'])) {
+            foreach ($fullContext['about'] as $key => $value) {
+                if (!empty($value)) {
+                    $aboutInfo .= ucfirst($key) . ": " . $value . "\n";
+                }
+            }
+        }
+
+        // Build services
+        $servicesInfo = "SERVICES:\n";
+        if (isset($fullContext['services']) && count($fullContext['services']) > 0) {
+            foreach ($fullContext['services'] as $service) {
+                $servicesInfo .= "- " . $service['title'] . ": " . $service['description'] . "\n";
+            }
+        }
+
+        // Build team
+        $teamInfo = "TEAM MEMBERS:\n";
+        if (isset($fullContext['team']) && count($fullContext['team']) > 0) {
+            foreach ($fullContext['team'] as $member) {
+                $teamInfo .= "- " . $member['name'] . ": " . $member['position'] . "\n";
+                if (!empty($member['bio'])) {
+                    $teamInfo .= "  Skills: " . $member['bio'] . "\n";
+                }
+                if (!empty($member['description'])) {
+                    $teamInfo .= "  About: " . $member['description'] . "\n";
+                }
+            }
+        }
+
+        // Build process
+        $processInfo = "OUR PROCESS:\n";
+        if (isset($fullContext['process']) && count($fullContext['process']) > 0) {
+            foreach ($fullContext['process'] as $step) {
+                $processInfo .= "Step " . $step['step'] . ": " . $step['title'] . " - " . $step['description'] . "\n";
+            }
+        }
+
+        // Build milestones
+        $milestonesInfo = "MILESTONES:\n";
+        if (isset($fullContext['milestones']) && count($fullContext['milestones']) > 0) {
+            foreach ($fullContext['milestones'] as $milestone) {
+                $milestonesInfo .= "- " . $milestone['year'] . ": " . $milestone['title'] . " - " . $milestone['description'] . "\n";
+            }
+        }
+
+        // Build topics
+        $topicsInfo = "KEY TOPICS:\n";
+        if (isset($fullContext['topics']) && count($fullContext['topics']) > 0) {
+            foreach ($fullContext['topics'] as $topic => $info) {
+                $topicsInfo .= ucfirst(str_replace('_', ' ', $topic)) . ": " . $info . "\n";
+            }
+        }
+
+        // Build conversation history
+        $historyText = "CONVERSATION HISTORY:\n";
         if ($history->count() > 0) {
-            $historyText = "Previous conversation:\n";
             foreach ($history as $item) {
                 $historyText .= "User: " . $item->user_message . "\n";
-                $historyText .= "You: " . $item->ai_response . "\n\n";
+                $historyText .= "Assistant: " . $item->ai_response . "\n\n";
             }
+        } else {
+            $historyText .= "No previous conversation.\n";
         }
 
-        // Build team text
-        $teamText = "TEAM MEMBERS:\n";
-        foreach ($teamInfo as $member) {
-            $teamText .= "- " . $member['name'] . ": " . $member['position'] . "\n";
-            if (!empty($member['bio'])) {
-                $teamText .= "  Bio: " . substr($member['bio'], 0, 150) . "...\n";
-            }
-        }
+        // Build the full prompt
+        $prompt = <<<PROMPT
+You are Thynk AI, a warm, friendly, and professional assistant for {$companyName}.
 
-        // Build services text
-        $servicesText = "SERVICES:\n";
-        foreach ($servicesInfo as $service) {
-            $servicesText .= "- " . $service['title'] . ": " . $service['description'] . "\n";
-        }
+Your role is to help visitors learn about the company, its services, team, process, and milestones. You should be conversational, helpful, and natural — like talking to a knowledgeable colleague.
 
-        // Build about text
-        $aboutText = "ABOUT SOFEL LABS:\n";
-        $aboutText .= "Mission: " . (isset($aboutInfo['mission']) ? $aboutInfo['mission'] : 'N/A') . "\n";
-        $aboutText .= "Vision: " . (isset($aboutInfo['vision']) ? $aboutInfo['vision'] : 'N/A') . "\n";
+=== USER INFORMATION ===
+Name: {$name}
+Has provided name: {$hasName}
+Has provided email: {$hasEmail}
 
-        $prompt = "You are Sofel AI, a friendly assistant for Sofel Labs.\n\n";
-        $prompt .= $aboutText . "\n";
-        $prompt .= $servicesText . "\n";
-        $prompt .= $teamText . "\n";
-        $prompt .= "User: " . $name . " (HasName: " . ($hasName ? 'Yes' : 'No') . ", HasEmail: " . ($hasEmail ? 'Yes' : 'No') . ")\n\n";
-        $prompt .= $historyText;
-        $prompt .= "User's question: " . $message . "\n\n";
-        $prompt .= "Instructions:\n";
-        $prompt .= "1. Answer based on the information above. Be warm and conversational.\n";
-        $prompt .= "2. If asked about team members, give their names and roles from the TEAM MEMBERS section.\n";
-        $prompt .= "3. If they ask about booking, provide this link: [Schedule your free consultation](https://cal.com/jared-ogutu-swvv6o)\n";
-        $prompt .= "4. If they want a human agent, give them:\n";
-        $prompt .= "   - Phone: +254 700 123 456\n";
-        $prompt .= "   - Email: info@sofellabs.com\n";
-        $prompt .= "   - Booking link: [Book a consultation](https://cal.com/jared-ogutu-swvv6o)\n";
-        $prompt .= "   - Also offer to help with: services, gamification, compliance training, instructional design\n";
-        $prompt .= "5. Keep responses under 200 words.\n\n";
-        $prompt .= "Your response:";
+=== COMPANY INFORMATION ===
+{$companyInfo}
+
+{$aboutInfo}
+
+{$servicesInfo}
+
+{$teamInfo}
+
+{$processInfo}
+
+{$milestonesInfo}
+
+{$topicsInfo}
+
+=== CONVERSATION HISTORY ===
+{$historyText}
+
+=== CURRENT MESSAGE ===
+User said: {$message}
+
+=== INSTRUCTIONS ===
+1. Respond naturally and conversationally — like a human.
+2. Use the information provided above to answer accurately.
+3. If the user hasn't provided their name or email, only ask for it if they express interest in booking a consultation or being contacted.
+4. If they want to book, guide them to provide name and email, then share the booking link from COMPANY INFORMATION.
+5. If they ask about team members, describe them using the TEAM MEMBERS information.
+6. If they ask about services, describe them using the SERVICES information.
+7. If they ask about the process, describe it using the OUR PROCESS information.
+8. If they ask about milestones or history, describe them using the MILESTONES information.
+9. Keep responses warm, concise, and helpful.
+10. If the user just says "hello" or "hi", greet them warmly and ask how you can help.
+11. Do not make up information — only use what's provided above.
+12. If you don't know something, politely say so and offer to connect them with a human.
+
+=== YOUR RESPONSE ===
+PROMPT;
 
         return $prompt;
     }
 
-    private function getFallbackResponse($message, $teamInfo, $servicesInfo)
+    /**
+     * Simple prompt for fallback — still AI
+     */
+    private function buildSimplePrompt($message, $contact, $fullContext)
     {
-        $message = strtolower($message);
-        
-        if (str_contains($message, 'team') || str_contains($message, 'member')) {
-            $response = "We have an amazing team! Here are our key members:\n";
-            $teamSlice = array_slice($teamInfo, 0, 5);
-            foreach ($teamSlice as $member) {
-                $response .= "- " . $member['name'] . ": " . $member['position'] . "\n";
-            }
-            return $response . "\nWould you like to know more about any specific team member?";
-        }
-        
-        if (str_contains($message, 'service')) {
-            $response = "We offer these services:\n";
-            foreach ($servicesInfo as $service) {
-                $response .= "- " . $service['title'] . ": " . $service['description'] . "\n";
-            }
-            return $response . "\nWhich service interests you most?";
-        }
-        
-        if (str_contains($message, 'book') || str_contains($message, 'consultation')) {
-            return "I'd love to help you book a consultation. You can schedule a meeting here:\n[Schedule your free consultation](https://cal.com/jared-ogutu-swvv6o)";
-        }
-        
-        if (str_contains($message, 'human') || str_contains($message, 'agent') || str_contains($message, 'live person') || str_contains($message, 'talk to someone') || str_contains($message, 'person')) {
-            return "I understand you'd like to connect with a human agent. I can certainly help you with that!\n\n" .
-                   "You can reach our team directly using the contact information below:\n" .
-                   "Phone: +254 700 123 456\n" .
-                   "Email: info@sofellabs.com\n\n" .
-                   "You can also schedule a meeting with our team here:\n" .
-                   "[Book a consultation](https://cal.com/jared-ogutu-swvv6o)\n\n" .
-                   "In the meantime, I'd be happy to help you with:\n" .
-                   "• Information about our services\n" .
-                   "• How gamification works\n" .
-                   "• Compliance training solutions\n" .
-                   "• Instructional design process\n" .
-                   "• Or anything else about Sofel Labs\n\n" .
-                   "What would you like to know?";
-        }
-        
-        return "I'm here to help. What would you like to know about Sofel Labs? I can tell you about our team, services, or how we can help with instructional design and gamification.";
+        $companyName = $fullContext['company']['company_name'] ?? 'Thynk Advisory';
+        $name = ($contact->name && $contact->name !== 'Guest') ? $contact->name : 'Guest';
+
+        return <<<PROMPT
+You are a friendly assistant for {$companyName}. The user's name is {$name}.
+
+The user said: {$message}
+
+Please respond naturally and helpfully. Be warm and conversational. If you don't know something, politely say so.
+
+Your response:
+PROMPT;
     }
 
+    /**
+     * Emergency prompt — still AI, no hardcoding
+     */
+    private function buildEmergencyPrompt($message, $contact)
+    {
+        $name = ($contact->name && $contact->name !== 'Guest') ? $contact->name : 'Guest';
+
+        return <<<PROMPT
+You are a helpful assistant. The user's name is {$name}.
+
+They asked: {$message}
+
+Please respond warmly and helpfully. Be conversational and kind.
+
+Your response:
+PROMPT;
+    }
+
+    /**
+     * Extract info from message
+     */
     private function extractInfoFromMessage($contact, $message)
     {
-        // First, check if this is a simple name (single word, no spaces, no @, no .com)
-        $trimmedMessage = trim($message);
-        $isSimpleName = (
-            strlen($trimmedMessage) >= 2 && 
-            strlen($trimmedMessage) <= 30 && 
-            !str_contains($trimmedMessage, '@') && 
-            !str_contains($trimmedMessage, '.com') &&
-            !str_contains($trimmedMessage, '.') &&
-            !str_contains($trimmedMessage, ' ') &&
-            preg_match('/^[a-zA-Z]+$/', $trimmedMessage)
-        );
-
-        // Extract name - check if it's a simple name first
-        if (($contact->name === 'Guest' || empty($contact->name)) && $isSimpleName) {
-            $contact->name = ucfirst(strtolower($trimmedMessage));
-            $contact->save();
-            Log::info('Extracted simple name: ' . $contact->name);
-        }
-
-        // If it's not a simple name, try patterns
+        // Extract name from patterns
         if ($contact->name === 'Guest' || empty($contact->name)) {
-            $patterns = array(
+            $patterns = [
                 '/my name is ([a-zA-Z\s]+)/i',
                 '/i am ([a-zA-Z\s]+)/i',
                 "/i'm ([a-zA-Z\s]+)/i",
@@ -296,8 +340,7 @@ class ChatController extends Controller
                 '/this is ([a-zA-Z\s]+)/i',
                 '/name is ([a-zA-Z\s]+)/i',
                 '/call me ([a-zA-Z\s]+)/i',
-                '/my name ([a-zA-Z\s]+)/i',
-            );
+            ];
             
             foreach ($patterns as $pattern) {
                 if (preg_match($pattern, $message, $matches)) {
@@ -305,7 +348,7 @@ class ChatController extends Controller
                     if (strlen($name) > 1 && !str_contains($name, '@') && !str_contains($name, '.com')) {
                         $contact->name = ucfirst(strtolower($name));
                         $contact->save();
-                        Log::info('Extracted name from pattern: ' . $contact->name);
+                        Log::info('Extracted name: ' . $contact->name);
                         break;
                     }
                 }
@@ -329,9 +372,9 @@ class ChatController extends Controller
             ->orderBy('created_at', 'asc')
             ->get();
 
-        return response()->json(array(
+        return response()->json([
             'success' => true,
             'conversations' => $conversations
-        ));
+        ]);
     }
 }

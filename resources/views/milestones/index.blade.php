@@ -16,7 +16,7 @@
     <div class="sf-container">
         <div class="sf-milestones-hero-content">
             <span class="sf-milestones-hero-badge">Our Milestones</span>
-            <h1 class="sf-milestones-hero-title">Our <span class="sf-text-teal">Journey</span></h1>
+            <h1 class="sf-milestones-hero-title">Our <span class="sf-text-neon">Journey</span></h1>
             <p class="sf-milestones-hero-subtitle">Key moments that have shaped our story and defined our success</p>
             <div class="sf-milestones-hero-line"></div>
         </div>
@@ -30,7 +30,7 @@
     <div class="sf-container">
         <div class="sf-milestones-header">
             <span class="sf-milestones-section-badge">Our Story</span>
-            <h2 class="sf-milestones-section-title">A Journey of <span class="sf-text-teal">Growth & Impact</span></h2>
+            <h2 class="sf-milestones-section-title">A Journey of <span class="sf-text-neon">Growth & Impact</span></h2>
             <div class="sf-milestones-header-line"></div>
             <p class="sf-milestones-section-subtitle">From our founding to the present day, each milestone represents a step forward</p>
         </div>
@@ -131,7 +131,7 @@
 <section class="sf-milestones-cta">
     <div class="sf-container">
         <div class="sf-milestones-cta-content">
-            <h2 class="sf-milestones-cta-title">Be Part of Our <span class="sf-text-teal">Next Chapter</span></h2>
+            <h2 class="sf-milestones-cta-title">Be Part of Our <span class="sf-text-neon">Next Chapter</span></h2>
             <p class="sf-milestones-cta-text">Join us as we continue to grow and create more milestones together.</p>
             <a href="{{ route('contact') }}" class="sf-milestones-cta-btn">
                 Join Our Journey
@@ -155,8 +155,8 @@
         padding: 0 24px !important;
     }
 
-    .sf-text-teal {
-        color: #47C89F !important;
+    .sf-text-neon {
+        color: #39FF14 !important;
     }
 
     /* ============================================
@@ -194,8 +194,8 @@
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 3px !important;
-        color: #47C89F !important;
-        background: rgba(71, 200, 159, 0.08) !important;
+        color: #39FF14 !important;
+        background: rgba(57, 255, 20, 0.08) !important;
         padding: 6px 22px !important;
         border-radius: 20px !important;
         margin-bottom: 18px !important;
@@ -225,7 +225,7 @@
     .sf-milestones-hero-line {
         width: 60px !important;
         height: 3px !important;
-        background: #47C89F !important;
+        background: #39FF14 !important;
         border-radius: 4px !important;
         margin-top: 8px !important;
         animation: sfFadeInUp 1.2s ease forwards !important;
@@ -261,14 +261,14 @@
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 2.5px !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
         margin-bottom: 12px !important;
     }
 
     .sf-milestones-section-title {
         font-size: 38px !important;
         font-weight: 700 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 12px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
         letter-spacing: -0.5px !important;
@@ -277,7 +277,7 @@
     .sf-milestones-header-line {
         width: 40px !important;
         height: 2px !important;
-        background: linear-gradient(90deg, #47C89F, #9ACA43) !important;
+        background: linear-gradient(90deg, #39FF14, #06B6D4) !important;
         border-radius: 4px !important;
         margin: 0 auto 12px !important;
     }
@@ -307,7 +307,7 @@
         transform: translateX(-50%) !important;
         width: 4px !important;
         height: 100% !important;
-        background: linear-gradient(180deg, rgba(71, 200, 159, 0.05), rgba(71, 200, 159, 0.12), rgba(71, 200, 159, 0.05)) !important;
+        background: linear-gradient(180deg, rgba(57, 255, 20, 0.05), rgba(57, 255, 20, 0.12), rgba(57, 255, 20, 0.05)) !important;
         border-radius: 4px !important;
         animation: sfLineGrow 2s ease forwards !important;
     }
@@ -358,9 +358,9 @@
         width: 20px !important;
         height: 20px !important;
         border-radius: 50% !important;
-        background: #47C89F !important;
-        border: 4px solid rgba(71, 200, 159, 0.08) !important;
-        box-shadow: 0 0 30px rgba(71, 200, 159, 0.02) !important;
+        background: #39FF14 !important;
+        border: 4px solid rgba(57, 255, 20, 0.08) !important;
+        box-shadow: 0 0 30px rgba(57, 255, 20, 0.02) !important;
         z-index: 2 !important;
         flex-shrink: 0 !important;
         transition: all 0.4s ease !important;
@@ -368,8 +368,8 @@
 
     .sf-timeline-item:hover .sf-timeline-dot {
         transform: translateX(-50%) scale(1.15) !important;
-        border-color: rgba(71, 200, 159, 0.15) !important;
-        box-shadow: 0 0 40px rgba(71, 200, 159, 0.05) !important;
+        border-color: rgba(57, 255, 20, 0.15) !important;
+        box-shadow: 0 0 40px rgba(57, 255, 20, 0.05) !important;
     }
 
     .sf-dot-pulse {
@@ -379,7 +379,7 @@
         right: -6px !important;
         bottom: -6px !important;
         border-radius: 50% !important;
-        border: 2px solid rgba(71, 200, 159, 0.03) !important;
+        border: 2px solid rgba(57, 255, 20, 0.03) !important;
         animation: sfDotPulse 2s ease-in-out infinite !important;
     }
 
@@ -420,7 +420,7 @@
     .sf-timeline-card:hover {
         transform: translateY(-6px) !important;
         box-shadow: 0 16px 60px rgba(0, 0, 0, 0.06) !important;
-        border-color: rgba(71, 200, 159, 0.06) !important;
+        border-color: rgba(57, 255, 20, 0.06) !important;
     }
 
     /* ---- Date Badge ---- */
@@ -429,7 +429,7 @@
         align-items: center !important;
         gap: 6px !important;
         padding: 6px 16px !important;
-        background: linear-gradient(135deg, rgba(71, 200, 159, 0.04), rgba(154, 202, 67, 0.04)) !important;
+        background: linear-gradient(135deg, rgba(57, 255, 20, 0.04), rgba(6, 182, 212, 0.04)) !important;
         border-radius: 0 0 12px 12px !important;
         font-weight: 500 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
@@ -445,7 +445,7 @@
     }
 
     .sf-timeline-year {
-        color: #47C89F !important;
+        color: #39FF14 !important;
         font-weight: 700 !important;
         font-size: 16px !important;
     }
@@ -468,7 +468,7 @@
         height: 180px !important;
         overflow: hidden !important;
         position: relative !important;
-        background: #F8FAFB !important;
+        background: #F8FAFC !important;
     }
 
     .sf-timeline-image img {
@@ -500,7 +500,7 @@
     .sf-timeline-icon {
         display: inline-block !important;
         font-size: 24px !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
         margin-bottom: 8px !important;
         transition: all 0.3s ease !important;
     }
@@ -511,26 +511,26 @@
 
     .sf-timeline-card:hover .sf-timeline-icon {
         transform: scale(1.1) !important;
-        color: #3AAF8A !important;
+        color: #06B6D4 !important;
     }
 
     .sf-timeline-title {
         font-size: 18px !important;
         font-weight: 600 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 6px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
         transition: color 0.3s ease !important;
     }
 
     .sf-timeline-card:hover .sf-timeline-title {
-        color: #47C89F !important;
+        color: #39FF14 !important;
     }
 
     .sf-timeline-description {
         font-size: 14px !important;
         line-height: 1.7 !important;
-        color: #4A5A6E !important;
+        color: #4B5563 !important;
         margin: 0 0 12px 0 !important;
     }
 
@@ -560,7 +560,7 @@
 
     .sf-step-number {
         font-weight: 700 !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
     }
 
     .sf-step-label {
@@ -571,7 +571,7 @@
     .sf-milestones-stats {
         margin-top: 48px !important;
         padding: 32px 24px !important;
-        background: #F8FAFB !important;
+        background: #F8FAFC !important;
         border-radius: 16px !important;
         border: 1px solid rgba(0, 0, 0, 0.02) !important;
         opacity: 0;
@@ -599,7 +599,7 @@
         display: block !important;
         font-size: 36px !important;
         font-weight: 700 !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
         line-height: 1.1 !important;
     }
@@ -631,7 +631,7 @@
        ============================================ */
     .sf-milestones-cta {
         padding: 80px 0 !important;
-        background: linear-gradient(135deg, #0A0610 0%, #1A0A18 100%) !important;
+        background: #0F172A !important;
         border-top: 1px solid rgba(255, 255, 255, 0.02) !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.02) !important;
         position: relative !important;
@@ -666,8 +666,8 @@
         align-items: center !important;
         gap: 8px !important;
         padding: 14px 40px !important;
-        background: #47C89F !important;
-        color: #FFFFFF !important;
+        background: #39FF14 !important;
+        color: #0F172A !important;
         border-radius: 8px !important;
         text-decoration: none !important;
         font-weight: 600 !important;
@@ -677,9 +677,9 @@
     }
 
     .sf-milestones-cta-btn:hover {
-        background: #3AAF8A !important;
+        background: #2DE010 !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 30px rgba(71, 200, 159, 0.12) !important;
+        box-shadow: 0 8px 30px rgba(57, 255, 20, 0.12) !important;
     }
 
     .sf-cta-arrow {

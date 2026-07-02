@@ -33,17 +33,24 @@ class TeamMemberResource extends Resource
                                     ->required()
                                     ->maxLength(255)
                                     ->label('Full Name')
-                                    ->placeholder('Mwangi Kamau'),
+                                    ->placeholder('Enter full name'),
                                 Forms\Components\TextInput::make('position')
                                     ->required()
                                     ->maxLength(255)
                                     ->label('Position')
-                                    ->placeholder('Founder & Lead Consultant'),
+                                    ->placeholder('e.g., Software Developer'),
                             ]),
-                        Forms\Components\RichEditor::make('bio')
-                            ->label('Biography')
-                            ->placeholder('Write about this team member...')
-                            ->columnSpanFull(),
+                        Forms\Components\RichEditor::make('description')
+                            ->label('Personal Description / Bio')
+                            ->placeholder('Write a personal description about this team member...')
+                            ->columnSpanFull()
+                            ->helperText('This is the personal bio shown on the website.'),
+                        Forms\Components\Textarea::make('bio')
+                            ->label('Skills / Additional Info')
+                            ->placeholder('e.g., Database Analyst · Quality Assurance')
+                            ->rows(2)
+                            ->columnSpanFull()
+                            ->helperText('List additional skills separated by · (dot)'),
                         Forms\Components\FileUpload::make('image')
                             ->image()
                             ->directory('team')
@@ -60,7 +67,7 @@ class TeamMemberResource extends Resource
                                     ->email()
                                     ->maxLength(255)
                                     ->label('Email')
-                                    ->placeholder('mwangi@sofellabs.com'),
+                                    ->placeholder('name@thynkadvisory.com'),
                                 Forms\Components\TextInput::make('phone')
                                     ->maxLength(50)
                                     ->label('Phone')
@@ -83,10 +90,6 @@ class TeamMemberResource extends Resource
                                     ->maxLength(255)
                                     ->label('Facebook')
                                     ->placeholder('https://facebook.com/username'),
-                                Forms\Components\TextInput::make('instagram')
-                                    ->maxLength(255)
-                                    ->label('Instagram')
-                                    ->placeholder('https://instagram.com/username'),
                             ]),
                     ]),
                 Forms\Components\Section::make('Settings')
@@ -132,11 +135,21 @@ class TeamMemberResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->searchable()
                     ->label('Email')
-                    ->toggleable(),
+                    ->toggleable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('bio')
+                    ->label('Skills')
+                    ->limit(30)
+                    ->toggleable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\IconColumn::make('is_active')
                     ->boolean()
                     ->label('Active')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->defaultSort('display_order', 'asc')
             ->filters([

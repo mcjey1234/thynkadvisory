@@ -16,7 +16,7 @@
     <div class="sf-container">
         <div class="sf-services-hero-content">
             <span class="sf-services-hero-badge">Our Services</span>
-            <h1 class="sf-services-hero-title">What <span class="sf-text-teal">We Do</span></h1>
+            <h1 class="sf-services-hero-title">What <span class="sf-text-neon">We Do</span></h1>
             <p class="sf-services-hero-subtitle">Comprehensive learning solutions designed to transform your organization</p>
             <div class="sf-services-hero-line"></div>
         </div>
@@ -30,7 +30,7 @@
     <div class="sf-container">
         <div class="sf-services-header">
             <span class="sf-services-section-badge">Our Expertise</span>
-            <h2 class="sf-services-section-title">Solutions That <span class="sf-text-teal">Deliver Results</span></h2>
+            <h2 class="sf-services-section-title">Solutions That <span class="sf-text-neon">Deliver Results</span></h2>
             <div class="sf-services-header-line"></div>
             <p class="sf-services-section-subtitle">Explore our range of professional services designed to meet your unique needs</p>
         </div>
@@ -82,7 +82,7 @@
 <section class="sf-services-cta">
     <div class="sf-container">
         <div class="sf-services-cta-content">
-            <h2 class="sf-services-cta-title">Ready to <span class="sf-text-teal">Transform</span> Your Learning?</h2>
+            <h2 class="sf-services-cta-title">Ready to <span class="sf-text-neon">Transform</span> Your Learning?</h2>
             <p class="sf-services-cta-text">Let's discuss how our services can help you achieve your goals.</p>
             <a href="{{ route('contact') }}" class="sf-services-cta-btn">
                 Contact Us
@@ -106,8 +106,8 @@
         padding: 0 24px !important;
     }
 
-    .sf-text-teal {
-        color: #47C89F !important;
+    .sf-text-neon {
+        color: #39FF14 !important;
     }
 
     /* ============================================
@@ -145,8 +145,8 @@
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 3px !important;
-        color: #47C89F !important;
-        background: rgba(71, 200, 159, 0.08) !important;
+        color: #39FF14 !important;
+        background: rgba(57, 255, 20, 0.08) !important;
         padding: 6px 22px !important;
         border-radius: 20px !important;
         margin-bottom: 18px !important;
@@ -176,7 +176,7 @@
     .sf-services-hero-line {
         width: 60px !important;
         height: 3px !important;
-        background: #47C89F !important;
+        background: #39FF14 !important;
         border-radius: 4px !important;
         margin-top: 8px !important;
         animation: sfFadeInUp 1.2s ease forwards !important;
@@ -211,14 +211,14 @@
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 2.5px !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
         margin-bottom: 12px !important;
     }
 
     .sf-services-section-title {
         font-size: 38px !important;
         font-weight: 700 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 12px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
         letter-spacing: -0.5px !important;
@@ -227,7 +227,7 @@
     .sf-services-header-line {
         width: 40px !important;
         height: 2px !important;
-        background: linear-gradient(90deg, #47C89F, #9ACA43) !important;
+        background: linear-gradient(90deg, #39FF14, #06B6D4) !important;
         border-radius: 4px !important;
         margin: 0 auto 12px !important;
     }
@@ -263,7 +263,7 @@
     .sf-service-card:hover {
         transform: translateY(-8px) !important;
         box-shadow: 0 12px 50px rgba(0, 0, 0, 0.06) !important;
-        border-color: rgba(71, 200, 159, 0.08) !important;
+        border-color: rgba(57, 255, 20, 0.08) !important;
     }
 
     .sf-service-card-inner {
@@ -277,7 +277,7 @@
         width: 100% !important;
         height: 220px !important;
         overflow: hidden !important;
-        background: #F8FAFB !important;
+        background: #F8FAFC !important;
         position: relative !important;
     }
 
@@ -306,8 +306,8 @@
         padding: 30px 0 20px 0 !important;
         text-align: center !important;
         font-size: 48px !important;
-        color: #47C89F !important;
-        background: rgba(71, 200, 159, 0.02) !important;
+        color: #39FF14 !important;
+        background: rgba(57, 255, 20, 0.02) !important;
         transition: all 0.4s ease !important;
     }
 
@@ -330,20 +330,20 @@
     .sf-service-card-title {
         font-size: 20px !important;
         font-weight: 600 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 12px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
         transition: color 0.3s ease !important;
     }
 
     .sf-service-card:hover .sf-service-card-title {
-        color: #47C89F !important;
+        color: #39FF14 !important;
     }
 
     .sf-service-card-description {
         font-size: 15px !important;
         line-height: 1.8 !important;
-        color: #4A5A6E !important;
+        color: #4B5563 !important;
         flex: 1 !important;
         margin-bottom: 16px !important;
     }
@@ -362,9 +362,9 @@
         align-items: center !important;
         gap: 8px !important;
         padding: 10px 24px !important;
-        border: 1px solid rgba(71, 200, 159, 0.15) !important;
+        border: 1px solid rgba(57, 255, 20, 0.15) !important;
         border-radius: 30px !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
         text-decoration: none !important;
         font-size: 14px !important;
         font-weight: 500 !important;
@@ -383,7 +383,7 @@
         left: -100% !important;
         width: 100% !important;
         height: 100% !important;
-        background: #47C89F !important;
+        background: #39FF14 !important;
         transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
         z-index: 0 !important;
         border-radius: 30px !important;
@@ -401,10 +401,10 @@
     }
 
     .sf-service-card-btn:hover {
-        border-color: #47C89F !important;
-        color: #FFFFFF !important;
+        border-color: #39FF14 !important;
+        color: #0F172A !important;
         transform: translateX(4px) !important;
-        box-shadow: 0 4px 20px rgba(71, 200, 159, 0.2) !important;
+        box-shadow: 0 4px 20px rgba(57, 255, 20, 0.2) !important;
     }
 
     .sf-btn-arrow {
@@ -429,7 +429,7 @@
        ============================================ */
     .sf-services-cta {
         padding: 80px 0 !important;
-        background: linear-gradient(135deg, #0A0610 0%, #1A0A18 100%) !important;
+        background: #0F172A !important;
         border-top: 1px solid rgba(255, 255, 255, 0.02) !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.02) !important;
         position: relative !important;
@@ -443,7 +443,7 @@
         right: -20% !important;
         width: 600px !important;
         height: 600px !important;
-        background: radial-gradient(circle, rgba(71, 200, 159, 0.03) 0%, transparent 70%) !important;
+        background: radial-gradient(circle, rgba(57, 255, 20, 0.03) 0%, transparent 70%) !important;
         border-radius: 50% !important;
         pointer-events: none !important;
     }
@@ -476,8 +476,8 @@
         align-items: center !important;
         gap: 8px !important;
         padding: 14px 40px !important;
-        background: #47C89F !important;
-        color: #FFFFFF !important;
+        background: #39FF14 !important;
+        color: #0F172A !important;
         border-radius: 8px !important;
         text-decoration: none !important;
         font-weight: 600 !important;
@@ -487,9 +487,9 @@
     }
 
     .sf-services-cta-btn:hover {
-        background: #3AAF8A !important;
+        background: #2DE010 !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 30px rgba(71, 200, 159, 0.15) !important;
+        box-shadow: 0 8px 30px rgba(57, 255, 20, 0.15) !important;
     }
 
     .sf-cta-arrow {

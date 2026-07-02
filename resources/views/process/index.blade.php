@@ -16,7 +16,7 @@
     <div class="sf-container">
         <div class="sf-process-hero-content">
             <span class="sf-process-hero-badge">Our Process</span>
-            <h1 class="sf-process-hero-title">How We <span class="sf-text-teal">Work</span></h1>
+            <h1 class="sf-process-hero-title">How We <span class="sf-text-neon">Work</span></h1>
             <p class="sf-process-hero-subtitle">A proven methodology designed to deliver exceptional results</p>
             <div class="sf-process-hero-line"></div>
         </div>
@@ -30,7 +30,7 @@
     <div class="sf-container">
         <div class="sf-process-header">
             <span class="sf-process-section-badge">Our Methodology</span>
-            <h2 class="sf-process-section-title">A Proven <span class="sf-text-teal">Process</span> for Success</h2>
+            <h2 class="sf-process-section-title">A Proven <span class="sf-text-neon">Process</span> for Success</h2>
             <div class="sf-process-header-line"></div>
             <p class="sf-process-section-subtitle">We follow a structured approach to ensure quality and consistency in everything we do</p>
         </div>
@@ -94,7 +94,7 @@
             <div class="sf-tree-root">
                 <div class="sf-root-line"></div>
                 <div class="sf-root-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#47C89F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                         <path d="M2 17l10 5 10-5"/>
                         <path d="M2 12l10 5 10-5"/>
@@ -132,7 +132,7 @@
 <section class="sf-process-cta">
     <div class="sf-container">
         <div class="sf-process-cta-content">
-            <h2 class="sf-process-cta-title">Ready to Start <span class="sf-text-teal">Your Journey</span>?</h2>
+            <h2 class="sf-process-cta-title">Ready to Start <span class="sf-text-neon">Your Journey</span>?</h2>
             <p class="sf-process-cta-text">Let's work together to bring your vision to life.</p>
             <a href="{{ route('contact') }}" class="sf-process-cta-btn">
                 Get Started
@@ -156,8 +156,8 @@
         padding: 0 24px !important;
     }
 
-    .sf-text-teal {
-        color: #47C89F !important;
+    .sf-text-neon {
+        color: #39FF14 !important;
     }
 
     /* ============================================
@@ -195,8 +195,8 @@
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 3px !important;
-        color: #47C89F !important;
-        background: rgba(71, 200, 159, 0.08) !important;
+        color: #39FF14 !important;
+        background: rgba(57, 255, 20, 0.08) !important;
         padding: 6px 22px !important;
         border-radius: 20px !important;
         margin-bottom: 18px !important;
@@ -226,7 +226,7 @@
     .sf-process-hero-line {
         width: 60px !important;
         height: 3px !important;
-        background: #47C89F !important;
+        background: #39FF14 !important;
         border-radius: 4px !important;
         margin-top: 8px !important;
         animation: sfFadeInUp 1.2s ease forwards !important;
@@ -262,14 +262,14 @@
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 2.5px !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
         margin-bottom: 12px !important;
     }
 
     .sf-process-section-title {
         font-size: 38px !important;
         font-weight: 700 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 12px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
         letter-spacing: -0.5px !important;
@@ -278,7 +278,7 @@
     .sf-process-header-line {
         width: 40px !important;
         height: 2px !important;
-        background: linear-gradient(90deg, #47C89F, #9ACA43) !important;
+        background: linear-gradient(90deg, #39FF14, #06B6D4) !important;
         border-radius: 4px !important;
         margin: 0 auto 12px !important;
     }
@@ -308,7 +308,7 @@
         transform: translateX(-50%) !important;
         width: 4px !important;
         height: 100% !important;
-        background: linear-gradient(180deg, rgba(71, 200, 159, 0.05), rgba(71, 200, 159, 0.12), rgba(71, 200, 159, 0.05)) !important;
+        background: linear-gradient(180deg, rgba(57, 255, 20, 0.05), rgba(57, 255, 20, 0.12), rgba(57, 255, 20, 0.05)) !important;
         border-radius: 4px !important;
         z-index: 0 !important;
         animation: sfTrunkGrow 2s ease forwards !important;
@@ -320,7 +320,7 @@
         left: -10px !important;
         width: 24px !important;
         height: 100% !important;
-        background: radial-gradient(ellipse, rgba(71, 200, 159, 0.03), transparent) !important;
+        background: radial-gradient(ellipse, rgba(57, 255, 20, 0.03), transparent) !important;
         border-radius: 50% !important;
     }
 
@@ -393,21 +393,21 @@
     .sf-branch-line {
         width: 50px !important;
         height: 2px !important;
-        background: linear-gradient(90deg, rgba(71, 200, 159, 0.08), rgba(71, 200, 159, 0.15)) !important;
+        background: linear-gradient(90deg, rgba(57, 255, 20, 0.08), rgba(57, 255, 20, 0.15)) !important;
         flex-shrink: 0 !important;
     }
 
     .sf-tree-branch:nth-child(odd) .sf-branch-line {
-        background: linear-gradient(90deg, rgba(71, 200, 159, 0.15), rgba(71, 200, 159, 0.08)) !important;
+        background: linear-gradient(90deg, rgba(57, 255, 20, 0.15), rgba(57, 255, 20, 0.08)) !important;
     }
 
     .sf-branch-dot {
         width: 8px !important;
         height: 8px !important;
         border-radius: 50% !important;
-        background: #47C89F !important;
+        background: #39FF14 !important;
         flex-shrink: 0 !important;
-        box-shadow: 0 0 20px rgba(71, 200, 159, 0.08) !important;
+        box-shadow: 0 0 20px rgba(57, 255, 20, 0.08) !important;
         animation: sfDotPulse 2s ease-in-out infinite !important;
     }
 
@@ -454,7 +454,7 @@
     .sf-node-card:hover {
         transform: translateY(-6px) !important;
         box-shadow: 0 16px 60px rgba(0, 0, 0, 0.06) !important;
-        border-color: rgba(71, 200, 159, 0.06) !important;
+        border-color: rgba(57, 255, 20, 0.06) !important;
     }
 
     /* ---- Node Image ---- */
@@ -463,7 +463,7 @@
         height: 120px !important;
         position: relative !important;
         overflow: hidden !important;
-        background: linear-gradient(135deg, rgba(71, 200, 159, 0.04), rgba(154, 202, 67, 0.04)) !important;
+        background: linear-gradient(135deg, rgba(57, 255, 20, 0.04), rgba(6, 182, 212, 0.04)) !important;
     }
 
     .sf-node-image img {
@@ -483,7 +483,7 @@
         left: 0 !important;
         right: 0 !important;
         bottom: 0 !important;
-        background: linear-gradient(135deg, rgba(71, 200, 159, 0.02), transparent) !important;
+        background: linear-gradient(135deg, rgba(57, 255, 20, 0.02), transparent) !important;
     }
 
     .sf-node-icon-fallback {
@@ -492,9 +492,9 @@
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
         font-size: 28px !important;
-        background: rgba(71, 200, 159, 0.02) !important;
+        background: rgba(57, 255, 20, 0.02) !important;
     }
 
     .sf-node-icon-fallback i {
@@ -506,8 +506,8 @@
         position: absolute !important;
         top: 8px !important;
         left: 8px !important;
-        background: linear-gradient(135deg, #47C89F, #3AAF8A) !important;
-        color: #FFFFFF !important;
+        background: linear-gradient(135deg, #39FF14, #06B6D4) !important;
+        color: #0F172A !important;
         width: 32px !important;
         height: 32px !important;
         border-radius: 50% !important;
@@ -517,7 +517,7 @@
         font-size: 12px !important;
         font-weight: 700 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
-        box-shadow: 0 2px 12px rgba(71, 200, 159, 0.15) !important;
+        box-shadow: 0 2px 12px rgba(57, 255, 20, 0.15) !important;
         transition: all 0.3s ease !important;
     }
 
@@ -549,20 +549,20 @@
     .sf-node-title {
         font-size: 18px !important;
         font-weight: 600 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 4px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
         transition: color 0.3s ease !important;
     }
 
     .sf-node-card:hover .sf-node-title {
-        color: #47C89F !important;
+        color: #39FF14 !important;
     }
 
     .sf-node-divider {
         width: 30px !important;
         height: 2px !important;
-        background: linear-gradient(90deg, #47C89F, #9ACA43) !important;
+        background: linear-gradient(90deg, #39FF14, #06B6D4) !important;
         border-radius: 4px !important;
         transition: width 0.3s ease !important;
     }
@@ -574,7 +574,7 @@
     .sf-node-description {
         font-size: 14px !important;
         line-height: 1.6 !important;
-        color: #4A5A6E !important;
+        color: #4B5563 !important;
         margin: 0 !important;
         flex: 1 !important;
     }
@@ -605,7 +605,7 @@
 
     .sf-node-progress {
         font-weight: 600 !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
         opacity: 0.4 !important;
     }
 
@@ -615,7 +615,7 @@
         top: 0 !important;
         width: 4px !important;
         height: 100% !important;
-        background: linear-gradient(180deg, #47C89F, #9ACA43) !important;
+        background: linear-gradient(180deg, #39FF14, #06B6D4) !important;
         opacity: 0.08 !important;
         transition: all 0.5s ease !important;
     }
@@ -655,7 +655,7 @@
     .sf-root-line {
         width: 40px !important;
         height: 2px !important;
-        background: linear-gradient(90deg, transparent, rgba(71, 200, 159, 0.1), transparent) !important;
+        background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.1), transparent) !important;
         margin: 0 auto 10px !important;
     }
 
@@ -690,7 +690,7 @@
        ============================================ */
     .sf-process-flow {
         padding: 28px 24px !important;
-        background: #F8FAFB !important;
+        background: #F8FAFC !important;
         border-radius: 12px !important;
         border: 1px solid rgba(0, 0, 0, 0.02) !important;
         margin-top: 32px !important;
@@ -724,7 +724,7 @@
     }
 
     .sf-flow-item:hover {
-        border-color: rgba(71, 200, 159, 0.08) !important;
+        border-color: rgba(57, 255, 20, 0.08) !important;
         transform: translateY(-2px) !important;
     }
 
@@ -735,19 +735,19 @@
         width: 24px !important;
         height: 24px !important;
         border-radius: 50% !important;
-        background: #47C89F !important;
-        color: #FFFFFF !important;
+        background: #39FF14 !important;
+        color: #0F172A !important;
         font-size: 11px !important;
         font-weight: 700 !important;
     }
 
     .sf-flow-title {
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         font-weight: 500 !important;
     }
 
     .sf-flow-arrow {
-        color: #47C89F !important;
+        color: #39FF14 !important;
         font-size: 14px !important;
         opacity: 0.15 !important;
     }
@@ -765,7 +765,7 @@
        ============================================ */
     .sf-process-cta {
         padding: 80px 0 !important;
-        background: linear-gradient(135deg, #0A0610 0%, #1A0A18 100%) !important;
+        background: #0F172A !important;
         border-top: 1px solid rgba(255, 255, 255, 0.02) !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.02) !important;
         position: relative !important;
@@ -800,8 +800,8 @@
         align-items: center !important;
         gap: 8px !important;
         padding: 14px 40px !important;
-        background: #47C89F !important;
-        color: #FFFFFF !important;
+        background: #39FF14 !important;
+        color: #0F172A !important;
         border-radius: 8px !important;
         text-decoration: none !important;
         font-weight: 600 !important;
@@ -811,9 +811,9 @@
     }
 
     .sf-process-cta-btn:hover {
-        background: #3AAF8A !important;
+        background: #2DE010 !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 30px rgba(71, 200, 159, 0.12) !important;
+        box-shadow: 0 8px 30px rgba(57, 255, 20, 0.12) !important;
     }
 
     .sf-cta-arrow {

@@ -1,37 +1,29 @@
 @extends('layouts.public')
-@section('title', 'Effective Gamification - Sofel Labs')
-@section('body_class', 'wp-singular page-template-default page page-id-12381 wp-custom-logo wp-theme-astra wp-child-theme-42comets ast-single-post ast-inherit-site-logo-transparent ast-hfb-header ast-page-builder-template ast-no-sidebar astra-3.7.7 elementor-default elementor-kit-10677 elementor-page elementor-page-12381')
+@section('title', 'THYNK — Mobile & Web Apps · Geospatial · Design · Deployment')
+@section('body_class', 'thynk-home')
 @section('content')
 
 @php
     $bannerItems = isset($banners) && $banners->count() > 0 ? $banners : collect();
     if ($bannerItems->count() == 0) {
         $bannerItems = collect([
-            (object) ['image' => 'wp-content/uploads/2021/10/waitingroomArtboard-1.png']
+            (object) ['image' => null]
         ]);
     }
 @endphp
 
 <!-- ============================================ -->
-<!-- HERO BANNER CAROUSEL -->
+<!-- HERO SECTION -->
+<!-- ============================================ -->
+<!-- ============================================ -->
+<!-- HERO BANNER CAROUSEL - WITH TK CONTENT -->
 <!-- ============================================ -->
 <section class="sl-hero">
     <div class="sl-hero-container">
-        <div class="sl-hero-wrapper" id="sofelHeroWrapper">
+        <div class="sl-hero-wrapper" id="slHeroWrapper">
             @foreach($bannerItems as $index => $banner)
                 <div class="sl-hero-slide {{ $index === 0 ? 'active' : '' }}" data-slide="{{ $index }}">
                     <div class="sl-hero-image" style="background-image: url('{{ $banner->image ? asset('storage/' . $banner->image) : asset('wp-content/uploads/2021/10/waitingroomArtboard-1.png') }}');"></div>
-                    <div class="sl-hero-overlay">
-                        <div class="sl-hero-content">
-                            <span class="sl-hero-eyebrow">Gamification · Instructional Design · eLearning</span>
-                            <h1 class="sl-hero-headline">Learning That <span class="sl-accent-lime">Sticks.</span><br>Training That <span class="sl-accent-orange">Works.</span></h1>
-                            <p class="sl-hero-subtext">We design gamified learning experiences that transform passive training into active performance. Real engagement, real results — built for Africa and beyond.</p>
-                            <div class="sl-hero-actions">
-                                <a href="https://cal.com/sofellabs" class="sl-btn sl-btn--orange" id="Book1">Start Your Free Consultation</a>
-                                <a href="#how-it-works" class="sl-btn sl-btn--ghost">See How It Works ↓</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             @endforeach
         </div>
@@ -46,1835 +38,2323 @@
 </section>
 
 <!-- ============================================ -->
-<!-- TRUST STRIP -->
-<!-- ============================================ -->
-<section class="sl-trust-strip sl-reveal">
-    <div class="sl-container">
-        <div class="sl-trust-grid">
-            <div class="sl-trust-item">
-                <span class="sl-trust-num" style="color:#47C89F;">40+</span>
-                <span class="sl-trust-label">Gamified programs shipped</span>
-            </div>
-            <div class="sl-trust-divider"></div>
-            <div class="sl-trust-item">
-                <span class="sl-trust-num" style="color:#9ACA43;">3</span>
-                <span class="sl-trust-label">Continents served</span>
-            </div>
-            <div class="sl-trust-divider"></div>
-            <div class="sl-trust-item">
-                <span class="sl-trust-num" style="color:#EE6F20;">92%</span>
-                <span class="sl-trust-label">Avg. learner completion rate</span>
-            </div>
-            <div class="sl-trust-divider"></div>
-            <div class="sl-trust-item">
-                <span class="sl-trust-num" style="color:#47C89F;">5.0</span>
-                <span class="sl-trust-label">Client satisfaction rating</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- THE PROBLEM — What's Broken in Training -->
-<!-- ============================================ -->
-<section class="sl-section sl-bg-navy sl-reveal" id="the-problem">
-    <div class="sl-container sl-container--narrow">
-        <div class="sl-section-header">
-            <span class="sl-badge sl-badge--orange">Sound Familiar?</span>
-            <h2 class="sl-heading-xl sl-text-white">Most Corporate Training Gets Forgotten<br>Within <span class="sl-accent-orange">72 Hours</span></h2>
-            <p class="sl-body-lg" style="color:rgba(255,255,255,0.65); max-width:600px; margin:14px auto 0;">The Ebbinghaus Forgetting Curve has been known since 1885. Yet most organizations still design training the same old way — and wonder why nothing changes on the job.</p>
-        </div>
-
-        <div class="sl-problem-grid">
-            <!-- Problem 1 -->
-            <div class="sl-problem-item">
-                <div class="sl-problem-number">01</div>
-                <div class="sl-problem-item-content">
-                    <h3 class="sl-problem-item-title">Passive Learning</h3>
-                    <p class="sl-problem-item-text">Slide decks and long videos create an illusion of learning. Learners click "Next" on autopilot, retain almost nothing, and return to their desks unchanged.</p>
-                </div>
-            </div>
-
-            <!-- Problem 2 -->
-            <div class="sl-problem-item">
-                <div class="sl-problem-number">02</div>
-                <div class="sl-problem-item-content">
-                    <h3 class="sl-problem-item-title">Checkbox Compliance</h3>
-                    <p class="sl-problem-item-text">Completion rates look great on dashboards. But completing a course and actually learning from it are two very different things — and most training only achieves the first.</p>
-                </div>
-            </div>
-
-            <!-- Problem 3 -->
-            <div class="sl-problem-item">
-                <div class="sl-problem-number">03</div>
-                <div class="sl-problem-item-content">
-                    <h3 class="sl-problem-item-title">Gimmicky Gamification</h3>
-                    <p class="sl-problem-item-text">Slapping badges on boring content doesn't make it engaging. True gamification is a design philosophy — not a feature you bolt on after the course is built.</p>
-                </div>
-            </div>
-
-            <!-- Problem 4 -->
-            <div class="sl-problem-item">
-                <div class="sl-problem-number">04</div>
-                <div class="sl-problem-item-content">
-                    <h3 class="sl-problem-item-title">No Measurable Impact</h3>
-                    <p class="sl-problem-item-text">Organizations spend millions on training they can't measure. If you can't show behavior change on the job, you haven't really trained anyone.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="sl-problem-callout">
-            <p>The problem isn't your people. It's the design of your training.<br><strong style="color:#EE6F20;">Sofel Labs was built to fix this.</strong></p>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- STYLES — Problem Section -->
+<!-- HERO STYLES -->
 <!-- ============================================ -->
 <style>
     /* ============================================
-       THE PROBLEM — Clean Professional Design
+       SL HERO — Banner Only, Udemy Style
        ============================================ */
 
-    .sl-section {
-        padding: 80px 0 !important;
-    }
-
-    .sl-container {
-        max-width: 1200px !important;
-        margin: 0 auto !important;
-        padding: 0 24px !important;
-    }
-
-    .sl-container--narrow {
-        max-width: 900px !important;
-        margin: 0 auto !important;
-        padding: 0 24px !important;
-    }
-
-    .sl-bg-navy {
-        background: #0E2A47 !important;
-    }
-
-    /* ---- SECTION HEADER ---- */
-    .sl-section-header {
-        text-align: center !important;
-        margin-bottom: 48px !important;
-    }
-
-    .sl-badge {
-        display: inline-block !important;
-        font-size: 12px !important;
-        font-weight: 600 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 3px !important;
-        padding: 6px 22px !important;
-        border-radius: 20px !important;
-        margin-bottom: 14px !important;
-    }
-
-    .sl-badge--orange {
-        color: #EE6F20 !important;
-        background: rgba(238, 111, 32, 0.08) !important;
-        border: 1px solid rgba(238, 111, 32, 0.08) !important;
-    }
-
-    .sl-heading-xl {
-        font-size: 38px !important;
-        font-weight: 700 !important;
-        line-height: 1.2 !important;
-        font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
-        letter-spacing: -0.5px !important;
-    }
-
-    .sl-text-white {
-        color: #FFFFFF !important;
-    }
-
-    .sl-accent-orange {
-        color: #EE6F20 !important;
-    }
-
-    .sl-body-lg {
-        font-size: 18px !important;
-        line-height: 1.7 !important;
-    }
-
-    /* ---- PROBLEM GRID ---- */
-    .sl-problem-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 24px !important;
-        margin-bottom: 36px !important;
-    }
-
-    .sl-problem-item {
-        background: rgba(255, 255, 255, 0.02) !important;
-        border: 1px solid rgba(255, 255, 255, 0.04) !important;
-        border-radius: 12px !important;
-        padding: 28px 24px !important;
-        display: flex !important;
-        gap: 18px !important;
-        align-items: flex-start !important;
-        transition: all 0.4s ease !important;
-    }
-
-    .sl-problem-item:hover {
-        background: rgba(255, 255, 255, 0.04) !important;
-        border-color: rgba(238, 111, 32, 0.06) !important;
-        transform: translateY(-4px) !important;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1) !important;
-    }
-
-    .sl-problem-number {
-        font-size: 28px !important;
-        font-weight: 800 !important;
-        font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
-        color: rgba(238, 111, 32, 0.15) !important;
-        line-height: 1 !important;
-        flex-shrink: 0 !important;
-        min-width: 40px !important;
-    }
-
-    .sl-problem-item-content {
-        flex: 1 !important;
-    }
-
-    .sl-problem-item-title {
-        font-size: 17px !important;
-        font-weight: 600 !important;
-        color: #FFFFFF !important;
-        margin: 0 0 6px 0 !important;
-        font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
-        letter-spacing: 0.2px !important;
-    }
-
-    .sl-problem-item-text {
-        font-size: 14px !important;
-        line-height: 1.7 !important;
-        color: rgba(255, 255, 255, 0.5) !important;
-        margin: 0 !important;
-    }
-
-    /* ---- CALLOUT ---- */
-    .sl-problem-callout {
-        text-align: center !important;
-        padding: 28px 24px !important;
-        border-top: 1px solid rgba(255, 255, 255, 0.04) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
-        margin-top: 8px !important;
-    }
-
-    .sl-problem-callout p {
-        font-size: 19px !important;
-        font-weight: 300 !important;
-        color: rgba(255, 255, 255, 0.4) !important;
-        margin: 0 !important;
-        letter-spacing: 0.3px !important;
-    }
-
-    .sl-problem-callout strong {
-        font-weight: 600 !important;
-        font-style: normal !important;
-    }
-
-    /* ---- SCROLL REVEAL ---- */
-    .sl-reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease !important;
-    }
-
-    .sl-reveal.sl-reveal-visible {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-
-    /* ============================================
-       RESPONSIVE
-       ============================================ */
-    @media (max-width: 991px) {
-        .sl-problem-grid {
-            grid-template-columns: 1fr 1fr !important;
-            gap: 16px !important;
-        }
-
-        .sl-heading-xl {
-            font-size: 32px !important;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .sl-section {
-            padding: 60px 0 !important;
-        }
-
-        .sl-container--narrow {
-            padding: 0 16px !important;
-        }
-
-        .sl-problem-grid {
-            grid-template-columns: 1fr !important;
-            gap: 14px !important;
-        }
-
-        .sl-problem-item {
-            padding: 20px 18px !important;
-            gap: 14px !important;
-        }
-
-        .sl-problem-number {
-            font-size: 24px !important;
-            min-width: 32px !important;
-        }
-
-        .sl-problem-item-title {
-            font-size: 16px !important;
-        }
-
-        .sl-problem-item-text {
-            font-size: 13px !important;
-        }
-
-        .sl-heading-xl {
-            font-size: 28px !important;
-        }
-
-        .sl-body-lg {
-            font-size: 16px !important;
-        }
-
-        .sl-problem-callout p {
-            font-size: 17px !important;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .sl-section {
-            padding: 40px 0 !important;
-        }
-
-        .sl-container {
-            padding: 0 16px !important;
-        }
-
-        .sl-heading-xl {
-            font-size: 24px !important;
-        }
-
-        .sl-badge {
-            font-size: 11px !important;
-            padding: 4px 16px !important;
-        }
-
-        .sl-body-lg {
-            font-size: 15px !important;
-        }
-
-        .sl-problem-item {
-            padding: 16px 14px !important;
-            gap: 12px !important;
-        }
-
-        .sl-problem-number {
-            font-size: 20px !important;
-            min-width: 28px !important;
-        }
-
-        .sl-problem-item-title {
-            font-size: 15px !important;
-        }
-
-        .sl-problem-item-text {
-            font-size: 13px !important;
-            line-height: 1.6 !important;
-        }
-
-        .sl-problem-callout p {
-            font-size: 15px !important;
-        }
-    }
-</style>
-
-<!-- ============================================ -->
-<!-- SCROLL REVEAL SCRIPT -->
-<!-- ============================================ -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Scroll reveal observer
-        const revealElements = document.querySelectorAll('.sl-reveal');
-
-        const revealObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('sl-reveal-visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        revealElements.forEach(function(el) {
-            revealObserver.observe(el);
-        });
-    });
-</script>
-
-<!-- ============================================ -->
-<!-- TRANSFORMATION JOURNEY — Before vs After -->
-<!-- ============================================ -->
-<section class="sl-transform-classic sl-reveal">
-    <div class="sl-container-full">
-        <div class="sl-transform-classic-header">
-            <span class="sl-badge sl-badge--teal">The Transformation</span>
-            <h2 class="sl-transform-classic-title">
-                From <span class="sl-text-orange">Frustration</span>
-                <span class="sl-text-divider">to</span>
-                <span class="sl-text-teal">Mastery</span>
-            </h2>
-            <p class="sl-transform-classic-subtitle">How we turn common training challenges into game-changing learning experiences</p>
-            <div class="sl-transform-classic-line"></div>
-        </div>
-
-        <!-- Comparison Grid -->
-        <div class="sl-transform-classic-grid">
-            <!-- Before Column -->
-            <div class="sl-transform-classic-col sl-transform-classic-col--before">
-                <div class="sl-transform-classic-col-header">
-                    <span class="sl-transform-classic-icon sl-transform-classic-icon--before">✕</span>
-                    <h3 class="sl-transform-classic-col-title">The Old Way</h3>
-                    <span class="sl-transform-classic-col-sub">Traditional training</span>
-                </div>
-                <ul class="sl-transform-classic-features">
-                    <li>
-                        <span class="sl-feature-mark sl-feature-mark--before">✕</span>
-                        <span>Static slides that put people to sleep</span>
-                    </li>
-                    <li>
-                        <span class="sl-feature-mark sl-feature-mark--before">✕</span>
-                        <span>Long videos with zero engagement</span>
-                    </li>
-                    <li>
-                        <span class="sl-feature-mark sl-feature-mark--before">✕</span>
-                        <span>Checkbox compliance with no real learning</span>
-                    </li>
-                    <li>
-                        <span class="sl-feature-mark sl-feature-mark--before">✕</span>
-                        <span>Gimmicky badges that feel forced</span>
-                    </li>
-                    <li>
-                        <span class="sl-feature-mark sl-feature-mark--before">✕</span>
-                        <span>No connection to real work</span>
-                    </li>
-                </ul>
-                <div class="sl-transform-classic-outcome sl-transform-classic-outcome--before">
-                    <span class="sl-outcome-label">The Result</span>
-                    <p class="sl-outcome-text">Completed. Forgotten. No impact.</p>
-                </div>
-            </div>
-
-            <!-- Divider -->
-            <div class="sl-transform-classic-divider">
-                <span class="sl-divider-line"></span>
-                <span class="sl-divider-diamond">◆</span>
-                <span class="sl-divider-line"></span>
-            </div>
-
-            <!-- After Column -->
-            <div class="sl-transform-classic-col sl-transform-classic-col--after">
-                <div class="sl-transform-classic-col-header">
-                    <span class="sl-transform-classic-icon sl-transform-classic-icon--after">✓</span>
-                    <h3 class="sl-transform-classic-col-title">The New Way</h3>
-                    <span class="sl-transform-classic-col-sub">Transformational learning</span>
-                </div>
-                <ul class="sl-transform-classic-features">
-                    <li>
-                        <span class="sl-feature-mark sl-feature-mark--after">✓</span>
-                        <span>Interactive challenges that engage and excite</span>
-                    </li>
-                    <li>
-                        <span class="sl-feature-mark sl-feature-mark--after">✓</span>
-                        <span>Meaningful rewards that motivate intrinsically</span>
-                    </li>
-                    <li>
-                        <span class="sl-feature-mark sl-feature-mark--after">✓</span>
-                        <span>Real progress tracking that shows growth</span>
-                    </li>
-                    <li>
-                        <span class="sl-feature-mark sl-feature-mark--after">✓</span>
-                        <span>Applied learning that connects to work</span>
-                    </li>
-                    <li>
-                        <span class="sl-feature-mark sl-feature-mark--after">✓</span>
-                        <span>Behavior change that lasts beyond the course</span>
-                    </li>
-                </ul>
-                <div class="sl-transform-classic-outcome sl-transform-classic-outcome--after">
-                    <span class="sl-outcome-label">The Result</span>
-                    <p class="sl-outcome-text">Remembered. Applied. Celebrated.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Insights -->
-        <div class="sl-transform-classic-insights">
-            <div class="sl-insight-item">
-                <span class="sl-insight-number">01</span>
-                <div>
-                    <h4 class="sl-insight-title">From Content to Experience</h4>
-                    <p class="sl-insight-text">Transform passive information into active learning journeys that stick.</p>
-                </div>
-            </div>
-            <div class="sl-insight-item">
-                <span class="sl-insight-number">02</span>
-                <div>
-                    <h4 class="sl-insight-title">From Completion to Competence</h4>
-                    <p class="sl-insight-text">Measure what learners can do, not just what they've clicked through.</p>
-                </div>
-            </div>
-            <div class="sl-insight-item">
-                <span class="sl-insight-number">03</span>
-                <div>
-                    <h4 class="sl-insight-title">From One-Size to Personal</h4>
-                    <p class="sl-insight-text">Design adaptive pathways that meet each learner where they are.</p>
-                </div>
-            </div>
-            <div class="sl-insight-item">
-                <span class="sl-insight-number">04</span>
-                <div>
-                    <h4 class="sl-insight-title">From Training to Transformation</h4>
-                    <p class="sl-insight-text">Create lasting change in behavior, performance, and business outcomes.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- STYLES — Classic Transformation -->
-<!-- ============================================ -->
-<style>
-    /* ============================================
-       TRANSFORMATION — Classic Before/After
-       ============================================ */
-
-    .sl-transform-classic {
-        padding: 80px 0 !important;
-        background: #F8FAFB !important;
-        font-family: 'Gill Sans Nova', 'Gill Sans', 'Gill Sans MT', sans-serif !important;
-    }
-
-    .sl-container-full {
-        max-width: 1200px !important;
-        margin: 0 auto !important;
-        padding: 0 24px !important;
-    }
-
-    /* ---- HEADER ---- */
-    .sl-transform-classic-header {
-        text-align: center !important;
-        margin-bottom: 48px !important;
-    }
-
-    .sl-badge {
-        display: inline-block !important;
-        font-size: 12px !important;
-        font-weight: 600 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 3px !important;
-        padding: 6px 22px !important;
-        border-radius: 20px !important;
-        margin-bottom: 14px !important;
-    }
-
-    .sl-badge--teal {
-        color: #47C89F !important;
-        background: rgba(71, 200, 159, 0.06) !important;
-        border: 1px solid rgba(71, 200, 159, 0.06) !important;
-    }
-
-    .sl-transform-classic-title {
-        font-size: 42px !important;
-        font-weight: 700 !important;
-        color: #0E2A47 !important;
-        margin: 0 0 8px 0 !important;
-        font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
-        letter-spacing: -0.5px !important;
-    }
-
-    .sl-text-orange {
-        color: #EE6F20 !important;
-    }
-
-    .sl-text-divider {
-        color: rgba(14, 42, 71, 0.15) !important;
-        font-weight: 300 !important;
-        margin: 0 8px !important;
-    }
-
-    .sl-text-teal {
-        color: #47C89F !important;
-    }
-
-    .sl-transform-classic-subtitle {
-        font-size: 18px !important;
-        color: #6B7C93 !important;
-        margin: 0 0 16px 0 !important;
-        font-weight: 300 !important;
-    }
-
-    .sl-transform-classic-line {
-        width: 60px !important;
-        height: 3px !important;
-        background: linear-gradient(90deg, #EE6F20, #47C89F) !important;
-        border-radius: 4px !important;
-        margin: 0 auto !important;
-    }
-
-    /* ---- GRID ---- */
-    .sl-transform-classic-grid {
-        display: grid !important;
-        grid-template-columns: 1fr auto 1fr !important;
-        gap: 0 !important;
-        align-items: stretch !important;
-        background: #FFFFFF !important;
-        border-radius: 16px !important;
+    .sl-hero {
+        position: relative !important;
+        width: 100% !important;
         overflow: hidden !important;
-        box-shadow: 0 2px 30px rgba(0, 0, 0, 0.02) !important;
-        border: 1px solid rgba(0, 0, 0, 0.03) !important;
-        margin-bottom: 40px !important;
-    }
-
-    /* ---- COLUMNS ---- */
-    .sl-transform-classic-col {
-        padding: 36px 32px !important;
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-    .sl-transform-classic-col--before {
-        background: rgba(238, 111, 32, 0.01) !important;
-    }
-
-    .sl-transform-classic-col--after {
-        background: rgba(71, 200, 159, 0.01) !important;
-    }
-
-    /* ---- COLUMN HEADER ---- */
-    .sl-transform-classic-col-header {
-        margin-bottom: 20px !important;
-        padding-bottom: 14px !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.03) !important;
-    }
-
-    .sl-transform-classic-icon {
-        display: inline-block !important;
-        font-size: 16px !important;
-        font-weight: 700 !important;
-        margin-right: 8px !important;
-    }
-
-    .sl-transform-classic-icon--before {
-        color: #EE6F20 !important;
-    }
-
-    .sl-transform-classic-icon--after {
-        color: #47C89F !important;
-    }
-
-    .sl-transform-classic-col-title {
-        font-size: 20px !important;
-        font-weight: 600 !important;
-        color: #0E2A47 !important;
-        margin: 0 !important;
-        display: inline-block !important;
-        font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
-    }
-
-    .sl-transform-classic-col-sub {
-        display: block !important;
-        font-size: 13px !important;
-        color: #8A8A9E !important;
-        margin-top: 2px !important;
-        font-weight: 300 !important;
-    }
-
-    /* ---- FEATURES ---- */
-    .sl-transform-classic-features {
-        list-style: none !important;
-        padding: 0 !important;
-        margin: 0 0 20px 0 !important;
-        flex: 1 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 6px !important;
-    }
-
-    .sl-transform-classic-features li {
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-        padding: 8px 0 !important;
-        font-size: 14px !important;
-        color: #3D4A5C !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.02) !important;
-    }
-
-    .sl-transform-classic-features li:last-child {
-        border-bottom: none !important;
-    }
-
-    .sl-feature-mark {
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 20px !important;
-        height: 20px !important;
-        border-radius: 50% !important;
-        font-size: 11px !important;
-        font-weight: 700 !important;
-        flex-shrink: 0 !important;
-    }
-
-    .sl-feature-mark--before {
-        background: rgba(238, 111, 32, 0.06) !important;
-        color: #EE6F20 !important;
-    }
-
-    .sl-feature-mark--after {
-        background: rgba(71, 200, 159, 0.06) !important;
-        color: #47C89F !important;
-    }
-
-    /* ---- OUTCOME ---- */
-    .sl-transform-classic-outcome {
-        padding: 14px 18px !important;
-        border-radius: 8px !important;
-        text-align: center !important;
-        margin-top: auto !important;
-    }
-
-    .sl-transform-classic-outcome--before {
-        background: rgba(238, 111, 32, 0.02) !important;
-        border: 1px solid rgba(238, 111, 32, 0.04) !important;
-    }
-
-    .sl-transform-classic-outcome--after {
-        background: rgba(71, 200, 159, 0.02) !important;
-        border: 1px solid rgba(71, 200, 159, 0.04) !important;
-    }
-
-    .sl-outcome-label {
-        display: block !important;
-        font-size: 10px !important;
-        text-transform: uppercase !important;
-        letter-spacing: 2px !important;
-        color: #8A8A9E !important;
-        font-weight: 600 !important;
-        margin-bottom: 2px !important;
-    }
-
-    .sl-outcome-text {
-        font-size: 16px !important;
-        font-weight: 600 !important;
-        margin: 0 !important;
-        font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
-    }
-
-    /* ---- DIVIDER ---- */
-    .sl-transform-classic-divider {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 0 12px !important;
         background: #FFFFFF !important;
-        min-width: 48px !important;
+        padding: 40px 0 !important;
+        min-height: auto !important;
+        display: block !important;
     }
 
-    .sl-divider-line {
-        width: 2px !important;
-        flex: 1 !important;
-        min-height: 20px !important;
-        background: linear-gradient(180deg, transparent, rgba(14, 42, 71, 0.04), transparent) !important;
+    .sl-hero-container {
+        width: 100% !important;
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
+        position: relative !important;
+        z-index: 2 !important;
     }
 
-    .sl-divider-diamond {
-        color: rgba(14, 42, 71, 0.04) !important;
-        font-size: 10px !important;
-        line-height: 1 !important;
-        padding: 4px 0 !important;
-    }
-
-    /* ---- INSIGHTS ---- */
-    .sl-transform-classic-insights {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 16px !important;
-        margin-top: 8px !important;
-    }
-
-    .sl-insight-item {
-        display: flex !important;
-        align-items: flex-start !important;
-        gap: 14px !important;
-        padding: 16px 18px !important;
-        background: #FFFFFF !important;
-        border-radius: 10px !important;
+    .sl-hero-wrapper {
+        position: relative !important;
+        width: 100% !important;
+        aspect-ratio: 1920/600 !important;
+        /* 3.2:1 ratio to match recommended size */
+        max-height: 600px !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04) !important;
         border: 1px solid rgba(0, 0, 0, 0.02) !important;
+        background: #f8fafb !important;
+    }
+
+    .sl-hero-slide {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        opacity: 0 !important;
+        transition: opacity 0.6s ease !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+    }
+
+    .sl-hero-slide.active {
+        opacity: 1 !important;
+        position: relative !important;
+    }
+
+    .sl-hero-image {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        transition: transform 8s ease !important;
+    }
+
+    .sl-hero-slide.active .sl-hero-image {
+        transform: scale(1.02) !important;
+    }
+
+    /* ---- Dots ---- */
+    .sl-hero-dots {
+        position: absolute !important;
+        bottom: 16px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        display: flex !important;
+        gap: 8px !important;
+        z-index: 10 !important;
+        background: rgba(0, 0, 0, 0.25) !important;
+        padding: 5px 12px !important;
+        border-radius: 20px !important;
+        backdrop-filter: blur(4px) !important;
+    }
+
+    .sl-hero-dot {
+        width: 8px !important;
+        height: 8px !important;
+        border-radius: 50% !important;
+        border: none !important;
+        background: rgba(255, 255, 255, 0.35) !important;
+        cursor: pointer !important;
         transition: all 0.3s ease !important;
+        padding: 0 !important;
     }
 
-    .sl-insight-item:hover {
-        border-color: rgba(71, 200, 159, 0.04) !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02) !important;
+    .sl-hero-dot:hover {
+        transform: scale(1.3) !important;
+        background: rgba(255, 255, 255, 0.7) !important;
     }
 
-    .sl-insight-number {
-        font-size: 22px !important;
-        font-weight: 700 !important;
-        font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
-        color: rgba(71, 200, 159, 0.04) !important;
-        line-height: 1 !important;
-        flex-shrink: 0 !important;
-        width: 28px !important;
-    }
-
-    .sl-insight-title {
-        font-size: 14px !important;
-        font-weight: 600 !important;
-        color: #0E2A47 !important;
-        margin: 0 0 2px 0 !important;
-        font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
-    }
-
-    .sl-insight-text {
-        font-size: 13px !important;
-        color: #6B7C93 !important;
-        line-height: 1.5 !important;
-        margin: 0 !important;
+    .sl-hero-dot.active {
+        background: #EE6F20 !important;
+        transform: scale(1.3) !important;
+        box-shadow: 0 0 12px rgba(238, 111, 32, 0.3) !important;
     }
 
     /* ============================================
        RESPONSIVE
        ============================================ */
+    @media (max-width: 1200px) {
+        .sl-hero-wrapper {
+            aspect-ratio: 16/5 !important;
+        }
+    }
+
     @media (max-width: 991px) {
-        .sl-transform-classic-grid {
-            grid-template-columns: 1fr !important;
+        .sl-hero {
+            padding: 30px 0 !important;
         }
 
-        .sl-transform-classic-divider {
-            flex-direction: row !important;
-            padding: 8px 0 !important;
-            min-width: auto !important;
-        }
-
-        .sl-divider-line {
-            width: auto !important;
-            height: 2px !important;
-            flex: 1 !important;
-            min-height: auto !important;
-            background: linear-gradient(90deg, transparent, rgba(14, 42, 71, 0.04), transparent) !important;
-        }
-
-        .sl-transform-classic-col--before {
-            border-bottom: 1px solid rgba(238, 111, 32, 0.02) !important;
-        }
-
-        .sl-transform-classic-col--after {
-            border-top: 1px solid rgba(71, 200, 159, 0.02) !important;
-        }
-
-        .sl-transform-classic-insights {
-            grid-template-columns: 1fr 1fr !important;
-        }
-
-        .sl-transform-classic-title {
-            font-size: 34px !important;
+        .sl-hero-wrapper {
+            aspect-ratio: 16/6 !important;
+            border-radius: 10px !important;
         }
     }
 
     @media (max-width: 768px) {
-        .sl-transform-classic {
-            padding: 60px 0 !important;
+        .sl-hero {
+            padding: 20px 0 !important;
         }
 
-        .sl-container-full {
-            padding: 0 16px !important;
+        .sl-hero-wrapper {
+            aspect-ratio: 16/7 !important;
+            border-radius: 8px !important;
         }
 
-        .sl-transform-classic-col {
-            padding: 24px 20px !important;
+        .sl-hero-dots {
+            bottom: 10px !important;
+            padding: 4px 10px !important;
+            gap: 6px !important;
         }
 
-        .sl-transform-classic-title {
-            font-size: 28px !important;
-        }
-
-        .sl-transform-classic-subtitle {
-            font-size: 16px !important;
-        }
-
-        .sl-transform-classic-features li {
-            font-size: 13px !important;
-            padding: 6px 0 !important;
-        }
-
-        .sl-outcome-text {
-            font-size: 15px !important;
-        }
-
-        .sl-transform-classic-insights {
-            grid-template-columns: 1fr !important;
-            gap: 12px !important;
-        }
-
-        .sl-insight-item {
-            padding: 14px 16px !important;
+        .sl-hero-dot {
+            width: 6px !important;
+            height: 6px !important;
         }
     }
 
     @media (max-width: 480px) {
-        .sl-transform-classic {
-            padding: 40px 0 !important;
+        .sl-hero {
+            padding: 12px 0 !important;
         }
 
-        .sl-container-full {
-            padding: 0 12px !important;
+        .sl-hero-wrapper {
+            aspect-ratio: 16/8 !important;
+            border-radius: 6px !important;
         }
 
-        .sl-transform-classic-col {
-            padding: 18px 14px !important;
+        .sl-hero-dots {
+            bottom: 6px !important;
+            padding: 3px 8px !important;
+            gap: 4px !important;
         }
 
-        .sl-transform-classic-title {
-            font-size: 24px !important;
-        }
-
-        .sl-badge {
-            font-size: 11px !important;
-            padding: 4px 16px !important;
-        }
-
-        .sl-transform-classic-subtitle {
-            font-size: 14px !important;
-        }
-
-        .sl-transform-classic-col-title {
-            font-size: 17px !important;
-        }
-
-        .sl-transform-classic-features li {
-            font-size: 12px !important;
-            gap: 10px !important;
-            padding: 5px 0 !important;
-        }
-
-        .sl-feature-mark {
-            width: 18px !important;
-            height: 18px !important;
-            font-size: 10px !important;
-        }
-
-        .sl-outcome-text {
-            font-size: 14px !important;
-        }
-
-        .sl-transform-classic-outcome {
-            padding: 10px 14px !important;
-        }
-
-        .sl-divider-diamond {
-            font-size: 8px !important;
-        }
-
-        .sl-insight-item {
-            padding: 12px 14px !important;
-            gap: 10px !important;
-        }
-
-        .sl-insight-number {
-            font-size: 18px !important;
-            width: 22px !important;
-        }
-
-        .sl-insight-title {
-            font-size: 13px !important;
-        }
-
-        .sl-insight-text {
-            font-size: 12px !important;
+        .sl-hero-dot {
+            width: 5px !important;
+            height: 5px !important;
         }
     }
 </style>
 
 <!-- ============================================ -->
-<!-- SCROLL REVEAL SCRIPT -->
+<!-- HERO SCRIPT -->
 <!-- ============================================ -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const revealElements = document.querySelectorAll('.sl-reveal');
-
-        const revealObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('sl-reveal-visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        revealElements.forEach(function(el) {
-            revealObserver.observe(el);
-        });
-    });
-</script>
-
-<!-- ============================================ -->
-<!-- HOW IT WORKS — 3-Step Process -->
-<!-- ============================================ -->
-<section class="sl-section sl-bg-offwhite sl-reveal" id="how-it-works">
-    <div class="sl-container">
-        <div class="sl-section-header">
-            <span class="sl-badge sl-badge--teal">How It Works</span>
-            <h2 class="sl-heading-xl sl-text-navy">Your Path to Gamified Learning</h2>
-            <p class="sl-body-lg sl-text-muted">A proven 3-step process to transform your training — from a blank brief to a live, engaging program your learners will actually talk about.</p>
-        </div>
-        <div class="sl-steps-grid">
-            <div class="sl-step">
-                <div class="sl-step-number" style="color:rgba(71,200,159,0.18);">01</div>
-                <div class="sl-step-icon" style="color:#47C89F;"><i class="fas fa-search"></i></div>
-                <h3 class="sl-heading-sm sl-text-navy">Discovery &amp; Strategy</h3>
-                <p class="sl-body sl-text-muted">We start by understanding your learners, your goals, and the performance gaps. We ask the hard questions — what does your team need to <em>do differently</em> after training? This is where we identify the right gamification strategy for your specific context, not a generic template.</p>
-                <div class="sl-step-tag" style="background:rgba(71,200,159,0.1); color:#47C89F;">Week 1–2</div>
-            </div>
-            <div class="sl-step">
-                <div class="sl-step-number" style="color:rgba(154,202,67,0.18);">02</div>
-                <div class="sl-step-icon" style="color:#9ACA43;"><i class="fas fa-pencil-ruler"></i></div>
-                <h3 class="sl-heading-sm sl-text-navy">Design &amp; Development</h3>
-                <p class="sl-body sl-text-muted">We design engaging challenges, meaningful rewards, and interactive simulations tailored to your content. Every mechanic is chosen because it serves the learning goal — not because it's trendy. We build within your existing LMS; no platform migration required.</p>
-                <div class="sl-step-tag" style="background:rgba(154,202,67,0.1); color:#6a9a00;">Week 3–7</div>
-            </div>
-            <div class="sl-step">
-                <div class="sl-step-number" style="color:rgba(238,111,32,0.18);">03</div>
-                <div class="sl-step-icon" style="color:#EE6F20;"><i class="fas fa-rocket"></i></div>
-                <h3 class="sl-heading-sm sl-text-navy">Launch &amp; Measure</h3>
-                <p class="sl-body sl-text-muted">We deploy your gamified training and track engagement, retention, and on-the-job performance — not just completion rates. We stay on after launch, refining mechanics based on real learner behaviour. Most programs get significantly better in the weeks after launch.</p>
-                <div class="sl-step-tag" style="background:rgba(238,111,32,0.1); color:#EE6F20;">Week 8–10</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- LEARNER JOURNEY MAPPING — Udemy Style -->
-<!-- ============================================ -->
-<section class="sl-journey-udemy sl-reveal">
-    <div class="sl-container">
-        <div class="sl-udemy-header">
-            <span class="sl-badge sl-badge--teal">Learning Path</span>
-            <h2 class="sl-udemy-title sl-text-navy">Your Journey to <span style="color:#47C89F;">Mastery</span></h2>
-            <p class="sl-udemy-subtitle">A structured pathway designed to take your learners from beginner to confident, capable practitioner — with every step intentionally designed.</p>
-        </div>
-
-        <div class="sl-udemy-timeline">
-            <div class="sl-udemy-stage">
-                <div class="sl-udemy-stage-marker"><span class="sl-udemy-stage-number" style="border-color:#EE6F20; color:#EE6F20;">1</span></div>
-                <div class="sl-udemy-stage-card">
-                    <div class="sl-udemy-stage-icon"></div>
-                    <h3 class="sl-udemy-stage-title">Awareness</h3>
-                    <p class="sl-udemy-stage-desc">Understand why this matters to your work and goals. We connect the learning to real problems your team faces daily.</p>
-                    <div class="sl-udemy-stage-meta"><span class="sl-udemy-meta-tag">Foundation</span><span class="sl-udemy-meta-tag">Context</span></div>
-                    <div class="sl-udemy-stage-outcome"><span>You'll know the "why" behind the learning</span></div>
-                </div>
-            </div>
-            <div class="sl-udemy-stage">
-                <div class="sl-udemy-stage-marker"><span class="sl-udemy-stage-number" style="border-color:#9ACA43; color:#9ACA43;">2</span></div>
-                <div class="sl-udemy-stage-card">
-                    <div class="sl-udemy-stage-icon"></div>
-                    <h3 class="sl-udemy-stage-title">Exploration</h3>
-                    <p class="sl-udemy-stage-desc">Build foundational knowledge and connect new ideas. Short, interactive modules keep cognitive load manageable.</p>
-                    <div class="sl-udemy-stage-meta"><span class="sl-udemy-meta-tag">Discovery</span><span class="sl-udemy-meta-tag">Connection</span></div>
-                    <div class="sl-udemy-stage-outcome"><span>You'll build a solid knowledge foundation</span></div>
-                </div>
-            </div>
-            <div class="sl-udemy-stage">
-                <div class="sl-udemy-stage-marker"><span class="sl-udemy-stage-number" style="border-color:#EE6F20; color:#EE6F20;">3</span></div>
-                <div class="sl-udemy-stage-card">
-                    <div class="sl-udemy-stage-icon"></div>
-                    <h3 class="sl-udemy-stage-title">Practice</h3>
-                    <p class="sl-udemy-stage-desc">Apply knowledge through real-world scenarios, branching simulations, and challenges with immediate feedback loops.</p>
-                    <div class="sl-udemy-stage-meta"><span class="sl-udemy-meta-tag">Application</span><span class="sl-udemy-meta-tag">Feedback</span></div>
-                    <div class="sl-udemy-stage-outcome"><span>You'll develop practical skills and confidence</span></div>
-                </div>
-            </div>
-            <div class="sl-udemy-stage">
-                <div class="sl-udemy-stage-marker"><span class="sl-udemy-stage-number" style="border-color:#47C89F; color:#47C89F;">4</span></div>
-                <div class="sl-udemy-stage-card">
-                    <div class="sl-udemy-stage-icon"></div>
-                    <h3 class="sl-udemy-stage-title">Mastery</h3>
-                    <p class="sl-udemy-stage-desc">Apply skills independently and achieve measurable results on the job. This is where training becomes real performance.</p>
-                    <div class="sl-udemy-stage-meta"><span class="sl-udemy-meta-tag">Competence</span><span class="sl-udemy-meta-tag">Impact</span></div>
-                    <div class="sl-udemy-stage-outcome"><span>You'll apply learning with confidence and skill</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="sl-udemy-progress">
-            <div class="sl-udemy-progress-bar">
-                <div class="sl-udemy-progress-fill"></div>
-            </div>
-            <div class="sl-udemy-progress-labels">
-                <span class="sl-udemy-progress-label" style="color:#EE6F20;">Start</span>
-                <span class="sl-udemy-progress-label">Explore</span>
-                <span class="sl-udemy-progress-label">Practice</span>
-                <span class="sl-udemy-progress-label" style="color:#47C89F;">Master</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- OUR PRINCIPLES -->
-<!-- ============================================ -->
-<section class="sl-section sl-bg-white sl-reveal">
-    <div class="sl-container sl-container--narrow">
-        <div class="sl-section-header">
-            <span class="sl-eyebrow">What We Believe</span>
-            <h2 class="sl-heading-xl sl-text-navy">A Few Principles We Don't Bend On</h2>
-            <p class="sl-body-lg sl-text-muted">These aren't marketing talking points. They're the filters every design decision goes through before anything gets built.</p>
-        </div>
-        <div class="sl-principles-list">
-            <div class="sl-principle-row">
-                <span class="sl-principle-num">I.</span>
-                <div>
-                    <h3 class="sl-heading-sm sl-text-navy">Mechanics serve the goal — never the other way round</h3>
-                    <p class="sl-body sl-text-muted">We choose a mechanic because it moves a learner toward a specific outcome, not because it's trending. If points don't serve the learning, there are no points.</p>
-                </div>
-            </div>
-            <div class="sl-rule-thin"></div>
-            <div class="sl-principle-row">
-                <span class="sl-principle-num">II.</span>
-                <div>
-                    <h3 class="sl-heading-sm sl-text-navy">Motivation is built from the inside out</h3>
-                    <p class="sl-body sl-text-muted">External rewards like badges and leaderboards wear off in weeks. We design for curiosity, mastery, and purpose first — because those motivators don't expire.</p>
-                </div>
-            </div>
-            <div class="sl-rule-thin"></div>
-            <div class="sl-principle-row">
-                <span class="sl-principle-num">III.</span>
-                <div>
-                    <h3 class="sl-heading-sm sl-text-navy">Difficulty is a dial, not a guess</h3>
-                    <p class="sl-body sl-text-muted">Every program is paced so beginners aren't lost and experienced staff stay sharp. The zone of proximal development isn't a theory — it's our design brief.</p>
-                </div>
-            </div>
-            <div class="sl-rule-thin"></div>
-            <div class="sl-principle-row">
-                <span class="sl-principle-num">IV.</span>
-                <div>
-                    <h3 class="sl-heading-sm sl-text-navy">Measurement is designed in, not bolted on</h3>
-                    <p class="sl-body sl-text-muted">If we can't show you it's working, we haven't finished the job. Every engagement includes a measurement plan tied to real behavior change, not vanity metrics.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- OUR FRAMEWORK — 4 Pillars -->
-<!-- ============================================ -->
-<section class="sl-framework sl-reveal">
-    <div class="sl-container">
-        <div class="sl-framework-header">
-            <span class="sl-badge sl-badge--lime">Our Framework</span>
-            <h2 class="sl-framework-title">The <span style="color:#47C89F;">Instructional Design</span> Pillars</h2>
-            <p class="sl-framework-subtitle">Four core principles that guide every learning experience we design — from a quick compliance module to a 12-week leadership program.</p>
-        </div>
-        <div class="sl-framework-grid">
-            <div class="sl-framework-pillar">
-                <div class="sl-framework-pillar-icon"><span class="sl-pillar-emoji"></span></div>
-                <h3 class="sl-framework-pillar-title">Learner-Centered Design</h3>
-                <p class="sl-framework-pillar-text">We start with the learner — their context, challenges, and goals. Every decision is made with the question: <em>"What does the learner need to be able to do?"</em> Not "what content do we need to cover?"</p>
-                <div class="sl-framework-pillar-tag"><span>Empathy First</span></div>
-            </div>
-            <div class="sl-framework-pillar">
-                <div class="sl-framework-pillar-icon"><span class="sl-pillar-emoji"></span></div>
-                <h3 class="sl-framework-pillar-title">Evidence-Based Practice</h3>
-                <p class="sl-framework-pillar-text">We draw from cognitive science, learning research, and proven instructional models — not trends. Spaced repetition, retrieval practice, and worked examples aren't buzzwords here; they're building blocks.</p>
-                <div class="sl-framework-pillar-tag"><span>Research-Backed</span></div>
-            </div>
-            <div class="sl-framework-pillar">
-                <div class="sl-framework-pillar-icon"><span class="sl-pillar-emoji"></span></div>
-                <h3 class="sl-framework-pillar-title">Purposeful Engagement</h3>
-                <p class="sl-framework-pillar-text">Engagement isn't about entertainment — it's about creating meaningful interactions that build competence. Every activity serves a clear learning purpose. If it's fun <em>and</em> educational, even better.</p>
-                <div class="sl-framework-pillar-tag"><span>Meaningful Interaction</span></div>
-            </div>
-            <div class="sl-framework-pillar">
-                <div class="sl-framework-pillar-icon"><span class="sl-pillar-emoji"></span></div>
-                <h3 class="sl-framework-pillar-title">Measurable Impact</h3>
-                <p class="sl-framework-pillar-text">We design for results. Every program includes clear metrics that track learning outcomes, behavior change, and business impact. We report on what changed — not just what was completed.</p>
-                <div class="sl-framework-pillar-tag"><span>Results-Driven</span></div>
-            </div>
-        </div>
-        <div class="sl-framework-callout">
-            <p class="sl-framework-callout-text">These pillars aren't just principles — they're the foundation of every program we design.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- WHAT YOU GET — Services Included -->
-<!-- ============================================ -->
-<section class="sl-section sl-bg-offwhite sl-reveal">
-    <div class="sl-container">
-        <div class="sl-section-header">
-            <span class="sl-badge sl-badge--teal">What's Included</span>
-            <h2 class="sl-heading-xl sl-text-navy">Everything You Need to Launch</h2>
-            <p class="sl-body-lg sl-text-muted">A complete toolkit — not just a slide deck. Every engagement with Sofel Labs includes these deliverables.</p>
-        </div>
-        <div class="sl-services-grid">
-            <div class="sl-service-card">
-                <div class="sl-service-icon sl-service-icon--teal"><i class="fas fa-route"></i></div>
-                <h3 class="sl-heading-sm sl-text-navy">Learning Journey Map</h3>
-                <p class="sl-body sl-text-muted">A full blueprint of every challenge, checkpoint, and reward moment your learners will move through — mapped to real performance goals, not just course content.</p>
-            </div>
-            <div class="sl-service-card">
-                <div class="sl-service-icon sl-service-icon--lime"><i class="fas fa-puzzle-piece"></i></div>
-                <h3 class="sl-heading-sm sl-text-navy">Mechanics Library</h3>
-                <p class="sl-body sl-text-muted">A curated set of game mechanics matched to your content — not generic badges, but mechanics chosen because they fit what you're teaching and who your learners are.</p>
-            </div>
-            <div class="sl-service-card">
-                <div class="sl-service-icon sl-service-icon--orange"><i class="fas fa-chart-line"></i></div>
-                <h3 class="sl-heading-sm sl-text-navy">Measurement Plan</h3>
-                <p class="sl-body sl-text-muted">Clear metrics tied to engagement and on-the-job performance, so you can show stakeholders the training is actually working — in language they understand and care about.</p>
-            </div>
-            <div class="sl-service-card">
-                <div class="sl-service-icon sl-service-icon--teal"><i class="fas fa-users-cog"></i></div>
-                <h3 class="sl-heading-sm sl-text-navy">Stakeholder Toolkit</h3>
-                <p class="sl-body sl-text-muted">Ready-made talking points and visuals to win buy-in from leadership, fast — built from the language decision-makers respond to. Get your budget approved with confidence.</p>
-            </div>
-            <div class="sl-service-card">
-                <div class="sl-service-icon sl-service-icon--lime"><i class="fas fa-sliders-h"></i></div>
-                <h3 class="sl-heading-sm sl-text-navy">Difficulty Tuning</h3>
-                <p class="sl-body sl-text-muted">Built-in pacing and difficulty curves so beginners aren't overwhelmed and advanced learners stay challenged. We design for the full range, not a mythical average learner.</p>
-            </div>
-            <div class="sl-service-card">
-                <div class="sl-service-icon sl-service-icon--orange"><i class="fas fa-life-ring"></i></div>
-                <h3 class="sl-heading-sm sl-text-navy">Post-Launch Support</h3>
-                <p class="sl-body sl-text-muted">We stay on after launch to refine mechanics based on real learner behaviour, not just assumptions made in design. Most programs improve significantly after their first cohort goes through.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- RESULTS — Outcomes & Stats -->
-<!-- ============================================ -->
-<section class="sl-results-id sl-reveal">
-    <div class="sl-container">
-        <div class="sl-results-id-header">
-            <span class="sl-results-id-badge">✦ Results That Matter</span>
-            <h2 class="sl-results-id-title">Built for <span style="color:#9ACA43;">Learning Outcomes</span>, Not Optics</h2>
-            <p class="sl-results-id-subtitle">Every design decision earns its place by moving a real learning metric</p>
-        </div>
-        <div class="sl-results-id-grid">
-            <div class="sl-results-id-card">
-                <div class="sl-results-id-icon"><span class="sl-result-emoji"></span></div>
-                <h3 class="sl-results-id-card-title">Knowledge Retention</h3>
-                <p class="sl-results-id-card-text">Programs designed with cognitive science principles consistently outperform passive e-learning on retention and recall, measured 30, 60, and 90 days after training.</p>
-                <div class="sl-results-id-stat"><span class="sl-stat-number" style="color:#47C89F;">87%</span><span class="sl-stat-label">Higher retention vs. traditional training</span></div>
-            </div>
-            <div class="sl-results-id-card sl-results-id-card--featured">
-                <div class="sl-results-id-icon"><span class="sl-result-emoji"></span></div>
-                <h3 class="sl-results-id-card-title" style="color:#9ACA43;">Behavior Change</h3>
-                <p class="sl-results-id-card-text">We measure success by what learners do differently on the job — not just what they clicked through. Observable behavior change within 30 days of program completion.</p>
-                <div class="sl-results-id-stat sl-results-id-stat--lime"><span class="sl-stat-number" style="color:#9ACA43;">3.2x</span><span class="sl-stat-label">Better application of learning on the job</span></div>
-            </div>
-            <div class="sl-results-id-card">
-                <div class="sl-results-id-icon"><span class="sl-result-emoji"></span></div>
-                <h3 class="sl-results-id-card-title">Meaningful Engagement</h3>
-                <p class="sl-results-id-card-text">Learners don't just complete our programs — they recommend them. High voluntary completion and peer sharing are signals that the design is working.</p>
-                <div class="sl-results-id-stat"><span class="sl-stat-number" style="color:#47C89F;">92%</span><span class="sl-stat-label">Learner satisfaction and completion rate</span></div>
-            </div>
-            <div class="sl-results-id-card">
-                <div class="sl-results-id-icon"><span class="sl-result-emoji"></span></div>
-                <h3 class="sl-results-id-card-title">Business Impact</h3>
-                <p class="sl-results-id-card-text">Training that changes behavior changes results. Our clients report measurable improvements in the KPIs their training was designed to move — within one quarter.</p>
-                <div class="sl-results-id-stat"><span class="sl-stat-number" style="color:#EE6F20;">4.8x</span><span class="sl-stat-label">ROI on training investment</span></div>
-            </div>
-        </div>
-        <div class="sl-results-id-callout">
-            <div class="sl-results-id-callout-line"></div>
-            <p class="sl-results-id-callout-text">We don't just design training — we design <strong>transformational learning experiences</strong> that deliver measurable results.</p>
-            <div class="sl-results-id-callout-line"></div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- NEW SECTION 1: WHO WE SERVE -->
-<!-- ============================================ -->
-<section class="sl-section sl-bg-white sl-reveal">
-    <div class="sl-container">
-        <div class="sl-section-header">
-            <span class="sl-badge sl-badge--orange">Who We Serve</span>
-            <h2 class="sl-heading-xl sl-text-navy">Built for Teams Who Take Learning Seriously</h2>
-            <p class="sl-body-lg sl-text-muted">We work with organisations that have tried conventional training and know it's not enough. Here's who gets the most value from what we do.</p>
-        </div>
-        <div class="sl-audience-grid">
-            <div class="sl-audience-card">
-                <div class="sl-audience-icon"><i class="fas fa-building" style="color:#47C89F;"></i></div>
-                <h3 class="sl-audience-title">Corporate L&amp;D Teams</h3>
-                <p class="sl-audience-text">You have a mandate to upskill thousands of employees but your completion rates are embarrassing and your leadership is asking hard questions. We help you build programs worth completing.</p>
-                <div class="sl-audience-use-case">Common programs: Sales enablement, compliance, leadership development, onboarding</div>
-            </div>
-            <div class="sl-audience-card">
-                <div class="sl-audience-icon"><i class="fas fa-hands-helping" style="color:#9ACA43;"></i></div>
-                <h3 class="sl-audience-title">NGOs &amp; Development Agencies</h3>
-                <p class="sl-audience-text">Your training serves communities with diverse literacy levels, limited bandwidth, and high stakes. We design for context — mobile-first, culturally appropriate, and built around real field scenarios.</p>
-                <div class="sl-audience-use-case">Common programs: Health worker training, community education, capacity building</div>
-            </div>
-            <div class="sl-audience-card">
-                <div class="sl-audience-icon"><i class="fas fa-graduation-cap" style="color:#EE6F20;"></i></div>
-                <h3 class="sl-audience-title">Training Providers</h3>
-                <p class="sl-audience-text">You design courses for a living but want to take your offering to the next level. We help you embed gamification principles and engagement mechanics that make your programs stand out in a crowded market.</p>
-                <div class="sl-audience-use-case">Common programs: Professional certification, technical skills, soft skills</div>
-            </div>
-            <div class="sl-audience-card">
-                <div class="sl-audience-icon"><i class="fas fa-shield-alt" style="color:#47C89F;"></i></div>
-                <h3 class="sl-audience-title">Compliance Departments</h3>
-                <p class="sl-audience-text">Compliance training has a terrible reputation — and for good reason. We rebuild it from the ground up: not dumbed-down, not preachy, but genuinely engaging because people understand why it matters.</p>
-                <div class="sl-audience-use-case">Common programs: Anti-bribery, data privacy, health &amp; safety, financial compliance</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- NEW SECTION 2: GAMIFICATION EXPLAINED -->
-<!-- ============================================ -->
-<section class="sl-game-explain sl-reveal">
-    <div class="sl-container">
-        <div class="sl-section-header">
-            <span class="sl-badge sl-badge--teal">Gamification Explained</span>
-            <h2 class="sl-heading-xl sl-text-white">What Gamification Actually Is<br><span style="color:#9ACA43;">(And What It Isn't)</span></h2>
-            <p class="sl-body-lg" style="color:rgba(255,255,255,0.65); max-width:640px; margin:14px auto 0;">There's a lot of confusion about this word. Let's clear it up — because understanding the difference between real gamification and its shallow imitation is everything.</p>
-        </div>
-
-        <div class="sl-game-explain-grid">
-            <div class="sl-game-myth">
-                <div class="sl-game-myth-header">
-                    <span class="sl-game-myth-label" style="color:#EE6F20;"> The Myth</span>
-                    <h3 style="color:#ffffff; font-size:20px; font-weight:700; margin:8px 0 0;">Gamification = Adding Points &amp; Badges</h3>
-                </div>
-                <p style="color:rgba(255,255,255,0.6); font-size:15px; line-height:1.75; margin:16px 0 0;">Many organisations mistake cosmetic gamification for the real thing. They add a leaderboard to an existing course, hand out completion badges, and wonder why engagement hasn't changed. This approach — sometimes called "pointsification" — is fundamentally different from genuine learning design. Superficial mechanics don't change motivation because they don't address the root cause: the content itself wasn't designed to engage.</p>
-            </div>
-            <div class="sl-game-truth">
-                <div class="sl-game-truth-header">
-                    <span class="sl-game-truth-label" style="color:#47C89F;">✓ The Reality</span>
-                    <h3 style="color:#ffffff; font-size:20px; font-weight:700; margin:8px 0 0;">Gamification = A Design Philosophy</h3>
-                </div>
-                <p style="color:rgba(255,255,255,0.6); font-size:15px; line-height:1.75; margin:16px 0 0;">True gamification means applying game design principles — challenge, progression, feedback loops, narrative, and autonomy — to the structure of a learning experience from the very beginning. It means asking: what makes a game impossible to put down? And then intentionally engineering those same psychological drivers into your training. The result isn't a game. It's a learning experience so well-designed that people want to come back.</p>
-                <div class="sl-game-mechanics-row">
-                    <span class="sl-mechanic-tag">Challenge Curves</span>
-                    <span class="sl-mechanic-tag">Feedback Loops</span>
-                    <span class="sl-mechanic-tag">Narrative Arc</span>
-                    <span class="sl-mechanic-tag">Autonomy</span>
-                    <span class="sl-mechanic-tag">Mastery Progression</span>
-                    <span class="sl-mechanic-tag">Social Dynamics</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="sl-game-quote-row">
-            <div class="sl-game-quote-card">
-                <p class="sl-game-quote-text">"The goal of gamification is not to make work feel like play. It's to make learning feel worth doing."</p>
-                <span class="sl-game-quote-attr">— Mwangi Kamau, Founder, Sofel Labs</span>
-            </div>
-            <div class="sl-game-stats-row">
-                <div class="sl-game-stat"><span class="sl-game-stat-num" style="color:#47C89F;">48%</span><span class="sl-game-stat-label">Increase in learner engagement with gamified content</span></div>
-                <div class="sl-game-stat"><span class="sl-game-stat-num" style="color:#9ACA43;">36%</span><span class="sl-game-stat-label">Higher knowledge retention after 90 days</span></div>
-                <div class="sl-game-stat"><span class="sl-game-stat-num" style="color:#EE6F20;">60%</span><span class="sl-game-stat-label">Faster skill acquisition vs. traditional eLearning</span></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- NEW SECTION 3: CASE STUDY / STORY -->
-<!-- ============================================ -->
-<section class="sl-section sl-bg-offwhite sl-reveal">
-    <div class="sl-container">
-        <div class="sl-section-header">
-            <span class="sl-badge sl-badge--lime">In Practice</span>
-            <h2 class="sl-heading-xl sl-text-navy">What a Real Transformation Looks Like</h2>
-            <p class="sl-body-lg sl-text-muted">Here's how we took a compliance training program with 34% completion — and turned it into a learner-favourite experience with 91% completion in 8 weeks.</p>
-        </div>
-
-        <div class="sl-story-grid">
-            <div class="sl-story-context">
-                <div class="sl-story-tag" style="color:#EE6F20; border-color:rgba(238,111,32,0.3);">The Challenge</div>
-                <h3 class="sl-heading-sm sl-text-navy">A Financial Services Firm with a Compliance Crisis</h3>
-                <p class="sl-body sl-text-muted">A regional financial services firm was facing regulatory scrutiny. Their mandatory anti-bribery training had a 34% voluntary completion rate, and even those who completed it scored poorly on post-assessments. The L&D team had tried reminders, deadline pressure, and even making the training shorter — nothing worked.</p>
-                <p class="sl-body sl-text-muted">The content wasn't the problem. The learners weren't the problem. The <strong style="color:#0E2A47;">design</strong> was the problem.</p>
-
-                <div class="sl-story-tag" style="color:#47C89F; border-color:rgba(71,200,159,0.3); margin-top:28px;">Our Approach</div>
-                <p class="sl-body sl-text-muted">We rebuilt the program around a central narrative: learners played the role of a compliance officer navigating real-world scenarios — supplier dinners, gift requests, whistleblower situations. Each scenario had branching consequences. Wrong decisions didn't just show a red X; they played out realistically, showing what an investigation would look like. Points reflected risk management skill, not just completion.</p>
-            </div>
-
-            <div class="sl-story-results">
-                <div class="sl-story-result-header">Results After 8 Weeks</div>
-                <div class="sl-story-stat-list">
-                    <div class="sl-story-stat">
-                        <span class="sl-story-stat-before">34%</span>
-                        <span class="sl-story-stat-arrow">→</span>
-                        <span class="sl-story-stat-after" style="color:#47C89F;">91%</span>
-                        <span class="sl-story-stat-label">Voluntary completion rate</span>
-                    </div>
-                    <div class="sl-story-stat">
-                        <span class="sl-story-stat-before">52%</span>
-                        <span class="sl-story-stat-arrow">→</span>
-                        <span class="sl-story-stat-after" style="color:#9ACA43;">89%</span>
-                        <span class="sl-story-stat-label">Post-assessment pass rate</span>
-                    </div>
-                    <div class="sl-story-stat">
-                        <span class="sl-story-stat-before">12 min</span>
-                        <span class="sl-story-stat-arrow">→</span>
-                        <span class="sl-story-stat-after" style="color:#EE6F20;">38 min</span>
-                        <span class="sl-story-stat-label">Average time on training (voluntary)</span>
-                    </div>
-                    <div class="sl-story-stat">
-                        <span class="sl-story-stat-before">2.1</span>
-                        <span class="sl-story-stat-arrow">→</span>
-                        <span class="sl-story-stat-after" style="color:#47C89F;">4.9/5</span>
-                        <span class="sl-story-stat-label">Learner satisfaction rating</span>
-                    </div>
-                </div>
-                <div class="sl-story-quote">
-                    <p>"We've never had staff ask when the next compliance module is coming out. After Sofel's redesign, we had three people ask exactly that."</p>
-                    <span>— Head of Compliance, Financial Services Client</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- TESTIMONIAL -->
-<!-- ============================================ -->
-<section class="sl-testimonial-classic sl-reveal">
-    <div class="sl-testimonial-classic-container">
-        <div class="sl-testimonial-classic-card">
-            <div class="sl-testimonial-classic-quote-mark"><span>"</span></div>
-            <blockquote class="sl-testimonial-classic-quote">
-                Sofel Labs didn't just gamify our training — they transformed how our people learn.
-                <span class="sl-testimonial-classic-highlight">The engagement was unreal.</span>
-                For the first time, our team was actually excited to come back and complete more modules.
-            </blockquote>
-            <div class="sl-testimonial-classic-divider">
-                <span class="sl-classic-divider-line"></span>
-                <span class="sl-classic-divider-diamond">◆</span>
-                <span class="sl-classic-divider-line"></span>
-            </div>
-            <div class="sl-testimonial-classic-author">
-                <div class="sl-testimonial-classic-avatar">CJ</div>
-                <div class="sl-testimonial-classic-author-info">
-                    <p class="sl-testimonial-classic-name">Cjay</p>
-                    <p class="sl-testimonial-classic-title">Instructional Design Specialist</p>
-                    <div class="sl-testimonial-classic-rating">
-                        <span class="sl-classic-star">★</span><span class="sl-classic-star">★</span>
-                        <span class="sl-classic-star">★</span><span class="sl-classic-star">★</span>
-                        <span class="sl-classic-star">★</span>
-                        <span class="sl-classic-rating-text">5.0</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- LOGOS / TRUSTED BY -->
-<!-- ============================================ -->
-<section class="sl-logos-strip sl-reveal">
-    <div class="sl-container">
-        <p class="sl-logos-label">Trusted by teams building training for</p>
-        <div class="sl-logos-row">
-            <div class="sl-logo-item"><i class="fas fa-building"></i><span>Corporates</span></div>
-            <div class="sl-logo-item"><i class="fas fa-hands-helping"></i><span>NGOs</span></div>
-            <div class="sl-logo-item"><i class="fas fa-globe-africa"></i><span>Development Agencies</span></div>
-            <div class="sl-logo-item"><i class="fas fa-graduation-cap"></i><span>L&amp;D Teams</span></div>
-            <div class="sl-logo-item"><i class="fas fa-shield-alt"></i><span>Compliance Departments</span></div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- FOUNDER -->
-<!-- ============================================ -->
-<section class="sl-section sl-bg-white sl-reveal">
-    <div class="sl-container">
-        <div class="sl-founder-grid">
-            <div class="sl-founder-content">
-                <span class="sl-badge sl-badge--teal">Founder &amp; Lead Consultant</span>
-                <h2 class="sl-heading-xl sl-text-navy" style="margin-top:12px !important;">Hi, I'm Mwangi Kamau.</h2>
-                <p class="sl-founder-role sl-text-teal">E-Learning Consultant | Gamification Specialist</p>
-                <p class="sl-founder-location sl-text-muted"><i class="fas fa-map-marker-alt sl-text-teal"></i> Nairobi County, Kenya</p>
-                <p class="sl-body sl-text-body">I'm passionate about transforming how people learn. With years of experience in instructional design and gamification, I've helped organizations across Africa and beyond create engaging e-learning experiences that deliver real results — not just completion certificates.</p>
-                <p class="sl-body sl-text-body">I founded <strong style="color:#47C89F;">Sofel Labs</strong> with a simple mission: make learning unforgettable. My approach combines proven instructional design principles with the motivational psychology of great game design. No gimmicks, no badges for the sake of badges — just experiences that actually move people.</p>
-                <blockquote class="sl-founder-quote">"Gamification isn't about points and badges. It's about creating experiences that change behavior — and designing those experiences with intention."</blockquote>
-                <p class="sl-body sl-text-body">Over the years, I've developed gamified training programs for corporates, NGOs, and development agencies — always with a focus on real-world application and measurable outcomes. I care deeply about the Africa context: designing learning that works for diverse populations, low-bandwidth environments, and high-stakes skill gaps.</p>
-                <p class="sl-body sl-text-body sl-text-navy sl-fw-medium">I'm excited to help you build training that your learners will actually love.</p>
-                <p class="sl-founder-signature">Let's transform learning together.<br>— Mwangi</p>
-            </div>
-            <div class="sl-founder-image-col">
-                <img src="./wp-content/uploads/2021/06/mjcropped-799x1024.jpg" alt="Mwangi Kamau - Founder of Sofel Labs" class="sl-founder-img">
-                <div class="sl-founder-stats">
-                    <div class="sl-founder-stat">
-                        <span class="sl-stat-num sl-text-teal">528</span>
-                        <span class="sl-text-muted sl-small">Followers</span>
-                    </div>
-                    <div class="sl-founder-stat-divider"></div>
-                    <div class="sl-founder-stat">
-                        <span class="sl-stat-num sl-text-teal">376</span>
-                        <span class="sl-text-muted sl-small">Connections</span>
-                    </div>
-                </div>
-                <div class="sl-founder-social">
-                    <a href="https://www.linkedin.com/in/mwangikamau/" target="_blank" class="sl-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://twitter.com/sofellabs" target="_blank" class="sl-social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/sofellabs" target="_blank" class="sl-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                </div>
-                <div class="sl-founder-brand-tag">Sofel Labs</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- FAQ -->
-<!-- ============================================ -->
-<section class="sl-section sl-bg-offwhite sl-reveal">
-    <div class="sl-container sl-container--narrow">
-        <div class="sl-section-header">
-            <span class="sl-badge sl-badge--teal">Common Questions</span>
-            <h2 class="sl-heading-xl sl-text-navy">Frequently Asked Questions</h2>
-            <p class="sl-body-lg sl-text-muted">Everything you've been wondering before booking a call. If your question isn't here, just reach out.</p>
-        </div>
-        <div class="sl-faq-list">
-            <div class="sl-faq-item">
-                <button class="sl-faq-question" aria-expanded="false">
-                    <span>How long does a typical gamification project take?</span>
-                    <span class="sl-faq-icon"><i class="fas fa-plus"></i></span>
-                </button>
-                <div class="sl-faq-answer">
-                    <p class="sl-body">Most engagements run 6–10 weeks from discovery to launch, depending on the size of the program and how much existing content we're working from. Smaller pilot programs can move faster — sometimes in as little as 3 weeks for a focused module. We'll always give you a realistic timeline in our first conversation.</p>
-                </div>
-            </div>
-            <div class="sl-faq-item">
-                <button class="sl-faq-question" aria-expanded="false">
-                    <span>Do you build the training yourself, or just consult on strategy?</span>
-                    <span class="sl-faq-icon"><i class="fas fa-plus"></i></span>
-                </button>
-                <div class="sl-faq-answer">
-                    <p class="sl-body">Both. We design the full mechanics and learning journey, and can either hand the blueprint to your in-house team or build the program ourselves end-to-end, depending on what you need. Many clients start with a strategy engagement and then bring us back to build. Others hand everything over from day one. We're flexible.</p>
-                </div>
-            </div>
-            <div class="sl-faq-item">
-                <button class="sl-faq-question" aria-expanded="false">
-                    <span>Will this work for compliance training, or only for "fun" topics?</span>
-                    <span class="sl-faq-icon"><i class="fas fa-plus"></i></span>
-                </button>
-                <div class="sl-faq-answer">
-                    <p class="sl-body">Compliance training is one of our most common use cases — and one of the most rewarding to transform. Gamification doesn't mean turning serious content into a joke. It means designing the right challenge structure, consequences, and narrative so people actually pay attention, feel the stakes, and retain the material. We've built anti-bribery, data privacy, and health &amp; safety programs that learners actually request to revisit.</p>
-                </div>
-            </div>
-            <div class="sl-faq-item">
-                <button class="sl-faq-question" aria-expanded="false">
-                    <span>Do we need special software or a new learning platform?</span>
-                    <span class="sl-faq-icon"><i class="fas fa-plus"></i></span>
-                </button>
-                <div class="sl-faq-answer">
-                    <p class="sl-body">No. We design mechanics that work within whatever LMS or delivery platform you already use — Moodle, TalentLMS, Cornerstone, custom builds, even WhatsApp-based delivery for low-bandwidth environments. No coding required on your end, and no forced platform migration. We meet you where your learners are.</p>
-                </div>
-            </div>
-            <div class="sl-faq-item">
-                <button class="sl-faq-question" aria-expanded="false">
-                    <span>How do you measure whether it's actually working?</span>
-                    <span class="sl-faq-icon"><i class="fas fa-plus"></i></span>
-                </button>
-                <div class="sl-faq-answer">
-                    <p class="sl-body">Every program ships with a measurement plan tied to engagement metrics and, where possible, on-the-job behaviour change — not just completion rates, which can be misleading on their own. We use pre/post assessments, scenario-based performance scoring, manager observation tools, and 30/60/90 day check-ins to build a complete picture of learning impact.</p>
-                </div>
-            </div>
-            <div class="sl-faq-item">
-                <button class="sl-faq-question" aria-expanded="false">
-                    <span>We have a small L&amp;D team with limited budget. Can you still help?</span>
-                    <span class="sl-faq-icon"><i class="fas fa-plus"></i></span>
-                </button>
-                <div class="sl-faq-answer">
-                    <p class="sl-body">Yes — and some of our best work has been with lean teams. We offer focused strategy engagements for teams who want to upskill internally and build gamified learning themselves. We can also scope a pilot project on a single high-priority course before committing to a larger engagement. Let's talk about what's actually possible within your constraints.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- CTA DARK BANNER -->
-<!-- ============================================ -->
-<section class="sl-cta-banner sl-bg-navy sl-reveal">
-    <div class="sl-container sl-container--narrow sl-text-center">
-        <h2 class="sl-heading-lg sl-text-white">Build Your Gamified Program with Sofel Labs</h2>
-        <p class="sl-body-lg sl-text-white-60">From strategy to launch — we guide you every step of the way.</p>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- CTA - DISCOVERY CALL -->
-<!-- ============================================ -->
-<section class="sl-section sl-bg-white sl-reveal">
-    <div class="sl-container">
-        <div class="sl-cta-grid">
-            <div>
-                <h2 class="sl-heading-xl sl-text-navy">The Effective Gamification Framework</h2>
-                <p class="sl-body-lg sl-text-muted" style="margin:16px 0 28px !important;">Create unforgettable e-learning programs that get results and delight learners. Book a free discovery call and let's map out what's possible for your team.</p>
-                <a href="https://cal.com/sofellabs" class="sl-btn sl-btn--teal" id="Book2">Book your discovery call</a>
-            </div>
-            <div>
-                <img src="./wp-content/uploads/2022/01/devicesAsset-5-768x478.png" alt="Sofel Labs Framework" class="sl-cta-img">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- CTA - CONSULTATION (TEAL BG) -->
-<!-- ============================================ -->
-<section class="sl-section sl-bg-teal sl-reveal">
-    <div class="sl-container">
-        <div class="sl-cta-grid">
-            <div>
-                <p class="sl-small sl-text-white sl-fw-semibold" style="letter-spacing:2px; text-transform:uppercase; margin-bottom:10px !important;">Ready to make learning stick?</p>
-                <h2 class="sl-heading-lg sl-text-white" style="margin-bottom:12px !important;">Start With a Free Consultation</h2>
-                <p class="sl-body-lg sl-text-white" style="margin-bottom:28px !important;">Whether you're training staff, building capacity, or rolling out a large-scale program across an entire organization, Sofel Labs can help you design learning that actually delivers results — not just reports.</p>
-                <a href="https://cal.com/sofellabs" class="sl-btn sl-btn--white-outline" id="Book3">Book Your Free Consultation</a>
-            </div>
-            <div>
-                <img src="./wp-content/uploads/elementor/thumbs/unityimage-pk2fb7492hp367yesd35y7eiri5ygis1atvmtl6dgs.jpg" alt="Sofel Labs Consultation" class="sl-cta-img">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- SUBSCRIPTION SECTION -->
-<!-- ============================================ -->
-<section class="sl-section sl-bg-offwhite sl-reveal">
-    <div class="sl-container sl-container--narrow sl-text-center">
-        <span class="sl-badge sl-badge--teal">Get Updates</span>
-        <h4 class="sl-heading-md sl-text-navy" style="margin:16px 0 8px !important;">Subscribe to Our Newsletter</h4>
-        <p class="sl-body sl-text-muted" style="margin-bottom:16px !important;">Receive insights, case studies, and practical tips on gamification and instructional design.</p>
-
-        <div id="subscription-message"></div>
-
-        <form id="subscription-form" class="sl-subscription-form" style="max-width:500px;margin:0 auto;">
-            @csrf
-            <div class="sl-form-group" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
-                <input type="email" 
-                       id="sub-email" 
-                       name="email" 
-                       placeholder="Enter your email address" 
-                       required 
-                       style="flex:1;min-width:220px;padding:12px 18px;border:2px solid rgba(0,0,0,0.06);border-radius:8px;font-size:16px;outline:none;transition:all 0.3s;">
-                <button type="submit" 
-                        class="sl-btn sl-btn--primary" 
-                        style="padding:12px 32px;border:none;border-radius:8px;background:#47C89F;color:#FFFFFF;font-weight:600;font-size:16px;cursor:pointer;transition:all 0.3s;">
-                    Subscribe
-                </button>
-            </div>
-            <p style="font-size:13px;color:#6B7C93;margin-top:12px;">We respect your privacy. Unsubscribe at any time.</p>
-        </form>
-
-        <div id="subscription-success" style="display:none;padding:20px;background:rgba(71,200,159,0.06);border-radius:8px;border:1px solid rgba(71,200,159,0.12);max-width:500px;margin:0 auto;">
-            <i class="fas fa-check-circle" style="color:#47C89F;font-size:24px;display:block;margin-bottom:8px;"></i>
-            <p style="color:#47C89F;font-weight:600;font-size:16px;margin:0;">Thank you for subscribing!</p>
-            <p style="color:#6B7C93;font-size:14px;margin:4px 0 0 0;">You'll receive our latest insights and updates.</p>
-        </div>
-
-        <div id="subscription-error" style="display:none;padding:20px;background:rgba(237,68,132,0.04);border-radius:8px;border:1px solid rgba(237,68,132,0.08);max-width:500px;margin:0 auto;">
-            <i class="fas fa-exclamation-circle" style="color:#ED4484;font-size:24px;display:block;margin-bottom:8px;"></i>
-            <p style="color:#ED4484;font-weight:600;font-size:16px;margin:0;">Something went wrong.</p>
-            <p style="color:#6B7C93;font-size:14px;margin:4px 0 0 0;" id="error-message">Please try again later.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Subscription Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('subscription-form');
-    const emailInput = document.getElementById('sub-email');
-    const successDiv = document.getElementById('subscription-success');
-    const errorDiv = document.getElementById('subscription-error');
-    const errorMessage = document.getElementById('error-message');
-    const messageDiv = document.getElementById('subscription-message');
+    const slides = document.querySelectorAll('.sl-hero-slide');
+    const dots = document.querySelectorAll('.sl-hero-dot');
+    let currentSlide = 0;
+    let slideInterval;
+    const intervalTime = 8000;
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+    function goToSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
 
-        // Reset messages
-        successDiv.style.display = 'none';
-        errorDiv.style.display = 'none';
-        messageDiv.innerHTML = '';
-
-        const email = emailInput.value.trim();
-
-        if (!email) {
-            showError('Please enter your email address.');
-            return;
+        if (slides[index]) {
+            slides[index].classList.add('active');
         }
+        if (dots[index]) {
+            dots[index].classList.add('active');
+        }
+        currentSlide = index;
+    }
 
-        // Show loading state
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Subscribing...';
-        submitBtn.disabled = true;
+    function nextSlide() {
+        const next = (currentSlide + 1) % slides.length;
+        goToSlide(next);
+    }
 
-        // Get CSRF token
-        const token = document.querySelector('meta[name="csrf-token"]')?.content || '';
+    window.goToSlide = goToSlide;
 
-        fetch('/subscribe', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': token,
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                email: email,
-                source: 'website'
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
+    function startAutoSlide() {
+        if (slides.length > 1) {
+            slideInterval = setInterval(nextSlide, intervalTime);
+        }
+    }
 
-            if (data.success) {
-                successDiv.style.display = 'block';
-                form.style.display = 'none';
-                emailInput.value = '';
+    function stopAutoSlide() {
+        if (slideInterval) {
+            clearInterval(slideInterval);
+            slideInterval = null;
+        }
+    }
 
-                // Show success message at top
-                messageDiv.innerHTML = `
-                    <div style="padding:12px 18px;background:rgba(71,200,159,0.06);border-radius:8px;border:1px solid rgba(71,200,159,0.12);margin-bottom:16px;">
-                        <p style="color:#47C89F;font-weight:500;margin:0;">✅ ${data.message}</p>
-                    </div>
-                `;
-
-                // Reset form after 5 seconds if needed
-                setTimeout(() => {
-                    // You can show the form again if you want multiple subscriptions
-                    // form.style.display = 'flex';
-                    // successDiv.style.display = 'none';
-                }, 5000);
-            } else {
-                if (data.already_subscribed) {
-                    messageDiv.innerHTML = `
-                        <div style="padding:12px 18px;background:rgba(255,193,7,0.06);border-radius:8px;border:1px solid rgba(255,193,7,0.12);margin-bottom:16px;">
-                            <p style="color:#F59E0B;font-weight:500;margin:0;">ℹ️ ${data.message}</p>
-                        </div>
-                    `;
-                } else {
-                    showError(data.message || 'Something went wrong. Please try again.');
-                }
-            }
-        })
-        .catch(error => {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-            console.error('Subscription error:', error);
-            showError('Network error. Please check your connection and try again.');
+    // Pause on dot click
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', function() {
+            stopAutoSlide();
+            goToSlide(index);
+            setTimeout(startAutoSlide, 8000);
         });
     });
 
-    function showError(message) {
-        errorMessage.textContent = message;
-        errorDiv.style.display = 'block';
+    // Pause on hover
+    const wrapper = document.querySelector('.sl-hero-wrapper');
+    if (wrapper) {
+        wrapper.addEventListener('mouseenter', stopAutoSlide);
+        wrapper.addEventListener('mouseleave', function() {
+            if (slides.length > 1) {
+                startAutoSlide();
+            }
+        });
     }
+
+    if (slides.length > 0) {
+        goToSlide(0);
+        startAutoSlide();
+    }
+
+    // Preload images
+    slides.forEach(slide => {
+        const bg = slide.querySelector('.sl-hero-image');
+        if (bg) {
+            const img = new Image();
+            img.src = bg.style.backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+        }
+    });
 });
 </script>
 
 <!-- ============================================ -->
-<!-- SCRIPTS -->
+<!-- TRUST METRICS STRIP -->
+<!-- ============================================ -->
+<section class="tk-metrics">
+    <div class="tk-container">
+        <div class="tk-metrics-grid">
+            <div class="tk-metric-item">
+                <span class="tk-metric-num" style="color:#2563EB;">Android & iOS</span>
+                <span class="tk-metric-label">Native & Cross-Platform</span>
+            </div>
+            <div class="tk-metric-divider"></div>
+            <div class="tk-metric-item">
+                <span class="tk-metric-num" style="color:#39FF14;">GIS Ready</span>
+                <span class="tk-metric-label">Geospatial Solutions</span>
+            </div>
+            <div class="tk-metric-divider"></div>
+            <div class="tk-metric-item">
+                <span class="tk-metric-num" style="color:#06B6D4;">Full-Stack</span>
+                <span class="tk-metric-label">Design to Deployment</span>
+            </div>
+            <div class="tk-metric-divider"></div>
+            <div class="tk-metric-item">
+                <span class="tk-metric-num" style="color:#4B5563;">Gamification</span>
+                <span class="tk-metric-label">Instructional Design · eLearning</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SERVICES SECTION -->
+<!-- ============================================ -->
+<section class="tk-section tk-bg-dark tk-reveal" id="services">
+    <div class="tk-container">
+        <div class="tk-section-header">
+            <span class="tk-badge tk-badge--cyan">What We Do</span>
+            <h2 class="tk-heading-xl" style="color:#0F172A;">End-to-End Digital <span style="color:#39FF14;">Solutions</span></h2>
+            <p class="tk-body-lg" style="color:#4B5563;">From the first wireframe to live deployment — we cover every layer of the digital stack, for every platform your users are on.</p>
+        </div>
+
+        <div class="tk-services-grid">
+            <!-- Mobile Apps -->
+            <div class="tk-service-card tk-service-card--featured">
+                <div class="tk-service-glow"></div>
+                <div class="tk-service-icon-wrap" style="background:rgba(57,255,20,0.08); border-color:rgba(57,255,20,0.25);">
+                    <i class="fas fa-mobile-alt" style="color:#39FF14;"></i>
+                </div>
+                <h3 class="tk-service-title">Mobile Applications</h3>
+                <p class="tk-service-text">Native and cross-platform apps for Android and iOS. We build with Flutter, React Native, and native SDKs — choosing the right stack for your performance, budget, and user experience goals.</p>
+                <div class="tk-service-tags">
+                    <span>Android</span><span>iOS</span><span>Flutter</span><span>React Native</span>
+                </div>
+                <div class="tk-service-devices">
+                    <span class="tk-device-pill"><i class="fab fa-android"></i> Android</span>
+                    <span class="tk-device-pill"><i class="fab fa-apple"></i> iOS</span>
+                </div>
+            </div>
+
+            <!-- Web Applications -->
+            <div class="tk-service-card">
+                <div class="tk-service-icon-wrap" style="background:rgba(6,182,212,0.12); border-color:rgba(6,182,212,0.25);">
+                    <i class="fas fa-code" style="color:#06B6D4;"></i>
+                </div>
+                <h3 class="tk-service-title">Web Applications</h3>
+                <p class="tk-service-text">Scalable, fast, and secure web platforms built with modern frameworks. From MVPs to enterprise-grade systems — we architect for growth and maintainability.</p>
+                <div class="tk-service-tags">
+                    <span>React</span><span>Laravel</span><span>Vue</span><span>Node.js</span>
+                </div>
+            </div>
+
+            <!-- Geospatial -->
+            <div class="tk-service-card">
+                <div class="tk-service-icon-wrap" style="background:rgba(57,255,20,0.08); border-color:rgba(57,255,20,0.2);">
+                    <i class="fas fa-map-marked-alt" style="color:#39FF14;"></i>
+                </div>
+                <h3 class="tk-service-title">Geospatial & GIS</h3>
+                <p class="tk-service-text">Interactive maps, spatial data analysis, and location-aware systems. We turn complex geographic data into intuitive tools for decision-making, field operations, and urban planning.</p>
+                <div class="tk-service-tags">
+                    <span>Mapbox</span><span>GeoJSON</span><span>QGIS</span><span>PostGIS</span>
+                </div>
+            </div>
+
+            <!-- Instructional Design & Gamification -->
+            <div class="tk-service-card">
+                <div class="tk-service-icon-wrap" style="background:rgba(57,255,20,0.08); border-color:rgba(57,255,20,0.2);">
+                    <i class="fas fa-graduation-cap" style="color:#39FF14;"></i>
+                </div>
+                <h3 class="tk-service-title">Instructional Design &amp; Gamification</h3>
+                <p class="tk-service-text">Engaging eLearning experiences with gamification, AI-powered video (Synthesia), and professional course authoring (Articulate). We design learning that people actually want to complete.</p>
+                <div class="tk-service-tags">
+                    <span>Gamification</span><span>Articulate</span><span>Synthesia</span><span>eLearning</span>
+                </div>
+            </div>
+
+            <!-- Deployment & DevOps -->
+            <div class="tk-service-card">
+                <div class="tk-service-icon-wrap" style="background:rgba(6,182,212,0.12); border-color:rgba(6,182,212,0.25);">
+                    <i class="fas fa-rocket" style="color:#06B6D4;"></i>
+                </div>
+                <h3 class="tk-service-title">Deployment & DevOps</h3>
+                <p class="tk-service-text">We don't just build — we ship. CI/CD pipelines, cloud infrastructure, server configuration, and app store deployment. Your product goes live and stays live.</p>
+                <div class="tk-service-tags">
+                    <span>AWS</span><span>Docker</span><span>App Store</span><span>Play Store</span>
+                </div>
+            </div>
+
+            <!-- Consultation -->
+            <div class="tk-service-card tk-service-card--cta">
+                <div class="tk-service-cta-inner">
+                    <div class="tk-neon-circle">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 style="color:#0F172A; font-size:20px; font-weight:700; margin:0 0 10px; font-family:'Inter',sans-serif;">Not Sure Where to Start?</h3>
+                    <p style="color:#4B5563; font-size:14px; line-height:1.7; margin:0 0 20px;">Book a free discovery call. We'll map out the right solution for your goals and budget — no pressure, no jargon.</p>
+                    <a href="https://cal.com/thynk-consulatation" class="tk-btn tk-btn--neon" id="Book2">Book Free Call</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- MOBILE APPS DEEP DIVE -->
+<!-- ============================================ -->
+<section class="tk-section tk-bg-navy tk-reveal" id="mobile">
+    <div class="tk-container">
+        <div class="tk-split-grid">
+            <div class="tk-split-content">
+                <span class="tk-badge tk-badge--blue">Mobile First</span>
+                <h2 class="tk-heading-xl tk-text-white" style="margin-top:14px;">Android & iOS Apps<br><span class="tk-grad-text">Built to Perform</span></h2>
+                <p class="tk-body-lg tk-text-muted" style="margin:16px 0 28px;">We build real mobile applications — not glorified websites wrapped in a shell. Whether you need a consumer app on the Play Store, an enterprise iOS tool, or a cross-platform product on both — we build it right.</p>
+
+                <div class="tk-feature-list">
+                    <div class="tk-feature-row">
+                        <span class="tk-feature-dot" style="background:#2563EB;"></span>
+                        <div>
+                            <strong>Native Performance</strong>
+                            <p>Android (Kotlin/Java) and iOS (Swift) native builds when performance is non-negotiable.</p>
+                        </div>
+                    </div>
+                    <div class="tk-feature-row">
+                        <span class="tk-feature-dot" style="background:#06B6D4;"></span>
+                        <div>
+                            <strong>Cross-Platform Efficiency</strong>
+                            <p>Flutter and React Native for one codebase, two platforms, faster time-to-market.</p>
+                        </div>
+                    </div>
+                    <div class="tk-feature-row">
+                        <span class="tk-feature-dot" style="background:#39FF14;"></span>
+                        <div>
+                            <strong>App Store to Live</strong>
+                            <p>We handle submission, App Store Optimization, and post-launch monitoring.</p>
+                        </div>
+                    </div>
+                    <div class="tk-feature-row">
+                        <span class="tk-feature-dot" style="background:#2563EB;"></span>
+                        <div>
+                            <strong>Offline-First Architecture</strong>
+                            <p>Apps that work in low-connectivity environments — critical for field and rural use cases.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tk-split-visual">
+                <div class="tk-phone-mockup">
+                    <div class="tk-phone-frame">
+                        <div class="tk-phone-screen">
+                            <div class="tk-phone-status-bar">
+                                <span>9:41</span>
+                                <span class="tk-phone-icons"><i class="fas fa-wifi"></i> <i class="fas fa-battery-full"></i></span>
+                            </div>
+                            <div class="tk-phone-app-ui">
+                                <div class="tk-app-header">
+                                    <div class="tk-app-logo-dot"></div>
+                                    <span>THYNK App</span>
+                                    <i class="fas fa-bell" style="font-size:12px; opacity:0.6;"></i>
+                                </div>
+                                <div class="tk-app-hero-card">
+                                    <div class="tk-app-map-placeholder">
+                                        <div class="tk-map-grid"></div>
+                                        <div class="tk-map-pin"><i class="fas fa-map-pin"></i></div>
+                                        <div class="tk-map-circle"></div>
+                                    </div>
+                                    <div class="tk-app-card-footer">
+                                        <span class="tk-app-stat-pill" style="background:rgba(37,99,235,0.15); color:#2563EB;"><i class="fas fa-chart-line"></i> Live Data</span>
+                                        <span class="tk-app-stat-pill" style="background:rgba(57,255,20,0.1); color:#39FF14;"><i class="fas fa-circle"></i> Online</span>
+                                    </div>
+                                </div>
+                                <div class="tk-app-grid-4">
+                                    <div class="tk-app-icon-block" style="background:rgba(37,99,235,0.1);"><i class="fas fa-map" style="color:#2563EB;"></i><span>Map</span></div>
+                                    <div class="tk-app-icon-block" style="background:rgba(6,182,212,0.1);"><i class="fas fa-database" style="color:#06B6D4;"></i><span>Data</span></div>
+                                    <div class="tk-app-icon-block" style="background:rgba(57,255,20,0.08);"><i class="fas fa-chart-bar" style="color:#39FF14;"></i><span>Stats</span></div>
+                                    <div class="tk-app-icon-block" style="background:rgba(37,99,235,0.1);"><i class="fas fa-cog" style="color:#2563EB;"></i><span>Settings</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tk-phone-android">
+                        <div class="tk-phone-frame tk-phone-frame--android">
+                            <div class="tk-phone-screen">
+                                <div class="tk-phone-app-ui" style="padding:10px;">
+                                    <div style="background:rgba(37,99,235,0.1); border-radius:8px; padding:12px; margin-bottom:8px; border:1px solid rgba(37,99,235,0.2);">
+                                        <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;"><i class="fab fa-android" style="color:#39FF14; font-size:14px;"></i><span style="color:#fff; font-size:11px; font-weight:600;">Android Build</span></div>
+                                        <div class="tk-mini-progress"><div class="tk-mini-progress-fill" style="width:88%;"></div></div>
+                                        <span style="color:rgba(255,255,255,0.5); font-size:10px;">Build complete · 88% optimized</span>
+                                    </div>
+                                    <div style="background:rgba(6,182,212,0.1); border-radius:8px; padding:12px; border:1px solid rgba(6,182,212,0.2);">
+                                        <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;"><i class="fab fa-apple" style="color:#06B6D4; font-size:14px;"></i><span style="color:#fff; font-size:11px; font-weight:600;">iOS Build</span></div>
+                                        <div class="tk-mini-progress"><div class="tk-mini-progress-fill" style="width:92%; background:linear-gradient(90deg,#06B6D4,#2563EB);"></div></div>
+                                        <span style="color:rgba(255,255,255,0.5); font-size:10px;">Build complete · 92% optimized</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- GEOSPATIAL SECTION -->
+<!-- ============================================ -->
+<section class="tk-section tk-bg-darker tk-reveal" id="geospatial">
+    <div class="tk-container">
+        <div class="tk-gis-header">
+            <span class="tk-badge tk-badge--neon">Geospatial & GIS</span>
+            <h2 class="tk-heading-xl" style="color:#0F172A;">Your Data Has a <span style="color:#39FF14; text-shadow: none;">Location.</span><br>We Make It Visible.</h2>
+            <p class="tk-body-lg" style="color:#4B5563;">From field data collection to real-time dashboards and spatial analysis — we build GIS tools that turn raw geographic data into strategic insight.</p>
+        </div>
+
+        <div class="tk-gis-showcase">
+            <div class="tk-gis-map-visual">
+                <div class="tk-map-container">
+                    <div class="tk-map-bg"></div>
+                    <div class="tk-map-layers">
+                        <div class="tk-map-layer tk-map-layer--1"></div>
+                        <div class="tk-map-layer tk-map-layer--2"></div>
+                        <div class="tk-map-layer tk-map-layer--3"></div>
+                    </div>
+                    <div class="tk-map-pins">
+                        <div class="tk-map-pin-marker" style="top:30%; left:40%;">
+                            <div class="tk-pin-pulse"></div>
+                            <i class="fas fa-map-pin" style="color:#39FF14;"></i>
+                        </div>
+                        <div class="tk-map-pin-marker" style="top:55%; left:60%;">
+                            <div class="tk-pin-pulse" style="animation-delay:0.5s;"></div>
+                            <i class="fas fa-map-pin" style="color:#06B6D4;"></i>
+                        </div>
+                        <div class="tk-map-pin-marker" style="top:45%; left:25%;">
+                            <div class="tk-pin-pulse" style="animation-delay:1s;"></div>
+                            <i class="fas fa-map-pin" style="color:#0F172A;"></i>
+                        </div>
+                    </div>
+                    <div class="tk-map-overlay-card">
+                        <span style="font-size:10px; color:#6B7C93; text-transform:uppercase; letter-spacing:1px;">Active Zones</span>
+                        <div style="display:flex; gap:12px; margin-top:4px;">
+                            <span style="color:#39FF14; font-size:18px; font-weight:700; font-family:'Inter',sans-serif;">14</span>
+                            <span style="color:#06B6D4; font-size:18px; font-weight:700; font-family:'Inter',sans-serif;">8</span>
+                            <span style="color:#0F172A; font-size:18px; font-weight:700; font-family:'Inter',sans-serif;">22</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tk-gis-features">
+                <div class="tk-gis-feature-item">
+                    <div class="tk-gis-feature-icon"><i class="fas fa-layer-group" style="color:#39FF14;"></i></div>
+                    <div>
+                        <h4 style="color:#0F172A;">Interactive Map Platforms</h4>
+                        <p style="color:#4B5563;">Custom web and mobile maps with layers, filters, and real-time data feeds — built on Mapbox, Leaflet, and Google Maps APIs.</p>
+                    </div>
+                </div>
+                <div class="tk-gis-feature-item">
+                    <div class="tk-gis-feature-icon"><i class="fas fa-satellite-dish" style="color:#06B6D4;"></i></div>
+                    <div>
+                        <h4 style="color:#0F172A;">Spatial Data Analysis</h4>
+                        <p style="color:#4B5563;">QGIS and PostGIS-powered analysis for land use, route optimization, coverage mapping, and demographic profiling.</p>
+                    </div>
+                </div>
+                <div class="tk-gis-feature-item">
+                    <div class="tk-gis-feature-icon"><i class="fas fa-database" style="color:#0F172A;"></i></div>
+                    <div>
+                        <h4 style="color:#0F172A;">Field Data Collection</h4>
+                        <p style="color:#4B5563;">Mobile-first tools for offline field surveys, GPS tagging, and real-time sync when connectivity returns.</p>
+                    </div>
+                </div>
+                <div class="tk-gis-feature-item">
+                    <div class="tk-gis-feature-icon"><i class="fas fa-chart-area" style="color:#39FF14;"></i></div>
+                    <div>
+                        <h4 style="color:#0F172A;">Geospatial Dashboards</h4>
+                        <p style="color:#4B5563;">Decision-support dashboards that surface geographic trends across your operations, fleet, or community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="tk-section tk-bg-navy tk-reveal" id="learning">
+    <div class="tk-container">
+        <div class="tk-split-grid tk-split-grid--reverse">
+            <div class="tk-split-content">
+                <span class="tk-badge tk-badge--gold" style="background:rgba(57,255,20,0.08); color:#39FF14; border:1px solid rgba(57,255,20,0.35);">Instructional Design</span>
+                <h2 class="tk-heading-xl" style="color:#0F172A; margin-top:14px;">Gamification &amp; eLearning<br><span style="color:#39FF14;">That Actually Engages</span></h2>
+                <p class="tk-body-lg" style="color:#4B5563; margin:16px 0 28px;">We combine instructional design, gamification, and AI-powered video to create learning experiences that people actually want to complete. From course authoring to interactive assessments — we build it all.</p>
+
+                <div class="tk-feature-list">
+                    <div class="tk-feature-row">
+                        <span class="tk-feature-dot" style="background:#39FF14;"></span>
+                        <div>
+                            <strong style="color:#0F172A;">Gamification Design</strong>
+                            <p style="color:#4B5563;">Points, badges, leaderboards, quests, and progress tracking — game mechanics that drive real engagement and completion rates.</p>
+                        </div>
+                    </div>
+                    <div class="tk-feature-row">
+                        <span class="tk-feature-dot" style="background:#06B6D4;"></span>
+                        <div>
+                            <strong style="color:#0F172A;">Articulate &amp; eLearning Authoring</strong>
+                            <p style="color:#4B5563;">Professional course creation with Articulate 360, Storyline, and Rise — interactive modules, quizzes, and branching scenarios.</p>
+                        </div>
+                    </div>
+                    <div class="tk-feature-row">
+                        <span class="tk-feature-dot" style="background:#39FF14;"></span>
+                        <div>
+                            <strong style="color:#0F172A;">Synthesia AI Video</strong>
+                            <p style="color:#4B5563;">AI-powered video production with Synthesia — custom avatars, multilingual voiceovers, and professional course content at scale.</p>
+                        </div>
+                    </div>
+                    <div class="tk-feature-row">
+                        <span class="tk-feature-dot" style="background:#06B6D4;"></span>
+                        <div>
+                            <strong style="color:#0F172A;">Instructional Design Strategy</strong>
+                            <p style="color:#4B5563;">Pedagogically sound content structure, learning objectives, assessments, and learner pathways — designed for real outcomes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tk-split-visual">
+                <div class="tk-learning-mockup">
+                    <div class="tk-learning-card" style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.06);">
+                        <div style="background:linear-gradient(135deg,#39FF14,#06B6D4); padding:20px 24px;">
+                            <span style="color:#0F172A; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;">Gamified Course</span>
+                            <h3 style="color:#0F172A; margin:6px 0 0; font-size:20px; font-weight:700; font-family:'Inter',sans-serif;">Level Up: Learning Design</h3>
+                        </div>
+                        <div style="padding:20px 24px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                <span style="font-size:13px; color:#4B5563; font-weight:600;">Progress</span>
+                                <span style="font-size:13px; color:#39FF14; font-weight:700;">68%</span>
+                            </div>
+                            <div style="width:100%; height:8px; background:#F1F5F9; border-radius:4px; overflow:hidden; margin-bottom:16px;">
+                                <div style="width:68%; height:100%; background:linear-gradient(90deg,#39FF14,#06B6D4); border-radius:4px;"></div>
+                            </div>
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px;">
+                                <div style="background:#F8FAFC; padding:12px; border-radius:8px; text-align:center; border:1px solid #E2E8F0;">
+                                    <span style="display:block; font-size:20px; font-weight:800; color:#39FF14;">4</span>
+                                    <span style="font-size:10px; color:#4B5563; text-transform:uppercase; letter-spacing:0.5px;">Badges Earned</span>
+                                </div>
+                                <div style="background:#F8FAFC; padding:12px; border-radius:8px; text-align:center; border:1px solid #E2E8F0;">
+                                    <span style="display:block; font-size:20px; font-weight:800; color:#06B6D4;">12</span>
+                                    <span style="font-size:10px; color:#4B5563; text-transform:uppercase; letter-spacing:0.5px;">Modules</span>
+                                </div>
+                            </div>
+                            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                                <span style="font-size:11px; font-weight:600; padding:4px 12px; background:rgba(57,255,20,0.08); border:1px solid rgba(57,255,20,0.25); border-radius:20px; color:#39FF14;"><i class="fas fa-gamepad"></i> Gamification</span>
+                                <span style="font-size:11px; font-weight:600; padding:4px 12px; background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.25); border-radius:20px; color:#06B6D4;"><i class="fas fa-video"></i> Synthesia</span>
+                                <span style="font-size:11px; font-weight:600; padding:4px 12px; background:rgba(57,255,20,0.08); border:1px solid rgba(57,255,20,0.2); border-radius:20px; color:#39FF14;"><i class="fas fa-graduation-cap"></i> Articulate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                        <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:14px 16px; text-align:center;">
+                            <i class="fas fa-robot" style="color:#06B6D4; font-size:20px; margin-bottom:6px;"></i>
+                            <p style="font-size:11px; color:#0F172A; margin:0; font-weight:600;">AI Avatars</p>
+                            <p style="font-size:10px; color:#4B5563; margin:4px 0 0;">Synthesia</p>
+                        </div>
+                        <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:14px 16px; text-align:center;">
+                            <i class="fas fa-trophy" style="color:#39FF14; font-size:20px; margin-bottom:6px;"></i>
+                            <p style="font-size:11px; color:#0F172A; margin:0; font-weight:600;">Leaderboards</p>
+                            <p style="font-size:10px; color:#4B5563; margin:4px 0 0;">Gamification</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ============================================ -->
+<!-- HOW WE WORK — PROCESS -->
+<!-- ============================================ -->
+<section class="tk-section tk-bg-navy tk-reveal" id="process">
+    <div class="tk-container">
+        <div class="tk-section-header">
+            <span class="tk-badge tk-badge--cyan">Our Process</span>
+            <h2 class="tk-heading-xl tk-text-white">From Brief to <span class="tk-grad-text">Deployed</span></h2>
+            <p class="tk-body-lg tk-text-muted">A clear, collaborative process — no surprises, no ghosting. You know what's happening at every stage.</p>
+        </div>
+
+        <div class="tk-process-timeline">
+            <div class="tk-process-track"></div>
+            <div class="tk-process-step">
+                <div class="tk-process-node" style="border-color:#2563EB; color:#2563EB;">01</div>
+                <div class="tk-process-card">
+                    <span class="tk-process-week" style="color:#2563EB;">Week 1</span>
+                    <h3>Discovery & Scoping</h3>
+                    <p>We understand your users, technical requirements, and business goals. We define exactly what gets built — and why — before a single line of code is written.</p>
+                </div>
+            </div>
+            <div class="tk-process-step">
+                <div class="tk-process-node" style="border-color:#06B6D4; color:#06B6D4;">02</div>
+                <div class="tk-process-card">
+                    <span class="tk-process-week" style="color:#06B6D4;">Week 2–3</span>
+                    <h3>Design & Architecture</h3>
+                    <p>UI/UX wireframes, design system, and technical architecture reviewed and approved by you before development starts. No surprises later.</p>
+                </div>
+            </div>
+            <div class="tk-process-step">
+                <div class="tk-process-node" style="border-color:#39FF14; color:#39FF14;">03</div>
+                <div class="tk-process-card">
+                    <span class="tk-process-week" style="color:#39FF14;">Week 4–8</span>
+                    <h3>Build & Iterate</h3>
+                    <p>Agile sprints with weekly demos. You see real progress every week, give feedback, and we adapt. No waiting months to see something.</p>
+                </div>
+            </div>
+            <div class="tk-process-step">
+                <div class="tk-process-node" style="border-color:#2563EB; color:#2563EB;">04</div>
+                <div class="tk-process-card">
+                    <span class="tk-process-week" style="color:#2563EB;">Week 9–10</span>
+                    <h3>Test & Deploy</h3>
+                    <p>QA, performance testing, and production deployment. App store submissions, server configuration, DNS, SSL — everything to make you live and stable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- DESIGN SHOWCASE -->
+<!-- ============================================ -->
+<section class="tk-section tk-bg-dark tk-reveal" id="design">
+    <div class="tk-container">
+        <div class="tk-split-grid tk-split-grid--reverse">
+            <div class="tk-split-content">
+                <span class="tk-badge tk-badge--blue">Graphic Design & UI/UX</span>
+                <h2 class="tk-heading-xl tk-text-white" style="margin-top:14px;">Design That <span class="tk-grad-text">Communicates.</span><br>Not Just Decorates.</h2>
+                <p class="tk-body-lg tk-text-muted" style="margin:16px 0 28px;">We build design systems, brand identities, and UI components that work as a coherent whole — not as random pretty pieces. Every visual decision serves a purpose.</p>
+
+                <div class="tk-design-offerings">
+                    <div class="tk-design-item"><i class="fas fa-check" style="color:#39FF14;"></i> Brand identity & logo design</div>
+                    <div class="tk-design-item"><i class="fas fa-check" style="color:#39FF14;"></i> Mobile & web UI/UX design</div>
+                    <div class="tk-design-item"><i class="fas fa-check" style="color:#39FF14;"></i> Design systems & component libraries</div>
+                    <div class="tk-design-item"><i class="fas fa-check" style="color:#39FF14;"></i> Marketing & social media graphics</div>
+                    <div class="tk-design-item"><i class="fas fa-check" style="color:#39FF14;"></i> Pitch decks & presentation design</div>
+                    <div class="tk-design-item"><i class="fas fa-check" style="color:#39FF14;"></i> Icon sets & illustration</div>
+                </div>
+
+                <a href="https://cal.com/thynk-consulatation" class="tk-btn tk-btn--primary" style="margin-top:24px; display:inline-block;" id="Book3">Discuss Your Design</a>
+            </div>
+            <div class="tk-split-visual">
+                <div class="tk-design-mockup">
+                    <div class="tk-design-card tk-design-card--1">
+                        <div class="tk-dc-header" style="background:linear-gradient(135deg,#2563EB,#06B6D4);">
+                            <span style="color:#fff; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;">Brand Identity</span>
+                        </div>
+                        <div class="tk-dc-body">
+                            <div class="tk-color-swatches">
+                                <div class="tk-swatch" style="background:#2563EB;"></div>
+                                <div class="tk-swatch" style="background:#06B6D4;"></div>
+                                <div class="tk-swatch" style="background:#39FF14;"></div>
+                                <div class="tk-swatch" style="background:#0F172A;"></div>
+                                <div class="tk-swatch" style="background:#FFFFFF; border:1px solid rgba(0,0,0,0.1);"></div>
+                            </div>
+                            <div style="margin-top:10px;">
+                                <span style="font-size:22px; font-weight:800; color:#0F172A; font-family:'Inter',sans-serif; letter-spacing:-1px;">THYNK</span>
+                                <span style="display:block; font-size:10px; color:#6B7C93; letter-spacing:3px; text-transform:uppercase;">Technology</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tk-design-card tk-design-card--2">
+                        <div class="tk-dc-ui-preview">
+                            <div class="tk-ui-nav" style="background:#0F172A; padding:10px 12px; border-radius:6px 6px 0 0; display:flex; align-items:center; gap:6px;">
+                                <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div>
+                                <div style="width:8px;height:8px;border-radius:50%;background:#febc2e;"></div>
+                                <div style="width:8px;height:8px;border-radius:50%;background:#28c840;"></div>
+                                <span style="flex:1; text-align:center; font-size:9px; color:rgba(255,255,255,0.4);">thynk.app</span>
+                            </div>
+                            <div style="background:#fff; padding:14px; border-radius:0 0 6px 6px;">
+                                <div style="height:8px; background:linear-gradient(90deg,#2563EB,#06B6D4); border-radius:4px; width:60%; margin-bottom:6px;"></div>
+                                <div style="height:6px; background:#E8ECF2; border-radius:4px; width:80%; margin-bottom:4px;"></div>
+                                <div style="height:6px; background:#E8ECF2; border-radius:4px; width:65%; margin-bottom:10px;"></div>
+                                <div style="display:flex; gap:6px;">
+                                    <div style="height:28px; flex:1; background:#2563EB; border-radius:4px;"></div>
+                                    <div style="height:28px; flex:1; background:#E8ECF2; border-radius:4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- RESULTS / STATS -->
+<!-- ============================================ -->
+<section class="tk-stats-section tk-reveal">
+    <div class="tk-container">
+        <div class="tk-stats-header">
+            <span class="tk-badge tk-badge--neon">Our Track Record</span>
+            <h2 class="tk-heading-xl tk-text-white">Numbers That <span class="tk-neon-text">Speak</span></h2>
+        </div>
+        <div class="tk-stats-grid">
+            <div class="tk-stat-card">
+                <div class="tk-stat-inner">
+                    <span class="tk-stat-num" style="color:#2563EB;">50+</span>
+                    <span class="tk-stat-label">Applications Deployed</span>
+                    <span class="tk-stat-sub">Web, mobile, and GIS tools live in production</span>
+                </div>
+                <div class="tk-stat-bg-icon"><i class="fas fa-rocket"></i></div>
+            </div>
+            <div class="tk-stat-card tk-stat-card--featured">
+                <div class="tk-stat-inner">
+                    <span class="tk-stat-num" style="color:#39FF14;">2</span>
+                    <span class="tk-stat-label">Platforms, One Team</span>
+                    <span class="tk-stat-sub">Android and iOS built and shipped together</span>
+                </div>
+                <div class="tk-stat-bg-icon"><i class="fas fa-mobile-alt"></i></div>
+            </div>
+            <div class="tk-stat-card">
+                <div class="tk-stat-inner">
+                    <span class="tk-stat-num" style="color:#06B6D4;">100%</span>
+                    <span class="tk-stat-label">End-to-End Delivery</span>
+                    <span class="tk-stat-sub">Design, build, deploy — under one roof</span>
+                </div>
+                <div class="tk-stat-bg-icon"><i class="fas fa-check-circle"></i></div>
+            </div>
+            <div class="tk-stat-card">
+                <div class="tk-stat-inner">
+                    <span class="tk-stat-num" style="color:#2563EB;">GIS</span>
+                    <span class="tk-stat-label">Geospatial Ready</span>
+                    <span class="tk-stat-sub">Spatial data, maps, and location intelligence</span>
+                </div>
+                <div class="tk-stat-bg-icon"><i class="fas fa-map-marked-alt"></i></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- WHO WE SERVE -->
+<!-- ============================================ -->
+<section class="tk-section tk-bg-navy tk-reveal">
+    <div class="tk-container">
+        <div class="tk-section-header">
+            <span class="tk-badge tk-badge--blue">Who We Work With</span>
+            <h2 class="tk-heading-xl tk-text-white">Built for <span class="tk-grad-text">Builders</span></h2>
+            <p class="tk-body-lg tk-text-muted">We work with startups, enterprises, NGOs, and government agencies that need reliable digital products — not just proposals.</p>
+        </div>
+        <div class="tk-audience-grid">
+            <div class="tk-audience-card">
+                <div class="tk-audience-icon-wrap" style="background:rgba(37,99,235,0.1); border-color:rgba(37,99,235,0.2);"><i class="fas fa-seedling" style="color:#2563EB;"></i></div>
+                <h3>Startups</h3>
+                <p>MVPs built fast, built right. We help you validate your idea with a real product — not a prototype that falls apart under real users.</p>
+            </div>
+            <div class="tk-audience-card">
+                <div class="tk-audience-icon-wrap" style="background:rgba(6,182,212,0.1); border-color:rgba(6,182,212,0.2);"><i class="fas fa-building" style="color:#06B6D4;"></i></div>
+                <h3>Enterprises</h3>
+                <p>Internal tools, customer-facing platforms, and legacy system modernization — with the reliability and security enterprises require.</p>
+            </div>
+            <div class="tk-audience-card">
+                <div class="tk-audience-icon-wrap" style="background:rgba(57,255,20,0.08); border-color:rgba(57,255,20,0.2);"><i class="fas fa-hands-helping" style="color:#39FF14;"></i></div>
+                <h3>NGOs & Development</h3>
+                <p>Field data tools, offline-first mobile apps, and geospatial platforms for impactful work in challenging environments.</p>
+            </div>
+            <div class="tk-audience-card">
+                <div class="tk-audience-icon-wrap" style="background:rgba(37,99,235,0.1); border-color:rgba(37,99,235,0.2);"><i class="fas fa-landmark" style="color:#2563EB;"></i></div>
+                <h3>Government & Public Sector</h3>
+                <p>GIS dashboards, citizen service apps, and data portals built to government standards with security and accessibility in mind.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- TESTIMONIAL CAROUSEL - DIRECT DB QUERY -->
+<!-- ============================================ -->
+@php
+    use App\Models\Testimonial;
+    $testimonials = Testimonial::published()
+        ->orderBy('display_order', 'asc')
+        ->get();
+    $featuredTestimonial = Testimonial::published()
+        ->featured()
+        ->first();
+@endphp
+
+@if($testimonials->count() > 0)
+<section class="tc-carousel-section tc-reveal">
+    <div class="tc-container">
+        <div class="tc-carousel-header">
+            <span class="tc-carousel-badge">Testimonials</span>
+            <h2>What Our <span class="text-neon">Clients Say</span></h2>
+            <p>Real feedback from the organizations and individuals we've worked with</p>
+        </div>
+
+        <div class="tc-carousel-wrapper">
+            <div class="tc-carousel-track" id="tcCarouselTrack">
+                @foreach($testimonials as $index => $testimonial)
+                <div class="tc-carousel-slide {{ $index === 0 ? 'tc-active' : '' }}" data-slide="{{ $index }}">
+                    <div class="tc-testimonial-card {{ $testimonial->is_featured ? 'tc-testimonial-featured' : '' }}">
+                        <!-- Quote Icon -->
+                        <div class="tc-quote-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 11H7C6.44772 11 6 11.4477 6 12V13C6 13.5523 6.44772 14 7 14H10C10.5523 14 11 13.5523 11 13V12C11 11.4477 10.5523 11 10 11Z" fill="#39FF14"/>
+                                <path d="M17 11H14C13.4477 11 13 11.4477 13 12V13C13 13.5523 13.4477 14 14 14H17C17.5523 14 18 13.5523 18 13V12C18 11.4477 17.5523 11 17 11Z" fill="#39FF14"/>
+                                <path d="M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+                                <path d="M8 17H16" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+                            </svg>
+                        </div>
+
+                        <blockquote class="tc-testimonial-text">
+                            "{{ $testimonial->testimonial_text }}"
+                            @if($testimonial->is_featured)
+                            <span class="tc-testimonial-highlight">— {{ $testimonial->client_name }}</span>
+                            @endif
+                        </blockquote>
+
+                        <div class="tc-testimonial-divider">
+                            <span></span>
+                            <span class="tc-divider-diamond">◆</span>
+                            <span></span>
+                        </div>
+
+                        <div class="tc-testimonial-author">
+                            <div class="tc-testimonial-avatar">
+                                @if($testimonial->avatar_image)
+                                    <img src="{{ asset('storage/' . $testimonial->avatar_image) }}" alt="{{ $testimonial->client_name }}">
+                                @else
+                                    <span>{{ $testimonial->avatar_initials ?? substr($testimonial->client_name, 0, 2) }}</span>
+                                @endif
+                            </div>
+                            <div class="tc-author-info">
+                                <p class="tc-testimonial-name">{{ $testimonial->client_name }}</p>
+                                @if($testimonial->client_role || $testimonial->client_company)
+                                <p class="tc-testimonial-role">
+                                    {{ $testimonial->client_role }}
+                                    @if($testimonial->client_role && $testimonial->client_company)
+                                        <span class="tc-role-separator">·</span>
+                                    @endif
+                                    {{ $testimonial->client_company }}
+                                </p>
+                                @endif
+                                @if($testimonial->project_type)
+                                <p class="tc-testimonial-project">
+                                    <span class="tc-project-icon">📌</span>
+                                    {{ $testimonial->project_type }}
+                                </p>
+                                @endif
+                                <div class="tc-stars">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        @if($i <= $testimonial->rating)
+                                            <span class="tc-star-filled">★</span>
+                                        @else
+                                            <span class="tc-star-empty">☆</span>
+                                        @endif
+                                    @endfor
+                                    <span class="tc-rating-number">{{ $testimonial->rating }}.0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        @if($testimonial->is_featured)
+                        <div class="tc-featured-badge">
+                            <span class="tc-featured-icon">⭐</span>
+                            Featured
+                        </div>
+                        @endif
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            @if($testimonials->count() > 1)
+            <!-- Dots -->
+            <div class="tc-carousel-dots" id="tcCarouselDots">
+                @foreach($testimonials as $index => $testimonial)
+                    <button class="tc-carousel-dot {{ $index === 0 ? 'tc-active' : '' }}" 
+                            data-slide="{{ $index }}" 
+                            aria-label="Go to testimonial {{ $index + 1 }}">
+                    </button>
+                @endforeach
+            </div>
+            @endif
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FIXED TESTIMONIAL CAROUSEL STYLES -->
+<!-- ============================================ -->
+<style>
+    /* ================================================
+       TC CAROUSEL — Auto-slide Testimonial Carousel
+       FIXED: Proper width and display for all slides
+       ================================================ */
+
+    .tc-carousel-section {
+        background: #FFFFFF !important;
+        padding: 80px 0 !important;
+        overflow: hidden !important;
+        position: relative !important;
+        width: 100% !important;
+    }
+
+    .tc-carousel-section::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 4px !important;
+        background: linear-gradient(90deg, transparent, #39FF14, #06B6D4, #39FF14, transparent) !important;
+        opacity: 0.5 !important;
+    }
+
+    .tc-container {
+        max-width: 900px !important;
+        margin: 0 auto !important;
+        padding: 0 24px !important;
+        position: relative !important;
+        z-index: 2 !important;
+        width: 100% !important;
+    }
+
+    .tc-carousel-header {
+        text-align: center !important;
+        margin-bottom: 48px !important;
+        width: 100% !important;
+    }
+
+    .tc-carousel-badge {
+        display: inline-block !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 3px !important;
+        padding: 6px 20px !important;
+        border-radius: 50px !important;
+        background: rgba(57, 255, 20, 0.08) !important;
+        color: #27B80E !important;
+        border: 1px solid rgba(57, 255, 20, 0.25) !important;
+        font-family: 'Inter', sans-serif !important;
+        margin-bottom: 16px !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .tc-carousel-header h2 {
+        font-size: clamp(30px, 4.5vw, 44px) !important;
+        font-weight: 800 !important;
+        line-height: 1.15 !important;
+        font-family: 'Inter', sans-serif !important;
+        letter-spacing: -1.5px !important;
+        color: #0F172A !important;
+        margin: 0 0 12px !important;
+    }
+
+    .tc-carousel-header h2 .text-neon {
+        color: #27B80E !important;
+        position: relative !important;
+    }
+
+    .tc-carousel-header p {
+        font-size: 18px !important;
+        line-height: 1.75 !important;
+        color: #6B7C93 !important;
+        max-width: 560px !important;
+        margin: 0 auto !important;
+        font-weight: 400 !important;
+    }
+
+    /* ---- Carousel Wrapper ---- */
+    .tc-carousel-wrapper {
+        position: relative !important;
+        overflow: hidden !important;
+        border-radius: 24px !important;
+        background: transparent !important;
+        padding: 8px 0 !important;
+        width: 100% !important;
+    }
+
+    /* ---- Carousel Track ---- */
+    .tc-carousel-track {
+        display: flex !important;
+        transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1) !important;
+        will-change: transform !important;
+        width: 100% !important;
+        position: relative !important;
+    }
+
+    /* ---- Carousel Slide ---- */
+    .tc-carousel-slide {
+        min-width: 100% !important;
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        flex-shrink: 0 !important;
+        padding: 4px !important;
+        transition: opacity 0.8s ease !important;
+        position: relative !important;
+        display: block !important;
+    }
+
+    .tc-carousel-slide:not(.tc-active) {
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    .tc-carousel-slide.tc-active {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        z-index: 2 !important;
+    }
+
+    /* ---- Testimonial Card ---- */
+    .tc-testimonial-card {
+        padding: 48px 48px 40px !important;
+        background: #F8FAFC !important;
+        border: 1px solid rgba(226, 232, 240, 0.8) !important;
+        border-radius: 24px !important;
+        text-align: center !important;
+        transition: all 0.4s ease !important;
+        position: relative !important;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04) !important;
+        width: 100% !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+
+    .tc-testimonial-card:hover {
+        border-color: rgba(57, 255, 20, 0.3) !important;
+        box-shadow: 0 8px 48px rgba(57, 255, 20, 0.08) !important;
+        transform: translateY(-2px) !important;
+    }
+
+    .tc-testimonial-featured {
+        border-color: rgba(57, 255, 20, 0.4) !important;
+        background: #FAFFFE !important;
+        box-shadow: 0 4px 32px rgba(57, 255, 20, 0.06) !important;
+        position: relative !important;
+    }
+
+    .tc-testimonial-featured::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 3px !important;
+        background: linear-gradient(90deg, #39FF14, #06B6D4, #39FF14) !important;
+        border-radius: 24px 24px 0 0 !important;
+    }
+
+    .tc-quote-icon {
+        margin-bottom: 16px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .tc-quote-icon svg {
+        width: 48px !important;
+        height: 48px !important;
+        opacity: 0.6 !important;
+        transition: all 0.4s ease !important;
+    }
+
+    .tc-testimonial-card:hover .tc-quote-icon svg {
+        opacity: 1 !important;
+        transform: scale(1.05) !important;
+    }
+
+    .tc-testimonial-text {
+        font-size: clamp(20px, 2.5vw, 26px) !important;
+        font-weight: 300 !important;
+        line-height: 1.8 !important;
+        color: #1E293B !important;
+        margin: 0 0 24px !important;
+        font-family: 'Inter', Georgia, sans-serif !important;
+        font-style: italic !important;
+        letter-spacing: -0.2px !important;
+        word-wrap: break-word !important;
+    }
+
+    .tc-testimonial-highlight {
+        color: #27B80E !important;
+        font-weight: 600 !important;
+        display: block !important;
+        margin-top: 12px !important;
+        font-style: normal !important;
+        font-size: 18px !important;
+    }
+
+    .tc-testimonial-divider {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 16px !important;
+        margin: 0 auto 28px !important;
+        max-width: 140px !important;
+    }
+
+    .tc-testimonial-divider span:first-child,
+    .tc-testimonial-divider span:last-child {
+        flex: 1 !important;
+        height: 1.5px !important;
+        background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.4)) !important;
+        display: block !important;
+    }
+
+    .tc-testimonial-divider span:last-child {
+        background: linear-gradient(90deg, rgba(57, 255, 20, 0.4), transparent) !important;
+    }
+
+    .tc-divider-diamond {
+        color: #39FF14 !important;
+        font-size: 10px !important;
+        opacity: 0.6 !important;
+        animation: tcDiamondPulse 2s ease-in-out infinite !important;
+    }
+
+    @keyframes tcDiamondPulse {
+        0%, 100% { opacity: 0.4; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    .tc-testimonial-author {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 18px !important;
+        padding-top: 24px !important;
+        border-top: 1.5px solid rgba(226, 232, 240, 0.6) !important;
+        flex-wrap: wrap !important;
+    }
+
+    .tc-testimonial-avatar {
+        width: 56px !important;
+        height: 56px !important;
+        border-radius: 50% !important;
+        background: linear-gradient(135deg, #39FF14, #06B6D4) !important;
+        color: #0F172A !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        font-family: 'Inter', sans-serif !important;
+        flex-shrink: 0 !important;
+        overflow: hidden !important;
+        box-shadow: 0 4px 16px rgba(57, 255, 20, 0.2) !important;
+        transition: all 0.3s ease !important;
+        border: 2px solid rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .tc-testimonial-avatar img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    .tc-testimonial-card:hover .tc-testimonial-avatar {
+        transform: scale(1.05) !important;
+        box-shadow: 0 6px 24px rgba(57, 255, 20, 0.3) !important;
+    }
+
+    .tc-author-info {
+        text-align: left !important;
+        flex: 1 !important;
+        min-width: 150px !important;
+    }
+
+    .tc-testimonial-name {
+        font-size: 17px !important;
+        font-weight: 700 !important;
+        color: #0F172A !important;
+        margin: 0 0 2px !important;
+        font-family: 'Inter', sans-serif !important;
+        letter-spacing: -0.3px !important;
+    }
+
+    .tc-testimonial-role {
+        font-size: 13px !important;
+        color: #6B7C93 !important;
+        margin: 0 0 4px !important;
+        font-weight: 400 !important;
+    }
+
+    .tc-role-separator {
+        margin: 0 6px !important;
+        color: #CBD5E1 !important;
+    }
+
+    .tc-testimonial-project {
+        font-size: 12px !important;
+        color: #94A3B8 !important;
+        margin: 0 0 6px !important;
+        font-weight: 400 !important;
+    }
+
+    .tc-project-icon {
+        margin-right: 4px !important;
+    }
+
+    .tc-stars {
+        display: flex !important;
+        align-items: center !important;
+        gap: 3px !important;
+        flex-wrap: wrap !important;
+    }
+
+    .tc-star-filled {
+        color: #FFD700 !important;
+        font-size: 16px !important;
+        text-shadow: 0 0 8px rgba(255, 215, 0, 0.3) !important;
+    }
+
+    .tc-star-empty {
+        color: #E2E8F0 !important;
+        font-size: 16px !important;
+    }
+
+    .tc-rating-number {
+        font-size: 13px !important;
+        color: #6B7C93 !important;
+        font-weight: 600 !important;
+        margin-left: 4px !important;
+    }
+
+    .tc-featured-badge {
+        position: absolute !important;
+        top: 16px !important;
+        right: 16px !important;
+        background: rgba(57, 255, 20, 0.12) !important;
+        color: #27B80E !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        padding: 4px 14px !important;
+        border-radius: 50px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        border: 1px solid rgba(57, 255, 20, 0.2) !important;
+        font-family: 'Inter', sans-serif !important;
+        letter-spacing: 0.5px !important;
+        backdrop-filter: blur(4px) !important;
+        animation: tcFeaturedPulse 3s ease-in-out infinite !important;
+        z-index: 5 !important;
+    }
+
+    @keyframes tcFeaturedPulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(57, 255, 20, 0); }
+        50% { box-shadow: 0 0 20px rgba(57, 255, 20, 0.1); }
+    }
+
+    .tc-featured-icon {
+        font-size: 12px !important;
+    }
+
+    /* ---- Dots ---- */
+    .tc-carousel-dots {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        margin-top: 32px !important;
+        position: relative !important;
+        z-index: 10 !important;
+        flex-wrap: wrap !important;
+    }
+
+    .tc-carousel-dot {
+        width: 12px !important;
+        height: 12px !important;
+        border-radius: 50% !important;
+        border: 2px solid transparent !important;
+        background: #E2E8F0 !important;
+        cursor: pointer !important;
+        transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1) !important;
+        padding: 0 !important;
+        flex-shrink: 0 !important;
+        position: relative !important;
+    }
+
+    .tc-carousel-dot:hover {
+        transform: scale(1.2) !important;
+        background: #94A3B8 !important;
+    }
+
+    .tc-carousel-dot.tc-active {
+        background: #39FF14 !important;
+        transform: scale(1.25) !important;
+        box-shadow: 0 0 24px rgba(57, 255, 20, 0.4) !important;
+        border-color: rgba(57, 255, 20, 0.2) !important;
+    }
+
+    .tc-carousel-dot.tc-active::after {
+        content: '' !important;
+        position: absolute !important;
+        top: -4px !important;
+        left: -4px !important;
+        right: -4px !important;
+        bottom: -4px !important;
+        border-radius: 50% !important;
+        border: 2px solid rgba(57, 255, 20, 0.2) !important;
+        animation: tcDotRipple 2s ease-out infinite !important;
+    }
+
+    @keyframes tcDotRipple {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    .tc-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .tc-reveal-visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .tc-reveal {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+        .tc-carousel-dot.tc-active::after {
+            animation: none !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .tc-carousel-section { padding: 60px 0 !important; }
+        .tc-testimonial-card { padding: 32px 24px 28px !important; }
+        .tc-testimonial-text { font-size: 18px !important; line-height: 1.7 !important; }
+        .tc-testimonial-highlight { font-size: 16px !important; }
+        .tc-testimonial-author { flex-direction: column !important; text-align: center !important; gap: 14px !important; }
+        .tc-author-info { text-align: center !important; }
+        .tc-stars { justify-content: center !important; }
+        .tc-carousel-dots { gap: 10px !important; margin-top: 24px !important; }
+        .tc-carousel-dot { width: 10px !important; height: 10px !important; }
+        .tc-featured-badge { top: 12px !important; right: 12px !important; font-size: 10px !important; padding: 3px 10px !important; }
+        .tc-quote-icon svg { width: 36px !important; height: 36px !important; }
+    }
+
+    @media (max-width: 480px) {
+        .tc-carousel-section { padding: 44px 0 !important; }
+        .tc-container { padding: 0 16px !important; }
+        .tc-testimonial-card { padding: 24px 18px 20px !important; border-radius: 18px !important; }
+        .tc-testimonial-text { font-size: 16px !important; line-height: 1.6 !important; }
+        .tc-testimonial-highlight { font-size: 14px !important; margin-top: 8px !important; }
+        .tc-testimonial-avatar { width: 48px !important; height: 48px !important; font-size: 15px !important; }
+        .tc-testimonial-name { font-size: 15px !important; }
+        .tc-testimonial-role { font-size: 12px !important; }
+        .tc-testimonial-divider { margin: 0 auto 20px !important; max-width: 100px !important; gap: 12px !important; }
+        .tc-carousel-dots { gap: 8px !important; margin-top: 18px !important; }
+        .tc-carousel-dot { width: 8px !important; height: 8px !important; }
+        .tc-carousel-dot.tc-active { transform: scale(1.3) !important; }
+        .tc-featured-badge { top: 8px !important; right: 8px !important; font-size: 9px !important; padding: 2px 8px !important; }
+        .tc-star-filled, .tc-star-empty { font-size: 14px !important; }
+        .tc-quote-icon { margin-bottom: 10px !important; }
+        .tc-quote-icon svg { width: 28px !important; height: 28px !important; }
+    }
+</style>
+
+<!-- ============================================ -->
+<!-- TESTIMONIAL CAROUSEL SCRIPT -->
 <!-- ============================================ -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Hero carousel
-    var slides = document.querySelectorAll('.sl-hero-slide');
-    var dots = document.querySelectorAll('.sl-hero-dot');
-    var current = 0, timer;
-    function show(i) {
-        slides.forEach(function(s){ s.classList.remove('active'); });
-        dots.forEach(function(d){ d.classList.remove('active'); });
-        if (slides[i]) slides[i].classList.add('active');
-        if (dots[i]) dots[i].classList.add('active');
-        current = i;
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('tcCarouselTrack');
+    const slides = track ? track.querySelectorAll('.tc-carousel-slide') : [];
+    const dotsContainer = document.getElementById('tcCarouselDots');
+    let currentIndex = 0;
+    let slideInterval;
+    let isPaused = false;
+    const intervalTime = 6000;
+    const totalSlides = slides.length;
+
+    console.log('Total testimonials found:', totalSlides);
+
+    if (totalSlides === 0) {
+        console.warn('No testimonials found');
+        return;
     }
-    function next() { show((current + 1) % slides.length); }
-    function start() { if (slides.length > 1) timer = setInterval(next, 5000); }
-    function stop() { clearInterval(timer); }
-    window.goToSlide = function(i) { stop(); show(i); setTimeout(start, 5000); };
-    dots.forEach(function(d, i){ d.addEventListener('click', function(){ goToSlide(i); }); });
-    var wrapper = document.querySelector('.sl-hero-wrapper');
-    if (wrapper) { wrapper.addEventListener('mouseenter', stop); wrapper.addEventListener('mouseleave', start); }
-    start();
 
-    // Append UTM params to booking links
-    ['Book1','Book2','Book3'].forEach(function(id){
-        var el = document.getElementById(id);
-        if (el) el.href += window.location.search;
-    });
+    function goToSlide(index) {
+        index = ((index % totalSlides) + totalSlides) % totalSlides;
 
-    // Scroll reveal
-    var revealEls = document.querySelectorAll('.sl-reveal');
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('tc-active', i === index);
+        });
+
+        if (track) {
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        if (dotsContainer) {
+            const dots = dotsContainer.querySelectorAll('.tc-carousel-dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('tc-active', i === index);
+            });
+        }
+
+        currentIndex = index;
+    }
+
+    function nextSlide() {
+        if (!isPaused) {
+            goToSlide(currentIndex + 1);
+        }
+    }
+
+    function startAutoSlide() {
+        if (totalSlides > 1) {
+            stopAutoSlide();
+            slideInterval = setInterval(nextSlide, intervalTime);
+        }
+    }
+
+    function stopAutoSlide() {
+        if (slideInterval) {
+            clearInterval(slideInterval);
+            slideInterval = null;
+        }
+    }
+
+    // Dot clicks
+    if (dotsContainer) {
+        const dots = dotsContainer.querySelectorAll('.tc-carousel-dot');
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', function(e) {
+                e.stopPropagation();
+                stopAutoSlide();
+                goToSlide(index);
+                setTimeout(startAutoSlide, intervalTime);
+            });
+        });
+    }
+
+    // Pause on hover
+    const wrapper = document.querySelector('.tc-carousel-wrapper');
+    if (wrapper) {
+        wrapper.addEventListener('mouseenter', function() {
+            isPaused = true;
+            stopAutoSlide();
+        });
+        wrapper.addEventListener('mouseleave', function() {
+            isPaused = false;
+            if (totalSlides > 1) {
+                startAutoSlide();
+            }
+        });
+    }
+
+    // Pause on touch
+    if (wrapper) {
+        wrapper.addEventListener('touchstart', function() {
+            isPaused = true;
+            stopAutoSlide();
+        });
+        wrapper.addEventListener('touchend', function() {
+            isPaused = false;
+            if (totalSlides > 1) {
+                startAutoSlide();
+            }
+        });
+    }
+
+    // Initialize
+    goToSlide(0);
+    if (totalSlides > 1) {
+        setTimeout(startAutoSlide, 3000);
+    }
+
+    // Reveal
+    const revealEls = document.querySelectorAll('.tc-reveal');
     if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('sl-reveal-visible');
+                    entry.target.classList.add('tc-reveal-visible');
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
-        revealEls.forEach(function (el) { observer.observe(el); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(function(el) { observer.observe(el); });
     } else {
-        revealEls.forEach(function (el) { el.classList.add('sl-reveal-visible'); });
+        revealEls.forEach(function(el) { el.classList.add('tc-reveal-visible'); });
+    }
+
+    // Pause when page hidden
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            stopAutoSlide();
+        } else {
+            if (totalSlides > 1 && !isPaused) {
+                startAutoSlide();
+            }
+        }
+    });
+});
+</script>
+@else
+<!-- Fallback static testimonial -->
+<section class="tc-carousel-section tc-reveal">
+    <div class="tc-container">
+        <div class="tc-carousel-header">
+            <span class="tc-carousel-badge">Testimonials</span>
+            <h2>What Our <span class="text-neon">Clients Say</span></h2>
+            <p>Real feedback from the organizations and individuals we've worked with</p>
+        </div>
+        <div class="tc-carousel-wrapper">
+            <div class="tc-carousel-track" style="height: auto;">
+                <div class="tc-carousel-slide tc-active" style="opacity: 1; display: block; position: relative; z-index: 2; width: 100%;">
+                    <div class="tc-testimonial-card">
+                        <div class="tc-quote-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 11H7C6.44772 11 6 11.4477 6 12V13C6 13.5523 6.44772 14 7 14H10C10.5523 14 11 13.5523 11 13V12C11 11.4477 10.5523 11 10 11Z" fill="#39FF14"/>
+                                <path d="M17 11H14C13.4477 11 13 11.4477 13 12V13C13 13.5523 13.4477 14 14 14H17C17.5523 14 18 13.5523 18 13V12C18 11.4477 17.5523 11 17 11Z" fill="#39FF14"/>
+                                <path d="M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+                                <path d="M8 17H16" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+                            </svg>
+                        </div>
+                        <blockquote class="tc-testimonial-text">
+                            "THYNK delivered our Android and iOS app on time, with a design that our users actually love. The geospatial features worked flawlessly even in low-connectivity environments."
+                            <span class="tc-testimonial-highlight">— They didn't just build what we asked for — they built what we needed.</span>
+                        </blockquote>
+                        <div class="tc-testimonial-divider">
+                            <span></span>
+                            <span class="tc-divider-diamond">◆</span>
+                            <span></span>
+                        </div>
+                        <div class="tc-testimonial-author">
+                            <div class="tc-testimonial-avatar">MK</div>
+                            <div class="tc-author-info">
+                                <p class="tc-testimonial-name">Project Director</p>
+                                <p class="tc-testimonial-role">Development Agency Client</p>
+                                <div class="tc-stars">
+                                    <span class="tc-star-filled">★</span>
+                                    <span class="tc-star-filled">★</span>
+                                    <span class="tc-star-filled">★</span>
+                                    <span class="tc-star-filled">★</span>
+                                    <span class="tc-star-filled">★</span>
+                                    <span class="tc-rating-number">5.0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@endif
+
+
+<!-- ============================================ -->
+<!-- TECH STACK -->
+<!-- ============================================ -->
+<section class="tk-section tk-bg-dark tk-reveal">
+    <div class="tk-container">
+        <div class="tk-section-header">
+            <span class="tk-badge tk-badge--cyan">Technology Stack</span>
+            <h2 class="tk-heading-xl tk-text-white">Tools We <span class="tk-grad-text">Master</span></h2>
+            <p class="tk-body-lg tk-text-muted">We choose the right technology for your project — not the trendiest one. Our stack is battle-tested, production-proven, and chosen with purpose.</p>
+        </div>
+        <div class="tk-stack-grid">
+            <div class="tk-stack-category">
+                <h4 class="tk-stack-cat-title" style="color:#2563EB;"><i class="fas fa-mobile-alt"></i> Mobile</h4>
+                <div class="tk-stack-chips">
+                    <span class="tk-stack-chip">Flutter</span>
+                    <span class="tk-stack-chip">React Native</span>
+                    <span class="tk-stack-chip">Kotlin</span>
+                    <span class="tk-stack-chip">Swift</span>
+                </div>
+            </div>
+            <div class="tk-stack-category">
+                <h4 class="tk-stack-cat-title" style="color:#06B6D4;"><i class="fas fa-code"></i> Web</h4>
+                <div class="tk-stack-chips">
+                    <span class="tk-stack-chip">React</span>
+                    <span class="tk-stack-chip">Laravel</span>
+                    <span class="tk-stack-chip">Vue.js</span>
+                    <span class="tk-stack-chip">Node.js</span>
+                </div>
+            </div>
+            <div class="tk-stack-category">
+                <h4 class="tk-stack-cat-title" style="color:#39FF14;"><i class="fas fa-map"></i> GIS</h4>
+                <div class="tk-stack-chips">
+                    <span class="tk-stack-chip">Mapbox</span>
+                    <span class="tk-stack-chip">QGIS</span>
+                    <span class="tk-stack-chip">PostGIS</span>
+                    <span class="tk-stack-chip">Leaflet</span>
+                </div>
+            </div>
+            <div class="tk-stack-category">
+                <h4 class="tk-stack-cat-title" style="color:#4B5563;"><i class="fas fa-graduation-cap"></i> Learning & AI</h4>
+                <div class="tk-stack-chips">
+                    <span class="tk-stack-chip">Articulate</span>
+                    <span class="tk-stack-chip">Synthesia</span>
+                    <span class="tk-stack-chip">AI Integration</span>
+                    <span class="tk-stack-chip">eLearning</span>
+                </div>
+            </div>
+            <div class="tk-stack-category">
+                <h4 class="tk-stack-cat-title" style="color:#06B6D4;"><i class="fas fa-paint-brush"></i> Design</h4>
+                <div class="tk-stack-chips">
+                    <span class="tk-stack-chip">Figma</span>
+                    <span class="tk-stack-chip">Adobe Suite</span>
+                    <span class="tk-stack-chip">Illustrator</span>
+                    <span class="tk-stack-chip">Framer</span>
+                </div>
+            </div>
+            <div class="tk-stack-category">
+                <h4 class="tk-stack-cat-title" style="color:#39FF14;"><i class="fas fa-database"></i> Backend</h4>
+                <div class="tk-stack-chips">
+                    <span class="tk-stack-chip">PostgreSQL</span>
+                    <span class="tk-stack-chip">MySQL</span>
+                    <span class="tk-stack-chip">Firebase</span>
+                    <span class="tk-stack-chip">Redis</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ============================================ -->
+<!-- FAQ -->
+<!-- ============================================ -->
+<section class="tk-section tk-bg-navy tk-reveal">
+    <div class="tk-container tk-container--narrow">
+        <div class="tk-section-header">
+            <span class="tk-badge tk-badge--cyan">FAQ</span>
+            <h2 class="tk-heading-xl tk-text-white">Common Questions</h2>
+            <p class="tk-body-lg tk-text-muted">The things most clients want to know before reaching out.</p>
+        </div>
+        <div class="tk-faq-list">
+            <div class="tk-faq-item">
+                <button class="tk-faq-question" aria-expanded="false">
+                    <span>Do you build for both Android and iOS?</span>
+                    <span class="tk-faq-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="tk-faq-answer">
+                    <p>Yes — always. We build native Android and iOS apps, as well as cross-platform apps using Flutter and React Native. We'll recommend the right approach based on your budget, timeline, and performance requirements. Most clients benefit from a Flutter-based build that serves both platforms at lower cost without sacrificing quality.</p>
+                </div>
+            </div>
+            <div class="tk-faq-item">
+                <button class="tk-faq-question" aria-expanded="false">
+                    <span>How long does a mobile app project typically take?</span>
+                    <span class="tk-faq-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="tk-faq-answer">
+                    <p>A standard mobile app project — design through app store deployment — runs 8–12 weeks. Simpler MVPs can be ready in 6 weeks. Complex apps with geospatial features, offline sync, or third-party integrations run 12–16 weeks. We'll give you an honest estimate in the first call based on your specific requirements.</p>
+                </div>
+            </div>
+            <div class="tk-faq-item">
+                <button class="tk-faq-question" aria-expanded="false">
+                    <span>Do you handle app store submission and deployment?</span>
+                    <span class="tk-faq-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="tk-faq-answer">
+                    <p>Yes. We handle the full deployment pipeline — including Google Play Store and Apple App Store submission, reviewing policy compliance, setting up release tracks, and configuring production environments. We don't hand over an APK and leave you to figure out the rest.</p>
+                </div>
+            </div>
+            <div class="tk-faq-item">
+                <button class="tk-faq-question" aria-expanded="false">
+                    <span>What's included in your GIS and geospatial services?</span>
+                    <span class="tk-faq-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="tk-faq-answer">
+                    <p>Our GIS work includes interactive map development, spatial database design, field data collection tools, satellite imagery integration, route and coverage analysis, and custom geospatial dashboards. We work with Mapbox, Google Maps APIs, Leaflet, QGIS, PostGIS, and GeoServer depending on the use case.</p>
+                </div>
+            </div>
+            <div class="tk-faq-item">
+                <button class="tk-faq-question" aria-expanded="false">
+                    <span>Do you offer gamification and instructional design services?</span>
+                    <span class="tk-faq-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="tk-faq-answer">
+                    <p>Yes — we specialize in gamification and instructional design for eLearning platforms, training apps, and educational products. We integrate game mechanics like points, badges, leaderboards, and progress tracking into learning experiences. Our instructional design approach ensures that content is pedagogically sound, engaging, and aligned with learning outcomes. We work with tools like Articulate and Synthesia to create interactive, multimedia-rich learning experiences.</p>
+                </div>
+            </div>
+            <div class="tk-faq-item">
+                <button class="tk-faq-question" aria-expanded="false">
+                    <span>Can you work with an existing codebase or do you start from scratch?</span>
+                    <span class="tk-faq-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="tk-faq-answer">
+                    <p>Both. We take on greenfield projects and we also pick up and improve existing codebases. We'll do a code audit first to understand the current state, and give you an honest assessment of whether to extend, refactor, or rebuild — depending on what's actually in the codebase.</p>
+                </div>
+            </div>
+            <div class="tk-faq-item">
+                <button class="tk-faq-question" aria-expanded="false">
+                    <span>Do you offer post-launch support and maintenance?</span>
+                    <span class="tk-faq-icon"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="tk-faq-answer">
+                    <p>Yes — we offer monthly retainer packages for monitoring, bug fixes, security updates, OS compatibility updates (important for mobile), and feature additions. Most clients move to a maintenance retainer after launch. We'll discuss options that fit your budget.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CTA FINAL -->
+<!-- ============================================ -->
+<section class="tk-cta-section tk-reveal">
+    <div class="tk-cta-bg">
+        <div class="tk-cta-circuit"></div>
+    </div>
+    <div class="tk-container">
+        <div class="tk-cta-inner">
+            <span class="tk-badge tk-badge--neon" style="margin-bottom:20px;">Start Today</span>
+            <h2 class="tk-heading-xl" style="color:#0F172A;">Ready to Build Something <span style="color:#39FF14; text-shadow: none;">Real?</span></h2>
+            <p class="tk-body-lg" style="color:#4B5563; max-width:580px; margin:16px auto 36px;">Tell us what you're building. We'll tell you what it takes — honestly, clearly, and fast. Free discovery call, no strings attached.</p>
+            <div class="tk-cta-actions">
+                <a href="https://cal.com/thynk-consulatation" class="tk-btn tk-btn--primary" id="Book4">Book Your Free Discovery Call</a>
+                <a href="mailto:hello@thynk.tech" class="tk-btn tk-btn--outline">Send Us a Brief</a>
+            </div>
+            <div class="tk-cta-platforms">
+                <span style="color:#4B5563;"><i class="fab fa-android" style="color:#39FF14;"></i> Android</span>
+                <span class="tk-dot" style="color:#CBD5E1;">·</span>
+                <span style="color:#4B5563;"><i class="fab fa-apple" style="color:#06B6D4;"></i> iOS</span>
+                <span class="tk-dot" style="color:#CBD5E1;">·</span>
+                <span style="color:#4B5563;"><i class="fas fa-globe" style="color:#06B6D4;"></i> Web</span>
+                <span class="tk-dot" style="color:#CBD5E1;">·</span>
+                <span style="color:#4B5563;"><i class="fas fa-map-marked-alt" style="color:#39FF14;"></i> GIS</span>
+                <span class="tk-dot" style="color:#CBD5E1;">·</span>
+                <span style="color:#4B5563;"><i class="fas fa-paint-brush" style="color:#06B6D4;"></i> Design</span>
+                <span class="tk-dot" style="color:#CBD5E1;">·</span>
+                <span style="color:#4B5563;"><i class="fas fa-rocket" style="color:#39FF14;"></i> Deployment</span>
+                <span class="tk-dot" style="color:#CBD5E1;">·</span>
+                <span style="color:#4B5563;"><i class="fas fa-gamepad" style="color:#F59E0B;"></i> Gamification</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+</section>
+
+<!-- ============================================ -->
+<!-- FLOATING CHAT -->
+<!-- ============================================ -->
+<div class="tk-floating-chat" id="tkFloatingChat">
+    <button class="tk-chat-toggle" id="tkChatToggle" aria-label="Open Chat">
+        <i class="fas fa-comment-dots"></i>
+        <span class="tk-chat-badge" id="tkChatBadge">1</span>
+    </button>
+    <div class="tk-chat-window" id="tkChatWindow">
+        <div class="tk-chat-header">
+            <div class="tk-chat-header-info">
+                <span class="tk-chat-avatar-glyph">🤖</span>
+                <div>
+                    <h4>THYNK Assistant</h4>
+                    <p>Online · Ask me anything</p>
+                </div>
+            </div>
+            <button class="tk-chat-close" id="tkChatClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="tk-chat-messages" id="tkChatMessages">
+            <div class="tk-chat-welcome">
+                <div class="tk-chat-msg tk-chat-msg--bot">
+                    <p>👋 Hi! I'm the THYNK AI Assistant.</p>
+                    <p>I can help you with:</p>
+                    <ul><li>Mobile App Development</li><li>Web Applications</li><li>GIS & Geospatial Solutions</li><li>Design & Deployment</li></ul>
+                    <p style="margin-top:8px;">What are you building?</p>
+                </div>
+            </div>
+        </div>
+        <div class="tk-chat-input-area">
+            <form id="tkChatForm" class="tk-chat-form">
+                <input type="text" id="tkChatInput" placeholder="Type your message..." autocomplete="off">
+                <button type="submit" id="tkChatSend"><i class="fas fa-paper-plane"></i></button>
+            </form>
+            <div class="tk-chat-typing" id="tkChatTyping" style="display:none;">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ALL STYLES -->
+<!-- ============================================ -->
+<style>
+/* ================================================
+   THYNK — Brand Theme (White + Luminous Green)
+   Primary:       #0F172A  (dark text)
+   Accent Green:  #39FF14  (luminous green)
+   Cyan:          #06B6D4
+   White BG:      #FFFFFF
+   Alt BG:        #F8FAFC
+   Body:          #4B5563
+   Muted:         #6B7C93
+   ================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box !important; }
+
+/* ---- TOKENS ---- */
+:root {
+    --tk-blue: #0F172A;
+    --tk-cyan: #06B6D4;
+    --tk-neon: #39FF14;
+    --tk-navy: #FFFFFF;
+    --tk-dark: #FFFFFF;
+    --tk-darker: #F8FAFC;
+    --tk-muted: #6B7C93;
+    --tk-body: #4B5563;
+}
+
+.tk-text-white  { color: #0F172A !important; }
+.tk-text-muted  { color: var(--tk-muted) !important; }
+.tk-text-body   { color: var(--tk-body) !important; }
+.tk-grad-text   { background: linear-gradient(90deg, #39FF14, #06B6D4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.tk-neon-text   { color: #27B80E !important; text-shadow: none !important; }
+.tk-text-center { text-align: center !important; }
+
+/* ---- BACKGROUNDS ---- */
+.tk-bg-navy   { background: #FFFFFF !important; }
+.tk-bg-dark   { background: #FFFFFF !important; }
+.tk-bg-darker { background: #F8FAFC !important; }
+
+/* ---- LAYOUT ---- */
+.tk-container        { max-width: 1200px !important; margin: 0 auto !important; padding: 0 24px !important; }
+.tk-container--narrow { max-width: 860px !important; margin: 0 auto !important; padding: 0 24px !important; }
+.tk-section          { padding: 80px 0 !important; }
+.tk-section-header   { text-align: center !important; margin-bottom: 52px !important; }
+.tk-section-header .tk-body-lg { margin-top: 12px !important; max-width: 600px !important; margin-left: auto !important; margin-right: auto !important; }
+
+/* ---- REVEAL ---- */
+.tk-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.tk-reveal-visible { opacity: 1 !important; transform: translateY(0) !important; }
+@media (prefers-reduced-motion: reduce) { .tk-reveal { opacity: 1 !important; transform: none !important; transition: none !important; } }
+
+/* ---- TYPOGRAPHY ---- */
+.tk-heading-xl { font-size: clamp(26px, 4vw, 42px) !important; font-weight: 800 !important; line-height: 1.15 !important; font-family: 'Inter', sans-serif !important; letter-spacing: -1px !important; }
+.tk-heading-lg { font-size: clamp(22px, 3vw, 34px) !important; font-weight: 700 !important; line-height: 1.2 !important; font-family: 'Inter', sans-serif !important; letter-spacing: -0.5px !important; }
+.tk-heading-md { font-size: clamp(18px, 2.5vw, 26px) !important; font-weight: 600 !important; font-family: 'Inter', sans-serif !important; }
+.tk-body-lg    { font-size: 18px !important; line-height: 1.75 !important; }
+.tk-body       { font-size: 15px !important; line-height: 1.75 !important; }
+
+/* ---- BADGES ---- */
+.tk-badge { display: inline-block !important; font-size: 11px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 2.5px !important; padding: 5px 16px !important; border-radius: 20px !important; margin-bottom: 14px !important; font-family: 'Inter', sans-serif !important; }
+.tk-badge--cyan   { background: rgba(6,182,212,0.1) !important; color: #0891B2 !important; border: 1px solid rgba(6,182,212,0.35) !important; }
+.tk-badge--blue   { background: rgba(15,23,42,0.06) !important; color: #1E40AF !important; border: 1px solid rgba(15,23,42,0.15) !important; }
+.tk-badge--neon   { background: rgba(57,255,20,0.08) !important; color: #27B80E !important; border: 1px solid rgba(57,255,20,0.35) !important; }
+
+/* ---- BUTTONS ---- */
+.tk-btn { display: inline-block !important; padding: 14px 28px !important; border-radius: 8px !important; font-size: 15px !important; font-weight: 600 !important; text-decoration: none !important; transition: all 0.25s ease !important; letter-spacing: 0.2px !important; font-family: 'Inter', sans-serif !important; cursor: pointer !important; }
+.tk-btn--primary { background: #0F172A !important; color: #FFFFFF !important; border: none !important; box-shadow: 0 4px 16px rgba(15,23,42,0.2) !important; }
+.tk-btn--primary:hover { background: #1E293B !important; transform: translateY(-2px) !important; box-shadow: 0 8px 28px rgba(15,23,42,0.3) !important; color: #fff !important; }
+.tk-btn--outline { background: transparent !important; color: #0F172A !important; border: 1.5px solid rgba(15,23,42,0.25) !important; }
+.tk-btn--outline:hover { border-color: #0F172A !important; color: #0F172A !important; background: rgba(15,23,42,0.04) !important; }
+.tk-btn--neon { background: transparent !important; color: #27B80E !important; border: 1.5px solid rgba(57,255,20,0.5) !important; box-shadow: none !important; }
+.tk-btn--neon:hover { background: rgba(57,255,20,0.07) !important; border-color: #39FF14 !important; transform: translateY(-2px) !important; color: #1DA30A !important; }
+
+/* ---- INPUT ---- */
+.tk-input { flex: 1; min-width: 220px; padding: 12px 18px; background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 8px; font-size: 15px; color: #0F172A; outline: none; transition: border-color 0.3s; font-family: 'Inter', sans-serif; }
+.tk-input:focus { border-color: #39FF14; }
+.tk-input::placeholder { color: #94A3B8; }
+
+/* ==========================
+   HERO
+   ========================== */
+.tk-hero { position: relative !important; min-height: 100vh !important; display: flex !important; align-items: center !important; background: #FAFFFE !important; overflow: hidden !important; padding: 120px 0 80px !important; }
+.tk-hero-bg { position: absolute !important; inset: 0 !important; }
+#tkCircuitCanvas { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; opacity: 0.25 !important; }
+.tk-hero-grid-overlay { position: absolute !important; inset: 0 !important; background-image: linear-gradient(rgba(57,255,20,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(57,255,20,0.04) 1px, transparent 1px) !important; background-size: 50px 50px !important; }
+.tk-hero-container { position: relative !important; z-index: 2 !important; max-width: 800px !important; padding: 0 40px !important; }
+
+.tk-hero-chip { display: inline-flex !important; align-items: center !important; gap: 10px !important; margin-bottom: 28px !important; }
+.tk-chip-outer { display: inline-flex !important; align-items: center !important; justify-content: center !important; width: 36px !important; height: 36px !important; border-radius: 50% !important; background: rgba(57,255,20,0.1) !important; border: 1.5px solid rgba(57,255,20,0.4) !important; }
+.tk-chip-inner { display: inline-flex !important; align-items: center !important; justify-content: center !important; width: 24px !important; height: 24px !important; border-radius: 50% !important; background: rgba(57,255,20,0.15) !important; }
+.tk-chip-icon { width: 14px !important; height: 14px !important; }
+.tk-chip-label { font-size: 12px !important; font-weight: 600 !important; letter-spacing: 2px !important; text-transform: uppercase !important; color: #6B7C93 !important; font-family: 'Inter', sans-serif !important; }
+
+.tk-hero-headline { font-size: clamp(36px, 6vw, 72px) !important; font-weight: 900 !important; line-height: 1.05 !important; letter-spacing: -2px !important; color: #0F172A !important; margin: 0 0 24px !important; font-family: 'Inter', sans-serif !important; }
+.tk-hero-sub { font-size: 18px !important; line-height: 1.75 !important; color: #4B5563 !important; margin: 0 0 36px !important; max-width: 580px !important; font-family: 'Inter', sans-serif !important; }
+
+.tk-hero-actions { display: flex !important; gap: 14px !important; flex-wrap: wrap !important; margin-bottom: 36px !important; }
+
+.tk-hero-platforms { display: flex !important; gap: 12px !important; flex-wrap: wrap !important; }
+.tk-platform-tag { display: inline-flex !important; align-items: center !important; gap: 6px !important; padding: 6px 14px !important; background: rgba(15,23,42,0.04) !important; border: 1px solid rgba(15,23,42,0.1) !important; border-radius: 20px !important; font-size: 12px !important; font-weight: 600 !important; color: #6B7C93 !important; font-family: 'Inter', sans-serif !important; transition: all 0.3s !important; }
+.tk-platform-tag:hover { background: rgba(57,255,20,0.08) !important; border-color: rgba(57,255,20,0.4) !important; color: #27B80E !important; }
+
+/* ---- METRICS ---- */
+.tk-metrics { background: #F8FAFC !important; padding: 28px 0 !important; border-bottom: 1px solid #E2E8F0 !important; border-top: 1px solid #E2E8F0 !important; }
+.tk-metrics-grid { display: grid !important; grid-template-columns: repeat(7, 1fr) !important; align-items: center !important; }
+.tk-metric-item { text-align: center !important; display: flex !important; flex-direction: column !important; gap: 4px !important; padding: 8px 0 !important; }
+.tk-metric-num { font-size: 20px !important; font-weight: 800 !important; font-family: 'Inter', sans-serif !important; line-height: 1 !important; }
+.tk-metric-label { font-size: 11px !important; color: #6B7C93 !important; font-weight: 500 !important; text-transform: uppercase !important; letter-spacing: 0.5px !important; }
+.tk-metric-divider { width: 1px !important; height: 32px !important; background: #E2E8F0 !important; margin: 0 auto !important; }
+
+/* ---- SERVICES GRID ---- */
+.tk-services-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 20px !important; }
+.tk-service-card { background: #FFFFFF !important; border: 1px solid #E2E8F0 !important; border-radius: 16px !important; padding: 32px 26px !important; transition: all 0.4s ease !important; position: relative !important; overflow: hidden !important; box-shadow: 0 1px 4px rgba(0,0,0,0.05) !important; }
+.tk-service-card:hover { border-color: rgba(57,255,20,0.5) !important; transform: translateY(-4px) !important; box-shadow: 0 12px 40px rgba(57,255,20,0.08) !important; }
+.tk-service-card--featured { border-color: rgba(57,255,20,0.3) !important; background: #FAFFFE !important; }
+.tk-service-card--featured::before { content: '' !important; position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; height: 2px !important; background: linear-gradient(90deg, #39FF14, #06B6D4) !important; }
+.tk-service-card--cta { background: rgba(57,255,20,0.03) !important; border: 1px solid rgba(57,255,20,0.2) !important; display: flex !important; align-items: center !important; justify-content: center !important; box-shadow: none !important; }
+.tk-service-glow { position: absolute !important; top: -40px !important; right: -40px !important; width: 150px !important; height: 150px !important; border-radius: 50% !important; background: radial-gradient(circle, rgba(57,255,20,0.06) 0%, transparent 70%) !important; pointer-events: none !important; }
+.tk-service-icon-wrap { width: 48px !important; height: 48px !important; border-radius: 12px !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 20px !important; margin-bottom: 18px !important; border: 1px solid !important; }
+.tk-service-title { font-size: 18px !important; font-weight: 700 !important; color: #0F172A !important; margin: 0 0 10px !important; font-family: 'Inter', sans-serif !important; }
+.tk-service-text { font-size: 14px !important; line-height: 1.7 !important; color: #4B5563 !important; margin: 0 0 16px !important; }
+.tk-service-tags { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; margin-bottom: 14px !important; }
+.tk-service-tags span { font-size: 11px !important; font-weight: 500 !important; padding: 3px 10px !important; background: #F1F5F9 !important; border: 1px solid #E2E8F0 !important; border-radius: 20px !important; color: #4B5563 !important; }
+.tk-service-devices { display: flex !important; gap: 8px !important; }
+.tk-device-pill { display: inline-flex !important; align-items: center !important; gap: 5px !important; font-size: 11px !important; font-weight: 600 !important; padding: 4px 10px !important; border-radius: 20px !important; }
+.tk-device-pill:first-child { background: rgba(57,255,20,0.08) !important; color: #27B80E !important; border: 1px solid rgba(57,255,20,0.3) !important; }
+.tk-device-pill:last-child { background: rgba(6,182,212,0.08) !important; color: #0891B2 !important; border: 1px solid rgba(6,182,212,0.25) !important; }
+.tk-neon-circle { width: 60px !important; height: 60px !important; border-radius: 50% !important; background: rgba(57,255,20,0.08) !important; border: 1.5px solid rgba(57,255,20,0.35) !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 24px !important; color: #27B80E !important; margin: 0 auto 16px !important; box-shadow: none !important; }
+.tk-service-cta-inner { text-align: center !important; }
+
+/* ---- SPLIT GRID ---- */
+.tk-split-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 64px !important; align-items: center !important; }
+.tk-split-grid--reverse .tk-split-content { order: 2 !important; }
+.tk-split-grid--reverse .tk-split-visual { order: 1 !important; }
+
+/* ---- FEATURE LIST ---- */
+.tk-feature-list { display: flex !important; flex-direction: column !important; gap: 16px !important; }
+.tk-feature-row { display: flex !important; gap: 14px !important; align-items: flex-start !important; }
+.tk-feature-dot { width: 10px !important; height: 10px !important; border-radius: 50% !important; flex-shrink: 0 !important; margin-top: 6px !important; }
+.tk-feature-row strong { display: block !important; color: #0F172A !important; font-size: 15px !important; font-weight: 600 !important; margin-bottom: 2px !important; font-family: 'Inter', sans-serif !important; }
+.tk-feature-row p { font-size: 13px !important; color: #6B7C93 !important; line-height: 1.6 !important; margin: 0 !important; }
+
+/* ---- PHONE MOCKUP ---- */
+.tk-phone-mockup { position: relative !important; display: flex !important; gap: 20px !important; align-items: flex-start !important; justify-content: center !important; }
+.tk-phone-frame { width: 200px !important; background: #0A0A1A !important; border: 2px solid rgba(57,255,20,0.3) !important; border-radius: 28px !important; overflow: hidden !important; box-shadow: 0 24px 60px rgba(0,0,0,0.15), 0 0 40px rgba(57,255,20,0.06) !important; position: relative !important; }
+.tk-phone-frame--android { width: 160px !important; margin-top: 40px !important; border-color: rgba(57,255,20,0.2) !important; box-shadow: 0 20px 50px rgba(0,0,0,0.1), 0 0 30px rgba(57,255,20,0.04) !important; }
+.tk-phone-screen { padding: 12px 10px !important; }
+.tk-phone-status-bar { display: flex !important; justify-content: space-between !important; font-size: 10px !important; color: rgba(255,255,255,0.5) !important; margin-bottom: 8px !important; padding: 0 4px !important; }
+.tk-phone-icons { display: flex !important; gap: 4px !important; }
+.tk-phone-app-ui { display: flex !important; flex-direction: column !important; gap: 8px !important; }
+.tk-app-header { display: flex !important; align-items: center !important; justify-content: space-between !important; padding: 6px 8px !important; background: rgba(255,255,255,0.04) !important; border-radius: 8px !important; font-size: 11px !important; color: rgba(255,255,255,0.7) !important; font-weight: 600 !important; }
+.tk-app-logo-dot { width: 8px !important; height: 8px !important; border-radius: 50% !important; background: linear-gradient(135deg, #39FF14, #06B6D4) !important; }
+.tk-app-hero-card { background: rgba(255,255,255,0.03) !important; border: 1px solid rgba(255,255,255,0.06) !important; border-radius: 10px !important; overflow: hidden !important; }
+.tk-app-map-placeholder { height: 90px !important; position: relative !important; background: rgba(6,182,212,0.05) !important; overflow: hidden !important; }
+.tk-map-grid { position: absolute !important; inset: 0 !important; background-image: linear-gradient(rgba(6,182,212,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,0.1) 1px, transparent 1px) !important; background-size: 12px 12px !important; }
+.tk-map-pin { position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; color: #39FF14 !important; font-size: 18px !important; filter: drop-shadow(0 0 6px rgba(57,255,20,0.5)) !important; }
+.tk-map-circle { position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 40px !important; height: 40px !important; border-radius: 50% !important; border: 1px solid rgba(57,255,20,0.3) !important; animation: mapPulse 2s ease-in-out infinite !important; }
+@keyframes mapPulse { 0%,100% { transform:translate(-50%,-50%) scale(1); opacity:1; } 50% { transform:translate(-50%,-50%) scale(1.3); opacity:0.4; } }
+.tk-app-card-footer { display: flex !important; gap: 6px !important; padding: 6px 8px !important; }
+.tk-app-stat-pill { font-size: 9px !important; font-weight: 600 !important; padding: 3px 7px !important; border-radius: 8px !important; display: flex !important; align-items: center !important; gap: 3px !important; }
+.tk-app-grid-4 { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 6px !important; }
+.tk-app-icon-block { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 3px !important; padding: 8px 4px !important; border-radius: 8px !important; font-size: 12px !important; }
+.tk-app-icon-block span { font-size: 8px !important; color: rgba(255,255,255,0.4) !important; }
+.tk-mini-progress { width: 100% !important; height: 4px !important; background: rgba(255,255,255,0.08) !important; border-radius: 2px !important; margin-bottom: 4px !important; overflow: hidden !important; }
+.tk-mini-progress-fill { height: 100% !important; background: linear-gradient(90deg, #39FF14, #06B6D4) !important; border-radius: 2px !important; }
+.tk-phone-android { display: flex !important; flex-direction: column !important; }
+
+/* ---- GIS ---- */
+.tk-gis-header { text-align: center !important; margin-bottom: 48px !important; }
+.tk-gis-showcase { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 48px !important; align-items: center !important; }
+.tk-map-container { position: relative !important; height: 320px !important; border-radius: 16px !important; overflow: hidden !important; background: #F8FAFC !important; border: 1px solid #E2E8F0 !important; }
+.tk-map-bg { position: absolute !important; inset: 0 !important; background: linear-gradient(135deg, rgba(248,250,252,0.95), rgba(241,245,249,0.98)) !important; }
+.tk-map-layers { position: absolute !important; inset: 0 !important; }
+.tk-map-layer { position: absolute !important; border-radius: 4px !important; opacity: 0.5 !important; }
+.tk-map-layer--1 { top: 20%; left: 15%; width: 30%; height: 25%; background: rgba(57,255,20,0.15) !important; border: 1px solid rgba(57,255,20,0.4) !important; }
+.tk-map-layer--2 { top: 50%; left: 40%; width: 35%; height: 30%; background: rgba(6,182,212,0.12) !important; border: 1px solid rgba(6,182,212,0.35) !important; }
+.tk-map-layer--3 { top: 30%; left: 55%; width: 28%; height: 20%; background: rgba(15,23,42,0.06) !important; border: 1px solid rgba(15,23,42,0.15) !important; }
+.tk-map-pins { position: absolute !important; inset: 0 !important; }
+.tk-map-pin-marker { position: absolute !important; transform: translate(-50%, -50%) !important; font-size: 20px !important; color: #27B80E !important; filter: none !important; }
+.tk-pin-pulse { position: absolute !important; width: 28px !important; height: 28px !important; border-radius: 50% !important; border: 1.5px solid rgba(57,255,20,0.5) !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; animation: pinPulse 2s ease-in-out infinite !important; }
+@keyframes pinPulse { 0%,100%{transform:translate(-50%,-50%) scale(0.8);opacity:0.8;} 50%{transform:translate(-50%,-50%) scale(1.4);opacity:0;} }
+.tk-map-overlay-card { position: absolute !important; bottom: 16px !important; left: 16px !important; background: rgba(255,255,255,0.95) !important; border: 1px solid #E2E8F0 !important; border-radius: 8px !important; padding: 10px 14px !important; backdrop-filter: blur(8px) !important; box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important; }
+.tk-gis-features { display: flex !important; flex-direction: column !important; gap: 24px !important; }
+.tk-gis-feature-item { display: flex !important; gap: 16px !important; align-items: flex-start !important; }
+.tk-gis-feature-icon { width: 40px !important; height: 40px !important; border-radius: 10px !important; background: #F8FAFC !important; border: 1px solid #E2E8F0 !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 18px !important; flex-shrink: 0 !important; }
+.tk-gis-feature-item h4 { font-size: 15px !important; font-weight: 600 !important; color: #0F172A !important; margin: 0 0 4px !important; font-family: 'Inter', sans-serif !important; }
+.tk-gis-feature-item p { font-size: 13px !important; color: #6B7C93 !important; line-height: 1.6 !important; margin: 0 !important; }
+
+/* ---- PROCESS ---- */
+.tk-process-timeline { position: relative !important; display: flex !important; flex-direction: column !important; gap: 0 !important; }
+.tk-process-track { position: absolute !important; left: 20px !important; top: 24px !important; bottom: 24px !important; width: 2px !important; background: linear-gradient(180deg, #39FF14, #06B6D4, #39FF14) !important; opacity: 0.3 !important; }
+.tk-process-step { display: flex !important; gap: 28px !important; align-items: flex-start !important; padding: 24px 0 !important; border-bottom: 1px solid #F1F5F9 !important; }
+.tk-process-step:last-child { border-bottom: none !important; }
+.tk-process-node { width: 42px !important; height: 42px !important; border-radius: 50% !important; border: 2px solid !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 12px !important; font-weight: 700 !important; background: #FFFFFF !important; flex-shrink: 0 !important; font-family: 'Inter', sans-serif !important; }
+.tk-process-card h3 { font-size: 18px !important; font-weight: 700 !important; color: #0F172A !important; margin: 0 0 6px !important; font-family: 'Inter', sans-serif !important; }
+.tk-process-card p { font-size: 14px !important; color: #6B7C93 !important; line-height: 1.7 !important; margin: 0 !important; }
+.tk-process-week { font-size: 11px !important; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 1.5px !important; display: block !important; margin-bottom: 6px !important; }
+
+/* ---- DESIGN MOCKUP ---- */
+.tk-design-mockup { position: relative !important; display: flex !important; flex-direction: column !important; gap: 16px !important; }
+.tk-design-card { background: #FFFFFF !important; border: 1px solid #E2E8F0 !important; border-radius: 14px !important; overflow: hidden !important; box-shadow: 0 1px 4px rgba(0,0,0,0.05) !important; }
+.tk-dc-header { padding: 14px 18px !important; }
+.tk-dc-body { padding: 16px 18px !important; }
+.tk-color-swatches { display: flex !important; gap: 8px !important; margin-bottom: 12px !important; }
+.tk-swatch { width: 28px !important; height: 28px !important; border-radius: 6px !important; }
+.tk-design-offerings { display: flex !important; flex-direction: column !important; gap: 10px !important; }
+.tk-design-item { display: flex !important; align-items: center !important; gap: 10px !important; font-size: 14px !important; color: #4B5563 !important; font-family: 'Inter', sans-serif !important; }
+.tk-design-item i { width: 16px !important; flex-shrink: 0 !important; }
+
+/* ---- STATS ---- */
+.tk-stats-section { background: #F8FAFC !important; padding: 80px 0 !important; }
+.tk-stats-header { text-align: center !important; margin-bottom: 48px !important; }
+.tk-stats-grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 20px !important; }
+.tk-stat-card { background: #FFFFFF !important; border: 1px solid #E2E8F0 !important; border-radius: 16px !important; padding: 32px 24px !important; text-align: center !important; position: relative !important; overflow: hidden !important; transition: all 0.4s !important; box-shadow: 0 1px 4px rgba(0,0,0,0.04) !important; }
+.tk-stat-card::before { content:'' !important; position:absolute !important; top:0 !important; left:0 !important; right:0 !important; height:2px !important; background:linear-gradient(90deg,transparent,#39FF14,transparent) !important; opacity:0 !important; transition:opacity 0.4s !important; }
+.tk-stat-card:hover::before { opacity:1 !important; }
+.tk-stat-card:hover { transform:translateY(-4px) !important; border-color:rgba(57,255,20,0.3) !important; box-shadow: 0 8px 24px rgba(57,255,20,0.08) !important; }
+.tk-stat-card--featured { border-color:rgba(57,255,20,0.35) !important; background:#FAFFFE !important; }
+.tk-stat-card--featured::before { background:linear-gradient(90deg,transparent,#39FF14,transparent) !important; opacity:1 !important; }
+.tk-stat-inner { position:relative !important; z-index:1 !important; }
+.tk-stat-num { display:block !important; font-size:36px !important; font-weight:900 !important; font-family:'Inter',sans-serif !important; line-height:1.1 !important; margin-bottom:6px !important; }
+.tk-stat-label { display:block !important; font-size:15px !important; font-weight:600 !important; color:#0F172A !important; margin-bottom:6px !important; font-family:'Inter',sans-serif !important; }
+.tk-stat-sub { display:block !important; font-size:12px !important; color:#6B7C93 !important; line-height:1.5 !important; }
+.tk-stat-bg-icon { position:absolute !important; bottom:-10px !important; right:10px !important; font-size:72px !important; color:rgba(15,23,42,0.03) !important; }
+
+/* ---- AUDIENCE ---- */
+.tk-audience-grid { display:grid !important; grid-template-columns:repeat(4,1fr) !important; gap:20px !important; }
+.tk-audience-card { background:#FFFFFF !important; border:1px solid #E2E8F0 !important; border-radius:14px !important; padding:28px 22px !important; transition:all 0.3s !important; box-shadow: 0 1px 4px rgba(0,0,0,0.04) !important; }
+.tk-audience-card:hover { border-color:rgba(57,255,20,0.4) !important; transform:translateY(-4px) !important; box-shadow: 0 8px 24px rgba(57,255,20,0.07) !important; }
+.tk-audience-icon-wrap { width:44px !important; height:44px !important; border-radius:12px !important; border:1px solid !important; display:flex !important; align-items:center !important; justify-content:center !important; font-size:20px !important; margin-bottom:14px !important; }
+.tk-audience-card h3 { font-size:17px !important; font-weight:700 !important; color:#0F172A !important; margin:0 0 10px !important; font-family:'Inter',sans-serif !important; }
+.tk-audience-card p { font-size:13px !important; line-height:1.7 !important; color:#6B7C93 !important; margin:0 !important; }
+
+/* ---- TESTIMONIAL ---- */
+.tk-testimonial-section { background:#FFFFFF !important; padding:80px 0 !important; }
+.tk-testimonial-card { max-width:820px !important; margin:0 auto !important; padding:48px 40px !important; background:#F8FAFC !important; border:1px solid #E2E8F0 !important; border-radius:20px !important; text-align:center !important; }
+.tk-testimonial-quote-mark { font-size:64px !important; line-height:1 !important; color:#39FF14 !important; font-family:Georgia,serif !important; opacity:0.5 !important; margin-bottom:8px !important; }
+.tk-testimonial-text { font-size:22px !important; font-weight:300 !important; line-height:1.7 !important; color:#1E293B !important; margin:0 0 24px !important; font-family:'Inter',Georgia,sans-serif !important; font-style:italic !important; }
+.tk-testimonial-highlight { color:#27B80E !important; font-weight:600 !important; }
+.tk-testimonial-divider { display:flex !important; align-items:center !important; justify-content:center !important; gap:16px !important; margin:0 auto 24px !important; max-width:120px !important; }
+.tk-testimonial-divider span:first-child, .tk-testimonial-divider span:last-child { flex:1 !important; height:1px !important; background:rgba(57,255,20,0.3) !important; display:block !important; }
+.tk-divider-diamond { color:rgba(57,255,20,0.5) !important; font-size:10px !important; }
+.tk-testimonial-author { display:flex !important; align-items:center !important; justify-content:center !important; gap:16px !important; padding-top:24px !important; border-top:1px solid #E2E8F0 !important; }
+.tk-testimonial-avatar { width:48px !important; height:48px !important; border-radius:50% !important; background:linear-gradient(135deg,#39FF14,#06B6D4) !important; color:#0F172A !important; display:flex !important; align-items:center !important; justify-content:center !important; font-size:14px !important; font-weight:700 !important; font-family:'Inter',sans-serif !important; flex-shrink:0 !important; }
+.tk-testimonial-author > div { text-align:left !important; }
+.tk-testimonial-name { font-size:15px !important; font-weight:600 !important; color:#0F172A !important; margin:0 0 2px !important; font-family:'Inter',sans-serif !important; }
+.tk-testimonial-role { font-size:12px !important; color:#6B7C93 !important; margin:0 0 4px !important; }
+.tk-stars { color:#27B80E !important; font-size:13px !important; display:flex !important; align-items:center !important; gap:4px !important; }
+.tk-stars span { font-size:12px !important; color:#6B7C93 !important; }
+
+/* ---- TECH STACK ---- */
+.tk-stack-grid { display:grid !important; grid-template-columns:repeat(3,1fr) !important; gap:24px !important; }
+.tk-stack-category { background:#FFFFFF !important; border:1px solid #E2E8F0 !important; border-radius:14px !important; padding:24px 22px !important; box-shadow: 0 1px 4px rgba(0,0,0,0.04) !important; }
+.tk-stack-cat-title { font-size:14px !important; font-weight:700 !important; margin:0 0 12px !important; display:flex !important; align-items:center !important; gap:8px !important; font-family:'Inter',sans-serif !important; text-transform:uppercase !important; letter-spacing:1px !important; }
+.tk-stack-chips { display:flex !important; flex-wrap:wrap !important; gap:8px !important; }
+.tk-stack-chip { font-size:12px !important; font-weight:500 !important; padding:5px 12px !important; background:#F1F5F9 !important; border:1px solid #E2E8F0 !important; border-radius:20px !important; color:#4B5563 !important; transition:all 0.25s !important; }
+.tk-stack-chip:hover { border-color:rgba(57,255,20,0.5) !important; color:#27B80E !important; background:rgba(57,255,20,0.05) !important; }
+
+/* ---- FAQ ---- */
+.tk-faq-list { display:flex !important; flex-direction:column !important; gap:10px !important; }
+.tk-faq-item { border:1px solid #E2E8F0 !important; border-radius:12px !important; background:#FFFFFF !important; overflow:hidden !important; transition:border-color 0.25s !important; box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important; }
+.tk-faq-item:hover { border-color:rgba(57,255,20,0.4) !important; }
+.tk-faq-item.tk-faq-open { border-color:rgba(57,255,20,0.5) !important; }
+.tk-faq-question { width:100% !important; display:flex !important; align-items:center !important; justify-content:space-between !important; gap:16px !important; padding:18px 22px !important; background:transparent !important; border:none !important; cursor:pointer !important; text-align:left !important; font-size:15px !important; font-weight:600 !important; color:#0F172A !important; font-family:'Inter',sans-serif !important; }
+.tk-faq-icon { flex-shrink:0 !important; width:28px !important; height:28px !important; border-radius:50% !important; background:rgba(57,255,20,0.08) !important; color:#27B80E !important; display:flex !important; align-items:center !important; justify-content:center !important; font-size:11px !important; transition:all 0.3s !important; }
+.tk-faq-open .tk-faq-icon { transform:rotate(135deg) !important; background:#39FF14 !important; color:#0F172A !important; }
+.tk-faq-answer { max-height:0 !important; overflow:hidden !important; transition:max-height 0.35s ease, padding 0.35s ease !important; padding:0 22px !important; }
+.tk-faq-open .tk-faq-answer { max-height:300px !important; padding:0 22px 20px !important; }
+.tk-faq-answer p { font-size:14px !important; line-height:1.75 !important; color:#6B7C93 !important; margin:0 !important; }
+
+/* ---- CTA ---- */
+.tk-cta-section { position:relative !important; background:#FAFFFE !important; padding:100px 0 !important; overflow:hidden !important; text-align:center !important; border-top:1px solid #E2E8F0 !important; }
+.tk-cta-bg { position:absolute !important; inset:0 !important; }
+.tk-cta-circuit { position:absolute !important; inset:0 !important; background: radial-gradient(ellipse at center, rgba(57,255,20,0.05) 0%, transparent 70%) !important; }
+.tk-cta-inner { position:relative !important; z-index:2 !important; }
+.tk-cta-actions { display:flex !important; gap:16px !important; justify-content:center !important; flex-wrap:wrap !important; margin-bottom:32px !important; }
+.tk-cta-platforms { display:flex !important; align-items:center !important; justify-content:center !important; gap:12px !important; flex-wrap:wrap !important; font-size:13px !important; color:#94A3B8 !important; font-weight:500 !important; }
+.tk-cta-platforms i { color:rgba(57,255,20,0.6) !important; margin-right:4px !important; }
+.tk-dot { color:#CBD5E1 !important; }
+
+/* ---- FLOATING CHAT ---- */
+.tk-floating-chat { position:fixed !important; bottom:28px !important; right:28px !important; z-index:99999 !important; font-family:'Inter',sans-serif !important; }
+.tk-chat-toggle { width:56px !important; height:56px !important; border-radius:50% !important; background:#0F172A !important; border:none !important; color:#FFFFFF !important; font-size:24px !important; cursor:pointer !important; box-shadow:0 4px 20px rgba(15,23,42,0.25) !important; transition:all 0.3s !important; position:relative !important; display:flex !important; align-items:center !important; justify-content:center !important; }
+.tk-chat-toggle:hover { transform:scale(1.08) !important; box-shadow:0 8px 32px rgba(15,23,42,0.35) !important; background:#1E293B !important; }
+.tk-chat-badge { position:absolute !important; top:-4px !important; right:-4px !important; background:#39FF14 !important; color:#0F172A !important; font-size:11px !important; font-weight:700 !important; width:20px !important; height:20px !important; border-radius:50% !important; display:flex !important; align-items:center !important; justify-content:center !important; animation:chatPulse 2s infinite !important; border:2px solid #FFFFFF !important; }
+@keyframes chatPulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.15);} }
+.tk-chat-badge.hidden { display:none !important; }
+.tk-chat-window { position:absolute !important; bottom:68px !important; right:0 !important; width:360px !important; max-width:calc(100vw - 40px) !important; background:#FFFFFF !important; border:1px solid #E2E8F0 !important; border-radius:16px !important; box-shadow:0 8px 60px rgba(0,0,0,0.12) !important; display:none !important; flex-direction:column !important; overflow:hidden !important; transform-origin:bottom right !important; }
+.tk-chat-window.open { display:flex !important; }
+.tk-chat-header { display:flex !important; align-items:center !important; justify-content:space-between !important; padding:14px 18px !important; background:#F8FAFC !important; border-bottom:1px solid #E2E8F0 !important; }
+.tk-chat-header-info { display:flex !important; align-items:center !important; gap:10px !important; }
+.tk-chat-avatar-glyph { font-size:20px !important; }
+.tk-chat-header h4 { font-size:14px !important; font-weight:600 !important; color:#0F172A !important; margin:0 !important; }
+.tk-chat-header p { font-size:11px !important; color:#6B7C93 !important; margin:0 !important; }
+.tk-chat-close { background:none !important; border:none !important; color:#94A3B8 !important; font-size:16px !important; cursor:pointer !important; padding:4px !important; }
+.tk-chat-close:hover { color:#0F172A !important; }
+.tk-chat-messages { flex:1 !important; padding:14px 16px !important; overflow-y:auto !important; max-height:320px !important; min-height:180px !important; display:flex !important; flex-direction:column !important; gap:8px !important; background:#FFFFFF !important; }
+.tk-chat-msg { max-width:85% !important; padding:10px 14px !important; border-radius:12px !important; font-size:13px !important; line-height:1.6 !important; }
+.tk-chat-msg--bot { background:#F1F5F9 !important; color:#1E293B !important; border-radius:0 12px 12px 12px !important; align-self:flex-start !important; border:1px solid #E2E8F0 !important; }
+.tk-chat-msg--bot p { margin:0 0 4px !important; }
+.tk-chat-msg--bot p:last-child { margin:0 !important; }
+.tk-chat-msg--bot ul { margin:4px 0 !important; padding-left:16px !important; }
+.tk-chat-msg--user { background:#0F172A !important; color:#FFFFFF !important; border-radius:12px 0 12px 12px !important; align-self:flex-end !important; }
+.tk-chat-input-area { padding:10px 14px !important; border-top:1px solid #E2E8F0 !important; background:#FFFFFF !important; }
+.tk-chat-form { display:flex !important; gap:8px !important; align-items:center !important; }
+.tk-chat-form input { flex:1 !important; padding:9px 13px !important; background:#F8FAFC !important; border:1px solid #E2E8F0 !important; border-radius:8px !important; font-size:13px !important; color:#0F172A !important; outline:none !important; font-family:'Inter',sans-serif !important; }
+.tk-chat-form input:focus { border-color:#39FF14 !important; }
+.tk-chat-form input::placeholder { color:#94A3B8 !important; }
+.tk-chat-form button { width:36px !important; height:36px !important; border-radius:50% !important; background:#0F172A !important; color:#FFFFFF !important; border:none !important; cursor:pointer !important; display:flex !important; align-items:center !important; justify-content:center !important; font-size:14px !important; flex-shrink:0 !important; }
+.tk-chat-typing { display:flex !important; gap:5px !important; padding:6px 2px !important; }
+.tk-chat-typing span { width:7px !important; height:7px !important; border-radius:50% !important; background:#39FF14 !important; animation:chatBounce 1.4s ease-in-out infinite !important; }
+.tk-chat-typing span:nth-child(2) { animation-delay:0.2s !important; }
+.tk-chat-typing span:nth-child(3) { animation-delay:0.4s !important; }
+@keyframes chatBounce { 0%,60%,100%{transform:translateY(0);opacity:0.3;} 30%{transform:translateY(-6px);opacity:0.9;} }
+
+/* ---- STICKY HEADER ---- */
+.ast-main-header-wrap { position: sticky !important; top: 0 !important; z-index: 999 !important; transition: box-shadow 0.3s, background 0.3s !important; }
+.ast-main-header-wrap.tk-header-scrolled, .main-header-bar.tk-header-scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.08) !important; background: rgba(255,255,255,0.98) !important; backdrop-filter: blur(10px) !important; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 991px) {
+    .tk-services-grid { grid-template-columns: 1fr 1fr !important; }
+    .tk-split-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .tk-split-grid--reverse .tk-split-content { order: 1 !important; }
+    .tk-split-grid--reverse .tk-split-visual { order: 2 !important; }
+    .tk-gis-showcase { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .tk-stats-grid { grid-template-columns: 1fr 1fr !important; }
+    .tk-audience-grid { grid-template-columns: 1fr 1fr !important; }
+    .tk-stack-grid { grid-template-columns: 1fr 1fr !important; }
+    .tk-metrics-grid { grid-template-columns: repeat(4,1fr) !important; }
+    .tk-phone-mockup { justify-content: center !important; }
+}
+@media (max-width: 768px) {
+    .tk-section { padding: 60px 0 !important; }
+    .tk-hero { padding: 100px 0 60px !important; }
+    .tk-hero-container { padding: 0 20px !important; }
+    .tk-hero-headline { font-size: clamp(28px, 8vw, 42px) !important; }
+    .tk-services-grid { grid-template-columns: 1fr !important; }
+    .tk-stats-grid { grid-template-columns: 1fr 1fr !important; }
+    .tk-audience-grid { grid-template-columns: 1fr !important; }
+    .tk-stack-grid { grid-template-columns: 1fr !important; }
+    .tk-testimonial-card { padding: 32px 24px !important; }
+    .tk-testimonial-text { font-size: 18px !important; }
+    .tk-metrics-grid { grid-template-columns: 1fr 1fr !important; row-gap: 16px !important; }
+    .tk-metric-divider { display: none !important; }
+    .tk-phone-android { display: none !important; }
+    .tk-process-track { display: none !important; }
+}
+@media (max-width: 480px) {
+    .tk-section { padding: 44px 0 !important; }
+    .tk-container { padding: 0 16px !important; }
+    .tk-container--narrow { padding: 0 16px !important; }
+    .tk-hero-actions { flex-direction: column !important; }
+    .tk-btn { width: 100% !important; text-align: center !important; }
+    .tk-stats-grid { grid-template-columns: 1fr !important; }
+    .tk-cta-actions { flex-direction: column !important; }
+    .tk-process-step { flex-direction: column !important; gap: 10px !important; }
+    .tk-process-node { width: 36px !important; height: 36px !important; font-size: 11px !important; }
+}
+</style>
+
+<!-- ============================================ -->
+<!-- CIRCUIT CANVAS ANIMATION -->
+<!-- ============================================ -->
+<script>
+(function() {
+    const canvas = document.getElementById('tkCircuitCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, nodes = [], lines = [];
+
+    function resize() {
+        W = canvas.width = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+        init();
+    }
+
+    function init() {
+        nodes = [];
+        lines = [];
+        const count = Math.floor((W * H) / 18000);
+        for (let i = 0; i < count; i++) {
+            nodes.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 2.5 + 1, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3, color: ['#2563EB','#06B6D4','#39FF14'][Math.floor(Math.random()*3)] });
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        nodes.forEach(n => {
+            n.x += n.vx; n.y += n.vy;
+            if (n.x < 0 || n.x > W) n.vx *= -1;
+            if (n.y < 0 || n.y > H) n.vy *= -1;
+        });
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i+1; j < nodes.length; j++) {
+                const d = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+                if (d < 100) {
+                    ctx.beginPath();
+                    ctx.moveTo(nodes[i].x, nodes[i].y);
+                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.strokeStyle = `rgba(37,99,235,${0.15 * (1 - d/100)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+        nodes.forEach(n => {
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fillStyle = n.color;
+            ctx.globalAlpha = 0.5;
+            ctx.fill();
+            ctx.globalAlpha = 1;
+        });
+        requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    draw();
+})();
+</script>
+
+<!-- ============================================ -->
+<!-- MAIN SCRIPTS -->
+<!-- ============================================ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Scroll reveal
+    var revealEls = document.querySelectorAll('.tk-reveal');
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('tk-reveal-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(function(el) { observer.observe(el); });
+    } else {
+        revealEls.forEach(function(el) { el.classList.add('tk-reveal-visible'); });
     }
 
     // FAQ accordion
-    var faqItems = document.querySelectorAll('.sl-faq-item');
-    faqItems.forEach(function (item) {
-        var question = item.querySelector('.sl-faq-question');
-        question.addEventListener('click', function () {
-            var isOpen = item.classList.contains('sl-faq-open');
-            faqItems.forEach(function (other) {
-                other.classList.remove('sl-faq-open');
-                other.querySelector('.sl-faq-question').setAttribute('aria-expanded', 'false');
+    document.querySelectorAll('.tk-faq-item').forEach(function(item) {
+        item.querySelector('.tk-faq-question').addEventListener('click', function() {
+            var isOpen = item.classList.contains('tk-faq-open');
+            document.querySelectorAll('.tk-faq-item').forEach(function(o) {
+                o.classList.remove('tk-faq-open');
+                o.querySelector('.tk-faq-question').setAttribute('aria-expanded','false');
             });
             if (!isOpen) {
-                item.classList.add('sl-faq-open');
-                question.setAttribute('aria-expanded', 'true');
+                item.classList.add('tk-faq-open');
+                this.setAttribute('aria-expanded','true');
             }
         });
+    });
+
+    // UTM passthrough for booking links
+    ['Book1','Book2','Book3','Book4'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.href += window.location.search;
     });
 
     // Sticky header
@@ -1882,1025 +2362,105 @@ document.addEventListener('DOMContentLoaded', function () {
     if (siteHeader) {
         var headerWrap = siteHeader.closest('.ast-main-header-wrap') || siteHeader.parentElement;
         function onScroll() {
-            if (window.pageYOffset > 80) {
-                siteHeader.classList.add('sl-header-scrolled');
-                if (headerWrap) headerWrap.classList.add('sl-header-scrolled');
-            } else {
-                siteHeader.classList.remove('sl-header-scrolled');
-                if (headerWrap) headerWrap.classList.remove('sl-header-scrolled');
-            }
+            var scrolled = window.pageYOffset > 60;
+            siteHeader.classList.toggle('tk-header-scrolled', scrolled);
+            if (headerWrap) headerWrap.classList.toggle('tk-header-scrolled', scrolled);
         }
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
     }
-});
-</script>
 
-<!-- ============================================ -->
-<!-- ALL STYLES -->
-<!-- ============================================ -->
-<style>
-/* ================================================
-   SOFEL LABS — BRAND THEME
-   Primary: Teal #47C89F | Lime #9ACA43 | Orange #EE6F20
-   Navy: #0E2A47 | Body: #3D4A5C | Muted: #6B7C93
-   ================================================ */
-*, *::before, *::after { box-sizing: border-box !important; }
-
-/* ---- TOKENS ---- */
-.sl-text-navy   { color: #0E2A47 !important; }
-.sl-text-teal   { color: #47C89F !important; }
-.sl-text-lime   { color: #9ACA43 !important; }
-.sl-text-orange { color: #EE6F20 !important; }
-.sl-text-white  { color: #FFFFFF !important; }
-.sl-text-white-60 { color: rgba(255,255,255,0.65) !important; }
-.sl-text-muted  { color: #6B7C93 !important; }
-.sl-text-body   { color: #3D4A5C !important; }
-.sl-accent-lime   { color: #9ACA43; }
-.sl-accent-orange { color: #EE6F20; }
-
-/* ---- BACKGROUNDS ---- */
-.sl-bg-white    { background: #FFFFFF !important; }
-.sl-bg-offwhite { background: #F5F7F6 !important; }
-.sl-bg-navy     { background: #0E2A47 !important; }
-.sl-bg-teal     { background: #47C89F !important; }
-.sl-bg-dark     { background: #0A1A10 !important; }
-
-/* ---- TYPOGRAPHY ---- */
-.sl-heading-xl { font-size: clamp(26px,4vw,40px) !important; font-weight:700 !important; line-height:1.2 !important; font-family:'Cabin',sans-serif !important; }
-.sl-heading-lg { font-size: clamp(22px,3vw,32px) !important; font-weight:700 !important; line-height:1.25 !important; font-family:'Cabin',sans-serif !important; }
-.sl-heading-md { font-size: clamp(18px,2.5vw,26px) !important; font-weight:600 !important; font-family:'Cabin',sans-serif !important; }
-.sl-heading-sm { font-size:18px !important; font-weight:600 !important; font-family:'Cabin',sans-serif !important; margin-bottom:10px !important; }
-.sl-body-lg    { font-size:18px !important; line-height:1.75 !important; color:#3D4A5C; }
-.sl-body       { font-size:15px !important; line-height:1.75 !important; color:#3D4A5C; margin-bottom:14px !important; }
-.sl-small      { font-size:13px !important; }
-.sl-fw-semibold { font-weight:600 !important; }
-.sl-fw-medium  { font-weight:500 !important; }
-
-/* ---- LAYOUT ---- */
-.sl-container { max-width:1200px !important; margin:0 auto !important; padding:0 24px !important; }
-.sl-container--narrow { max-width:860px !important; margin:0 auto !important; padding:0 24px !important; }
-.sl-container-full { max-width:1200px !important; margin:0 auto !important; padding:0 24px !important; }
-.sl-text-center { text-align:center !important; }
-.sl-section     { padding:80px 0 !important; }
-.sl-cta-banner  { padding:60px 0 !important; }
-.sl-section-header { text-align:center !important; margin-bottom:52px !important; }
-.sl-section-header .sl-body-lg { margin-top:12px !important; max-width:600px !important; margin-left:auto !important; margin-right:auto !important; }
-
-/* ---- REVEAL ---- */
-.sl-reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease,transform 0.7s ease; }
-.sl-reveal-visible { opacity:1 !important; transform:translateY(0) !important; }
-@media (prefers-reduced-motion: reduce) { .sl-reveal { opacity:1 !important; transform:none !important; transition:none !important; } }
-
-/* ---- EYEBROW ---- */
-.sl-eyebrow { display:block !important; font-size:12.5px !important; font-weight:700 !important; text-transform:uppercase !important; letter-spacing:3px !important; color:#47C89F !important; margin-bottom:16px !important; text-align:center !important; }
-
-/* ---- RULES ---- */
-.sl-rule-thin { width:100% !important; height:1px !important; background:#E3E7ED !important; margin:0 !important; }
-
-/* ---- BADGES ---- */
-.sl-badge { display:inline-block !important; font-size:12px !important; font-weight:600 !important; text-transform:uppercase !important; letter-spacing:2px !important; padding:5px 18px !important; border-radius:20px !important; margin-bottom:14px !important; }
-.sl-badge--teal   { background:rgba(71,200,159,0.1) !important; color:#47C89F !important; border:1px solid rgba(71,200,159,0.25) !important; }
-.sl-badge--lime   { background:rgba(154,202,67,0.1) !important; color:#6a9a00 !important; border:1px solid rgba(154,202,67,0.25) !important; }
-.sl-badge--orange { background:rgba(238,111,32,0.1) !important; color:#EE6F20 !important; border:1px solid rgba(238,111,32,0.25) !important; }
-
-/* ---- BUTTONS ---- */
-.sl-btn { display:inline-block !important; padding:14px 32px !important; border-radius:6px !important; font-size:15px !important; font-weight:600 !important; text-decoration:none !important; transition:all 0.25s ease !important; letter-spacing:0.3px !important; font-family:'Cabin',sans-serif !important; }
-.sl-btn--teal { background:#47C89F !important; color:#FFFFFF !important; }
-.sl-btn--teal:hover { background:#35aa85 !important; transform:translateY(-2px) !important; box-shadow:0 6px 20px rgba(71,200,159,0.35) !important; }
-.sl-btn--orange { background:#EE6F20 !important; color:#FFFFFF !important; }
-.sl-btn--orange:hover { background:#cc5d17 !important; transform:translateY(-2px) !important; box-shadow:0 6px 20px rgba(238,111,32,0.35) !important; }
-.sl-btn--ghost { background:transparent !important; color:#FFFFFF !important; border:2px solid rgba(255,255,255,0.5) !important; }
-.sl-btn--ghost:hover { border-color:#FFFFFF !important; background:rgba(255,255,255,0.1) !important; }
-.sl-btn--white-outline { background:transparent !important; color:#FFFFFF !important; border:2px solid rgba(255,255,255,0.7) !important; }
-.sl-btn--white-outline:hover { background:rgba(255,255,255,0.12) !important; border-color:#FFFFFF !important; transform:translateY(-2px) !important; }
-
-/* ---- HERO ---- */
-.sl-hero { padding:0 !important; background:#0E2A47 !important; }
-.sl-hero-container { max-width:100% !important; margin:0 auto !important; padding:0 !important; position:relative !important; }
-.sl-hero-wrapper { position:relative !important; width:100% !important; overflow:hidden !important; background:#0a1a2e !important; }
-.sl-hero-slide { display:none !important; width:100% !important; height:580px !important; position:relative !important; animation:slFadeIn 0.8s ease !important; }
-.sl-hero-slide.active { display:block !important; }
-.sl-hero-image { width:100% !important; height:100% !important; background-size:cover !important; background-position:center !important; }
-.sl-hero-overlay { position:absolute !important; inset:0 !important; background:linear-gradient(105deg, rgba(14,42,71,0.92) 0%, rgba(14,42,71,0.65) 55%, rgba(14,42,71,0.25) 100%) !important; display:flex !important; align-items:center !important; }
-.sl-hero-content { padding:0 64px !important; max-width:720px !important; }
-.sl-hero-eyebrow { display:block !important; font-size:12px !important; font-weight:700 !important; text-transform:uppercase !important; letter-spacing:3px !important; color:#47C89F !important; margin-bottom:16px !important; }
-.sl-hero-headline { font-size:clamp(32px,5vw,58px) !important; font-weight:800 !important; line-height:1.15 !important; color:#FFFFFF !important; margin:0 0 20px !important; font-family:'Cabin',sans-serif !important; }
-.sl-hero-subtext { font-size:18px !important; line-height:1.7 !important; color:rgba(255,255,255,0.75) !important; margin:0 0 32px !important; max-width:560px !important; }
-.sl-hero-actions { display:flex !important; gap:16px !important; flex-wrap:wrap !important; }
-@keyframes slFadeIn { from { opacity:0; } to { opacity:1; } }
-.sl-hero-dots { position:absolute !important; bottom:24px !important; left:50% !important; transform:translateX(-50%) !important; display:flex !important; gap:8px !important; background:rgba(0,0,0,0.35) !important; padding:7px 14px !important; border-radius:20px !important; }
-.sl-hero-dot { width:9px !important; height:9px !important; border-radius:50% !important; border:none !important; background:rgba(255,255,255,0.4) !important; cursor:pointer !important; transition:all 0.3s !important; }
-.sl-hero-dot.active, .sl-hero-dot:hover { background:#47C89F !important; transform:scale(1.3) !important; }
-
-/* ---- TRUST STRIP ---- */
-.sl-trust-strip { background:#FFFFFF !important; padding:32px 0 !important; border-bottom:1px solid #E8ECF2 !important; }
-.sl-trust-grid { display:grid !important; grid-template-columns:repeat(7,1fr) !important; align-items:center !important; }
-.sl-trust-item { text-align:center !important; display:flex !important; flex-direction:column !important; gap:4px !important; }
-.sl-trust-num { font-size:30px !important; font-weight:800 !important; font-family:'Cabin',sans-serif !important; line-height:1 !important; }
-.sl-trust-label { font-size:12.5px !important; color:#6B7C93 !important; }
-.sl-trust-divider { width:1px !important; height:36px !important; background:#E2E7EE !important; margin:0 auto !important; }
-
-/* ---- PROBLEM SECTION ---- */
-.sl-problem-cards { display:grid !important; grid-template-columns:repeat(4,1fr) !important; gap:20px !important; margin-bottom:40px !important; }
-.sl-problem-card { background:rgba(255,255,255,0.04) !important; border:1px solid rgba(255,255,255,0.08) !important; border-radius:14px !important; padding:28px 22px !important; text-align:center !important; transition:all 0.3s !important; }
-.sl-problem-card:hover { background:rgba(255,255,255,0.07) !important; transform:translateY(-4px) !important; }
-.sl-problem-icon { font-size:36px !important; margin-bottom:14px !important; }
-.sl-problem-title { font-size:17px !important; font-weight:600 !important; color:#FFFFFF !important; margin:0 0 10px !important; font-family:'Cabin',sans-serif !important; }
-.sl-problem-text { font-size:14px !important; line-height:1.7 !important; color:rgba(255,255,255,0.6) !important; margin:0 !important; }
-.sl-problem-callout { background:rgba(238,111,32,0.08) !important; border:1px solid rgba(238,111,32,0.15) !important; border-radius:10px !important; padding:24px 28px !important; text-align:center !important; font-size:18px !important; line-height:1.7 !important; color:rgba(255,255,255,0.75) !important; }
-
-/* ---- TRANSFORM SECTION ---- */
-.sl-transform-full { background:#FAFBF9 !important; padding:80px 0 !important; font-family:sans-serif !important; }
-.sl-transform-full-header { text-align:center !important; margin-bottom:48px !important; }
-.sl-transform-full-title { font-size:38px !important; font-weight:700 !important; color:#0E2A47 !important; margin:0 0 8px !important; font-family:'Cabin',sans-serif !important; }
-.sl-transform-full-subtitle { font-size:18px !important; color:#6B7C93 !important; margin:0 !important; font-weight:300 !important; }
-.sl-transform-full-grid { display:grid !important; grid-template-columns:1fr auto 1fr !important; background:#FFFFFF !important; border-radius:16px !important; overflow:hidden !important; box-shadow:0 2px 20px rgba(0,0,0,0.04) !important; border:1px solid #EEF0F4 !important; margin-bottom:40px !important; }
-.sl-transform-full-col { padding:40px 32px !important; display:flex !important; flex-direction:column !important; }
-.sl-transform-full-col--before { border-right:1px solid rgba(238,111,32,0.08) !important; }
-.sl-transform-full-col--after { background:#F7FDF9 !important; }
-.sl-transform-full-col-header { margin-bottom:24px !important; padding-bottom:16px !important; border-bottom:1px solid rgba(0,0,0,0.04) !important; }
-.sl-transform-full-icon { display:inline-block !important; font-size:18px !important; font-weight:700 !important; margin-right:8px !important; }
-.sl-transform-full-icon--before { color:#EE6F20 !important; }
-.sl-transform-full-icon--after { color:#47C89F !important; }
-.sl-transform-full-col-sub { display:block !important; font-size:13px !important; color:#8A8A9E !important; margin-top:2px !important; }
-.sl-transform-full-col-body { flex:1 !important; display:flex !important; flex-direction:column !important; }
-.sl-transform-full-text { font-size:16px !important; line-height:1.7 !important; color:#3D4A5C !important; margin:0 0 20px !important; }
-.sl-transform-full-features { display:flex !important; flex-direction:column !important; gap:6px !important; margin-bottom:24px !important; }
-.sl-transform-full-feature { display:flex !important; align-items:center !important; gap:12px !important; padding:8px 0 !important; font-size:14px !important; color:#3D4A5C !important; border-bottom:1px solid rgba(0,0,0,0.02) !important; }
-.sl-feature-mark { display:inline-flex !important; align-items:center !important; justify-content:center !important; width:20px !important; height:20px !important; border-radius:50% !important; font-size:11px !important; font-weight:700 !important; flex-shrink:0 !important; }
-.sl-feature-mark--before { background:rgba(238,111,32,0.1) !important; color:#EE6F20 !important; }
-.sl-feature-mark--after  { background:rgba(71,200,159,0.1) !important; color:#47C89F !important; }
-.sl-transform-full-outcome { padding:14px 18px !important; border-radius:8px !important; text-align:center !important; margin-top:auto !important; }
-.sl-transform-full-outcome--before { background:rgba(238,111,32,0.04) !important; border:1px solid rgba(238,111,32,0.1) !important; }
-.sl-transform-full-outcome--after  { background:rgba(71,200,159,0.04) !important; border:1px solid rgba(71,200,159,0.1) !important; }
-.sl-outcome-label { display:block !important; font-size:10px !important; text-transform:uppercase !important; letter-spacing:1.5px !important; color:#8A8A9E !important; font-weight:600 !important; margin-bottom:2px !important; }
-.sl-outcome-text { font-size:17px !important; font-weight:700 !important; margin:0 !important; font-family:'Cabin',sans-serif !important; }
-.sl-transform-full-divider { display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:center !important; padding:0 12px !important; min-width:60px !important; }
-.sl-divider-line { width:2px !important; flex:1 !important; min-height:30px !important; background:linear-gradient(180deg,transparent,rgba(71,200,159,0.2),transparent) !important; }
-.sl-divider-circle { width:48px !important; height:48px !important; border-radius:50% !important; background:#FFFFFF !important; border:2px solid rgba(71,200,159,0.2) !important; display:flex !important; align-items:center !important; justify-content:center !important; font-size:12px !important; font-weight:800 !important; color:#47C89F !important; font-family:'Cabin',sans-serif !important; flex-shrink:0 !important; }
-.sl-transform-full-insights { display:grid !important; grid-template-columns:repeat(4,1fr) !important; gap:16px !important; }
-.sl-insight-item { display:flex !important; align-items:flex-start !important; gap:14px !important; padding:16px 18px !important; background:#FFFFFF !important; border-radius:10px !important; border:1px solid #EEF0F4 !important; transition:all 0.3s !important; }
-.sl-insight-item:hover { border-color:rgba(71,200,159,0.2) !important; transform:translateY(-2px) !important; box-shadow:0 4px 16px rgba(0,0,0,0.04) !important; }
-.sl-insight-number { font-size:22px !important; font-weight:800 !important; font-family:'Cabin',sans-serif !important; color:rgba(71,200,159,0.2) !important; line-height:1 !important; flex-shrink:0 !important; width:28px !important; }
-.sl-insight-title { font-size:14px !important; font-weight:600 !important; color:#0E2A47 !important; margin:0 0 2px !important; font-family:'Cabin',sans-serif !important; }
-.sl-insight-text { font-size:13px !important; color:#6B7C93 !important; line-height:1.5 !important; margin:0 !important; }
-
-/* ---- STEPS ---- */
-.sl-steps-grid { display:grid !important; grid-template-columns:repeat(3,1fr) !important; gap:28px !important; }
-.sl-step { text-align:center !important; padding:36px 24px !important; background:#FFFFFF !important; border-radius:14px !important; border:1px solid #E8ECF2 !important; transition:transform 0.3s,box-shadow 0.3s !important; position:relative !important; }
-.sl-step:hover { transform:translateY(-4px) !important; box-shadow:0 8px 28px rgba(14,42,71,0.07) !important; }
-.sl-step-number { font-size:52px !important; font-weight:800 !important; font-family:'Cabin',sans-serif !important; line-height:1 !important; margin-bottom:10px !important; }
-.sl-step-icon { font-size:32px !important; margin-bottom:14px !important; }
-.sl-step-tag { display:inline-block !important; margin-top:16px !important; font-size:11px !important; font-weight:600 !important; text-transform:uppercase !important; letter-spacing:1px !important; padding:4px 12px !important; border-radius:12px !important; }
-
-/* ---- JOURNEY UDEMY ---- */
-.sl-journey-udemy { background:#FFFFFF !important; padding:70px 0 !important; }
-.sl-udemy-header { text-align:center !important; margin-bottom:48px !important; }
-.sl-udemy-title { font-size:36px !important; font-weight:700 !important; margin:0 0 8px !important; font-family:'Cabin',sans-serif !important; }
-.sl-udemy-subtitle { font-size:17px !important; color:#6B7C93 !important; margin:0 !important; }
-.sl-udemy-timeline { display:grid !important; grid-template-columns:repeat(4,1fr) !important; gap:20px !important; margin-bottom:36px !important; }
-.sl-udemy-stage { position:relative !important; }
-.sl-udemy-stage-marker { display:flex !important; flex-direction:column !important; align-items:center !important; margin-bottom:16px !important; }
-.sl-udemy-stage-number { display:flex !important; align-items:center !important; justify-content:center !important; width:36px !important; height:36px !important; border-radius:50% !important; background:#FFFFFF !important; border:2px solid #E8ECF2 !important; font-size:14px !important; font-weight:700 !important; position:relative !important; z-index:2 !important; }
-.sl-udemy-stage-card { background:#FFFFFF !important; border:1px solid #F0F2F4 !important; border-radius:12px !important; padding:20px 16px !important; transition:all 0.3s !important; text-align:center !important; }
-.sl-udemy-stage-card:hover { border-color:#D0D8E4 !important; box-shadow:0 4px 20px rgba(0,0,0,0.05) !important; transform:translateY(-4px) !important; }
-.sl-udemy-stage-icon { font-size:28px !important; margin-bottom:8px !important; }
-.sl-udemy-stage-title { font-size:17px !important; font-weight:600 !important; color:#0E2A47 !important; margin:0 0 6px !important; font-family:'Cabin',sans-serif !important; }
-.sl-udemy-stage-desc { font-size:13px !important; color:#6B7C93 !important; line-height:1.5 !important; margin:0 0 12px !important; }
-.sl-udemy-stage-meta { display:flex !important; justify-content:center !important; gap:6px !important; margin-bottom:12px !important; flex-wrap:wrap !important; }
-.sl-udemy-meta-tag { font-size:11px !important; font-weight:500 !important; color:#8A8A9E !important; background:#F5F6F8 !important; padding:2px 10px !important; border-radius:12px !important; text-transform:uppercase !important; }
-.sl-udemy-stage-outcome { background:#F8FAFB !important; border-radius:8px !important; padding:10px 12px !important; font-size:12px !important; color:#6B7C93 !important; }
-.sl-udemy-progress { margin:24px 0 !important; padding:0 10px !important; }
-.sl-udemy-progress-bar { width:100% !important; height:6px !important; background:#E8ECF2 !important; border-radius:4px !important; overflow:hidden !important; margin-bottom:10px !important; }
-.sl-udemy-progress-fill { height:100% !important; width:100% !important; background:linear-gradient(90deg,#EE6F20,#9ACA43,#EE6F20,#47C89F) !important; border-radius:4px !important; }
-.sl-udemy-progress-labels { display:flex !important; justify-content:space-between !important; }
-.sl-udemy-progress-label { font-size:13px !important; color:#B0B8C4 !important; font-weight:500 !important; }
-
-/* ---- PRINCIPLES ---- */
-.sl-principles-list { display:flex !important; flex-direction:column !important; }
-.sl-principle-row { display:grid !important; grid-template-columns:56px 1fr !important; gap:20px !important; padding:26px 0 !important; align-items:start !important; }
-.sl-principle-num { font-family:'Cabin',sans-serif !important; font-size:26px !important; font-weight:800 !important; color:#47C89F !important; line-height:1 !important; }
-
-/* ---- FRAMEWORK ---- */
-.sl-framework { background:#0E2A47 !important; padding:80px 0 !important; }
-.sl-framework-header { text-align:center !important; margin-bottom:48px !important; }
-.sl-framework-title { font-size:38px !important; font-weight:700 !important; color:#FFFFFF !important; margin:0 0 8px !important; font-family:'Cabin',sans-serif !important; }
-.sl-framework-subtitle { font-size:18px !important; color:rgba(255,255,255,0.5) !important; margin:0 !important; font-weight:300 !important; }
-.sl-framework-grid { display:grid !important; grid-template-columns:repeat(4,1fr) !important; gap:24px !important; }
-.sl-framework-pillar { background:rgba(255,255,255,0.03) !important; border:1px solid rgba(255,255,255,0.06) !important; border-radius:16px !important; padding:32px 22px !important; text-align:center !important; transition:all 0.4s !important; position:relative !important; overflow:hidden !important; }
-.sl-framework-pillar::before { content:'' !important; position:absolute !important; top:0 !important; left:0 !important; right:0 !important; height:3px !important; background:linear-gradient(90deg,transparent,#47C89F,transparent) !important; opacity:0 !important; transition:opacity 0.4s !important; }
-.sl-framework-pillar:hover::before { opacity:1 !important; }
-.sl-framework-pillar:hover { transform:translateY(-6px) !important; background:rgba(255,255,255,0.06) !important; border-color:rgba(71,200,159,0.15) !important; box-shadow:0 12px 40px rgba(0,0,0,0.15) !important; }
-.sl-framework-pillar-icon { margin-bottom:16px !important; }
-.sl-pillar-emoji { font-size:38px !important; }
-.sl-framework-pillar-title { font-size:18px !important; font-weight:600 !important; color:#FFFFFF !important; margin:0 0 10px !important; font-family:'Cabin',sans-serif !important; }
-.sl-framework-pillar-text { font-size:14px !important; line-height:1.7 !important; color:rgba(255,255,255,0.58) !important; margin:0 0 16px !important; }
-.sl-framework-pillar-text em { color:rgba(255,255,255,0.8) !important; }
-.sl-framework-pillar-tag { display:inline-block !important; padding:4px 14px !important; border-radius:20px !important; background:rgba(71,200,159,0.08) !important; border:1px solid rgba(71,200,159,0.08) !important; }
-.sl-framework-pillar-tag span { font-size:11px !important; font-weight:500 !important; color:#47C89F !important; text-transform:uppercase !important; letter-spacing:1px !important; }
-.sl-framework-callout { margin-top:40px !important; padding:20px !important; text-align:center !important; border-top:1px solid rgba(255,255,255,0.04) !important; }
-.sl-framework-callout-text { font-size:18px !important; font-weight:300 !important; color:rgba(255,255,255,0.4) !important; margin:0 !important; font-style:italic !important; }
-
-/* ---- SERVICES ---- */
-.sl-services-grid { display:grid !important; grid-template-columns:repeat(3,1fr) !important; gap:24px !important; }
-.sl-service-card { background:#FFFFFF !important; padding:30px 26px !important; border-radius:14px !important; border:1px solid #E8ECF2 !important; transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s !important; }
-.sl-service-card:hover { transform:translateY(-4px) !important; box-shadow:0 10px 30px rgba(14,42,71,0.08) !important; border-color:rgba(71,200,159,0.25) !important; }
-.sl-service-icon { width:48px !important; height:48px !important; border-radius:12px !important; display:flex !important; align-items:center !important; justify-content:center !important; font-size:20px !important; margin-bottom:16px !important; }
-.sl-service-icon--teal   { background:rgba(71,200,159,0.12) !important; color:#47C89F !important; }
-.sl-service-icon--lime   { background:rgba(154,202,67,0.12) !important; color:#6a9a00 !important; }
-.sl-service-icon--orange { background:rgba(238,111,32,0.12) !important; color:#EE6F20 !important; }
-
-/* ---- RESULTS ---- */
-.sl-results-id { background:#0A1A10 !important; background:radial-gradient(circle at 20% 20%,#0d2417 0%,#0A1A10 65%) !important; padding:80px 0 !important; }
-.sl-results-id-header { text-align:center !important; margin-bottom:48px !important; }
-.sl-results-id-badge { display:inline-block !important; font-size:12px !important; font-weight:600 !important; text-transform:uppercase !important; letter-spacing:3px !important; color:#9ACA43 !important; background:rgba(154,202,67,0.08) !important; padding:4px 20px !important; border-radius:20px !important; border:1px solid rgba(154,202,67,0.1) !important; margin-bottom:14px !important; }
-.sl-results-id-title { font-size:38px !important; font-weight:700 !important; color:#FFFFFF !important; margin:0 0 8px !important; font-family:'Cabin',sans-serif !important; }
-.sl-results-id-subtitle { font-size:18px !important; color:rgba(255,255,255,0.5) !important; margin:0 !important; font-weight:300 !important; }
-.sl-results-id-grid { display:grid !important; grid-template-columns:repeat(4,1fr) !important; gap:24px !important; }
-.sl-results-id-card { background:rgba(255,255,255,0.025) !important; border:1px solid rgba(255,255,255,0.06) !important; border-radius:16px !important; padding:32px 24px !important; text-align:center !important; transition:all 0.4s !important; display:flex !important; flex-direction:column !important; position:relative !important; overflow:hidden !important; }
-.sl-results-id-card::before { content:'' !important; position:absolute !important; top:0 !important; left:0 !important; right:0 !important; height:3px !important; background:linear-gradient(90deg,transparent,#47C89F,transparent) !important; opacity:0 !important; transition:opacity 0.4s !important; }
-.sl-results-id-card:hover::before { opacity:1 !important; }
-.sl-results-id-card:hover { transform:translateY(-6px) !important; background:rgba(255,255,255,0.04) !important; box-shadow:0 12px 40px rgba(0,0,0,0.2) !important; }
-.sl-results-id-card--featured { border:1px solid rgba(154,202,67,0.2) !important; background:rgba(154,202,67,0.04) !important; transform:scale(1.02) !important; }
-.sl-results-id-card--featured::before { background:linear-gradient(90deg,transparent,#9ACA43,transparent) !important; opacity:1 !important; }
-.sl-results-id-card--featured:hover { transform:scale(1.02) translateY(-6px) !important; }
-.sl-results-id-icon { margin-bottom:16px !important; }
-.sl-result-emoji { font-size:38px !important; }
-.sl-results-id-card-title { font-size:18px !important; font-weight:600 !important; color:#FFFFFF !important; margin:0 0 10px !important; font-family:'Cabin',sans-serif !important; }
-.sl-results-id-card-text { font-size:14px !important; line-height:1.7 !important; color:rgba(255,255,255,0.55) !important; margin:0 0 20px !important; flex:1 !important; }
-.sl-results-id-stat { padding:14px 16px !important; border-radius:10px !important; background:rgba(255,255,255,0.02) !important; border:1px solid rgba(255,255,255,0.04) !important; }
-.sl-results-id-stat--lime { background:rgba(154,202,67,0.04) !important; border:1px solid rgba(154,202,67,0.08) !important; }
-.sl-results-id-stat .sl-stat-number { display:block !important; font-size:28px !important; font-weight:800 !important; font-family:'Cabin',sans-serif !important; line-height:1.1 !important; }
-.sl-results-id-stat .sl-stat-label { display:block !important; font-size:12px !important; color:rgba(255,255,255,0.4) !important; margin-top:4px !important; line-height:1.4 !important; }
-.sl-results-id-callout { margin-top:48px !important; padding:24px 20px !important; text-align:center !important; border-top:1px solid rgba(255,255,255,0.04) !important; }
-.sl-results-id-callout-line { width:60px !important; height:2px !important; background:rgba(154,202,67,0.2) !important; margin:0 auto !important; }
-.sl-results-id-callout-text { font-size:18px !important; font-weight:300 !important; color:rgba(255,255,255,0.5) !important; margin:16px 0 !important; font-style:italic !important; }
-.sl-results-id-callout-text strong { color:#FFFFFF !important; font-weight:600 !important; font-style:normal !important; }
-
-/* ---- WHO WE SERVE ---- */
-.sl-audience-grid { display:grid !important; grid-template-columns:repeat(2,1fr) !important; gap:24px !important; }
-.sl-audience-card { background:#FFFFFF !important; border:1px solid #E8ECF2 !important; border-radius:14px !important; padding:32px 28px !important; transition:all 0.3s !important; }
-.sl-audience-card:hover { transform:translateY(-4px) !important; box-shadow:0 10px 30px rgba(14,42,71,0.07) !important; border-color:rgba(71,200,159,0.2) !important; }
-.sl-audience-icon { font-size:32px !important; margin-bottom:16px !important; }
-.sl-audience-title { font-size:20px !important; font-weight:700 !important; color:#0E2A47 !important; margin:0 0 12px !important; font-family:'Cabin',sans-serif !important; }
-.sl-audience-text { font-size:15px !important; line-height:1.75 !important; color:#3D4A5C !important; margin:0 0 16px !important; }
-.sl-audience-use-case { font-size:13px !important; color:#6B7C93 !important; background:#F5F7F6 !important; border-radius:8px !important; padding:10px 14px !important; border-left:3px solid #47C89F !important; }
-
-/* ---- GAMIFICATION EXPLAINED ---- */
-.sl-game-explain { background:#0A1A10 !important; background:radial-gradient(circle at 80% 20%,#112515 0%,#0A1A10 60%) !important; padding:80px 0 !important; }
-.sl-game-explain-grid { display:grid !important; grid-template-columns:1fr 1fr !important; gap:32px !important; margin:40px 0 !important; }
-.sl-game-myth, .sl-game-truth { background:rgba(255,255,255,0.025) !important; border:1px solid rgba(255,255,255,0.07) !important; border-radius:14px !important; padding:32px 28px !important; }
-.sl-game-myth { border-color:rgba(238,111,32,0.12) !important; }
-.sl-game-truth { border-color:rgba(71,200,159,0.12) !important; }
-.sl-game-myth-label, .sl-game-truth-label { font-size:12px !important; font-weight:700 !important; text-transform:uppercase !important; letter-spacing:2px !important; }
-.sl-game-mechanics-row { display:flex !important; flex-wrap:wrap !important; gap:8px !important; margin-top:20px !important; }
-.sl-mechanic-tag { background:rgba(71,200,159,0.08) !important; border:1px solid rgba(71,200,159,0.12) !important; color:#47C89F !important; font-size:12px !important; font-weight:600 !important; padding:4px 12px !important; border-radius:20px !important; }
-.sl-game-quote-row { display:grid !important; grid-template-columns:1fr 1fr !important; gap:32px !important; align-items:center !important; }
-.sl-game-quote-card { background:rgba(255,255,255,0.03) !important; border:1px solid rgba(255,255,255,0.06) !important; border-radius:14px !important; padding:32px 28px !important; border-left:4px solid #9ACA43 !important; }
-.sl-game-quote-text { font-size:20px !important; font-style:italic !important; color:rgba(255,255,255,0.85) !important; line-height:1.65 !important; margin:0 0 12px !important; font-family:'Cabin',Georgia,sans-serif !important; }
-.sl-game-quote-attr { font-size:13px !important; color:rgba(255,255,255,0.4) !important; }
-.sl-game-stats-row { display:flex !important; flex-direction:column !important; gap:20px !important; }
-.sl-game-stat { display:flex !important; align-items:center !important; gap:16px !important; padding:16px 20px !important; background:rgba(255,255,255,0.025) !important; border-radius:10px !important; border:1px solid rgba(255,255,255,0.04) !important; }
-.sl-game-stat-num { font-size:32px !important; font-weight:800 !important; font-family:'Cabin',sans-serif !important; flex-shrink:0 !important; min-width:72px !important; }
-.sl-game-stat-label { font-size:14px !important; color:rgba(255,255,255,0.6) !important; line-height:1.5 !important; }
-
-/* ---- CASE STUDY / STORY ---- */
-.sl-story-grid { display:grid !important; grid-template-columns:1fr 1fr !important; gap:48px !important; align-items:start !important; }
-.sl-story-tag { display:inline-block !important; font-size:11px !important; font-weight:700 !important; text-transform:uppercase !important; letter-spacing:2px !important; padding:4px 12px !important; border-radius:20px !important; border:1px solid !important; margin-bottom:16px !important; }
-.sl-story-results { background:#FFFFFF !important; border-radius:16px !important; padding:36px 32px !important; border:1px solid #E8ECF2 !important; box-shadow:0 4px 24px rgba(14,42,71,0.06) !important; }
-.sl-story-result-header { font-size:14px !important; font-weight:700 !important; text-transform:uppercase !important; letter-spacing:2px !important; color:#47C89F !important; margin-bottom:28px !important; padding-bottom:14px !important; border-bottom:2px solid rgba(71,200,159,0.15) !important; }
-.sl-story-stat-list { display:flex !important; flex-direction:column !important; gap:16px !important; margin-bottom:28px !important; }
-.sl-story-stat { display:grid !important; grid-template-columns:80px 30px 80px 1fr !important; align-items:center !important; gap:0 12px !important; padding:14px 16px !important; background:#F5F7F6 !important; border-radius:8px !important; }
-.sl-story-stat-before { font-size:20px !important; font-weight:700 !important; color:#6B7C93 !important; font-family:'Cabin',sans-serif !important; text-decoration:line-through !important; text-align:center !important; }
-.sl-story-stat-arrow { font-size:18px !important; color:#D0D8E4 !important; text-align:center !important; }
-.sl-story-stat-after { font-size:24px !important; font-weight:800 !important; font-family:'Cabin',sans-serif !important; text-align:center !important; }
-.sl-story-stat-label { font-size:13px !important; color:#6B7C93 !important; line-height:1.4 !important; }
-.sl-story-quote { background:rgba(71,200,159,0.05) !important; border-left:4px solid #47C89F !important; border-radius:0 8px 8px 0 !important; padding:20px 20px !important; }
-.sl-story-quote p { font-size:15px !important; font-style:italic !important; color:#3D4A5C !important; margin:0 0 8px !important; line-height:1.7 !important; }
-.sl-story-quote span { font-size:12px !important; color:#6B7C93 !important; }
-
-/* ---- TESTIMONIAL ---- */
-.sl-testimonial-classic { padding:80px 0 !important; background:#FFFFFF !important; border-top:1px solid #F0F2F4 !important; border-bottom:1px solid #F0F2F4 !important; }
-.sl-testimonial-classic-container { max-width:820px !important; margin:0 auto !important; padding:0 24px !important; }
-.sl-testimonial-classic-card { position:relative !important; padding:48px 40px !important; text-align:center !important; background:#FFFFFF !important; border:1px solid #EEF0F4 !important; border-radius:12px !important; transition:all 0.3s !important; }
-.sl-testimonial-classic-card:hover { border-color:#DCE0E8 !important; box-shadow:0 4px 24px rgba(0,0,0,0.02) !important; }
-.sl-testimonial-classic-quote-mark { margin-bottom:8px !important; }
-.sl-testimonial-classic-quote-mark span { font-size:52px !important; line-height:1 !important; color:#47C89F !important; font-family:Georgia,serif !important; opacity:0.15 !important; font-weight:700 !important; }
-.sl-testimonial-classic-quote { font-size:24px !important; font-weight:300 !important; line-height:1.7 !important; color:#1A1A2E !important; margin:0 0 20px !important; font-family:'Cabin',Georgia,sans-serif !important; font-style:italic !important; }
-.sl-testimonial-classic-highlight { color:#47C89F !important; font-weight:600 !important; }
-.sl-testimonial-classic-divider { display:flex !important; align-items:center !important; justify-content:center !important; gap:16px !important; margin:16px auto 24px !important; max-width:120px !important; }
-.sl-classic-divider-line { flex:1 !important; height:1px !important; background:linear-gradient(90deg,transparent,#47C89F,transparent) !important; opacity:0.2 !important; }
-.sl-classic-divider-diamond { color:#47C89F !important; font-size:10px !important; opacity:0.3 !important; }
-.sl-testimonial-classic-author { display:flex !important; align-items:center !important; justify-content:center !important; gap:18px !important; padding-top:20px !important; border-top:1px solid #EEF0F4 !important; }
-.sl-testimonial-classic-avatar { width:50px !important; height:50px !important; border-radius:50% !important; background:#47C89F !important; color:#FFFFFF !important; display:flex !important; align-items:center !important; justify-content:center !important; font-size:16px !important; font-weight:700 !important; font-family:'Cabin',sans-serif !important; flex-shrink:0 !important; }
-.sl-testimonial-classic-author-info { text-align:left !important; }
-.sl-testimonial-classic-name { font-size:16px !important; font-weight:600 !important; color:#1A1A2E !important; margin:0 0 2px !important; font-family:'Cabin',sans-serif !important; }
-.sl-testimonial-classic-title { font-size:13px !important; color:#6B7C93 !important; margin:0 0 4px !important; }
-.sl-testimonial-classic-rating { display:flex !important; align-items:center !important; gap:3px !important; }
-.sl-classic-star { color:#EE6F20 !important; font-size:14px !important; }
-.sl-classic-rating-text { font-size:12px !important; font-weight:500 !important; color:#6B7C93 !important; margin-left:4px !important; }
-
-/* ---- LOGOS ---- */
-.sl-logos-strip { background:#F5F7F6 !important; padding:36px 0 !important; }
-.sl-logos-label { text-align:center !important; font-size:12.5px !important; font-weight:600 !important; text-transform:uppercase !important; letter-spacing:1.5px !important; color:#8A97A8 !important; margin-bottom:24px !important; }
-.sl-logos-row { display:flex !important; flex-wrap:wrap !important; justify-content:center !important; gap:36px 48px !important; }
-.sl-logo-item { display:flex !important; align-items:center !important; gap:10px !important; color:#6B7C93 !important; font-weight:600 !important; font-size:14.5px !important; opacity:0.75 !important; transition:opacity 0.25s,color 0.25s !important; }
-.sl-logo-item:hover { opacity:1 !important; color:#0E2A47 !important; }
-.sl-logo-item i { font-size:18px !important; color:#47C89F !important; }
-
-/* ---- FOUNDER ---- */
-.sl-founder-grid { display:grid !important; grid-template-columns:1fr 1fr !important; gap:56px !important; align-items:start !important; }
-.sl-founder-role { font-size:17px !important; font-weight:500 !important; margin:4px 0 6px !important; color:#47C89F !important; }
-.sl-founder-location { font-size:14px !important; margin-bottom:18px !important; color:#6B7C93 !important; }
-.sl-founder-location i { margin-right:6px !important; color:#47C89F !important; }
-.sl-founder-quote { font-size:18px !important; font-style:italic !important; font-weight:300 !important; color:#47C89F !important; line-height:1.5 !important; border-left:3px solid #47C89F !important; padding-left:18px !important; margin:20px 0 !important; }
-.sl-founder-signature { font-size:19px !important; font-weight:600 !important; color:#47C89F !important; margin-top:12px !important; line-height:1.5 !important; }
-.sl-founder-img { width:100% !important; border-radius:10px !important; box-shadow:0 8px 28px rgba(14,42,71,0.1) !important; }
-.sl-founder-stats { display:flex !important; justify-content:center !important; gap:36px !important; margin:18px 0 !important; padding:14px !important; background:rgba(71,200,159,0.06) !important; border-radius:10px !important; }
-.sl-founder-stat { text-align:center !important; }
-.sl-stat-num { display:block !important; font-size:24px !important; font-weight:700 !important; font-family:'Cabin',sans-serif !important; color:#47C89F !important; }
-.sl-founder-stat-divider { width:1px !important; background:#D0D8E4 !important; }
-.sl-founder-social { display:flex !important; justify-content:center !important; gap:10px !important; margin:14px 0 !important; }
-.sl-social-link { width:42px !important; height:42px !important; border-radius:50% !important; border:1px solid #D0D8E4 !important; display:flex !important; align-items:center !important; justify-content:center !important; color:#6B7C93 !important; text-decoration:none !important; transition:all 0.25s !important; }
-.sl-social-link:hover { background:#47C89F !important; border-color:#47C89F !important; color:#FFFFFF !important; }
-.sl-founder-brand-tag { display:block !important; width:fit-content !important; margin:14px auto 0 !important; background:#0E2A47 !important; color:#FFFFFF !important; padding:5px 20px !important; border-radius:20px !important; font-size:13px !important; font-weight:600 !important; letter-spacing:1px !important; text-align:center !important; }
-
-/* ---- FAQ ---- */
-.sl-faq-list { display:flex !important; flex-direction:column !important; gap:12px !important; }
-.sl-faq-item { border:1px solid #E8ECF2 !important; border-radius:12px !important; background:#FFFFFF !important; overflow:hidden !important; transition:border-color 0.25s,box-shadow 0.25s !important; }
-.sl-faq-item:hover { border-color:rgba(71,200,159,0.3) !important; }
-.sl-faq-item.sl-faq-open { border-color:rgba(71,200,159,0.35) !important; box-shadow:0 4px 18px rgba(14,42,71,0.06) !important; }
-.sl-faq-question { width:100% !important; display:flex !important; align-items:center !important; justify-content:space-between !important; gap:16px !important; padding:20px 24px !important; background:transparent !important; border:none !important; cursor:pointer !important; text-align:left !important; font-size:16px !important; font-weight:600 !important; color:#0E2A47 !important; font-family:'Cabin',sans-serif !important; }
-.sl-faq-icon { flex-shrink:0 !important; width:28px !important; height:28px !important; border-radius:50% !important; background:rgba(71,200,159,0.1) !important; color:#47C89F !important; display:flex !important; align-items:center !important; justify-content:center !important; font-size:12px !important; transition:transform 0.3s,background 0.3s,color 0.3s !important; }
-.sl-faq-open .sl-faq-icon { transform:rotate(135deg) !important; background:#47C89F !important; color:#FFFFFF !important; }
-.sl-faq-answer { max-height:0 !important; overflow:hidden !important; transition:max-height 0.35s ease,padding 0.35s ease !important; padding:0 24px !important; }
-.sl-faq-open .sl-faq-answer { max-height:400px !important; padding:0 24px 22px !important; }
-.sl-faq-answer p { margin-bottom:0 !important; }
-
-/* ---- CTA GRIDS ---- */
-.sl-cta-grid { display:grid !important; grid-template-columns:1fr 1fr !important; gap:50px !important; align-items:center !important; }
-.sl-cta-img { width:100% !important; border-radius:10px !important; }
-.sl-contact-form-wrap { background:rgba(255,255,255,0.7) !important; border-radius:12px !important; padding:20px !important; border:1px solid #E8ECF2 !important; }
-
-/* ---- HEADER (Astra) ---- */
-.ast-main-header-wrap { position:sticky !important; top:0 !important; z-index:999 !important; transition:box-shadow 0.3s ease,background 0.3s ease !important; }
-.ast-main-header-wrap.sl-header-scrolled, .main-header-bar.sl-header-scrolled { box-shadow:0 4px 20px rgba(14,42,71,0.1) !important; background:#FFFFFF !important; }
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-@media (max-width:991px) {
-    .sl-problem-cards { grid-template-columns:repeat(2,1fr) !important; }
-    .sl-framework-grid { grid-template-columns:1fr 1fr !important; gap:20px !important; }
-    .sl-results-id-grid { grid-template-columns:1fr 1fr !important; gap:20px !important; }
-    .sl-results-id-card--featured { transform:none !important; }
-    .sl-audience-grid { grid-template-columns:1fr !important; }
-    .sl-game-explain-grid { grid-template-columns:1fr !important; }
-    .sl-game-quote-row { grid-template-columns:1fr !important; }
-    .sl-story-grid { grid-template-columns:1fr !important; gap:32px !important; }
-    .sl-udemy-timeline { grid-template-columns:1fr 1fr !important; }
-    .sl-transform-full-grid { grid-template-columns:1fr !important; }
-    .sl-transform-full-divider { flex-direction:row !important; padding:12px 0 !important; min-width:auto !important; }
-    .sl-divider-line { width:auto !important; height:2px !important; flex:1 !important; min-height:auto !important; background:linear-gradient(90deg,transparent,rgba(71,200,159,0.2),transparent) !important; }
-    .sl-transform-full-col--before { border-right:none !important; border-bottom:1px solid rgba(238,111,32,0.08) !important; }
-    .sl-transform-full-insights { grid-template-columns:1fr 1fr !important; }
-    .sl-founder-grid { grid-template-columns:1fr !important; gap:32px !important; }
-    .sl-cta-grid { grid-template-columns:1fr !important; gap:28px !important; text-align:center !important; }
-    .sl-trust-grid { grid-template-columns:repeat(4,1fr) !important; row-gap:20px !important; }
-}
-
-@media (max-width:768px) {
-    .sl-section     { padding:60px 0 !important; }
-    .sl-hero-slide  { height:380px !important; }
-    .sl-hero-content { padding:0 28px !important; }
-    .sl-hero-headline { font-size:30px !important; }
-    .sl-hero-subtext { font-size:16px !important; }
-    .sl-problem-cards { grid-template-columns:1fr !important; }
-    .sl-steps-grid  { grid-template-columns:1fr !important; }
-    .sl-services-grid { grid-template-columns:1fr !important; }
-    .sl-results-id-grid { grid-template-columns:1fr !important; gap:16px !important; }
-    .sl-udemy-timeline { grid-template-columns:1fr !important; }
-    .sl-transform-full-col { padding:28px 20px !important; }
-    .sl-transform-full-insights { grid-template-columns:1fr !important; }
-    .sl-trust-grid  { grid-template-columns:repeat(2,1fr) !important; row-gap:22px !important; }
-    .sl-trust-divider { display:none !important; }
-    .sl-principle-row { grid-template-columns:40px 1fr !important; gap:14px !important; }
-    .sl-framework-grid { grid-template-columns:1fr !important; }
-    .sl-testimonial-classic-card { padding:32px 22px !important; }
-    .sl-testimonial-classic-quote { font-size:18px !important; }
-    .sl-story-stat { grid-template-columns:60px 24px 70px 1fr !important; }
-}
-
-@media (max-width:480px) {
-    .sl-section     { padding:44px 0 !important; }
-    .sl-hero-slide  { height:280px !important; }
-    .sl-hero-content { padding:0 18px !important; }
-    .sl-hero-headline { font-size:24px !important; }
-    .sl-hero-actions { flex-direction:column !important; }
-    .sl-btn         { width:100% !important; text-align:center !important; }
-    .sl-container   { padding:0 16px !important; }
-    .sl-container--narrow { padding:0 16px !important; }
-    .sl-container-full { padding:0 12px !important; }
-    .sl-founder-stats { flex-direction:column !important; gap:10px !important; }
-    .sl-founder-stat-divider { display:none !important; }
-    .sl-logos-row   { flex-direction:column !important; gap:16px !important; }
-    .sl-principle-row { grid-template-columns:1fr !important; gap:8px !important; }
-    .sl-game-stats-row { gap:12px !important; }
-    .sl-game-stat-num { font-size:26px !important; min-width:56px !important; }
-    .sl-story-stat { grid-template-columns:1fr !important; gap:4px !important; text-align:center !important; }
-    .sl-story-stat-before, .sl-story-stat-arrow { display:none !important; }
-    .sl-audience-card { padding:24px 20px !important; }
-}
-</style>
-
-<!-- ============================================ -->
-<!-- FLOATING CHAT BUTTON — Like Udemy -->
-<!-- ============================================ -->
-<div class="sf-floating-chat" id="sfFloatingChat">
-    <button class="sf-chat-toggle" id="sfChatToggle" aria-label="Open Chat">
-        <span class="sf-chat-icon">
-            <i class="fas fa-comment-dots"></i>
-        </span>
-        <span class="sf-chat-badge" id="sfChatBadge">1</span>
-    </button>
-
-    <!-- Chat Window (Hidden by default) -->
-    <div class="sf-chat-window" id="sfChatWindow">
-        <div class="sf-chat-window-header">
-            <div class="sf-chat-window-header-info">
-                <span class="sf-chat-avatar-sm">🤖</span>
-                <div>
-                    <h4 class="sf-chat-window-title">AI Assistant</h4>
-                    <p class="sf-chat-window-status">Online · Ready to help</p>
-                </div>
-            </div>
-            <button class="sf-chat-close" id="sfChatClose">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <div class="sf-chat-window-messages" id="sfChatMessages">
-            <div class="sf-chat-welcome-msg">
-                <div class="sf-chat-msg sf-chat-msg--bot">
-                    <p>👋 Hi there! I'm the Sofel Labs AI Assistant.</p>
-                    <p>I can help you with questions about:</p>
-                    <ul>
-                        <li>Instructional Design</li>
-                        <li>Gamification</li>
-                        <li>Learning Strategy</li>
-                        <li>Compliance Training</li>
-                    </ul>
-                    <p style="margin-top:8px;">What would you like to know?</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="sf-chat-window-input">
-            <form id="sfChatForm" class="sf-chat-input-form">
-                <input type="text" id="sfChatInput" placeholder="Type your message..." autocomplete="off">
-                <button type="submit" id="sfChatSend">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </form>
-            <div class="sf-chat-typing-indicator" id="sfChatTyping" style="display:none;">
-                <span class="sf-typing-dot"></span>
-                <span class="sf-typing-dot"></span>
-                <span class="sf-typing-dot"></span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ============================================ -->
-<!-- FLOATING CHAT STYLES -->
-<!-- ============================================ -->
-<style>
-    /* ============================================
-       FLOATING CHAT — Like Udemy Style
-       ============================================ */
-
-    .sf-floating-chat {
-        position: fixed !important;
-        bottom: 28px !important;
-        right: 28px !important;
-        z-index: 99999 !important;
-        font-family: 'Gill Sans Nova', 'Gill Sans', 'Gill Sans MT', sans-serif !important;
-    }
-
-    /* ---- Chat Toggle Button ---- */
-    .sf-chat-toggle {
-        width: 60px !important;
-        height: 60px !important;
-        border-radius: 50% !important;
-        background: linear-gradient(135deg, #47C89F, #35aa85) !important;
-        border: none !important;
-        color: #FFFFFF !important;
-        font-size: 28px !important;
-        cursor: pointer !important;
-        box-shadow: 0 4px 20px rgba(71, 200, 159, 0.4) !important;
-        transition: all 0.3s ease !important;
-        position: relative !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-
-    .sf-chat-toggle:hover {
-        transform: scale(1.08) !important;
-        box-shadow: 0 8px 32px rgba(71, 200, 159, 0.5) !important;
-    }
-
-    .sf-chat-badge {
-        position: absolute !important;
-        top: -4px !important;
-        right: -4px !important;
-        background: #EE6F20 !important;
-        color: #FFFFFF !important;
-        font-size: 11px !important;
-        font-weight: 700 !important;
-        width: 22px !important;
-        height: 22px !important;
-        border-radius: 50% !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        font-family: 'Cabin', sans-serif !important;
-        animation: sfPulse 2s ease-in-out infinite !important;
-        border: 2px solid #FFFFFF !important;
-    }
-
-    .sf-chat-badge.hidden {
-        display: none !important;
-    }
-
-    @keyframes sfPulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-    }
-
-    /* ---- Chat Window ---- */
-    .sf-chat-window {
-        position: absolute !important;
-        bottom: 76px !important;
-        right: 0 !important;
-        width: 380px !important;
-        max-width: calc(100vw - 40px) !important;
-        background: #FFFFFF !important;
-        border-radius: 16px !important;
-        box-shadow: 0 8px 60px rgba(0, 0, 0, 0.12) !important;
-        border: 1px solid rgba(0, 0, 0, 0.04) !important;
-        display: none !important;
-        flex-direction: column !important;
-        overflow: hidden !important;
-        transform: translateY(20px) scale(0.95) !important;
-        opacity: 0 !important;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-        transform-origin: bottom right !important;
-    }
-
-    .sf-chat-window.open {
-        display: flex !important;
-        transform: translateY(0) scale(1) !important;
-        opacity: 1 !important;
-    }
-
-    /* ---- Chat Header ---- */
-    .sf-chat-window-header {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        padding: 16px 20px !important;
-        background: linear-gradient(135deg, #0E2A47, #1a3a5f) !important;
-        color: #FFFFFF !important;
-        flex-shrink: 0 !important;
-    }
-
-    .sf-chat-window-header-info {
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-    }
-
-    .sf-chat-avatar-sm {
-        width: 36px !important;
-        height: 36px !important;
-        border-radius: 50% !important;
-        background: rgba(255, 255, 255, 0.08) !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        font-size: 18px !important;
-        flex-shrink: 0 !important;
-    }
-
-    .sf-chat-window-title {
-        font-size: 15px !important;
-        font-weight: 600 !important;
-        margin: 0 !important;
-        font-family: 'Cabin', sans-serif !important;
-    }
-
-    .sf-chat-window-status {
-        font-size: 11px !important;
-        color: rgba(255, 255, 255, 0.6) !important;
-        margin: 0 !important;
-    }
-
-    .sf-chat-close {
-        background: none !important;
-        border: none !important;
-        color: rgba(255, 255, 255, 0.5) !important;
-        font-size: 18px !important;
-        cursor: pointer !important;
-        transition: color 0.3s !important;
-        padding: 4px 8px !important;
-    }
-
-    .sf-chat-close:hover {
-        color: #FFFFFF !important;
-    }
-
-    /* ---- Chat Messages ---- */
-    .sf-chat-window-messages {
-        flex: 1 !important;
-        padding: 16px 18px !important;
-        overflow-y: auto !important;
-        max-height: 350px !important;
-        min-height: 200px !important;
-        background: #F8FAFB !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-    }
-
-    .sf-chat-window-messages::-webkit-scrollbar {
-        width: 4px !important;
-    }
-    .sf-chat-window-messages::-webkit-scrollbar-thumb {
-        background: #D0D8E4 !important;
-        border-radius: 10px !important;
-    }
-
-    .sf-chat-msg {
-        max-width: 85% !important;
-        padding: 10px 14px !important;
-        border-radius: 12px !important;
-        font-size: 13px !important;
-        line-height: 1.6 !important;
-        animation: sfMsgSlide 0.3s ease !important;
-    }
-
-    @keyframes sfMsgSlide {
-        from { opacity: 0; transform: translateY(8px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .sf-chat-msg--bot {
-        background: #FFFFFF !important;
-        color: #1A1A2E !important;
-        border-radius: 0 12px 12px 12px !important;
-        align-self: flex-start !important;
-        border: 1px solid rgba(0, 0, 0, 0.03) !important;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
-    }
-
-    .sf-chat-msg--bot p {
-        margin: 0 0 4px 0 !important;
-    }
-    .sf-chat-msg--bot p:last-child {
-        margin-bottom: 0 !important;
-    }
-    .sf-chat-msg--bot ul {
-        margin: 4px 0 !important;
-        padding-left: 18px !important;
-    }
-    .sf-chat-msg--bot li {
-        margin-bottom: 2px !important;
-    }
-
-    .sf-chat-msg--user {
-        background: #47C89F !important;
-        color: #FFFFFF !important;
-        border-radius: 12px 0 12px 12px !important;
-        align-self: flex-end !important;
-    }
-
-    .sf-chat-welcome-msg {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 4px !important;
-    }
-
-    /* ---- Chat Input ---- */
-    .sf-chat-window-input {
-        padding: 12px 16px !important;
-        border-top: 1px solid #EEF0F4 !important;
-        background: #FFFFFF !important;
-        flex-shrink: 0 !important;
-    }
-
-    .sf-chat-input-form {
-        display: flex !important;
-        gap: 8px !important;
-        align-items: center !important;
-    }
-
-    .sf-chat-input-form input {
-        flex: 1 !important;
-        padding: 10px 14px !important;
-        border: 1px solid #E8ECF2 !important;
-        border-radius: 8px !important;
-        font-size: 14px !important;
-        font-family: 'Gill Sans Nova', 'Gill Sans', sans-serif !important;
-        outline: none !important;
-        transition: border-color 0.3s !important;
-        color: #0E2A47 !important;
-        background: #F8FAFB !important;
-    }
-
-    .sf-chat-input-form input:focus {
-        border-color: #47C89F !important;
-        box-shadow: 0 0 0 3px rgba(71, 200, 159, 0.04) !important;
-    }
-
-    .sf-chat-input-form input::placeholder {
-        color: #B0B8C4 !important;
-    }
-
-    .sf-chat-input-form button {
-        width: 40px !important;
-        height: 40px !important;
-        border-radius: 50% !important;
-        background: #47C89F !important;
-        color: #FFFFFF !important;
-        border: none !important;
-        cursor: pointer !important;
-        transition: all 0.3s !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        font-size: 16px !important;
-        flex-shrink: 0 !important;
-    }
-
-    .sf-chat-input-form button:hover {
-        background: #35aa85 !important;
-        transform: scale(1.05) !important;
-    }
-
-    .sf-chat-input-form button:disabled {
-        opacity: 0.5 !important;
-        cursor: not-allowed !important;
-        transform: none !important;
-    }
-
-    .sf-chat-typing-indicator {
-        display: flex !important;
-        align-items: center !important;
-        gap: 6px !important;
-        padding: 6px 0 2px 0 !important;
-    }
-
-    .sf-chat-typing-indicator .sf-typing-dot {
-        width: 8px !important;
-        height: 8px !important;
-        border-radius: 50% !important;
-        background: #47C89F !important;
-        display: inline-block !important;
-        animation: sfTypingBounce 1.4s ease-in-out infinite !important;
-    }
-
-    .sf-chat-typing-indicator .sf-typing-dot:nth-child(1) { animation-delay: 0s !important; }
-    .sf-chat-typing-indicator .sf-typing-dot:nth-child(2) { animation-delay: 0.2s !important; }
-    .sf-chat-typing-indicator .sf-typing-dot:nth-child(3) { animation-delay: 0.4s !important; }
-
-    @keyframes sfTypingBounce {
-        0%, 60%, 100% { transform: translateY(0); opacity: 0.3; }
-        30% { transform: translateY(-6px); opacity: 0.8; }
-    }
-
-    /* ---- Responsive ---- */
-    @media (max-width: 480px) {
-        .sf-floating-chat {
-            bottom: 16px !important;
-            right: 16px !important;
-        }
-
-        .sf-chat-toggle {
-            width: 52px !important;
-            height: 52px !important;
-            font-size: 24px !important;
-        }
-
-        .sf-chat-window {
-            width: calc(100vw - 32px) !important;
-            max-width: calc(100vw - 32px) !important;
-            bottom: 66px !important;
-            right: 0 !important;
-            border-radius: 12px !important;
-        }
-
-        .sf-chat-window-messages {
-            max-height: 280px !important;
-            min-height: 160px !important;
-        }
-
-        .sf-chat-window-header {
-            padding: 12px 16px !important;
-        }
-
-        .sf-chat-window-title {
-            font-size: 14px !important;
-        }
-
-        .sf-chat-msg {
-            font-size: 13px !important;
-            padding: 8px 12px !important;
-        }
-    }
-
-    @media (max-width: 360px) {
-        .sf-chat-toggle {
-            width: 48px !important;
-            height: 48px !important;
-            font-size: 20px !important;
-        }
-
-        .sf-chat-window {
-            width: calc(100vw - 24px) !important;
-            max-width: calc(100vw - 24px) !important;
-            bottom: 60px !important;
-        }
-
-        .sf-chat-window-messages {
-            max-height: 220px !important;
-            min-height: 120px !important;
-            padding: 12px 14px !important;
-        }
-
-        .sf-chat-window-input {
-            padding: 8px 12px !important;
-        }
-
-        .sf-chat-input-form input {
-            font-size: 13px !important;
-            padding: 8px 12px !important;
-        }
-
-        .sf-chat-input-form button {
-            width: 36px !important;
-            height: 36px !important;
-            font-size: 14px !important;
-        }
-    }
-</style>
-
-<!-- ============================================ -->
-<!-- FLOATING CHAT SCRIPT -->
-<!-- ============================================ -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const chatToggle = document.getElementById('sfChatToggle');
-    const chatWindow = document.getElementById('sfChatWindow');
-    const chatClose = document.getElementById('sfChatClose');
-    const chatForm = document.getElementById('sfChatForm');
-    const chatInput = document.getElementById('sfChatInput');
-    const chatMessages = document.getElementById('sfChatMessages');
-    const chatTyping = document.getElementById('sfChatTyping');
-    const chatSend = document.getElementById('sfChatSend');
-    const chatBadge = document.getElementById('sfChatBadge');
-
-    let isOpen = false;
-    let isProcessing = false;
-    let contactId = null;
-    let sessionId = document.querySelector('meta[name="session-id"]')?.content || '';
-
-    // Toggle chat window
-    function toggleChat() {
-        isOpen = !isOpen;
-        chatWindow.classList.toggle('open', isOpen);
-        if (isOpen) {
-            chatInput.focus();
-            chatBadge.classList.add('hidden');
-        }
-    }
-
-    chatToggle.addEventListener('click', toggleChat);
-    chatClose.addEventListener('click', toggleChat);
-
-    // Close on outside click
-    document.addEventListener('click', function(e) {
-        if (isOpen && !e.target.closest('.sf-floating-chat')) {
-            toggleChat();
-        }
-    });
-
-    // Send message
-    chatForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const message = chatInput.value.trim();
-        if (!message || isProcessing) return;
-        sendMessage(message);
-    });
-
-    // Enter key support
-    chatInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' && !e.shiftKey) {
+    // Subscription form
+    var subForm = document.getElementById('subscription-form');
+    if (subForm) {
+        var successDiv = document.getElementById('subscription-success');
+        var errorDiv = document.getElementById('subscription-error');
+        var errorMsg = document.getElementById('error-message');
+        var messageDiv = document.getElementById('subscription-message');
+
+        subForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            chatForm.dispatchEvent(new Event('submit'));
-        }
-    });
-
-    function sendMessage(message) {
-        // Add user message
-        addMessage(message, 'user');
-        chatInput.value = '';
-        isProcessing = true;
-        chatSend.disabled = true;
-        chatTyping.style.display = 'flex';
-
-        const token = document.querySelector('meta[name="csrf-token"]')?.content || '';
-
-        const payload = {
-            message: message,
-            contact_id: contactId,
-            session_id: sessionId
-        };
-
-        fetch('/chat/send', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': token,
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            chatTyping.style.display = 'none';
-            isProcessing = false;
-            chatSend.disabled = false;
-
-            if (data.success) {
-                if (!contactId && data.contact_id) {
-                    contactId = data.contact_id;
-                }
-                addMessage(data.message, 'bot');
-            } else {
-                const errorMsg = data.error || data.message || 'Unknown error occurred';
-                addMessage('Sorry, I encountered an error: ' + errorMsg, 'bot');
-                console.error('Chat error details:', data);
-            }
-            chatInput.focus();
-        })
-        .catch(error => {
-            chatTyping.style.display = 'none';
-            isProcessing = false;
-            chatSend.disabled = false;
-            
-            addMessage('Sorry, I encountered an error: ' + error.message, 'bot');
-            console.error('Full fetch error:', error);
-            chatInput.focus();
+            successDiv.style.display = 'none';
+            errorDiv.style.display = 'none';
+            var email = document.getElementById('sub-email').value.trim();
+            if (!email) return;
+            var submitBtn = subForm.querySelector('button[type="submit"]');
+            submitBtn.textContent = 'Subscribing...';
+            submitBtn.disabled = true;
+            var token = document.querySelector('meta[name="csrf-token"]')?.content || '';
+            fetch('/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': token, 'Accept': 'application/json' },
+                body: JSON.stringify({ email: email, source: 'website' })
+            }).then(r => r.json()).then(data => {
+                submitBtn.textContent = 'Subscribe'; submitBtn.disabled = false;
+                if (data.success) { successDiv.style.display = 'block'; subForm.style.display = 'none'; }
+                else { errorMsg.textContent = data.message || 'Try again.'; errorDiv.style.display = 'block'; }
+            }).catch(() => { submitBtn.textContent = 'Subscribe'; submitBtn.disabled = false; errorMsg.textContent = 'Network error. Try again.'; errorDiv.style.display = 'block'; });
         });
     }
 
-    function addMessage(text, sender) {
-        const msgDiv = document.createElement('div');
-        msgDiv.className = `sf-chat-msg sf-chat-msg--${sender}`;
+    // Floating chat
+    var chatToggle = document.getElementById('tkChatToggle');
+    var chatWindow = document.getElementById('tkChatWindow');
+    var chatClose  = document.getElementById('tkChatClose');
+    var chatForm   = document.getElementById('tkChatForm');
+    var chatInput  = document.getElementById('tkChatInput');
+    var chatMsgs   = document.getElementById('tkChatMessages');
+    var chatTyping = document.getElementById('tkChatTyping');
+    var chatSend   = document.getElementById('tkChatSend');
+    var chatBadge  = document.getElementById('tkChatBadge');
+    var isOpen = false, isProcessing = false, contactId = null;
 
-        if (sender === 'user') {
-            msgDiv.textContent = text;
-        } else {
-            // Bot messages can have multiple paragraphs
-            const lines = text.split('\n');
-            lines.forEach(line => {
-                if (line.trim()) {
-                    const p = document.createElement('p');
-                    p.textContent = line.trim();
-                    msgDiv.appendChild(p);
-                }
-            });
-            if (msgDiv.children.length === 0) {
-                msgDiv.textContent = text;
-            }
-        }
+    function toggleChat() {
+        isOpen = !isOpen;
+        chatWindow.classList.toggle('open', isOpen);
+        if (isOpen) { chatInput.focus(); chatBadge.classList.add('hidden'); }
+    }
 
-        // Remove welcome message if it exists
-        const welcomeMsg = chatMessages.querySelector('.sf-chat-welcome-msg');
-        if (welcomeMsg && sender !== 'bot') {
-            welcomeMsg.remove();
-        }
+    if (chatToggle) chatToggle.addEventListener('click', toggleChat);
+    if (chatClose) chatClose.addEventListener('click', toggleChat);
+    document.addEventListener('click', function(e) { if (isOpen && !e.target.closest('.tk-floating-chat')) toggleChat(); });
 
-        chatMessages.appendChild(msgDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+    if (chatForm) {
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var msg = chatInput.value.trim();
+            if (!msg || isProcessing) return;
+            addMsg(msg, 'user');
+            chatInput.value = '';
+            isProcessing = true; chatSend.disabled = true; chatTyping.style.display = 'flex';
+            var token = document.querySelector('meta[name="csrf-token"]')?.content || '';
+            fetch('/chat/send', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': token, 'Accept': 'application/json' },
+                body: JSON.stringify({ message: msg, contact_id: contactId })
+            }).then(r => r.json()).then(data => {
+                chatTyping.style.display = 'none'; isProcessing = false; chatSend.disabled = false;
+                if (data.success) { if (!contactId && data.contact_id) contactId = data.contact_id; addMsg(data.message, 'bot'); }
+                else addMsg('Sorry, an error occurred. Please try again.', 'bot');
+                chatInput.focus();
+            }).catch(() => { chatTyping.style.display = 'none'; isProcessing = false; chatSend.disabled = false; addMsg('Network error. Please try again.', 'bot'); chatInput.focus(); });
+        });
+    }
+
+    function addMsg(text, sender) {
+        var div = document.createElement('div');
+        div.className = 'tk-chat-msg tk-chat-msg--' + sender;
+        if (sender === 'user') { div.textContent = text; }
+        else { text.split('\n').forEach(function(line) { if (line.trim()) { var p = document.createElement('p'); p.textContent = line.trim(); div.appendChild(p); } }); if (!div.children.length) div.textContent = text; }
+        var welcome = chatMsgs.querySelector('.tk-chat-welcome');
+        if (welcome && sender === 'user') welcome.remove();
+        chatMsgs.appendChild(div);
+        chatMsgs.scrollTop = chatMsgs.scrollHeight;
     }
 });
 </script>
+
+<!-- ---- STICKY HEADER STYLE ---- -->
+<style>
+.ast-main-header-wrap { position: sticky !important; top: 0 !important; z-index: 999 !important; transition: box-shadow 0.3s, background 0.3s !important; }
+.ast-main-header-wrap.tk-header-scrolled, .main-header-bar.tk-header-scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important; background: rgba(10,15,28,0.98) !important; backdrop-filter: blur(10px) !important; }
+</style>
+
 @endsection

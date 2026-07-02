@@ -5,7 +5,7 @@
     <div class="sf-header-inner">
         <div class="sf-header-brand">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('wp-content/uploads/images/logo.jpeg') }}" alt="Sofel Labs">
+                <img src="{{ asset('wp-content/uploads/images/logo.png') }}" alt="Sofel Labs">
             </a>
         </div>
         <nav class="sf-nav-wrapper">
@@ -103,7 +103,7 @@
     <div class="sf-header-inner">
         <div class="sf-header-brand">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('wp-content/uploads/images/logo.jpeg') }}" alt="Sofel Labs">
+                <img src="{{ asset('wp-content/uploads/images/logo.png') }}" alt="Sofel Labs">
             </a>
         </div>
         <nav class="sf-nav-wrapper">
@@ -189,8 +189,7 @@
 <!-- ============================================ -->
 <style>
     /* ============================================
-       SF NAVIGATION — Unique classes with !important
-       White · Purple · Forest Green
+       SF NAVIGATION — White · Luminous Green
        ============================================ */
 
     /* ---------- RESET / BASE ---------- */
@@ -202,17 +201,17 @@
     /* ---------- MAIN HEADER ---------- */
     .sf-header-main {
         background: #ffffff !important;
-        border-bottom: 1px solid #eaeaea !important;
-        padding: 0.4rem 0 !important;
+        border-bottom: 1px solid #E2E8F0 !important;
+        padding: 0.2rem 0 !important;
         position: relative !important;
         z-index: 100 !important;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.03) !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.04) !important;
     }
 
     .sf-header-inner {
         max-width: 1200px !important;
         margin: 0 auto !important;
-        padding: 0 20px !important;
+        padding: 0 16px !important;
         display: flex !important;
         flex-wrap: nowrap !important;
         justify-content: space-between !important;
@@ -222,15 +221,19 @@
 
     .sf-header-brand {
         flex-shrink: 0 !important;
+        display: flex !important;
+        align-items: center !important;
     }
 
+    /* ---- LOGO ---- */
     .sf-header-brand img {
-        height: 50px !important;
+        height: 90px !important;
         width: auto !important;
         display: block !important;
+        object-fit: contain !important;
     }
 
-    /* ---------- NAV — FLOATED RIGHT with !important ---------- */
+    /* ---------- NAV ---------- */
     .sf-nav-wrapper {
         display: flex !important;
         align-items: center !important;
@@ -247,7 +250,7 @@
         list-style: none !important;
         margin: 0 !important;
         padding: 0 !important;
-        gap: 10px !important;
+        gap: 4px !important;
         float: right !important;
     }
 
@@ -260,12 +263,12 @@
     .sf-nav-item > a {
         display: flex !important;
         align-items: center !important;
-        gap: 6px !important;
-        padding: 10px 22px !important;
+        gap: 5px !important;
+        padding: 8px 16px !important;
         text-decoration: none !important;
-        color: #404040 !important;
+        color: #0F172A !important;
         font-weight: 400 !important;
-        font-size: 15px !important;
+        font-size: 14px !important;
         transition: all 0.25s ease !important;
         border-radius: 6px !important;
         position: relative !important;
@@ -279,43 +282,43 @@
 
     .sf-nav-item > a i {
         font-size: 14px !important;
-        color: #2d7d7a !important;
+        color: #27B80E !important;
     }
 
     .sf-nav-item > a .sf-dropdown-arrow {
         font-size: 10px !important;
-        margin-left: 6px !important;
+        margin-left: 3px !important;
         transition: transform 0.3s ease !important;
-        color: #999 !important;
+        color: #94A3B8 !important;
     }
 
     .sf-nav-item:hover > a .sf-dropdown-arrow {
         transform: rotate(180deg) !important;
-        color: #2d7d7a !important;
+        color: #27B80E !important;
     }
 
     .sf-nav-item > a:hover {
-        color: #2d7d7a !important;
-        background: #f4f8f7 !important;
+        color: #27B80E !important;
+        background: rgba(57,255,20,0.06) !important;
     }
 
     .sf-nav-item > a.sf-nav-active {
-        color: #2d7d7a !important;
-        background: #eff6f5 !important;
+        color: #27B80E !important;
+        background: rgba(57,255,20,0.08) !important;
     }
 
     .sf-nav-item > a.sf-nav-active::after {
         content: '' !important;
         position: absolute !important;
         bottom: 4px !important;
-        left: 22px !important;
-        right: 22px !important;
+        left: 16px !important;
+        right: 16px !important;
         height: 2px !important;
-        background: #2d7d7a !important;
+        background: #39FF14 !important;
         border-radius: 2px !important;
     }
 
-    /* ---------- DROPDOWN MENU - IMPROVED WITH DELAY ---------- */
+    /* ---------- DROPDOWN MENU ---------- */
     .sf-nav-item--has-dropdown {
         position: relative !important;
     }
@@ -328,19 +331,18 @@
         transform: translateX(-50%) !important;
         background: #ffffff !important;
         min-width: 220px !important;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.10) !important;
         padding: 8px 0 !important;
         list-style: none !important;
         z-index: 9999 !important;
         border-radius: 10px !important;
-        border: 1px solid #f0f0f0 !important;
+        border: 1px solid #E2E8F0 !important;
         opacity: 0 !important;
         visibility: hidden !important;
         transition: opacity 0.3s ease, visibility 0.3s ease, top 0.3s ease !important;
         pointer-events: none !important;
     }
 
-    /* Show dropdown with hover and keep it open */
     .sf-nav-item--has-dropdown:hover .sf-dropdown-menu,
     .sf-dropdown-menu:hover {
         display: block !important;
@@ -350,7 +352,6 @@
         pointer-events: auto !important;
     }
 
-    /* Add hover bridge to prevent disappearing */
     .sf-nav-item--has-dropdown::after {
         content: '' !important;
         position: absolute !important;
@@ -366,7 +367,6 @@
         pointer-events: auto !important;
     }
 
-    /* Delay before hiding */
     .sf-nav-item--has-dropdown:not(:hover) .sf-dropdown-menu {
         transition-delay: 0.3s !important;
     }
@@ -375,7 +375,6 @@
         transition-delay: 0s !important;
     }
 
-    /* Right-align last dropdowns */
     .sf-nav-item:last-child .sf-dropdown-menu,
     .sf-nav-item:nth-last-child(2) .sf-dropdown-menu {
         left: auto !important;
@@ -399,8 +398,8 @@
         width: 12px !important;
         height: 12px !important;
         background: #ffffff !important;
-        border-left: 1px solid #f0f0f0 !important;
-        border-top: 1px solid #f0f0f0 !important;
+        border-left: 1px solid #E2E8F0 !important;
+        border-top: 1px solid #E2E8F0 !important;
     }
 
     .sf-dropdown-menu li {
@@ -413,33 +412,33 @@
         display: flex !important;
         align-items: center !important;
         gap: 10px !important;
-        padding: 10px 22px !important;
-        color: #404040 !important;
+        padding: 8px 20px !important;
+        color: #0F172A !important;
         text-decoration: none !important;
-        font-size: 14px !important;
+        font-size: 13px !important;
         font-weight: 300 !important;
         transition: all 0.25s ease !important;
         border-left: 3px solid transparent !important;
     }
 
     .sf-dropdown-menu li a:hover {
-        background: #f4f8f7 !important;
-        color: #2d7d7a !important;
-        border-left-color: #2d7d7a !important;
+        background: rgba(57,255,20,0.06) !important;
+        color: #27B80E !important;
+        border-left-color: #39FF14 !important;
     }
 
     .sf-dropdown-menu li a i {
         margin-right: 6px !important;
         width: 16px !important;
         text-align: center !important;
-        color: #2d7d7a !important;
+        color: #27B80E !important;
         font-size: 13px !important;
     }
 
     .sf-dropdown-menu li a.sf-nav-active {
-        color: #2d7d7a !important;
-        background: #eff6f5 !important;
-        border-left-color: #2d7d7a !important;
+        color: #27B80E !important;
+        background: rgba(57,255,20,0.07) !important;
+        border-left-color: #39FF14 !important;
     }
 
     /* ---------- MOBILE TOGGLE ---------- */
@@ -460,13 +459,13 @@
         display: block !important;
         width: 25px !important;
         height: 2px !important;
-        background: #404040 !important;
+        background: #0F172A !important;
         transition: all 0.3s ease !important;
         border-radius: 2px !important;
     }
 
     .sf-nav-toggle:hover .sf-toggle-bar {
-        background: #2d7d7a !important;
+        background: #39FF14 !important;
     }
 
     /* ---------- STICKY HEADER ---------- */
@@ -475,8 +474,8 @@
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
-        background: #1a1a2e !important;
-        padding: 0.3rem 0 !important;
+        background: #0F172A !important;
+        padding: 0.2rem 0 !important;
         box-shadow: 0 2px 20px rgba(0,0,0,0.15) !important;
         transform: translateY(-150px) !important;
         opacity: 0 !important;
@@ -492,11 +491,14 @@
     }
 
     #sf-sticky-nav .sf-header-inner {
-        min-height: 60px !important;
+        min-height: 55px !important;
     }
 
+    /* ---- Sticky Logo ---- */
     #sf-sticky-nav .sf-header-brand img {
-        height: 40px !important;
+        height: 50px !important;
+        width: auto !important;
+        object-fit: contain !important;
     }
 
     #sf-sticky-nav .sf-nav-wrapper {
@@ -505,58 +507,69 @@
     }
 
     #sf-sticky-nav .sf-nav-list {
-        gap: 10px !important;
+        gap: 4px !important;
     }
 
     #sf-sticky-nav .sf-nav-item > a {
         color: #ffffff !important;
-        padding: 10px 22px !important;
+        padding: 6px 14px !important;
+        font-size: 13px !important;
     }
 
     #sf-sticky-nav .sf-nav-item > a:hover {
-        color: #4aa39f !important;
-        background: rgba(255,255,255,0.06) !important;
+        color: #39FF14 !important;
+        background: rgba(57,255,20,0.08) !important;
     }
 
     #sf-sticky-nav .sf-nav-item > a.sf-nav-active {
-        color: #4aa39f !important;
-        background: rgba(255,255,255,0.06) !important;
+        color: #39FF14 !important;
+        background: rgba(57,255,20,0.08) !important;
     }
 
     #sf-sticky-nav .sf-nav-item > a .sf-dropdown-arrow {
-        color: #aaa !important;
+        color: #64748B !important;
+    }
+
+    #sf-sticky-nav .sf-nav-item:hover > a .sf-dropdown-arrow {
+        color: #39FF14 !important;
+    }
+
+    #sf-sticky-nav .sf-nav-item > a i {
+        color: #39FF14 !important;
     }
 
     #sf-sticky-nav .sf-dropdown-menu {
-        background: #1a1a2e !important;
-        border-color: #333 !important;
+        background: #0F172A !important;
+        border-color: #1E293B !important;
     }
 
     #sf-sticky-nav .sf-dropdown-menu::before {
-        background: #1a1a2e !important;
-        border-left-color: #333 !important;
-        border-top-color: #333 !important;
+        background: #0F172A !important;
+        border-left-color: #1E293B !important;
+        border-top-color: #1E293B !important;
     }
 
     #sf-sticky-nav .sf-dropdown-menu li a {
-        color: #d0d0d0 !important;
+        color: #CBD5E1 !important;
         border-left-color: transparent !important;
+        font-size: 13px !important;
+        padding: 8px 18px !important;
     }
 
     #sf-sticky-nav .sf-dropdown-menu li a:hover {
-        background: rgba(255,255,255,0.06) !important;
-        color: #4aa39f !important;
-        border-left-color: #4aa39f !important;
+        background: rgba(57,255,20,0.07) !important;
+        color: #39FF14 !important;
+        border-left-color: #39FF14 !important;
     }
 
     #sf-sticky-nav .sf-dropdown-menu li a i {
-        color: #4aa39f !important;
+        color: #39FF14 !important;
     }
 
     #sf-sticky-nav .sf-dropdown-menu li a.sf-nav-active {
-        color: #4aa39f !important;
-        background: rgba(255,255,255,0.06) !important;
-        border-left-color: #4aa39f !important;
+        color: #39FF14 !important;
+        background: rgba(57,255,20,0.07) !important;
+        border-left-color: #39FF14 !important;
     }
 
     #sf-sticky-nav .sf-nav-toggle .sf-toggle-bar {
@@ -564,7 +577,7 @@
     }
 
     #sf-sticky-nav .sf-nav-toggle:hover .sf-toggle-bar {
-        background: #4aa39f !important;
+        background: #39FF14 !important;
     }
 
     /* ============================================
@@ -595,8 +608,8 @@
             right: 0 !important;
             background: #ffffff !important;
             padding: 15px 0 !important;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
-            border-top: 1px solid #eaeaea !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+            border-top: 1px solid #E2E8F0 !important;
             max-height: 80vh !important;
             overflow-y: auto !important;
             width: 100% !important;
@@ -618,10 +631,12 @@
 
         .sf-nav-item > a {
             padding: 12px 24px !important;
-            border-bottom: 1px solid #f5f5f5 !important;
+            border-bottom: 1px solid #F1F5F9 !important;
             border-radius: 0 !important;
             justify-content: space-between !important;
             white-space: normal !important;
+            font-size: 14px !important;
+            color: #0F172A !important;
         }
 
         .sf-nav-item > a .sf-dropdown-arrow {
@@ -667,28 +682,34 @@
         .sf-dropdown-menu li a {
             padding: 10px 16px !important;
             border-left: none !important;
+            font-size: 13px !important;
+            color: #4B5563 !important;
         }
 
         .sf-dropdown-menu li a:hover {
             border-left: none !important;
+            color: #27B80E !important;
+            background: rgba(57,255,20,0.05) !important;
         }
 
         /* Sticky mobile */
         #sf-sticky-nav .sf-nav-list {
-            background: #1a1a2e !important;
-            border-top-color: #333 !important;
+            background: #0F172A !important;
+            border-top-color: #1E293B !important;
         }
 
         #sf-sticky-nav .sf-nav-item > a {
-            border-bottom-color: #333 !important;
+            border-bottom-color: #1E293B !important;
+            color: #ffffff !important;
         }
 
         #sf-sticky-nav .sf-dropdown-menu li a {
-            color: #ccc !important;
+            color: #CBD5E1 !important;
         }
 
         #sf-sticky-nav .sf-dropdown-menu li a:hover {
-            background: rgba(255,255,255,0.05) !important;
+            background: rgba(57,255,20,0.07) !important;
+            color: #39FF14 !important;
         }
     }
 
@@ -698,35 +719,35 @@
         }
 
         .sf-header-brand img {
-            height: 35px !important;
+            height: 55px !important;
         }
 
         #sf-sticky-nav .sf-header-brand img {
-            height: 30px !important;
+            height: 40px !important;
         }
 
         .sf-nav-item > a {
-            font-size: 14px !important;
-            padding: 10px 20px !important;
+            font-size: 13px !important;
+            padding: 10px 16px !important;
         }
     }
 
     @media (max-width: 480px) {
         .sf-header-inner {
-            padding: 0 16px !important;
+            padding: 0 12px !important;
             min-height: 52px !important;
         }
 
         .sf-header-brand img {
-            height: 30px !important;
+            height: 45px !important;
         }
 
         #sf-sticky-nav .sf-header-brand img {
-            height: 25px !important;
+            height: 32px !important;
         }
 
         .sf-nav-toggle {
-            margin-left: 10px !important;
+            margin-left: 8px !important;
             padding: 6px !important;
         }
 
@@ -737,14 +758,14 @@
 
     @media (max-width: 360px) {
         .sf-header-brand img {
-            height: 26px !important;
+            height: 38px !important;
         }
         #sf-sticky-nav .sf-header-brand img {
-            height: 22px !important;
+            height: 28px !important;
         }
         .sf-nav-item > a {
-            font-size: 13px !important;
-            padding: 8px 16px !important;
+            font-size: 12px !important;
+            padding: 8px 14px !important;
         }
     }
 </style>

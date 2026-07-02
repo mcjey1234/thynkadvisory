@@ -10,6 +10,8 @@ use App\Http\Controllers\ContactController;
 use App\Services\GeminiService;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\SubscriptionController; 
+use App\Http\Controllers\BookingController; 
+use App\Http\Controllers\DailyPostController;
 // ============================================ -->
 // PUBLIC ROUTES -->
 // ============================================ -->
@@ -75,6 +77,21 @@ Route::get('/debug-knowledge', function() {
 // Home Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/course-fog', [HomeController::class, 'index']);
+
+// Daily Digest Routes
+Route::get('/digest', [DailyPostController::class, 'index'])->name('daily.digest');
+Route::get('/daily-digest/{date}', [DailyPostController::class, 'show'])->name('daily.digest.show');
+
+// Projects Routes
+Route::get('/projects', [App\Http\Controllers\ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/{id}', [App\Http\Controllers\ProjectController::class, 'show'])->name('projects.show');
+
+//testimonials Routes
+Route::get('/testimonials', [App\Http\Controllers\TestimonialController::class, 'index'])->name('testimonials.index');
+// SCORM Project Routes
+Route::get('/scorm-projects', [App\Http\Controllers\ScormProjectController::class, 'index'])->name('scorm.index');
+Route::get('/scorm-projects/{id}', [App\Http\Controllers\ScormProjectController::class, 'show'])->name('scorm.show');
+Route::get('/scorm-projects/{id}/play', [App\Http\Controllers\ScormProjectController::class, 'play'])->name('scorm.play');
 
 // Chat Routes
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
@@ -191,9 +208,7 @@ Route::get('/debug-header-menus', function() {
         })
     ]);
 });
-Route::get('/discovery', function() {
-    return view('booking.index');
-})->name('book');
+Route::get('/discovery', [BookingController::class, 'index'])->name('book');
 // Debug: Submenus
 Route::get('/debug-submenus', function() {
     $menus = \App\Models\Menu::where('position', 'header')

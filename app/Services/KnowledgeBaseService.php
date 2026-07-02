@@ -10,6 +10,7 @@ use App\Models\Process;
 use App\Models\Banner;
 use App\Models\FooterItem;
 use App\Models\Menu;
+use App\Models\Setting; // Create this model
 use Illuminate\Support\Facades\Cache;
 
 class KnowledgeBaseService
@@ -24,7 +25,7 @@ class KnowledgeBaseService
             $about = AboutUs::where('is_active', true)->first();
             if ($about) {
                 $context['about'] = [
-                    'title' => $about->title ?? 'About Sofel Labs',
+                    'title' => $about->title ?? 'About Thynk Advisory',
                     'subtitle' => $about->subtitle ?? '',
                     'description' => $about->description ?? '',
                     'mission' => $about->mission ?? '',
@@ -53,8 +54,10 @@ class KnowledgeBaseService
                         'name' => $member->name,
                         'position' => $member->position,
                         'bio' => $member->bio,
+                        'description' => $member->description,
                         'email' => $member->email,
                         'phone' => $member->phone,
+                        'linkedin' => $member->linkedin,
                     ];
                 })->toArray();
             }
@@ -67,6 +70,7 @@ class KnowledgeBaseService
                         'step' => $process->step_number,
                         'title' => $process->title,
                         'description' => $process->description,
+                        'icon' => $process->icon,
                     ];
                 })->toArray();
             }
@@ -78,8 +82,10 @@ class KnowledgeBaseService
                     return [
                         'year' => $milestone->year,
                         'month' => $milestone->month,
+                        'day' => $milestone->day,
                         'title' => $milestone->title,
                         'description' => $milestone->description,
+                        'icon' => $milestone->icon,
                     ];
                 })->toArray();
             }
@@ -103,6 +109,7 @@ class KnowledgeBaseService
                         'platform' => $item->platform,
                         'label' => $item->label,
                         'url' => $item->url,
+                        'icon' => $item->icon,
                     ];
                 })->toArray();
             }
@@ -114,9 +121,9 @@ class KnowledgeBaseService
                     $data = [
                         'label' => $menu->label,
                         'url' => $menu->url,
+                        'icon' => $menu->icon,
                     ];
                     
-                    // Get children if any
                     $children = $menu->children()->get();
                     if ($children->count() > 0) {
                         $data['children'] = $children->map(function($child) {
@@ -131,34 +138,89 @@ class KnowledgeBaseService
                 })->toArray();
             }
             
-            // Company Info
-            $context['company'] = [
-                'name' => 'Sofel Labs',
-                'founded' => '2020',
-                'location' => 'Nairobi, Kenya',
-                'phone' => env('SOFEL_PHONE', '+254 700 123 456'),
-                'email' => env('SOFEL_EMAIL', 'info@sofellabs.com'),
-                'website' => env('APP_URL', 'https://sofellabs.com'),
-                'calendly' => 'https://calendly.com/mwangikamau/consultation',
-            ];
+            // ============================================
+            // COMPANY SETTINGS — ALL FROM DATABASE
+            // ============================================
+            $context['company'] = $this->getCompanySettings();
             
-            // Key topics for quick lookup
-            $context['topics'] = [
-                'gamification' => 'We use proven frameworks like Octalysis and our 4-pillar approach (Cognitive, Motivational, Balancing, Presentation) to create engaging learning experiences.',
-                'instructional design' => 'We combine proven learning theories with modern technology to create interactive, effective training programs.',
-                'compliance training' => 'We transform mandatory training into engaging, memorable experiences that improve knowledge retention.',
-                'leadership development' => 'We design programs that build leadership skills through immersive, practical learning experiences.',
-            ];
+            // ============================================
+            // TOPICS / FAQ — FROM DATABASE OR SETTINGS
+            // ============================================
+            $context['topics'] = $this->getTopics();
             
             return $context;
         });
     }
 
+    /**
+     * Get Company Settings from Database
+     */
+    private function getCompanySettings()
+    {
+        // Try to get from settings table
+        $settings = Setting::all()->pluck('value', 'key')->toArray();
+        
+        // Default values if not found in DB
+        $defaults = [
+            'company_name' => 'Thynk Advisory',
+            'company_founded' => '2020',
+            'company_location' => 'Nairobi, Kenya',
+            'company_phone' => '+254 700 123 456',
+            'company_email' => 'info@thynkadvisory.com',
+            'company_website' => 'https://thynkadvisory.com',
+            'booking_link' => 'https://cal.com/jared-ogutu-swvv6o',
+            'calendly_link' => 'https://cal.com/jared-ogutu-swvv6o',
+        ];
+        
+        // Merge defaults with DB settings
+        foreach ($defaults as $key => $value) {
+            if (!isset($settings[$key]) || empty($settings[$key])) {
+                $settings[$key] = $value;
+            }
+        }
+        
+        return $settings;
+    }
+
+    /**
+     * Get Topics from Database or use defaults
+     */
+    private function getTopics()
+    {
+        // Try to get topics from settings or a topics table
+        $topics = [];
+        
+        // If you have a Topics model, use it
+        // $topicsFromDB = Topic::active()->get();
+        // foreach ($topicsFromDB as $topic) {
+        //     $topics[$topic->key] = $topic->value;
+        // }
+        
+        // Default topics if not in DB
+        if (empty($topics)) {
+            $topics = [
+                'gamification' => 'We use proven frameworks like Octalysis and our 4-pillar approach (Cognitive, Motivational, Balancing, Presentation) to create engaging learning experiences.',
+                'instructional design' => 'We combine proven learning theories with modern technology to create interactive, effective training programs.',
+                'compliance training' => 'We transform mandatory training into engaging, memorable experiences that improve knowledge retention.',
+                'leadership development' => 'We design programs that build leadership skills through immersive, practical learning experiences.',
+                'mobile development' => 'We build native and cross-platform mobile apps for Android and iOS using Flutter, React Native, Kotlin, and Swift.',
+                'web development' => 'We build scalable web platforms using React, Laravel, Vue, and Node.js — from MVPs to enterprise-grade systems.',
+                'gis' => 'We create interactive maps and spatial data analysis tools using Mapbox, QGIS, PostGIS, and Leaflet.',
+                'elearning' => 'We design engaging eLearning experiences with gamification, AI-powered video, and professional course authoring tools.',
+            ];
+        }
+        
+        return $topics;
+    }
+
+    /**
+     * Get Formatted Context for Prompt
+     */
     public function getFormattedContext()
     {
         $data = $this->getFullContext();
         
-        $formatted = "=== ABOUT SOFEL LABS ===\n\n";
+        $formatted = "=== ABOUT THYNK ADVISORY ===\n\n";
         
         if (isset($data['about'])) {
             if (!empty($data['about']['mission'])) {
@@ -185,8 +247,6 @@ class KnowledgeBaseService
                 }
                 $formatted .= "\n";
             }
-        } else {
-            $formatted .= "We offer instructional design, gamification, compliance training, and leadership development services.\n";
         }
         $formatted .= "\n";
         
@@ -195,8 +255,6 @@ class KnowledgeBaseService
             foreach ($data['process'] as $step) {
                 $formatted .= "Step {$step['step']}: {$step['title']} - {$step['description']}\n";
             }
-        } else {
-            $formatted .= "We follow a proven process: Discovery & Strategy → Design & Development → Launch & Measure.\n";
         }
         $formatted .= "\n";
         
@@ -205,23 +263,28 @@ class KnowledgeBaseService
             foreach ($data['team'] as $member) {
                 $formatted .= "- {$member['name']}: {$member['position']}\n";
                 if (!empty($member['bio'])) {
-                    $formatted .= "  {$member['bio']}\n";
+                    $formatted .= "  Skills: {$member['bio']}\n";
+                }
+                if (!empty($member['description'])) {
+                    $formatted .= "  About: {$member['description']}\n";
                 }
             }
         }
         $formatted .= "\n";
         
-        $formatted .= "=== COMPANY INFO ===\n\n";
-        $formatted .= "Location: {$data['company']['location']}\n";
-        $formatted .= "Phone: {$data['company']['phone']}\n";
-        $formatted .= "Email: {$data['company']['email']}\n";
-        $formatted .= "Website: {$data['company']['website']}\n";
-        $formatted .= "Booking: {$data['company']['calendly']}\n\n";
+        $formatted .= "=== CONTACT & BOOKING ===\n\n";
+        $company = $data['company'] ?? [];
+        $formatted .= "Location: " . ($company['company_location'] ?? 'Nairobi, Kenya') . "\n";
+        $formatted .= "Phone: " . ($company['company_phone'] ?? '+254 700 123 456') . "\n";
+        $formatted .= "Email: " . ($company['company_email'] ?? 'info@thynkadvisory.com') . "\n";
+        $formatted .= "Website: " . ($company['company_website'] ?? 'https://thynkadvisory.com') . "\n";
+        $formatted .= "Booking: " . ($company['booking_link'] ?? 'https://cal.com/jared-ogutu-swvv6o') . "\n";
+        $formatted .= "\n";
         
         $formatted .= "=== KEY TOPICS ===\n\n";
         if (isset($data['topics'])) {
             foreach ($data['topics'] as $topic => $info) {
-                $formatted .= "{$topic}: {$info}\n";
+                $formatted .= ucfirst($topic) . ": " . $info . "\n";
             }
         }
         
@@ -244,12 +307,19 @@ class KnowledgeBaseService
             'price' => 'pricing',
             'team' => 'team',
             'who' => 'team',
+            'member' => 'team',
             'process' => 'process',
             'how' => 'process',
             'mission' => 'about',
             'vision' => 'about',
             'about' => 'about',
             'values' => 'about',
+            'book' => 'booking',
+            'schedule' => 'booking',
+            'consult' => 'booking',
+            'contact' => 'contact',
+            'phone' => 'contact',
+            'email' => 'contact',
         ];
         
         foreach ($keywords as $key => $topic) {
@@ -262,6 +332,13 @@ class KnowledgeBaseService
                     $relevant['process'] = $context['process'];
                 } elseif ($topic === 'about' && isset($context['about'])) {
                     $relevant['about'] = $context['about'];
+                } elseif ($topic === 'booking' && isset($context['company'])) {
+                    $relevant['booking'] = $context['company']['booking_link'] ?? 'https://cal.com/jared-ogutu-swvv6o';
+                } elseif ($topic === 'contact' && isset($context['company'])) {
+                    $relevant['contact'] = [
+                        'phone' => $context['company']['company_phone'] ?? '+254 700 123 456',
+                        'email' => $context['company']['company_email'] ?? 'info@thynkadvisory.com',
+                    ];
                 } elseif (isset($context['topics'][$topic])) {
                     $relevant[$topic] = $context['topics'][$topic];
                 }
@@ -292,6 +369,17 @@ class KnowledgeBaseService
                 if (str_contains(strtolower($service['title']), $query) || 
                     str_contains(strtolower($service['description']), $query)) {
                     $results['services'][] = $service;
+                }
+            }
+        }
+        
+        // Search in team
+        if (isset($context['team'])) {
+            foreach ($context['team'] as $member) {
+                if (str_contains(strtolower($member['name']), $query) || 
+                    str_contains(strtolower($member['position']), $query) ||
+                    str_contains(strtolower($member['bio'] ?? ''), $query)) {
+                    $results['team'][] = $member;
                 }
             }
         }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Service extends Model
 {
@@ -10,12 +11,26 @@ class Service extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'title', 'description', 'icon', 'image', 'is_active', 'display_order'
+        'title', 'description', 'icon', 'image', 'is_active', 'display_order', 'slug', 'notified_at', 'linkedin_posted'
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'notified_at' => 'datetime',
+        'linkedin_posted' => 'datetime',
     ];
+
+    // Auto-generate slug from title
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($service) {
+            if (empty($service->slug)) {
+                $service->slug = Str::slug($service->title);
+            }
+        });
+    }
 
     /**
      * Get the image URL attribute

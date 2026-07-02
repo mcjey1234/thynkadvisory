@@ -99,8 +99,8 @@
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 3px !important;
-        color: #47C89F !important;
-        background: rgba(71, 200, 159, 0.08) !important;
+        color: #39FF14 !important;
+        background: rgba(57, 255, 20, 0.08) !important;
         padding: 6px 22px !important;
         border-radius: 20px !important;
         margin-bottom: 18px !important;
@@ -118,7 +118,7 @@
 
     .sf-service-detail-icon {
         font-size: 48px !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
         margin-top: 8px !important;
     }
 
@@ -143,7 +143,7 @@
     .sf-service-detail-title {
         font-size: 32px !important;
         font-weight: 700 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 20px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
     }
@@ -151,7 +151,7 @@
     .sf-service-detail-description {
         font-size: 16px !important;
         line-height: 1.9 !important;
-        color: #4A5A6E !important;
+        color: #4B5563 !important;
         margin-bottom: 24px !important;
     }
 
@@ -162,8 +162,8 @@
     .sf-service-detail-btn {
         display: inline-block !important;
         padding: 14px 40px !important;
-        background: #47C89F !important;
-        color: #FFFFFF !important;
+        background: #39FF14 !important;
+        color: #0F172A !important;
         border-radius: 8px !important;
         text-decoration: none !important;
         font-weight: 600 !important;
@@ -173,18 +173,18 @@
     }
 
     .sf-service-detail-btn:hover {
-        background: #3AAF8A !important;
+        background: #2DE010 !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 30px rgba(71, 200, 159, 0.15) !important;
+        box-shadow: 0 8px 30px rgba(57, 255, 20, 0.15) !important;
     }
 
     .sf-service-detail-back {
         padding: 40px 0 !important;
-        background: #F8FAFB !important;
+        background: #F8FAFC !important;
     }
 
     .sf-service-detail-back-btn {
-        color: #47C89F !important;
+        color: #39FF14 !important;
         text-decoration: none !important;
         font-size: 15px !important;
         font-weight: 500 !important;
@@ -193,7 +193,7 @@
     }
 
     .sf-service-detail-back-btn:hover {
-        color: #3AAF8A !important;
+        color: #2DE010 !important;
         transform: translateX(-4px) !important;
     }
 

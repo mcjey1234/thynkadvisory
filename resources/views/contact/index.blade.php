@@ -13,7 +13,7 @@
     <div class="sf-container">
         <div class="sf-contact-hero-content">
             <span class="sf-contact-hero-badge">Get in Touch</span>
-            <h1 class="sf-contact-hero-title">Let's <span class="sf-text-teal">Connect</span></h1>
+            <h1 class="sf-contact-hero-title">Let's <span class="sf-text-neon">Connect</span></h1>
             <p class="sf-contact-hero-subtitle">Have a question or want to discuss a project? We'd love to hear from you.</p>
             <div class="sf-contact-hero-line"></div>
         </div>
@@ -30,7 +30,7 @@
             <div class="sf-contact-info">
                 <div class="sf-contact-info-header">
                     <span class="sf-contact-info-badge">Contact Information</span>
-                    <h2 class="sf-contact-info-title">Get in <span class="sf-text-teal">Touch</span></h2>
+                    <h2 class="sf-contact-info-title">Get in <span class="sf-text-neon">Touch</span></h2>
                     <p class="sf-contact-info-text">We're here to help and answer any questions you might have. We look forward to hearing from you.</p>
                 </div>
 
@@ -82,7 +82,7 @@
                 <div class="sf-contact-form">
                     <div class="sf-contact-form-header">
                         <span class="sf-contact-form-badge">Send a Message</span>
-                        <h2 class="sf-contact-form-title">We'd Love to <span class="sf-text-teal">Hear From You</span></h2>
+                        <h2 class="sf-contact-form-title">We'd Love to <span class="sf-text-neon">Hear From You</span></h2>
                         <p class="sf-contact-form-text">Fill in the form below and we'll get back to you as soon as possible.</p>
                     </div>
 
@@ -199,7 +199,7 @@
 <section class="sf-contact-cta">
     <div class="sf-container">
         <div class="sf-contact-cta-content">
-            <h2 class="sf-contact-cta-title">Ready to <span class="sf-text-teal">Transform</span> Your Learning?</h2>
+            <h2 class="sf-contact-cta-title">Ready to <span class="sf-text-neon">Transform</span> Your Learning?</h2>
             <p class="sf-contact-cta-text">Let's work together to create learning experiences that deliver real results.</p>
             <a href="mailto:mcjey103@gmail.com" class="sf-contact-cta-btn">
                 Email Us Directly <span class="sf-cta-arrow">→</span>
@@ -209,7 +209,7 @@
 </section>
 
 <!-- ============================================ -->
-<!-- STYLES — Contact Page with Consultation -->
+<!-- STYLES — Contact Page with Theme Colors -->
 <!-- ============================================ -->
 <style>
     .sf-container {
@@ -217,8 +217,8 @@
         margin: 0 auto !important;
         padding: 0 24px !important;
     }
-    .sf-text-teal {
-        color: #47C89F !important;
+    .sf-text-neon {
+        color: #39FF14 !important;
     }
 
     /* ---- Hero ---- */
@@ -251,8 +251,8 @@
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 3px !important;
-        color: #47C89F !important;
-        background: rgba(71, 200, 159, 0.08) !important;
+        color: #39FF14 !important;
+        background: rgba(57, 255, 20, 0.08) !important;
         padding: 6px 22px !important;
         border-radius: 20px !important;
         margin-bottom: 18px !important;
@@ -276,7 +276,7 @@
     .sf-contact-hero-line {
         width: 60px !important;
         height: 3px !important;
-        background: #47C89F !important;
+        background: #39FF14 !important;
         border-radius: 4px !important;
         margin-top: 8px !important;
     }
@@ -303,13 +303,13 @@
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 2.5px !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
         margin-bottom: 12px !important;
     }
     .sf-contact-info-title {
         font-size: 34px !important;
         font-weight: 700 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 12px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
         letter-spacing: -0.5px !important;
@@ -331,21 +331,21 @@
         align-items: flex-start !important;
         gap: 16px !important;
         padding: 16px 20px !important;
-        background: #F8FAFB !important;
+        background: #F8FAFC !important;
         border-radius: 12px !important;
         transition: all 0.3s ease !important;
         border: 1px solid rgba(0, 0, 0, 0.02) !important;
     }
     .sf-contact-item:hover {
-        background: #F0F4F6 !important;
+        background: #F1F5F9 !important;
         transform: translateX(4px) !important;
     }
     .sf-contact-icon {
         width: 44px !important;
         height: 44px !important;
         border-radius: 50% !important;
-        background: rgba(71, 200, 159, 0.06) !important;
-        color: #47C89F !important;
+        background: rgba(57, 255, 20, 0.06) !important;
+        color: #39FF14 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -358,7 +358,7 @@
     .sf-contact-item-title {
         font-size: 14px !important;
         font-weight: 600 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 4px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
     }
@@ -373,7 +373,7 @@
         transition: color 0.3s ease !important;
     }
     .sf-contact-item-text a:hover {
-        color: #47C89F !important;
+        color: #39FF14 !important;
     }
     .sf-contact-social {
         padding-top: 20px !important;
@@ -382,7 +382,7 @@
     .sf-contact-social-title {
         font-size: 14px !important;
         font-weight: 600 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 12px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
     }
@@ -404,11 +404,11 @@
         transition: all 0.3s ease !important;
     }
     .sf-social-link:hover {
-        background: #47C89F !important;
-        border-color: #47C89F !important;
-        color: #FFFFFF !important;
+        background: #39FF14 !important;
+        border-color: #39FF14 !important;
+        color: #0F172A !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 4px 16px rgba(71, 200, 159, 0.1) !important;
+        box-shadow: 0 4px 16px rgba(57, 255, 20, 0.1) !important;
     }
 
     /* ---- Contact Right Column ---- */
@@ -420,7 +420,7 @@
 
     /* ---- Contact Form ---- */
     .sf-contact-form {
-        background: #F8FAFB !important;
+        background: #F8FAFC !important;
         padding: 40px 36px !important;
         border-radius: 16px !important;
         border: 1px solid rgba(0, 0, 0, 0.02) !important;
@@ -434,13 +434,13 @@
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 2.5px !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
         margin-bottom: 8px !important;
     }
     .sf-contact-form-title {
         font-size: 28px !important;
         font-weight: 700 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 8px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
     }
@@ -467,10 +467,10 @@
     .sf-form-label {
         font-size: 14px !important;
         font-weight: 500 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
     }
     .sf-form-required {
-        color: #ED4484 !important;
+        color: #06B6D4 !important;
     }
     .sf-form-control {
         padding: 12px 16px !important;
@@ -480,16 +480,16 @@
         font-family: 'Gill Sans Nova', 'Gill Sans', sans-serif !important;
         transition: all 0.3s ease !important;
         background: #FFFFFF !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         outline: none !important;
         width: 100% !important;
     }
     .sf-form-control:focus {
-        border-color: #47C89F !important;
-        box-shadow: 0 0 0 3px rgba(71, 200, 159, 0.04) !important;
+        border-color: #39FF14 !important;
+        box-shadow: 0 0 0 3px rgba(57, 255, 20, 0.04) !important;
     }
     .sf-form-control.sf-form-error {
-        border-color: #ED4484 !important;
+        border-color: #06B6D4 !important;
     }
     .sf-form-textarea {
         resize: vertical !important;
@@ -497,7 +497,7 @@
     }
     .sf-form-error-text {
         font-size: 13px !important;
-        color: #ED4484 !important;
+        color: #06B6D4 !important;
         margin-top: 4px !important;
     }
     .sf-form-submit {
@@ -506,8 +506,8 @@
         justify-content: center !important;
         gap: 10px !important;
         padding: 14px 36px !important;
-        background: #47C89F !important;
-        color: #FFFFFF !important;
+        background: #39FF14 !important;
+        color: #0F172A !important;
         border: none !important;
         border-radius: 8px !important;
         font-size: 16px !important;
@@ -519,9 +519,9 @@
         width: fit-content !important;
     }
     .sf-form-submit:hover {
-        background: #3AAF8A !important;
+        background: #2DE010 !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 30px rgba(71, 200, 159, 0.12) !important;
+        box-shadow: 0 8px 30px rgba(57, 255, 20, 0.12) !important;
     }
     .sf-form-submit i {
         font-size: 16px !important;
@@ -536,17 +536,17 @@
         font-size: 15px !important;
     }
     .sf-alert-success {
-        background: rgba(71, 200, 159, 0.04) !important;
-        border: 1px solid rgba(71, 200, 159, 0.08) !important;
-        color: #47C89F !important;
+        background: rgba(57, 255, 20, 0.04) !important;
+        border: 1px solid rgba(57, 255, 20, 0.08) !important;
+        color: #39FF14 !important;
     }
     .sf-alert-success i {
         font-size: 20px !important;
     }
     .sf-alert-error {
-        background: rgba(237, 68, 132, 0.04) !important;
-        border: 1px solid rgba(237, 68, 132, 0.08) !important;
-        color: #ED4484 !important;
+        background: rgba(6, 182, 212, 0.04) !important;
+        border: 1px solid rgba(6, 182, 212, 0.08) !important;
+        color: #06B6D4 !important;
     }
     .sf-alert-error i {
         font-size: 20px !important;
@@ -556,7 +556,7 @@
     .sf-consultation {
         background: #FFFFFF !important;
         border-radius: 16px !important;
-        border: 2px solid rgba(71, 200, 159, 0.06) !important;
+        border: 2px solid rgba(57, 255, 20, 0.06) !important;
         padding: 32px 28px !important;
         position: relative !important;
         overflow: hidden !important;
@@ -568,7 +568,7 @@
         left: 0 !important;
         right: 0 !important;
         height: 4px !important;
-        background: linear-gradient(90deg, #47C89F, #9ACA43) !important;
+        background: linear-gradient(90deg, #39FF14, #06B6D4) !important;
     }
 
     .sf-consultation-divider {
@@ -595,8 +595,8 @@
         width: 64px !important;
         height: 64px !important;
         border-radius: 50% !important;
-        background: rgba(71, 200, 159, 0.06) !important;
-        color: #47C89F !important;
+        background: rgba(57, 255, 20, 0.06) !important;
+        color: #39FF14 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -606,7 +606,7 @@
     .sf-consultation-title {
         font-size: 22px !important;
         font-weight: 600 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         text-align: center !important;
         margin: 0 0 8px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
@@ -624,8 +624,8 @@
         justify-content: center !important;
         gap: 12px !important;
         padding: 14px 32px !important;
-        background: #47C89F !important;
-        color: #FFFFFF !important;
+        background: #39FF14 !important;
+        color: #0F172A !important;
         border: none !important;
         border-radius: 8px !important;
         text-decoration: none !important;
@@ -637,9 +637,9 @@
         margin-bottom: 20px !important;
     }
     .sf-consultation-btn:hover {
-        background: #3AAF8A !important;
+        background: #2DE010 !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 30px rgba(71, 200, 159, 0.12) !important;
+        box-shadow: 0 8px 30px rgba(57, 255, 20, 0.12) !important;
     }
     .sf-consultation-btn .sf-btn-arrow {
         display: inline-block !important;
@@ -658,10 +658,10 @@
         align-items: center !important;
         gap: 10px !important;
         font-size: 14px !important;
-        color: #4A5A6E !important;
+        color: #4B5563 !important;
     }
     .sf-consultation-feature i {
-        color: #47C89F !important;
+        color: #39FF14 !important;
         font-size: 16px !important;
         flex-shrink: 0 !important;
     }
@@ -669,7 +669,7 @@
     /* ---- CTA ---- */
     .sf-contact-cta {
         padding: 80px 0 !important;
-        background: linear-gradient(135deg, #0A0610 0%, #1A0A18 100%) !important;
+        background: #0F172A !important;
         border-top: 1px solid rgba(255, 255, 255, 0.02) !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.02) !important;
         position: relative !important;
@@ -700,8 +700,8 @@
         align-items: center !important;
         gap: 8px !important;
         padding: 14px 40px !important;
-        background: #47C89F !important;
-        color: #FFFFFF !important;
+        background: #39FF14 !important;
+        color: #0F172A !important;
         border-radius: 8px !important;
         text-decoration: none !important;
         font-weight: 600 !important;
@@ -710,9 +710,9 @@
         font-family: 'Gill Sans Nova', 'Gill Sans', sans-serif !important;
     }
     .sf-contact-cta-btn:hover {
-        background: #3AAF8A !important;
+        background: #2DE010 !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 30px rgba(71, 200, 159, 0.12) !important;
+        box-shadow: 0 8px 30px rgba(57, 255, 20, 0.12) !important;
     }
     .sf-cta-arrow {
         display: inline-block !important;

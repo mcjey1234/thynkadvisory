@@ -13,7 +13,7 @@
     <div class="sf-container">
         <div class="sf-booking-hero-content">
             <span class="sf-booking-hero-badge">Schedule a Meeting</span>
-            <h1 class="sf-booking-hero-title">Book Your <span class="sf-text-teal">Free Consultation</span></h1>
+            <h1 class="sf-booking-hero-title">Book Your <span class="sf-text-neon">Free Consultation</span></h1>
             <p class="sf-booking-hero-subtitle">Choose a time that works for you and let's discuss how we can help transform your learning programs.</p>
             <div class="sf-booking-hero-line"></div>
         </div>
@@ -30,7 +30,7 @@
             <div class="sf-booking-info">
                 <div class="sf-booking-info-header">
                     <span class="sf-booking-info-badge">What to Expect</span>
-                    <h2 class="sf-booking-info-title">Your <span class="sf-text-teal">Discovery Call</span></h2>
+                    <h2 class="sf-booking-info-title">Your <span class="sf-text-neon">Discovery Call</span></h2>
                     <p class="sf-booking-info-text">During this 30-minute consultation, we'll discuss your learning challenges and explore how Sofel Labs can help.</p>
                 </div>
 
@@ -105,12 +105,12 @@
                             })(window, "https://app.cal.com/embed.js", "init");
 
                             // Initialize Cal.com with your booking link
-                            Cal("init", "https://cal.com/sofellabs", { 
+                            Cal("init", "https://cal.com/thynk-consulatation", { 
                                 origin: "https://cal.com",
                                 ui: {
                                     styles: {
                                         branding: {
-                                            brandColor: "#47C89F",
+                                            brandColor: "#39FF14",
                                             logo: "{{ asset('wp-content/uploads/images/logo.jpeg') }}"
                                         }
                                     }
@@ -120,7 +120,7 @@
                             // Inline embed
                             Cal("inline", {
                                 elementOrSelector: "#cal-inline",
-                                calLink: "https://cal.com/sofellabs",
+                                calLink: "https://cal.com/thynk-consulatation",
                                 config: {
                                     layout: "month_view",
                                     theme: "light",
@@ -128,14 +128,14 @@
                                     hideBranding: true,
                                     cssVarsPerTheme: {
                                         light: {
-                                            "--cal-brand": "#47C89F",
-                                            "--cal-brand-emphasis": "#3AAF8A",
-                                            "--cal-brand-subtle": "rgba(71, 200, 159, 0.1)",
-                                            "--cal-text": "#0E2A47",
-                                            "--cal-text-emphasis": "#0A1A2E",
+                                            "--cal-brand": "#39FF14",
+                                            "--cal-brand-emphasis": "#2DE010",
+                                            "--cal-brand-subtle": "rgba(57, 255, 20, 0.1)",
+                                            "--cal-text": "#0F172A",
+                                            "--cal-text-emphasis": "#0A0A0A",
                                             "--cal-text-muted": "#6B7C93",
                                             "--cal-bg": "#FFFFFF",
-                                            "--cal-bg-emphasis": "#F8FAFB",
+                                            "--cal-bg-emphasis": "#F8FAFC",
                                         }
                                     }
                                 }
@@ -168,7 +168,7 @@
                     </div>
                     <div class="sf-booking-simple-content">
                         <p class="sf-booking-simple-text">Prefer to schedule directly?</p>
-                        <a href="https://cal.com/sofellabs" target="_blank" class="sf-booking-simple-btn">
+                        <a href="https://cal.com/thynk-consulatation" target="_blank" class="sf-booking-simple-btn">
                             <i class="fas fa-external-link-alt"></i>
                             Open in New Tab
                             <span class="sf-btn-arrow">→</span>
@@ -186,7 +186,7 @@
 <section class="sf-booking-cta">
     <div class="sf-container">
         <div class="sf-booking-cta-content">
-            <h2 class="sf-booking-cta-title">Not Ready to Book? <span class="sf-text-teal">Let's Chat</span></h2>
+            <h2 class="sf-booking-cta-title">Not Ready to Book? <span class="sf-text-neon">Let's Chat</span></h2>
             <p class="sf-booking-cta-text">Have questions before scheduling? We're happy to answer them.</p>
             <div class="sf-booking-cta-buttons">
                 <a href="{{ route('contact') }}" class="sf-booking-cta-btn sf-booking-cta-btn-primary">
@@ -209,8 +209,8 @@
         margin: 0 auto !important;
         padding: 0 24px !important;
     }
-    .sf-text-teal {
-        color: #47C89F !important;
+    .sf-text-neon {
+        color: #39FF14 !important;
     }
 
     /* ---- Hero ---- */
@@ -243,8 +243,8 @@
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 3px !important;
-        color: #47C89F !important;
-        background: rgba(71, 200, 159, 0.08) !important;
+        color: #39FF14 !important;
+        background: rgba(57, 255, 20, 0.08) !important;
         padding: 6px 22px !important;
         border-radius: 20px !important;
         margin-bottom: 18px !important;
@@ -268,7 +268,7 @@
     .sf-booking-hero-line {
         width: 60px !important;
         height: 3px !important;
-        background: #47C89F !important;
+        background: #39FF14 !important;
         border-radius: 4px !important;
         margin-top: 8px !important;
     }
@@ -295,13 +295,13 @@
         font-weight: 600 !important;
         text-transform: uppercase !important;
         letter-spacing: 2.5px !important;
-        color: #47C89F !important;
+        color: #39FF14 !important;
         margin-bottom: 12px !important;
     }
     .sf-booking-info-title {
         font-size: 34px !important;
         font-weight: 700 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 12px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
         letter-spacing: -0.5px !important;
@@ -323,21 +323,21 @@
         display: flex !important;
         gap: 16px !important;
         padding: 18px 20px !important;
-        background: #F8FAFB !important;
+        background: #F8FAFC !important;
         border-radius: 12px !important;
         transition: all 0.3s ease !important;
         border: 1px solid rgba(0, 0, 0, 0.02) !important;
     }
     .sf-booking-feature:hover {
         transform: translateX(4px) !important;
-        border-color: rgba(71, 200, 159, 0.08) !important;
+        border-color: rgba(57, 255, 20, 0.08) !important;
     }
     .sf-booking-feature-icon {
         width: 44px !important;
         height: 44px !important;
         border-radius: 50% !important;
-        background: rgba(71, 200, 159, 0.06) !important;
-        color: #47C89F !important;
+        background: rgba(57, 255, 20, 0.06) !important;
+        color: #39FF14 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -351,7 +351,7 @@
     .sf-booking-feature-title {
         font-size: 16px !important;
         font-weight: 600 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 4px 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
     }
@@ -364,13 +364,13 @@
 
     /* ---- Testimonial ---- */
     .sf-booking-testimonial {
-        background: linear-gradient(135deg, #F8FAFB, #F0F4F6) !important;
+        background: #F8FAFC !important;
         padding: 28px 24px !important;
         border-radius: 12px !important;
         border: 1px solid rgba(0, 0, 0, 0.02) !important;
     }
     .sf-booking-quote-icon {
-        color: #47C89F !important;
+        color: #39FF14 !important;
         font-size: 20px !important;
         opacity: 0.3 !important;
         margin-bottom: 8px !important;
@@ -379,7 +379,7 @@
     .sf-booking-testimonial-text {
         font-size: 16px !important;
         font-style: italic !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 0 12px 0 !important;
         line-height: 1.6 !important;
         font-weight: 300 !important;
@@ -391,7 +391,7 @@
     }
     .sf-booking-testimonial-name {
         font-weight: 600 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         font-size: 15px !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
     }
@@ -410,7 +410,7 @@
     }
     .sf-booking-calendar-header {
         padding: 20px 24px !important;
-        background: #F8FAFB !important;
+        background: #F8FAFC !important;
         border-bottom: 1px solid rgba(0, 0, 0, 0.02) !important;
     }
     .sf-booking-calendar-header-info {
@@ -424,7 +424,7 @@
     .sf-booking-calendar-title {
         font-size: 18px !important;
         font-weight: 600 !important;
-        color: #0E2A47 !important;
+        color: #0F172A !important;
         margin: 0 !important;
         font-family: 'Cabin', 'Gill Sans Nova', sans-serif !important;
     }
@@ -444,7 +444,7 @@
     }
     .sf-booking-calendar-footer {
         padding: 16px 24px !important;
-        background: #F8FAFB !important;
+        background: #F8FAFC !important;
         border-top: 1px solid rgba(0, 0, 0, 0.02) !important;
         display: flex !important;
         flex-wrap: wrap !important;
@@ -458,7 +458,7 @@
         color: #6B7C93 !important;
     }
     .sf-booking-calendar-footer-item i {
-        color: #47C89F !important;
+        color: #39FF14 !important;
         font-size: 14px !important;
     }
 
@@ -497,8 +497,8 @@
         gap: 8px !important;
         padding: 12px 28px !important;
         background: transparent !important;
-        color: #47C89F !important;
-        border: 2px solid rgba(71, 200, 159, 0.12) !important;
+        color: #39FF14 !important;
+        border: 2px solid rgba(57, 255, 20, 0.12) !important;
         border-radius: 8px !important;
         text-decoration: none !important;
         font-size: 15px !important;
@@ -507,11 +507,11 @@
         transition: all 0.3s ease !important;
     }
     .sf-booking-simple-btn:hover {
-        background: #47C89F !important;
-        color: #FFFFFF !important;
-        border-color: #47C89F !important;
+        background: #39FF14 !important;
+        color: #0F172A !important;
+        border-color: #39FF14 !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 30px rgba(71, 200, 159, 0.12) !important;
+        box-shadow: 0 8px 30px rgba(57, 255, 20, 0.12) !important;
     }
     .sf-booking-simple-btn .sf-btn-arrow {
         display: inline-block !important;
@@ -524,7 +524,7 @@
     /* ---- CTA ---- */
     .sf-booking-cta {
         padding: 80px 0 !important;
-        background: linear-gradient(135deg, #0A0610 0%, #1A0A18 100%) !important;
+        background: #0F172A !important;
         border-top: 1px solid rgba(255, 255, 255, 0.02) !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.02) !important;
     }
@@ -565,14 +565,14 @@
         font-family: 'Gill Sans Nova', 'Gill Sans', sans-serif !important;
     }
     .sf-booking-cta-btn-primary {
-        background: #47C89F !important;
-        color: #FFFFFF !important;
+        background: #39FF14 !important;
+        color: #0F172A !important;
         border: none !important;
     }
     .sf-booking-cta-btn-primary:hover {
-        background: #3AAF8A !important;
+        background: #2DE010 !important;
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 30px rgba(71, 200, 159, 0.12) !important;
+        box-shadow: 0 8px 30px rgba(57, 255, 20, 0.12) !important;
     }
     .sf-booking-cta-btn-secondary {
         background: transparent !important;

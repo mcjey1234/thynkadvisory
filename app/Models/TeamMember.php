@@ -13,13 +13,13 @@ class TeamMember extends Model
         'name',
         'position',
         'bio',
+        'description',
         'image',
         'email',
         'phone',
         'linkedin',
         'twitter',
         'facebook',
-        'instagram',
         'is_active',
         'display_order'
     ];
@@ -48,7 +48,20 @@ class TeamMember extends Model
         if ($this->linkedin) $links['linkedin'] = $this->linkedin;
         if ($this->twitter) $links['twitter'] = $this->twitter;
         if ($this->facebook) $links['facebook'] = $this->facebook;
-        if ($this->instagram) $links['instagram'] = $this->instagram;
         return $links;
+    }
+
+    // Get full name with position
+    public function getFullTitleAttribute()
+    {
+        return $this->name . ' — ' . $this->position;
+    }
+
+    // Get short bio for excerpts
+    public function getShortBioAttribute($length = 100)
+    {
+        return strlen($this->description) > $length 
+            ? substr($this->description, 0, $length) . '...' 
+            : $this->description;
     }
 }

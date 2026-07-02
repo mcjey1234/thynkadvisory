@@ -6,6 +6,7 @@ use App\Filament\Resources\ServiceResource\Pages;
 use App\Models\Service;
 use App\Models\Subscription;
 use App\Mail\NewServiceNotification;
+use App\Services\BufferService;  // ← Changed to BufferService
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -78,10 +79,16 @@ class ServiceResource extends Resource
                 Tables\Columns\IconColumn::make('is_active')
                     ->boolean()
                     ->label('Active'),
+                Tables\Columns\TextColumn::make('linkedin_posted')
+                    ->dateTime()
+                    ->sortable()
+                    ->label('Social Media Posted')
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('notified_at')
                     ->dateTime()
                     ->sortable()
-                    ->label('Notified'),
+                    ->label('Notified')
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -96,6 +103,11 @@ class ServiceResource extends Resource
                     ->placeholder('All')
                     ->trueLabel('Notified')
                     ->falseLabel('Pending'),
+                Tables\Filters\TernaryFilter::make('linkedin_posted')
+                    ->label('Social Media Posted')
+                    ->placeholder('All')
+                    ->trueLabel('Posted')
+                    ->falseLabel('Not Posted'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -113,6 +125,27 @@ class ServiceResource extends Resource
                             ->send();
                     })
                     ->visible(fn ($record) => $record->is_active && $record->notified_at === null),
+                Tables\Actions\Action::make('post_to_buffer')
+                    ->label('Post to Social Media')
+                    ->icon('heroicon-o-share')
+                    ->color('info')
+                    ->action(function ($record) {
+                        $result = self::postToBuffer($record);
+                        if ($result) {
+                            Notification::make()
+                                ->title('Posted to Social Media!')
+                                ->body('Service posted to Buffer successfully.')
+                                ->success()
+                                ->send();
+                        } else {
+                            Notification::make()
+                                ->title('Failed to Post')
+                                ->body('Check logs for details.')
+                                ->danger()
+                                ->send();
+                        }
+                    })
+                    ->visible(fn ($record) => $record->is_active && $record->linkedin_posted === null),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -132,8 +165,61 @@ class ServiceResource extends Resource
                                 ->success()
                                 ->send();
                         }),
+                    Tables\Actions\BulkAction::make('post_to_buffer_bulk')
+                        ->label('Post All to Social Media')
+                        ->icon('heroicon-o-share')
+                        ->color('info')
+                        ->action(function ($records) {
+                            $posted = 0;
+                            foreach ($records as $record) {
+                                if ($record->is_active && $record->linkedin_posted === null) {
+                                    if (self::postToBuffer($record)) {
+                                        $posted++;
+                                    }
+                                }
+                            }
+                            Notification::make()
+                                ->title($posted . ' services posted to Social Media!')
+                                ->success()
+                                ->send();
+                        }),
                 ]),
             ]);
+    }
+
+    /**
+     * Post service to Buffer
+     */
+    public static function postToBuffer($service)
+    {
+        try {
+            Log::info('=== 📤 POSTING TO BUFFER: ' . $service->title . ' ===');
+            
+            $buffer = new BufferService();
+            $serviceUrl = url('/services/detail/' . $service->id);
+            
+            $message = "🚀 New Service at Sofel Labs!\n\n" .
+                       "📌 " . $service->title . "\n" .
+                       "💡 " . substr(strip_tags($service->description), 0, 150) . "...\n\n" .
+                       "Learn more: " . $serviceUrl . "\n\n" .
+                       "#SofelLabs #InstructionalDesign #Gamification #eLearning #AfricaTech";
+            
+            $result = $buffer->post($message, $serviceUrl);
+            
+            if ($result) {
+                $service->linkedin_posted = now();
+                $service->save();
+                Log::info('✅ Buffer post successful for: ' . $service->title);
+                return true;
+            }
+            
+            Log::error('❌ Buffer post failed for: ' . $service->title);
+            return false;
+            
+        } catch (\Exception $e) {
+            Log::error('❌ Buffer post error: ' . $e->getMessage());
+            return false;
+        }
     }
 
     /**
@@ -164,7 +250,6 @@ class ServiceResource extends Resource
             }
         }
         
-        // Mark as notified
         $service->notified_at = now();
         $service->save();
         
