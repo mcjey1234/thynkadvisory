@@ -1,6 +1,15 @@
 @extends('layouts.public')
+
 @section('title', 'THYNK — Mobile & Web Apps · Geospatial · Design · Deployment')
+
+@push('head')
+    <meta property="og:title" content="THYNK — Mobile & Web Apps · Geospatial · Design · Deployment">
+    <meta property="og:description" content="End-to-end digital solutions in Kenya: mobile apps, web applications, GIS, eLearning, and deployment. We build what you need, not just what you ask for.">
+    <meta name="description" content="End-to-end digital solutions in Kenya: mobile apps, web applications, GIS, eLearning, and deployment. We build what you need, not just what you ask for.">
+@endpush
+
 @section('body_class', 'thynk-home')
+
 @section('content')
 
 @php
