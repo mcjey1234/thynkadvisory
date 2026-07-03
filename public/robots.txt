@@ -1,2 +1,10 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /password-reset/
+Disallow: /api/
+
+Sitemap: https://thynkadvisory.co.ke/sitemap.xml
+Host: https://thynkadvisory.co.ke
