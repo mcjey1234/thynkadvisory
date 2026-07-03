@@ -23,20 +23,23 @@ jobs:
           script: |
             echo "🚀 Starting deployment..."
             
-            # Navigate to website directory
             cd /home/thynkadv/domains/thynkadvisory.co.ke/public_html
             
-            # Clone if not exists
+            # Check if .git exists, if not clone the repo
             if [ ! -d ".git" ]; then
               echo "📦 Cloning repository..."
+              rm -rf ./* 2>/dev/null || true
               git clone git@github.com:mcjey1234/sofellabs-website.git .
             fi
             
             echo "📦 Pulling latest code..."
             git pull origin main
             
+            # Set Composer path
+            COMPOSER="/home/thynkadv/composer"
+            
             echo "📦 Installing dependencies..."
-            composer install --no-dev --optimize-autoloader
+            $COMPOSER install --no-dev --optimize-autoloader
             
             echo "🗄️ Running migrations..."
             php artisan migrate --force
