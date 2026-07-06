@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Effective Gamification - Sofel Labs')</title>
-    
+    <title>@yield('title', 'Thynk Advisory')</title>
+
+{{-- ===== CSRF TOKEN ===== --}}
+<meta name="csrf-token" content="{{ csrf_token() }}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8335787923057820"
+     crossorigin="anonymous"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Gill+Sans+Nova:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,600,700&display=fallback" rel="stylesheet">
