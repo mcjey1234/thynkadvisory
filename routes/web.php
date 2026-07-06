@@ -74,6 +74,12 @@ Route::get('/debug-knowledge', function() {
     }
 });
 
+
+// ads.txt for Google AdSense
+Route::get('/ads.txt', function () {
+    return response("google.com, pub-8335787923057820, DIRECT, f08c47fec0942fa0", 200)
+        ->header('Content-Type', 'text/plain');
+});
 // Home Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/course-fog', [HomeController::class, 'index']);
