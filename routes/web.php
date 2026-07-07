@@ -12,6 +12,8 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\SubscriptionController; 
 use App\Http\Controllers\BookingController; 
 use App\Http\Controllers\DailyPostController;
+use App\Http\Controllers\PublicPrivacyPolicyController;
+use App\Http\Controllers\PublicTermsOfServiceController;
 // ============================================ -->
 // PUBLIC ROUTES -->
 // ============================================ -->
@@ -52,6 +54,7 @@ Route::get("/test-observer", function() {
         ]);
     }
 });
+
 // Debug Knowledge Base
 Route::get('/debug-knowledge', function() {
     try {
@@ -73,8 +76,9 @@ Route::get('/debug-knowledge', function() {
         ]);
     }
 });
-
-
+//terms of service and privacy policy routes
+Route::get('/terms-of-service', [PublicTermsOfServiceController::class, 'index'])->name('terms.of.service');
+Route::get('/privacy-policy', [PublicPrivacyPolicyController::class, 'index'])->name('privacy.policy');
 // ads.txt for Google AdSense
 Route::get('/ads.txt', function () {
     return response("google.com, pub-8335787923057820, DIRECT, f08c47fec0942fa0", 200)
