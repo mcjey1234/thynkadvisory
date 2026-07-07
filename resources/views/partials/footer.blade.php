@@ -62,7 +62,7 @@
     <div class="sl-footer-bottom">
         <div class="sl-footer-container">
             <div class="sl-footer-bottom-content">
-                <span class="sl-footer-copyright">&copy; {{ date('Y') }} Sofel Labs. All rights reserved.</span>
+                <span class="sl-footer-copyright">&copy; {{ date('Y') }} Thynk Advisory. All rights reserved.</span>
                 <div class="sl-footer-legal">
                     <a href="/privacy-policy">Privacy Policy</a>
                     <span class="sl-footer-dot">·</span>
