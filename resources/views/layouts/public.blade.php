@@ -864,5 +864,8 @@
         });
     </script>
     @stack('scripts')
+
+<!-- Cookie Consent -->
+@include('partials.cookie-consent')
 </body>
 </html>
