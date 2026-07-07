@@ -22,10 +22,7 @@
 @endphp
 
 <!-- ============================================ -->
-<!-- HERO SECTION -->
-<!-- ============================================ -->
-<!-- ============================================ -->
-<!-- HERO BANNER CAROUSEL - WITH TK CONTENT -->
+<!-- HERO SECTION - FIXED FOR SMALL DEVICES -->
 <!-- ============================================ -->
 <section class="sl-hero">
     <div class="sl-hero-container">
@@ -47,7 +44,7 @@
 </section>
 
 <!-- ============================================ -->
-<!-- HERO STYLES -->
+<!-- HERO STYLES - FIXED -->
 <!-- ============================================ -->
 <style>
     /* ============================================
@@ -59,7 +56,8 @@
         width: 100% !important;
         overflow: hidden !important;
         background: #FFFFFF !important;
-        padding: 40px 0 !important;
+        padding: 0 !important;
+        /* REMOVED PADDING */
         min-height: auto !important;
         display: block !important;
     }
@@ -156,7 +154,7 @@
     }
 
     /* ============================================
-       RESPONSIVE - FIXED: FULL IMAGE VISIBLE
+       RESPONSIVE - NO SPACE BETWEEN NAVBAR
        ============================================ */
     @media (max-width: 1200px) {
         .sl-hero-wrapper {
@@ -171,10 +169,6 @@
     }
 
     @media (max-width: 991px) {
-        .sl-hero {
-            padding: 30px 0 !important;
-        }
-
         .sl-hero-wrapper {
             aspect-ratio: 16/6 !important;
             max-height: 400px !important;
@@ -188,13 +182,9 @@
     }
 
     @media (max-width: 768px) {
-        .sl-hero {
-            padding: 15px 0 !important;
-        }
-
         .sl-hero-wrapper {
-            aspect-ratio: 16/8 !important;
-            max-height: 350px !important;
+            aspect-ratio: 16/7 !important;
+            max-height: 320px !important;
             border-radius: 8px !important;
         }
 
@@ -220,13 +210,9 @@
     }
 
     @media (max-width: 480px) {
-        .sl-hero {
-            padding: 10px 0 !important;
-        }
-
         .sl-hero-wrapper {
-            aspect-ratio: 16/10 !important;
-            max-height: 280px !important;
+            aspect-ratio: 16/8 !important;
+            max-height: 250px !important;
             border-radius: 6px !important;
         }
 
@@ -255,8 +241,8 @@
     /* Extra small devices */
     @media (max-width: 380px) {
         .sl-hero-wrapper {
-            aspect-ratio: 16/11 !important;
-            max-height: 220px !important;
+            aspect-ratio: 16/9 !important;
+            max-height: 200px !important;
             border-radius: 4px !important;
         }
         
