@@ -77,7 +77,6 @@
         position: relative !important;
         width: 100% !important;
         aspect-ratio: 1920/600 !important;
-        /* 3.2:1 ratio to match recommended size */
         max-height: 600px !important;
         border-radius: 12px !important;
         overflow: hidden !important;
@@ -157,11 +156,17 @@
     }
 
     /* ============================================
-       RESPONSIVE
+       RESPONSIVE - FIXED: FULL IMAGE VISIBLE
        ============================================ */
     @media (max-width: 1200px) {
         .sl-hero-wrapper {
             aspect-ratio: 16/5 !important;
+            max-height: 480px !important;
+        }
+        
+        .sl-hero-image {
+            background-size: contain !important;
+            background-color: #f8fafb !important;
         }
     }
 
@@ -172,17 +177,24 @@
 
         .sl-hero-wrapper {
             aspect-ratio: 16/6 !important;
+            max-height: 400px !important;
             border-radius: 10px !important;
+        }
+        
+        .sl-hero-image {
+            background-size: contain !important;
+            background-color: #f8fafb !important;
         }
     }
 
     @media (max-width: 768px) {
         .sl-hero {
-            padding: 20px 0 !important;
+            padding: 15px 0 !important;
         }
 
         .sl-hero-wrapper {
-            aspect-ratio: 16/7 !important;
+            aspect-ratio: 16/8 !important;
+            max-height: 350px !important;
             border-radius: 8px !important;
         }
 
@@ -193,30 +205,75 @@
         }
 
         .sl-hero-dot {
-            width: 6px !important;
-            height: 6px !important;
+            width: 7px !important;
+            height: 7px !important;
+        }
+        
+        .sl-hero-container {
+            padding: 0 12px !important;
+        }
+        
+        .sl-hero-image {
+            background-size: contain !important;
+            background-color: #f8fafb !important;
         }
     }
 
     @media (max-width: 480px) {
         .sl-hero {
-            padding: 12px 0 !important;
+            padding: 10px 0 !important;
         }
 
         .sl-hero-wrapper {
-            aspect-ratio: 16/8 !important;
+            aspect-ratio: 16/10 !important;
+            max-height: 280px !important;
             border-radius: 6px !important;
         }
 
         .sl-hero-dots {
-            bottom: 6px !important;
+            bottom: 8px !important;
             padding: 3px 8px !important;
-            gap: 4px !important;
+            gap: 5px !important;
         }
 
         .sl-hero-dot {
+            width: 6px !important;
+            height: 6px !important;
+        }
+        
+        .sl-hero-container {
+            padding: 0 8px !important;
+        }
+        
+        .sl-hero-image {
+            background-size: contain !important;
+            background-color: #f8fafb !important;
+            background-position: center !important;
+        }
+    }
+    
+    /* Extra small devices */
+    @media (max-width: 380px) {
+        .sl-hero-wrapper {
+            aspect-ratio: 16/11 !important;
+            max-height: 220px !important;
+            border-radius: 4px !important;
+        }
+        
+        .sl-hero-dots {
+            bottom: 5px !important;
+            padding: 2px 6px !important;
+            gap: 4px !important;
+        }
+        
+        .sl-hero-dot {
             width: 5px !important;
             height: 5px !important;
+        }
+        
+        .sl-hero-image {
+            background-size: contain !important;
+            background-color: #f8fafb !important;
         }
     }
 </style>

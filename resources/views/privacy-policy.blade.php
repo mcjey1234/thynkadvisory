@@ -18,7 +18,7 @@
             
             <div style="display:flex; gap:20px; margin-bottom:30px; flex-wrap:wrap; color:#64748B; font-size:14px; font-family:'Gill Sans Nova',sans-serif;">
                 <span>📅 Effective: {{ $privacyPolicy->effective_date->format('F d, Y') }}</span>
-                <span>📌 Version: {{ $privacyPolicy->version }}</span>
+                <span> Version: {{ $privacyPolicy->version }}</span>
             </div>
             
             <div style="color:#4B5563; font-size:16px; line-height:1.8; font-family:'Gill Sans Nova',sans-serif;">
@@ -44,8 +44,8 @@
             <p style="color:#94A3B8; font-size:14px; font-family:'Gill Sans Nova',sans-serif;">
                 For any questions about this privacy policy, please contact us at:
                 <br>
-                <a href="mailto:info@sofellabs.com" style="color:#39FF14; text-decoration:none; font-weight:500;">
-                    info@sofellabs.com
+                <a href="mailto:info@thinkadvisory.co.ke" style="color:#39FF14; text-decoration:none; font-weight:500;">
+                    info@thinkadvisory.co.ke
                 </a>
             </p>
         </div>

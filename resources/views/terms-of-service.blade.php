@@ -20,7 +20,7 @@
                 @if($termsOfService->effective_date)
                     <span>📅 Effective: {{ \Carbon\Carbon::parse($termsOfService->effective_date)->format('F d, Y') }}</span>
                 @endif
-                <span>📌 Version: {{ $termsOfService->version }}</span>
+                <span> Version: {{ $termsOfService->version }}</span>
             </div>
             
             <div style="color:#4B5563; font-size:16px; line-height:1.8; font-family:'Gill Sans Nova',sans-serif;">
@@ -37,8 +37,8 @@
             <p style="color:#94A3B8; font-size:14px; font-family:'Gill Sans Nova',sans-serif;">
                 For any questions about these terms, please contact us at:
                 <br>
-                <a href="mailto:info@thinkadvisory.com" style="color:#39FF14; text-decoration:none; font-weight:500;">
-                    info@thinkadvisory.com
+                <a href="mailto:info@thinkadvisory.co.ke" style="color:#39FF14; text-decoration:none; font-weight:500;">
+                    info@thinkadvisory.co.ke
                 </a>
             </p>
         </div>
