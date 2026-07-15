@@ -1,0 +1,95 @@
+# THYNK Advisory - AI Discovery File
+
+## About THYNK Advisory
+THYNK Advisory delivers end-to-end digital solutions — native and cross-platform mobile apps (Android & iOS), scalable web platforms, GIS-ready geospatial systems, and gamified instructional design. From UI/UX and brand identity to deployment and DevOps — we build, ship, and support products that drive real impact across every layer of the digital stack.
+
+## Core Services
+- Mobile App Development (Native & Cross-Platform)
+- Web Platform Development
+- GIS & Geospatial Solutions
+- Gamified Instructional Design
+- UI/UX & Brand Identity
+- DevOps & Deployment
+
+## Contact Information
+- Website: https://thynkadvisory.co.ke
+- Email: info@thinkadvisory.com
+- Phone: +254 757 275 827
+- Location: Kenya, USA, Africa
+
+## Key Pages
+- Home: https://thynkadvisory.co.ke
+- About Us: https://thynkadvisory.co.ke/about-us
+- How It Works: https://thynkadvisory.co.ke/how-it-works
+- Services: https://thynkadvisory.co.ke/services
+- Contact: https://thynkadvisory.co.ke/contact
+- Privacy Policy: https://thynkadvisory.co.ke/privacy-policy
+- Terms of Service: https://thynkadvisory.co.ke/terms-of-service
+
+## Social Media
+- LinkedIn: https://www.linkedin.com/company/thynk-consultation
+- Twitter/X: https://x.com/ThynkConsultat
+- Facebook: https://www.facebook.com/profile.php?id=61591703433454
+- TikTok: https://www.tiktok.com/@thynk.advisory
+
+## Founded
+2020 by Jared Ogutu
+
+## Mission
+To empower organizations with purpose-built digital products that solve real problems — combining mobile, web, geospatial, and learning technologies to create tools that people actually want to use.
+
+## Vision
+To be the trusted partner for purpose-driven organizations across Africa and beyond — building technology that transforms how people work, learn, and interact with the world around them.
+
+## Values
+- Innovation drives us
+- Integrity grounds us
+- Impact motivates us
+- Excellence defines us
+- Partnership connects us
+
+## Service Areas
+- Kenya 🇰🇪
+- USA 🇺🇸
+- Africa 🌍
+
+## Quick Facts
+- Founded: 2020
+- 40+ Gamified Programs Shipped
+- 3 Continents Served
+- 92% Avg. Learner Completion Rate
+- 5/5 Client Satisfaction Rating
+
+## Industries We Serve
+- Education
+- Technology
+- Government
+- NGOs
+- Corporate Training
+- Healthcare
+- Finance
+- Retail
+
+## Technologies We Use
+- Flutter (Cross-Platform Mobile)
+- React Native (Cross-Platform Mobile)
+- Native Android (Kotlin/Java)
+- Native iOS (Swift)
+- Laravel (Web Platforms)
+- React.js (Frontend)
+- Vue.js (Frontend)
+- GIS (Geospatial Systems)
+- AWS, Azure, GCP (Cloud)
+- DevOps (CI/CD, Docker, Kubernetes)
+
+## Team
+- Founder & Lead Developer: Jared Ogutu
+- Passionate about: Digital Innovation, Software Development, Gamification, GIS
+
+## Why Choose THYNK Advisory
+- Purpose-built digital solutions
+- End-to-end service from concept to deployment
+- Expertise across mobile, web, GIS, and learning
+- Proven track record with 50+ deployments
+- Client satisfaction rating of 5/5
+- Serving organizations across Africa and beyond

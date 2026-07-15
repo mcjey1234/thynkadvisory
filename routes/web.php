@@ -14,6 +14,8 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DailyPostController;
 use App\Http\Controllers\PublicPrivacyPolicyController;
 use App\Http\Controllers\PublicTermsOfServiceController;
+
+use App\Http\Controllers\InvestorController;
 // ============================================ -->
 // PUBLIC ROUTES -->
 // ============================================ -->
@@ -55,6 +57,17 @@ Route::get("/test-observer", function() {
     }
 });
 
+// AI Discovery Routes
+Route::get('/llms.txt', function () {
+    return response()->file(public_path('llms.txt'));
+});
+
+Route::get('/robots.txt', function () {
+    return response()->file(public_path('robots.txt'));
+});
+
+Route::get('/ai-meta', [App\Http\Controllers\AIMetaController::class, 'index']);
+
 // Debug Knowledge Base
 Route::get('/debug-knowledge', function() {
     try {
@@ -76,6 +89,10 @@ Route::get('/debug-knowledge', function() {
         ]);
     }
 });
+
+Route::get('/investors', [InvestorController::class, 'index'])->name('investors');
+Route::get('/data-room', [InvestorController::class, 'index'])->name('data-room');
+
 //terms of service and privacy policy routes
 Route::get('/terms-of-service', [PublicTermsOfServiceController::class, 'index'])->name('terms.of.service');
 Route::get('/privacy-policy', [PublicPrivacyPolicyController::class, 'index'])->name('privacy.policy');
@@ -139,6 +156,9 @@ Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('s
 Route::get('/unsubscribe', [SubscriptionController::class, 'unsubscribePage'])->name('unsubscribe');
 Route::post('/unsubscribe/process', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe.process');
 Route::post('/check-subscription', [SubscriptionController::class, 'checkStatus'])->name('check.subscription');
+
+Route::get('/investors', [InvestorController::class, 'index'])->name('investors');
+Route::get('/data-room', [InvestorController::class, 'index'])->name('data-room');
 // Debug: All menus
 Route::get('/debug-menus', function() {
     $allMenus = \App\Models\Menu::all();

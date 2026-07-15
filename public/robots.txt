@@ -1,3 +1,8 @@
+# ============================================
+# ROBOTS.TXT - THYNK Advisory
+# ============================================
+
+# Allow all crawlers by default
 User-agent: *
 Allow: /
 Disallow: /admin/
@@ -5,6 +10,56 @@ Disallow: /login/
 Disallow: /register/
 Disallow: /password-reset/
 Disallow: /api/
+Disallow: /assets/
+Disallow: /storage/framework/
+Disallow: /vendor/
+
+# ============================================
+# AI Crawlers - Allow full access
+# ============================================
+
+# OpenAI ChatGPT
+User-agent: GPTBot
+Allow: /
+
+# Google AI
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic Claude
+User-agent: ClaudeBot
+Allow: /
+
+# ChatGPT User Agent
+User-agent: ChatGPT-User
+Allow: /
+
+# Facebook AI
+User-agent: FacebookBot
+Allow: /
+
+# Amazon AI
+User-agent: Amazonbot
+Allow: /
+
+# Apple AI
+User-agent: Applebot-Extended
+Allow: /
+
+# ============================================
+# Crawl Delay (Rate Limiting)
+# ============================================
+
+User-agent: *
+Crawl-delay: 10
+
+# ============================================
+# Sitemap Location
+# ============================================
 
 Sitemap: https://thynkadvisory.co.ke/sitemap.xml
 Host: https://thynkadvisory.co.ke

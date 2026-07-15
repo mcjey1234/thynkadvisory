@@ -344,6 +344,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
+
+
+
+
 <!-- ============================================ -->
 <!-- TRUST METRICS STRIP -->
 <!-- ============================================ -->
@@ -372,6 +377,8 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </section>
+
+
 
 <!-- ============================================ -->
 <!-- SERVICES SECTION -->
@@ -847,871 +854,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
-<!-- ============================================ -->
-<!-- RESULTS / STATS -->
-<!-- ============================================ -->
-<section class="tk-stats-section tk-reveal">
-    <div class="tk-container">
-        <div class="tk-stats-header">
-            <span class="tk-badge tk-badge--neon">Our Track Record</span>
-            <h2 class="tk-heading-xl tk-text-white">Numbers That <span class="tk-neon-text">Speak</span></h2>
-        </div>
-        <div class="tk-stats-grid">
-            <div class="tk-stat-card">
-                <div class="tk-stat-inner">
-                    <span class="tk-stat-num" style="color:#2563EB;">50+</span>
-                    <span class="tk-stat-label">Applications Deployed</span>
-                    <span class="tk-stat-sub">Web, mobile, and GIS tools live in production</span>
-                </div>
-                <div class="tk-stat-bg-icon"><i class="fas fa-rocket"></i></div>
-            </div>
-            <div class="tk-stat-card tk-stat-card--featured">
-                <div class="tk-stat-inner">
-                    <span class="tk-stat-num" style="color:#39FF14;">2</span>
-                    <span class="tk-stat-label">Platforms, One Team</span>
-                    <span class="tk-stat-sub">Android and iOS built and shipped together</span>
-                </div>
-                <div class="tk-stat-bg-icon"><i class="fas fa-mobile-alt"></i></div>
-            </div>
-            <div class="tk-stat-card">
-                <div class="tk-stat-inner">
-                    <span class="tk-stat-num" style="color:#06B6D4;">100%</span>
-                    <span class="tk-stat-label">End-to-End Delivery</span>
-                    <span class="tk-stat-sub">Design, build, deploy — under one roof</span>
-                </div>
-                <div class="tk-stat-bg-icon"><i class="fas fa-check-circle"></i></div>
-            </div>
-            <div class="tk-stat-card">
-                <div class="tk-stat-inner">
-                    <span class="tk-stat-num" style="color:#2563EB;">GIS</span>
-                    <span class="tk-stat-label">Geospatial Ready</span>
-                    <span class="tk-stat-sub">Spatial data, maps, and location intelligence</span>
-                </div>
-                <div class="tk-stat-bg-icon"><i class="fas fa-map-marked-alt"></i></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- WHO WE SERVE -->
-<!-- ============================================ -->
-<section class="tk-section tk-bg-navy tk-reveal">
-    <div class="tk-container">
-        <div class="tk-section-header">
-            <span class="tk-badge tk-badge--blue">Who We Work With</span>
-            <h2 class="tk-heading-xl tk-text-white">Built for <span class="tk-grad-text">Builders</span></h2>
-            <p class="tk-body-lg tk-text-muted">We work with startups, enterprises, NGOs, and government agencies that need reliable digital products — not just proposals.</p>
-        </div>
-        <div class="tk-audience-grid">
-            <div class="tk-audience-card">
-                <div class="tk-audience-icon-wrap" style="background:rgba(37,99,235,0.1); border-color:rgba(37,99,235,0.2);"><i class="fas fa-seedling" style="color:#2563EB;"></i></div>
-                <h3>Startups</h3>
-                <p>MVPs built fast, built right. We help you validate your idea with a real product — not a prototype that falls apart under real users.</p>
-            </div>
-            <div class="tk-audience-card">
-                <div class="tk-audience-icon-wrap" style="background:rgba(6,182,212,0.1); border-color:rgba(6,182,212,0.2);"><i class="fas fa-building" style="color:#06B6D4;"></i></div>
-                <h3>Enterprises</h3>
-                <p>Internal tools, customer-facing platforms, and legacy system modernization — with the reliability and security enterprises require.</p>
-            </div>
-            <div class="tk-audience-card">
-                <div class="tk-audience-icon-wrap" style="background:rgba(57,255,20,0.08); border-color:rgba(57,255,20,0.2);"><i class="fas fa-hands-helping" style="color:#39FF14;"></i></div>
-                <h3>NGOs & Development</h3>
-                <p>Field data tools, offline-first mobile apps, and geospatial platforms for impactful work in challenging environments.</p>
-            </div>
-            <div class="tk-audience-card">
-                <div class="tk-audience-icon-wrap" style="background:rgba(37,99,235,0.1); border-color:rgba(37,99,235,0.2);"><i class="fas fa-landmark" style="color:#2563EB;"></i></div>
-                <h3>Government & Public Sector</h3>
-                <p>GIS dashboards, citizen service apps, and data portals built to government standards with security and accessibility in mind.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ============================================ -->
-<!-- TESTIMONIAL CAROUSEL - DIRECT DB QUERY -->
-<!-- ============================================ -->
-@php
-    use App\Models\Testimonial;
-    $testimonials = Testimonial::published()
-        ->orderBy('display_order', 'asc')
-        ->get();
-    $featuredTestimonial = Testimonial::published()
-        ->featured()
-        ->first();
-@endphp
-
-@if($testimonials->count() > 0)
-<section class="tc-carousel-section tc-reveal">
-    <div class="tc-container">
-        <div class="tc-carousel-header">
-            <span class="tc-carousel-badge">Testimonials</span>
-            <h2>What Our <span class="text-neon">Clients Say</span></h2>
-            <p>Real feedback from the organizations and individuals we've worked with</p>
-        </div>
-
-        <div class="tc-carousel-wrapper">
-            <div class="tc-carousel-track" id="tcCarouselTrack">
-                @foreach($testimonials as $index => $testimonial)
-                <div class="tc-carousel-slide {{ $index === 0 ? 'tc-active' : '' }}" data-slide="{{ $index }}">
-                    <div class="tc-testimonial-card {{ $testimonial->is_featured ? 'tc-testimonial-featured' : '' }}">
-                        <!-- Quote Icon -->
-                        <div class="tc-quote-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10 11H7C6.44772 11 6 11.4477 6 12V13C6 13.5523 6.44772 14 7 14H10C10.5523 14 11 13.5523 11 13V12C11 11.4477 10.5523 11 10 11Z" fill="#39FF14"/>
-                                <path d="M17 11H14C13.4477 11 13 11.4477 13 12V13C13 13.5523 13.4477 14 14 14H17C17.5523 14 18 13.5523 18 13V12C18 11.4477 17.5523 11 17 11Z" fill="#39FF14"/>
-                                <path d="M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
-                                <path d="M8 17H16" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-                            </svg>
-                        </div>
-
-                        <blockquote class="tc-testimonial-text">
-                            "{{ $testimonial->testimonial_text }}"
-                            @if($testimonial->is_featured)
-                            <span class="tc-testimonial-highlight">— {{ $testimonial->client_name }}</span>
-                            @endif
-                        </blockquote>
-
-                        <div class="tc-testimonial-divider">
-                            <span></span>
-                            <span class="tc-divider-diamond">◆</span>
-                            <span></span>
-                        </div>
-
-                        <div class="tc-testimonial-author">
-                            <div class="tc-testimonial-avatar">
-                                @if($testimonial->avatar_image)
-                                    <img src="{{ asset('storage/' . $testimonial->avatar_image) }}" alt="{{ $testimonial->client_name }}">
-                                @else
-                                    <span>{{ $testimonial->avatar_initials ?? substr($testimonial->client_name, 0, 2) }}</span>
-                                @endif
-                            </div>
-                            <div class="tc-author-info">
-                                <p class="tc-testimonial-name">{{ $testimonial->client_name }}</p>
-                                @if($testimonial->client_role || $testimonial->client_company)
-                                <p class="tc-testimonial-role">
-                                    {{ $testimonial->client_role }}
-                                    @if($testimonial->client_role && $testimonial->client_company)
-                                        <span class="tc-role-separator">·</span>
-                                    @endif
-                                    {{ $testimonial->client_company }}
-                                </p>
-                                @endif
-                                @if($testimonial->project_type)
-                                <p class="tc-testimonial-project">
-                                    <span class="tc-project-icon">📌</span>
-                                    {{ $testimonial->project_type }}
-                                </p>
-                                @endif
-                                <div class="tc-stars">
-                                    @for($i = 1; $i <= 5; $i++)
-                                        @if($i <= $testimonial->rating)
-                                            <span class="tc-star-filled">★</span>
-                                        @else
-                                            <span class="tc-star-empty">☆</span>
-                                        @endif
-                                    @endfor
-                                    <span class="tc-rating-number">{{ $testimonial->rating }}.0</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        @if($testimonial->is_featured)
-                        <div class="tc-featured-badge">
-                            <span class="tc-featured-icon">⭐</span>
-                            Featured
-                        </div>
-                        @endif
-                    </div>
-                </div>
-                @endforeach
-            </div>
-
-            @if($testimonials->count() > 1)
-            <!-- Dots -->
-            <div class="tc-carousel-dots" id="tcCarouselDots">
-                @foreach($testimonials as $index => $testimonial)
-                    <button class="tc-carousel-dot {{ $index === 0 ? 'tc-active' : '' }}" 
-                            data-slide="{{ $index }}" 
-                            aria-label="Go to testimonial {{ $index + 1 }}">
-                    </button>
-                @endforeach
-            </div>
-            @endif
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- FIXED TESTIMONIAL CAROUSEL STYLES -->
-<!-- ============================================ -->
-<style>
-    /* ================================================
-       TC CAROUSEL — Auto-slide Testimonial Carousel
-       FIXED: Proper width and display for all slides
-       ================================================ */
-
-    .tc-carousel-section {
-        background: #FFFFFF !important;
-        padding: 80px 0 !important;
-        overflow: hidden !important;
-        position: relative !important;
-        width: 100% !important;
-    }
-
-    .tc-carousel-section::before {
-        content: '' !important;
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        height: 4px !important;
-        background: linear-gradient(90deg, transparent, #39FF14, #06B6D4, #39FF14, transparent) !important;
-        opacity: 0.5 !important;
-    }
-
-    .tc-container {
-        max-width: 900px !important;
-        margin: 0 auto !important;
-        padding: 0 24px !important;
-        position: relative !important;
-        z-index: 2 !important;
-        width: 100% !important;
-    }
-
-    .tc-carousel-header {
-        text-align: center !important;
-        margin-bottom: 48px !important;
-        width: 100% !important;
-    }
-
-    .tc-carousel-badge {
-        display: inline-block !important;
-        font-size: 11px !important;
-        font-weight: 700 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 3px !important;
-        padding: 6px 20px !important;
-        border-radius: 50px !important;
-        background: rgba(57, 255, 20, 0.08) !important;
-        color: #27B80E !important;
-        border: 1px solid rgba(57, 255, 20, 0.25) !important;
-        font-family: 'Inter', sans-serif !important;
-        margin-bottom: 16px !important;
-        transition: all 0.3s ease !important;
-    }
-
-    .tc-carousel-header h2 {
-        font-size: clamp(30px, 4.5vw, 44px) !important;
-        font-weight: 800 !important;
-        line-height: 1.15 !important;
-        font-family: 'Inter', sans-serif !important;
-        letter-spacing: -1.5px !important;
-        color: #0F172A !important;
-        margin: 0 0 12px !important;
-    }
-
-    .tc-carousel-header h2 .text-neon {
-        color: #27B80E !important;
-        position: relative !important;
-    }
-
-    .tc-carousel-header p {
-        font-size: 18px !important;
-        line-height: 1.75 !important;
-        color: #6B7C93 !important;
-        max-width: 560px !important;
-        margin: 0 auto !important;
-        font-weight: 400 !important;
-    }
-
-    /* ---- Carousel Wrapper ---- */
-    .tc-carousel-wrapper {
-        position: relative !important;
-        overflow: hidden !important;
-        border-radius: 24px !important;
-        background: transparent !important;
-        padding: 8px 0 !important;
-        width: 100% !important;
-    }
-
-    /* ---- Carousel Track ---- */
-    .tc-carousel-track {
-        display: flex !important;
-        transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1) !important;
-        will-change: transform !important;
-        width: 100% !important;
-        position: relative !important;
-    }
-
-    /* ---- Carousel Slide ---- */
-    .tc-carousel-slide {
-        min-width: 100% !important;
-        flex: 0 0 100% !important;
-        width: 100% !important;
-        flex-shrink: 0 !important;
-        padding: 4px !important;
-        transition: opacity 0.8s ease !important;
-        position: relative !important;
-        display: block !important;
-    }
-
-    .tc-carousel-slide:not(.tc-active) {
-        opacity: 0 !important;
-        pointer-events: none !important;
-    }
-
-    .tc-carousel-slide.tc-active {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        z-index: 2 !important;
-    }
-
-    /* ---- Testimonial Card ---- */
-    .tc-testimonial-card {
-        padding: 48px 48px 40px !important;
-        background: #F8FAFC !important;
-        border: 1px solid rgba(226, 232, 240, 0.8) !important;
-        border-radius: 24px !important;
-        text-align: center !important;
-        transition: all 0.4s ease !important;
-        position: relative !important;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04) !important;
-        width: 100% !important;
-        display: block !important;
-        margin: 0 auto !important;
-    }
-
-    .tc-testimonial-card:hover {
-        border-color: rgba(57, 255, 20, 0.3) !important;
-        box-shadow: 0 8px 48px rgba(57, 255, 20, 0.08) !important;
-        transform: translateY(-2px) !important;
-    }
-
-    .tc-testimonial-featured {
-        border-color: rgba(57, 255, 20, 0.4) !important;
-        background: #FAFFFE !important;
-        box-shadow: 0 4px 32px rgba(57, 255, 20, 0.06) !important;
-        position: relative !important;
-    }
-
-    .tc-testimonial-featured::before {
-        content: '' !important;
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        height: 3px !important;
-        background: linear-gradient(90deg, #39FF14, #06B6D4, #39FF14) !important;
-        border-radius: 24px 24px 0 0 !important;
-    }
-
-    .tc-quote-icon {
-        margin-bottom: 16px !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
-
-    .tc-quote-icon svg {
-        width: 48px !important;
-        height: 48px !important;
-        opacity: 0.6 !important;
-        transition: all 0.4s ease !important;
-    }
-
-    .tc-testimonial-card:hover .tc-quote-icon svg {
-        opacity: 1 !important;
-        transform: scale(1.05) !important;
-    }
-
-    .tc-testimonial-text {
-        font-size: clamp(20px, 2.5vw, 26px) !important;
-        font-weight: 300 !important;
-        line-height: 1.8 !important;
-        color: #1E293B !important;
-        margin: 0 0 24px !important;
-        font-family: 'Inter', Georgia, sans-serif !important;
-        font-style: italic !important;
-        letter-spacing: -0.2px !important;
-        word-wrap: break-word !important;
-    }
-
-    .tc-testimonial-highlight {
-        color: #27B80E !important;
-        font-weight: 600 !important;
-        display: block !important;
-        margin-top: 12px !important;
-        font-style: normal !important;
-        font-size: 18px !important;
-    }
-
-    .tc-testimonial-divider {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 16px !important;
-        margin: 0 auto 28px !important;
-        max-width: 140px !important;
-    }
-
-    .tc-testimonial-divider span:first-child,
-    .tc-testimonial-divider span:last-child {
-        flex: 1 !important;
-        height: 1.5px !important;
-        background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.4)) !important;
-        display: block !important;
-    }
-
-    .tc-testimonial-divider span:last-child {
-        background: linear-gradient(90deg, rgba(57, 255, 20, 0.4), transparent) !important;
-    }
-
-    .tc-divider-diamond {
-        color: #39FF14 !important;
-        font-size: 10px !important;
-        opacity: 0.6 !important;
-        animation: tcDiamondPulse 2s ease-in-out infinite !important;
-    }
-
-    @keyframes tcDiamondPulse {
-        0%, 100% { opacity: 0.4; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.2); }
-    }
-
-    .tc-testimonial-author {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 18px !important;
-        padding-top: 24px !important;
-        border-top: 1.5px solid rgba(226, 232, 240, 0.6) !important;
-        flex-wrap: wrap !important;
-    }
-
-    .tc-testimonial-avatar {
-        width: 56px !important;
-        height: 56px !important;
-        border-radius: 50% !important;
-        background: linear-gradient(135deg, #39FF14, #06B6D4) !important;
-        color: #0F172A !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        font-size: 18px !important;
-        font-weight: 700 !important;
-        font-family: 'Inter', sans-serif !important;
-        flex-shrink: 0 !important;
-        overflow: hidden !important;
-        box-shadow: 0 4px 16px rgba(57, 255, 20, 0.2) !important;
-        transition: all 0.3s ease !important;
-        border: 2px solid rgba(255, 255, 255, 0.8) !important;
-    }
-
-    .tc-testimonial-avatar img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-    }
-
-    .tc-testimonial-card:hover .tc-testimonial-avatar {
-        transform: scale(1.05) !important;
-        box-shadow: 0 6px 24px rgba(57, 255, 20, 0.3) !important;
-    }
-
-    .tc-author-info {
-        text-align: left !important;
-        flex: 1 !important;
-        min-width: 150px !important;
-    }
-
-    .tc-testimonial-name {
-        font-size: 17px !important;
-        font-weight: 700 !important;
-        color: #0F172A !important;
-        margin: 0 0 2px !important;
-        font-family: 'Inter', sans-serif !important;
-        letter-spacing: -0.3px !important;
-    }
-
-    .tc-testimonial-role {
-        font-size: 13px !important;
-        color: #6B7C93 !important;
-        margin: 0 0 4px !important;
-        font-weight: 400 !important;
-    }
-
-    .tc-role-separator {
-        margin: 0 6px !important;
-        color: #CBD5E1 !important;
-    }
-
-    .tc-testimonial-project {
-        font-size: 12px !important;
-        color: #94A3B8 !important;
-        margin: 0 0 6px !important;
-        font-weight: 400 !important;
-    }
-
-    .tc-project-icon {
-        margin-right: 4px !important;
-    }
-
-    .tc-stars {
-        display: flex !important;
-        align-items: center !important;
-        gap: 3px !important;
-        flex-wrap: wrap !important;
-    }
-
-    .tc-star-filled {
-        color: #FFD700 !important;
-        font-size: 16px !important;
-        text-shadow: 0 0 8px rgba(255, 215, 0, 0.3) !important;
-    }
-
-    .tc-star-empty {
-        color: #E2E8F0 !important;
-        font-size: 16px !important;
-    }
-
-    .tc-rating-number {
-        font-size: 13px !important;
-        color: #6B7C93 !important;
-        font-weight: 600 !important;
-        margin-left: 4px !important;
-    }
-
-    .tc-featured-badge {
-        position: absolute !important;
-        top: 16px !important;
-        right: 16px !important;
-        background: rgba(57, 255, 20, 0.12) !important;
-        color: #27B80E !important;
-        font-size: 11px !important;
-        font-weight: 600 !important;
-        padding: 4px 14px !important;
-        border-radius: 50px !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 4px !important;
-        border: 1px solid rgba(57, 255, 20, 0.2) !important;
-        font-family: 'Inter', sans-serif !important;
-        letter-spacing: 0.5px !important;
-        backdrop-filter: blur(4px) !important;
-        animation: tcFeaturedPulse 3s ease-in-out infinite !important;
-        z-index: 5 !important;
-    }
-
-    @keyframes tcFeaturedPulse {
-        0%, 100% { box-shadow: 0 0 0 0 rgba(57, 255, 20, 0); }
-        50% { box-shadow: 0 0 20px rgba(57, 255, 20, 0.1); }
-    }
-
-    .tc-featured-icon {
-        font-size: 12px !important;
-    }
-
-    /* ---- Dots ---- */
-    .tc-carousel-dots {
-        display: flex !important;
-        justify-content: center !important;
-        gap: 12px !important;
-        margin-top: 32px !important;
-        position: relative !important;
-        z-index: 10 !important;
-        flex-wrap: wrap !important;
-    }
-
-    .tc-carousel-dot {
-        width: 12px !important;
-        height: 12px !important;
-        border-radius: 50% !important;
-        border: 2px solid transparent !important;
-        background: #E2E8F0 !important;
-        cursor: pointer !important;
-        transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1) !important;
-        padding: 0 !important;
-        flex-shrink: 0 !important;
-        position: relative !important;
-    }
-
-    .tc-carousel-dot:hover {
-        transform: scale(1.2) !important;
-        background: #94A3B8 !important;
-    }
-
-    .tc-carousel-dot.tc-active {
-        background: #39FF14 !important;
-        transform: scale(1.25) !important;
-        box-shadow: 0 0 24px rgba(57, 255, 20, 0.4) !important;
-        border-color: rgba(57, 255, 20, 0.2) !important;
-    }
-
-    .tc-carousel-dot.tc-active::after {
-        content: '' !important;
-        position: absolute !important;
-        top: -4px !important;
-        left: -4px !important;
-        right: -4px !important;
-        bottom: -4px !important;
-        border-radius: 50% !important;
-        border: 2px solid rgba(57, 255, 20, 0.2) !important;
-        animation: tcDotRipple 2s ease-out infinite !important;
-    }
-
-    @keyframes tcDotRipple {
-        0% { transform: scale(1); opacity: 1; }
-        100% { transform: scale(1.8); opacity: 0; }
-    }
-
-    .tc-reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .tc-reveal-visible {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .tc-reveal {
-            opacity: 1 !important;
-            transform: none !important;
-            transition: none !important;
-        }
-        .tc-carousel-dot.tc-active::after {
-            animation: none !important;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .tc-carousel-section { padding: 60px 0 !important; }
-        .tc-testimonial-card { padding: 32px 24px 28px !important; }
-        .tc-testimonial-text { font-size: 18px !important; line-height: 1.7 !important; }
-        .tc-testimonial-highlight { font-size: 16px !important; }
-        .tc-testimonial-author { flex-direction: column !important; text-align: center !important; gap: 14px !important; }
-        .tc-author-info { text-align: center !important; }
-        .tc-stars { justify-content: center !important; }
-        .tc-carousel-dots { gap: 10px !important; margin-top: 24px !important; }
-        .tc-carousel-dot { width: 10px !important; height: 10px !important; }
-        .tc-featured-badge { top: 12px !important; right: 12px !important; font-size: 10px !important; padding: 3px 10px !important; }
-        .tc-quote-icon svg { width: 36px !important; height: 36px !important; }
-    }
-
-    @media (max-width: 480px) {
-        .tc-carousel-section { padding: 44px 0 !important; }
-        .tc-container { padding: 0 16px !important; }
-        .tc-testimonial-card { padding: 24px 18px 20px !important; border-radius: 18px !important; }
-        .tc-testimonial-text { font-size: 16px !important; line-height: 1.6 !important; }
-        .tc-testimonial-highlight { font-size: 14px !important; margin-top: 8px !important; }
-        .tc-testimonial-avatar { width: 48px !important; height: 48px !important; font-size: 15px !important; }
-        .tc-testimonial-name { font-size: 15px !important; }
-        .tc-testimonial-role { font-size: 12px !important; }
-        .tc-testimonial-divider { margin: 0 auto 20px !important; max-width: 100px !important; gap: 12px !important; }
-        .tc-carousel-dots { gap: 8px !important; margin-top: 18px !important; }
-        .tc-carousel-dot { width: 8px !important; height: 8px !important; }
-        .tc-carousel-dot.tc-active { transform: scale(1.3) !important; }
-        .tc-featured-badge { top: 8px !important; right: 8px !important; font-size: 9px !important; padding: 2px 8px !important; }
-        .tc-star-filled, .tc-star-empty { font-size: 14px !important; }
-        .tc-quote-icon { margin-bottom: 10px !important; }
-        .tc-quote-icon svg { width: 28px !important; height: 28px !important; }
-    }
-</style>
-
-<!-- ============================================ -->
-<!-- TESTIMONIAL CAROUSEL SCRIPT -->
-<!-- ============================================ -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const track = document.getElementById('tcCarouselTrack');
-    const slides = track ? track.querySelectorAll('.tc-carousel-slide') : [];
-    const dotsContainer = document.getElementById('tcCarouselDots');
-    let currentIndex = 0;
-    let slideInterval;
-    let isPaused = false;
-    const intervalTime = 6000;
-    const totalSlides = slides.length;
-
-    console.log('Total testimonials found:', totalSlides);
-
-    if (totalSlides === 0) {
-        console.warn('No testimonials found');
-        return;
-    }
-
-    function goToSlide(index) {
-        index = ((index % totalSlides) + totalSlides) % totalSlides;
-
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('tc-active', i === index);
-        });
-
-        if (track) {
-            track.style.transform = `translateX(-${index * 100}%)`;
-        }
-
-        if (dotsContainer) {
-            const dots = dotsContainer.querySelectorAll('.tc-carousel-dot');
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('tc-active', i === index);
-            });
-        }
-
-        currentIndex = index;
-    }
-
-    function nextSlide() {
-        if (!isPaused) {
-            goToSlide(currentIndex + 1);
-        }
-    }
-
-    function startAutoSlide() {
-        if (totalSlides > 1) {
-            stopAutoSlide();
-            slideInterval = setInterval(nextSlide, intervalTime);
-        }
-    }
-
-    function stopAutoSlide() {
-        if (slideInterval) {
-            clearInterval(slideInterval);
-            slideInterval = null;
-        }
-    }
-
-    // Dot clicks
-    if (dotsContainer) {
-        const dots = dotsContainer.querySelectorAll('.tc-carousel-dot');
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', function(e) {
-                e.stopPropagation();
-                stopAutoSlide();
-                goToSlide(index);
-                setTimeout(startAutoSlide, intervalTime);
-            });
-        });
-    }
-
-    // Pause on hover
-    const wrapper = document.querySelector('.tc-carousel-wrapper');
-    if (wrapper) {
-        wrapper.addEventListener('mouseenter', function() {
-            isPaused = true;
-            stopAutoSlide();
-        });
-        wrapper.addEventListener('mouseleave', function() {
-            isPaused = false;
-            if (totalSlides > 1) {
-                startAutoSlide();
-            }
-        });
-    }
-
-    // Pause on touch
-    if (wrapper) {
-        wrapper.addEventListener('touchstart', function() {
-            isPaused = true;
-            stopAutoSlide();
-        });
-        wrapper.addEventListener('touchend', function() {
-            isPaused = false;
-            if (totalSlides > 1) {
-                startAutoSlide();
-            }
-        });
-    }
-
-    // Initialize
-    goToSlide(0);
-    if (totalSlides > 1) {
-        setTimeout(startAutoSlide, 3000);
-    }
-
-    // Reveal
-    const revealEls = document.querySelectorAll('.tc-reveal');
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('tc-reveal-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-        revealEls.forEach(function(el) { observer.observe(el); });
-    } else {
-        revealEls.forEach(function(el) { el.classList.add('tc-reveal-visible'); });
-    }
-
-    // Pause when page hidden
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            stopAutoSlide();
-        } else {
-            if (totalSlides > 1 && !isPaused) {
-                startAutoSlide();
-            }
-        }
-    });
-});
-</script>
-@else
-<!-- Fallback static testimonial -->
-<section class="tc-carousel-section tc-reveal">
-    <div class="tc-container">
-        <div class="tc-carousel-header">
-            <span class="tc-carousel-badge">Testimonials</span>
-            <h2>What Our <span class="text-neon">Clients Say</span></h2>
-            <p>Real feedback from the organizations and individuals we've worked with</p>
-        </div>
-        <div class="tc-carousel-wrapper">
-            <div class="tc-carousel-track" style="height: auto;">
-                <div class="tc-carousel-slide tc-active" style="opacity: 1; display: block; position: relative; z-index: 2; width: 100%;">
-                    <div class="tc-testimonial-card">
-                        <div class="tc-quote-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10 11H7C6.44772 11 6 11.4477 6 12V13C6 13.5523 6.44772 14 7 14H10C10.5523 14 11 13.5523 11 13V12C11 11.4477 10.5523 11 10 11Z" fill="#39FF14"/>
-                                <path d="M17 11H14C13.4477 11 13 11.4477 13 12V13C13 13.5523 13.4477 14 14 14H17C17.5523 14 18 13.5523 18 13V12C18 11.4477 17.5523 11 17 11Z" fill="#39FF14"/>
-                                <path d="M4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4Z" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
-                                <path d="M8 17H16" stroke="#39FF14" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-                            </svg>
-                        </div>
-                        <blockquote class="tc-testimonial-text">
-                            "THYNK delivered our Android and iOS app on time, with a design that our users actually love. The geospatial features worked flawlessly even in low-connectivity environments."
-                            <span class="tc-testimonial-highlight">— They didn't just build what we asked for — they built what we needed.</span>
-                        </blockquote>
-                        <div class="tc-testimonial-divider">
-                            <span></span>
-                            <span class="tc-divider-diamond">◆</span>
-                            <span></span>
-                        </div>
-                        <div class="tc-testimonial-author">
-                            <div class="tc-testimonial-avatar">MK</div>
-                            <div class="tc-author-info">
-                                <p class="tc-testimonial-name">Project Director</p>
-                                <p class="tc-testimonial-role">Development Agency Client</p>
-                                <div class="tc-stars">
-                                    <span class="tc-star-filled">★</span>
-                                    <span class="tc-star-filled">★</span>
-                                    <span class="tc-star-filled">★</span>
-                                    <span class="tc-star-filled">★</span>
-                                    <span class="tc-star-filled">★</span>
-                                    <span class="tc-rating-number">5.0</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-@endif
 
 
 <!-- ============================================ -->
@@ -1782,6 +924,8 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </section>
+
+
 <!-- ============================================ -->
 <!-- FAQ -->
 <!-- ============================================ -->
@@ -1859,7 +1003,601 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </section>
+<!-- ============================================ -->
+<!-- INVESTOR SNAPSHOT — Trusted by Organizations -->
+<!-- ============================================ -->
+@php
+    use App\Models\Testimonial;
+    
+    // Get featured testimonials for social proof
+    $investorTestimonials = Testimonial::published()
+        ->where('is_featured', true)
+        ->orderBy('display_order', 'asc')
+        ->limit(2)
+        ->get();
+    
+    // Fallback if no featured testimonials
+    if ($investorTestimonials->count() < 1) {
+        $investorTestimonials = Testimonial::published()
+            ->orderBy('display_order', 'asc')
+            ->limit(2)
+            ->get();
+    }
 
+    // Get clients with logos for the "Trusted By" section
+    $trustedClients = Testimonial::published()
+        ->whereNotNull('avatar_image')
+        ->where('avatar_image', '!=', '')
+        ->orderBy('display_order', 'asc')
+        ->limit(10)
+        ->get();
+
+    // Define sectors (static - can be moved to DB later)
+    $sectors = ['GovTech', 'EdTech', 'AgriTech', 'Fintech', 'NGO', 'HealthTech'];
+@endphp
+
+<section class="investor-snapshot tk-reveal">
+    <div class="tk-container">
+        <!-- Header -->
+        <div class="investor-snapshot-header">
+            <span class="investor-snapshot-badge">Trusted by Organizations That Make a Difference</span>
+            <h2>Built for <span class="text-neon">Impact</span></h2>
+            <p>A snapshot of who we are, who we serve, and what we've built.</p>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="investor-snapshot-metrics">
+            <div class="investor-snapshot-metric">
+                <span class="investor-snapshot-number">50+</span>
+                <span class="investor-snapshot-label">Applications Deployed</span>
+                <span class="investor-snapshot-sub">Web, mobile and GIS tools</span>
+            </div>
+            <div class="investor-snapshot-divider"></div>
+            <div class="investor-snapshot-metric">
+                <span class="investor-snapshot-number">2</span>
+                <span class="investor-snapshot-label">Platforms, One Team</span>
+                <span class="investor-snapshot-sub">Android and iOS together</span>
+            </div>
+            <div class="investor-snapshot-divider"></div>
+            <div class="investor-snapshot-metric">
+                <span class="investor-snapshot-number">100%</span>
+                <span class="investor-snapshot-label">End-to-End Delivery</span>
+                <span class="investor-snapshot-sub">Design to Deploy</span>
+            </div>
+            <div class="investor-snapshot-divider"></div>
+            <div class="investor-snapshot-metric">
+                <span class="investor-snapshot-number">GIS</span>
+                <span class="investor-snapshot-label">Geospatial Ready</span>
+                <span class="investor-snapshot-sub">Maps and location intelligence</span>
+            </div>
+        </div>
+
+        <!-- Client Logos (Fetched from DB) - Only shows if clients exist -->
+        @if($trustedClients->count() > 0)
+        <div class="investor-snapshot-clients">
+            <span class="investor-snapshot-clients-label">Trusted By</span>
+            <div class="investor-snapshot-clients-grid">
+                @foreach($trustedClients as $client)
+                <div class="investor-snapshot-client-logo" title="{{ $client->client_name }} - {{ $client->client_company ?? '' }}">
+                    <img src="{{ asset('storage/' . $client->avatar_image) }}" 
+                         alt="{{ $client->client_name }}" 
+                         loading="lazy">
+                </div>
+                @endforeach
+            </div>
+        </div>
+        @endif
+
+        <!-- Sectors -->
+        <div class="investor-snapshot-sectors">
+            <span class="investor-snapshot-sectors-label">Sectors We Serve</span>
+            <div class="investor-snapshot-sectors-list">
+                @foreach($sectors as $sector)
+                <span>{{ $sector }}</span>
+                @endforeach
+            </div>
+        </div>
+
+        <!-- Testimonial Teaser (Pulled from DB) - Only shows if testimonial exists -->
+        @if($investorTestimonials->count() > 0)
+        <div class="investor-snapshot-testimonial">
+            <blockquote>
+                <span class="investor-snapshot-quote">"</span>
+                <p>{{ $investorTestimonials->first()->testimonial_text }}</p>
+                <footer>
+                    <strong>{{ $investorTestimonials->first()->client_name }}</strong>
+                    @if($investorTestimonials->first()->client_company)
+                    <span>· {{ $investorTestimonials->first()->client_company }}</span>
+                    @endif
+                </footer>
+            </blockquote>
+        </div>
+        @endif
+
+        <!-- CTA to Full Investor Page -->
+        <div class="investor-snapshot-cta">
+            <a href="{{ route('investors') }}" class="investor-snapshot-btn">
+                View Full Investor Data Room →
+            </a>
+            <a href="https://cal.com/thynk-consulatation" class="investor-snapshot-btn investor-snapshot-btn-primary">
+                Book a Discovery Call
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- INVESTOR SNAPSHOT STYLES -->
+<!-- ============================================ -->
+<style>
+    /* ================================================
+       INVESTOR SNAPSHOT — Trusted by Organizations
+       ================================================ */
+
+    .investor-snapshot {
+        padding: 60px 0 !important;
+        background: #F8FAFC !important;
+        position: relative !important;
+        overflow: hidden !important;
+        border-bottom: 1px solid #E2E8F0 !important;
+    }
+
+    .investor-snapshot::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 3px !important;
+        background: linear-gradient(90deg, transparent, #39FF14, #06B6D4, #39FF14, transparent) !important;
+        opacity: 0.5 !important;
+    }
+
+    .investor-snapshot .tk-container {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+    .text-neon {
+        color: #39FF14 !important;
+    }
+
+    /* ---- Header ---- */
+    .investor-snapshot-header {
+        text-align: center !important;
+        margin-bottom: 32px !important;
+    }
+
+    .investor-snapshot-badge {
+        display: inline-block !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 2px !important;
+        color: #27B80E !important;
+        background: rgba(57,255,20,0.08) !important;
+        padding: 5px 18px !important;
+        border-radius: 20px !important;
+        border: 1px solid rgba(57,255,20,0.25) !important;
+        margin-bottom: 12px !important;
+        font-family: 'Inter', sans-serif !important;
+    }
+
+    .investor-snapshot-header h2 {
+        font-size: clamp(26px, 4vw, 38px) !important;
+        font-weight: 800 !important;
+        color: #0F172A !important;
+        margin: 0 0 6px !important;
+        font-family: 'Inter', sans-serif !important;
+        letter-spacing: -1px !important;
+    }
+
+    .investor-snapshot-header p {
+        font-size: 16px !important;
+        color: #6B7C93 !important;
+        margin: 0 !important;
+        font-weight: 300 !important;
+    }
+
+    /* ---- Metrics ---- */
+    .investor-snapshot-metrics {
+        display: grid !important;
+        grid-template-columns: repeat(7, 1fr) !important;
+        align-items: center !important;
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 16px !important;
+        padding: 20px 16px !important;
+        margin-bottom: 24px !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.02) !important;
+    }
+
+    .investor-snapshot-metric {
+        text-align: center !important;
+    }
+
+    .investor-snapshot-number {
+        display: block !important;
+        font-size: 24px !important;
+        font-weight: 800 !important;
+        color: #27B80E !important;
+        font-family: 'Inter', sans-serif !important;
+        line-height: 1.2 !important;
+    }
+
+    .investor-snapshot-label {
+        display: block !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        color: #0F172A !important;
+        margin-top: 2px !important;
+        letter-spacing: 0.3px !important;
+    }
+
+    .investor-snapshot-sub {
+        display: block !important;
+        font-size: 10px !important;
+        color: #6B7C93 !important;
+        margin-top: 2px !important;
+    }
+
+    .investor-snapshot-divider {
+        width: 1px !important;
+        height: 36px !important;
+        background: #E2E8F0 !important;
+        margin: 0 auto !important;
+    }
+
+    /* ---- Client Logos ---- */
+    .investor-snapshot-clients {
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 16px !important;
+        padding: 24px 20px !important;
+        margin-bottom: 16px !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.02) !important;
+        text-align: center !important;
+    }
+
+    .investor-snapshot-clients-label {
+        display: block !important;
+        font-size: 10px !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 2px !important;
+        color: #94A3B8 !important;
+        margin-bottom: 16px !important;
+        font-family: 'Inter', sans-serif !important;
+    }
+
+    .investor-snapshot-clients-grid {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 24px !important;
+    }
+
+    .investor-snapshot-client-logo {
+        width: 120px !important;
+        height: 60px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: all 0.3s ease !important;
+        border-radius: 8px !important;
+        padding: 4px !important;
+    }
+
+    .investor-snapshot-client-logo:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 16px rgba(57,255,20,0.08) !important;
+    }
+
+    .investor-snapshot-client-logo img {
+        max-width: 100% !important;
+        max-height: 50px !important;
+        object-fit: contain !important;
+        opacity: 0.8 !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .investor-snapshot-client-logo:hover img {
+        opacity: 1 !important;
+    }
+
+    /* ---- Sectors ---- */
+    .investor-snapshot-sectors {
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 16px !important;
+        padding: 20px !important;
+        margin-bottom: 20px !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.02) !important;
+        text-align: center !important;
+    }
+
+    .investor-snapshot-sectors-label {
+        display: block !important;
+        font-size: 10px !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 2px !important;
+        color: #94A3B8 !important;
+        margin-bottom: 12px !important;
+        font-family: 'Inter', sans-serif !important;
+    }
+
+    .investor-snapshot-sectors-list {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 8px !important;
+    }
+
+    .investor-snapshot-sectors-list span {
+        padding: 6px 18px !important;
+        background: rgba(57,255,20,0.06) !important;
+        border: 1px solid rgba(57,255,20,0.15) !important;
+        border-radius: 20px !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        color: #0F172A !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .investor-snapshot-sectors-list span:hover {
+        border-color: rgba(57,255,20,0.4) !important;
+        color: #27B80E !important;
+        background: rgba(57,255,20,0.08) !important;
+    }
+
+    /* ---- Testimonial Teaser ---- */
+    .investor-snapshot-testimonial {
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 16px !important;
+        padding: 20px 28px !important;
+        margin-bottom: 24px !important;
+        position: relative !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.02) !important;
+    }
+
+    .investor-snapshot-quote {
+        font-size: 32px !important;
+        color: #39FF14 !important;
+        opacity: 0.3 !important;
+        font-family: Georgia, serif !important;
+        line-height: 1 !important;
+        display: inline-block !important;
+        margin-right: 4px !important;
+        vertical-align: top !important;
+    }
+
+    .investor-snapshot-testimonial blockquote {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .investor-snapshot-testimonial p {
+        font-size: 15px !important;
+        line-height: 1.7 !important;
+        color: #1E293B !important;
+        font-style: italic !important;
+        display: inline !important;
+        font-weight: 300 !important;
+    }
+
+    .investor-snapshot-testimonial footer {
+        margin-top: 8px !important;
+        font-size: 13px !important;
+        color: #6B7C93 !important;
+        font-style: normal !important;
+    }
+
+    .investor-snapshot-testimonial footer strong {
+        color: #0F172A !important;
+        font-weight: 600 !important;
+    }
+
+    .investor-snapshot-testimonial footer span {
+        color: #94A3B8 !important;
+    }
+
+    /* ---- CTA ---- */
+    .investor-snapshot-cta {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 14px !important;
+        margin-top: 4px !important;
+    }
+
+    .investor-snapshot-btn {
+        display: inline-block !important;
+        padding: 12px 28px !important;
+        background: #F1F5F9 !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 8px !important;
+        color: #0F172A !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        transition: all 0.3s ease !important;
+        font-family: 'Inter', sans-serif !important;
+    }
+
+    .investor-snapshot-btn:hover {
+        border-color: rgba(57,255,20,0.3) !important;
+        color: #27B80E !important;
+        background: rgba(57,255,20,0.05) !important;
+        transform: translateY(-2px) !important;
+    }
+
+    .investor-snapshot-btn-primary {
+        background: #39FF14 !important;
+        border-color: #39FF14 !important;
+        color: #0F172A !important;
+        font-weight: 600 !important;
+    }
+
+    .investor-snapshot-btn-primary:hover {
+        background: #2DE010 !important;
+        border-color: #2DE010 !important;
+        color: #0F172A !important;
+        box-shadow: 0 8px 30px rgba(57,255,20,0.15) !important;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 991px) {
+        .investor-snapshot-metrics {
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 12px 0 !important;
+            padding: 16px !important;
+        }
+        .investor-snapshot-divider {
+            display: none !important;
+        }
+        .investor-snapshot-clients-grid {
+            gap: 16px !important;
+        }
+        .investor-snapshot-client-logo {
+            width: 100px !important;
+            height: 50px !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .investor-snapshot {
+            padding: 44px 0 !important;
+        }
+        .investor-snapshot-metrics {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 14px !important;
+            padding: 14px !important;
+        }
+        .investor-snapshot-metric {
+            background: #F8FAFC !important;
+            padding: 10px !important;
+            border-radius: 8px !important;
+        }
+        .investor-snapshot-number {
+            font-size: 20px !important;
+        }
+        .investor-snapshot-clients {
+            padding: 16px !important;
+        }
+        .investor-snapshot-clients-grid {
+            gap: 12px !important;
+        }
+        .investor-snapshot-client-logo {
+            width: 80px !important;
+            height: 44px !important;
+        }
+        .investor-snapshot-client-logo img {
+            max-height: 36px !important;
+        }
+        .investor-snapshot-sectors-list {
+            gap: 6px !important;
+        }
+        .investor-snapshot-sectors-list span {
+            font-size: 12px !important;
+            padding: 4px 14px !important;
+        }
+        .investor-snapshot-cta {
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+        .investor-snapshot-btn {
+            width: 100% !important;
+            text-align: center !important;
+        }
+        .investor-snapshot-testimonial p {
+            font-size: 14px !important;
+        }
+        .investor-snapshot-testimonial {
+            padding: 16px 20px !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .investor-snapshot {
+            padding: 36px 0 !important;
+        }
+        .investor-snapshot-header h2 {
+            font-size: 22px !important;
+        }
+        .investor-snapshot-badge {
+            font-size: 10px !important;
+            padding: 4px 14px !important;
+            letter-spacing: 1.5px !important;
+        }
+        .investor-snapshot-metrics {
+            grid-template-columns: 1fr !important;
+            gap: 8px !important;
+            padding: 10px !important;
+        }
+        .investor-snapshot-metric {
+            padding: 8px !important;
+        }
+        .investor-snapshot-number {
+            font-size: 16px !important;
+        }
+        .investor-snapshot-label {
+            font-size: 11px !important;
+        }
+        .investor-snapshot-sub {
+            font-size: 9px !important;
+        }
+        .investor-snapshot-clients {
+            padding: 14px !important;
+        }
+        .investor-snapshot-clients-grid {
+            gap: 8px !important;
+        }
+        .investor-snapshot-client-logo {
+            width: 65px !important;
+            height: 36px !important;
+        }
+        .investor-snapshot-client-logo img {
+            max-height: 28px !important;
+        }
+        .investor-snapshot-sectors {
+            padding: 14px !important;
+        }
+        .investor-snapshot-sectors-list span {
+            font-size: 11px !important;
+            padding: 3px 10px !important;
+        }
+        .investor-snapshot-testimonial {
+            padding: 14px 16px !important;
+        }
+        .investor-snapshot-testimonial p {
+            font-size: 13px !important;
+        }
+        .investor-snapshot-quote {
+            font-size: 22px !important;
+        }
+        .investor-snapshot-btn {
+            font-size: 13px !important;
+            padding: 10px 20px !important;
+        }
+    }
+
+    /* ---- Reveal Animation ---- */
+    .investor-snapshot.tk-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .investor-snapshot.tk-reveal-visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+</style>
 <!-- ============================================ -->
 <!-- CTA FINAL -->
 <!-- ============================================ -->

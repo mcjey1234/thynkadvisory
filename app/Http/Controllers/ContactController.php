@@ -101,14 +101,19 @@ class ContactController extends BaseController
     }
 
     private function sendAutoReply($data, $aiReply)
-    {
-        try {
-            Mail::to($data['email'])->send(new AutoReplyMail($data['name'], $aiReply));
-            Log::info('Auto-reply sent to: ' . $data['email']);
-        } catch (\Exception $e) {
-            Log::error('Auto-reply failed: ' . $e->getMessage());
-        }
+{
+    try {
+        Mail::to($data['email'])->send(new AutoReplyMail(
+            $data['name'], 
+            $data['email'],    // ADD THIS
+            $aiReply,
+            'website'          // ADD THIS
+        ));
+        Log::info('Auto-reply sent to: ' . $data['email']);
+    } catch (\Exception $e) {
+        Log::error('Auto-reply failed: ' . $e->getMessage());
     }
+}
 
     private function notifyAdmin($data)
     {

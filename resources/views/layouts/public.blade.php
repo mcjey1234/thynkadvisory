@@ -5,6 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Thynk Advisory')</title>
 
+<!-- JSON-LD Schema Markup for AI Discoverability -->
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "Organization",
+    "name": "THYNK Advisory",
+    "alternateName": "Thynk Advisory",
+    "url": "{{ url('/') }}",
+    "logo": "{{ asset('images/logo.png') }}",
+    "description": "THYNK Advisory delivers end-to-end digital solutions - mobile apps, web platforms, GIS systems, and gamified instructional design.",
+    "foundingDate": "2020",
+    "founder": {
+        "@@type": "Person",
+        "name": "Jared Ogutu"
+    },
+    "address": {
+        "@@type": "PostalAddress",
+        "addressCountry": "Kenya"
+    },
+    "contactPoint": {
+        "@@type": "ContactPoint",
+        "telephone": "+254757275827",
+        "contactType": "Sales",
+        "email": "info@thinkadvisory.com"
+    },
+    "sameAs": [
+        "https://www.linkedin.com/company/thynk-consultation",
+        "https://x.com/ThynkConsultat",
+        "https://www.facebook.com/profile.php?id=61591703433454",
+        "https://www.tiktok.com/@thynk.advisory"
+    ],
+    "makesOffer": [
+        {
+            "@@type": "Service",
+            "name": "Mobile App Development",
+            "description": "Native and cross-platform mobile apps for Android and iOS."
+        },
+        {
+            "@@type": "Service",
+            "name": "Web Platform Development",
+            "description": "Scalable web platforms tailored to your business needs."
+        },
+        {
+            "@@type": "Service",
+            "name": "GIS and Geospatial Solutions",
+            "description": "GIS-ready geospatial systems for smarter decision-making."
+        },
+        {
+            "@@type": "Service",
+            "name": "Gamified Instructional Design",
+            "description": "Gamified learning experiences that drive engagement and retention."
+        },
+        {
+            "@@type": "Service",
+            "name": "UI/UX and Brand Identity",
+            "description": "Stunning interfaces and powerful brand identities."
+        },
+        {
+            "@@type": "Service",
+            "name": "DevOps and Deployment",
+            "description": "Secure, scalable, and always available solutions."
+        }
+    ],
+    "knowsAbout": [
+        "Mobile App Development",
+        "Web Development",
+        "GIS",
+        "Geospatial Systems",
+        "Gamification",
+        "Instructional Design",
+        "UI/UX Design",
+        "Brand Identity",
+        "DevOps",
+        "Digital Transformation",
+        "Learning Technologies"
+    ]
+}
+</script>
+
+
+    
 {{-- ===== CSRF TOKEN ===== --}}
 <meta name="csrf-token" content="{{ csrf_token() }}">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8335787923057820"
@@ -867,5 +948,8 @@
 
 <!-- Cookie Consent -->
 @include('partials.cookie-consent')
+
+
+
 </body>
 </html>

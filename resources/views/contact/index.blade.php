@@ -46,14 +46,14 @@
                         <div class="sf-contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="sf-contact-item-content">
                             <h4 class="sf-contact-item-title">Email</h4>
-                            <p class="sf-contact-item-text"><a href="mailto:mcjey103@gmail.com">mcjey103@gmail.com</a></p>
+                            <p class="sf-contact-item-text"><a href="mailto:info@thynkadvisory.co.ke">info@thynkadvisory.co.ke</a></p>
                         </div>
                     </div>
                     <div class="sf-contact-item">
                         <div class="sf-contact-icon"><i class="fas fa-phone"></i></div>
                         <div class="sf-contact-item-content">
                             <h4 class="sf-contact-item-title">Phone</h4>
-                            <p class="sf-contact-item-text"><a href="tel:+254700000000">+254 700 000 000</a></p>
+                            <p class="sf-contact-item-text"><a href="tel:+254757275827">+254 757 275 827</a></p>
                         </div>
                     </div>
                     <div class="sf-contact-item">
@@ -68,7 +68,7 @@
                 <div class="sf-contact-social">
                     <h4 class="sf-contact-social-title">Follow Us</h4>
                     <div class="sf-contact-social-links">
-                        <a href="https://www.linkedin.com/in/mwangikamau/" target="_blank" class="sf-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/company/thynk-consultation" target="_blank" class="sf-social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://twitter.com/sofellabs" target="_blank" class="sf-social-link"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.facebook.com/sofellabs" target="_blank" class="sf-social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.youtube.com/@sofellabs" target="_blank" class="sf-social-link"><i class="fab fa-youtube"></i></a>
@@ -167,7 +167,7 @@
                         </div>
                         <h3 class="sf-consultation-title">Book a Consultation</h3>
                         <p class="sf-consultation-text">Schedule a 30-minute discovery call to discuss your project, goals, and how we can help.</p>
-                        <a href="https://cal.com/sofellabs" target="_blank" class="sf-consultation-btn">
+                        <a href="https://cal.com/thynk-consultation" target="_blank" class="sf-consultation-btn">
                             <i class="fas fa-calendar-alt"></i>
                             Book Your Free Consultation
                             <span class="sf-btn-arrow">→</span>
@@ -201,7 +201,7 @@
         <div class="sf-contact-cta-content">
             <h2 class="sf-contact-cta-title">Ready to <span class="sf-text-neon">Transform</span> Your Learning?</h2>
             <p class="sf-contact-cta-text">Let's work together to create learning experiences that deliver real results.</p>
-            <a href="mailto:mcjey103@gmail.com" class="sf-contact-cta-btn">
+            <a href="mailto:info@thynkadvisory.co.ke" class="sf-contact-cta-btn">
                 Email Us Directly <span class="sf-cta-arrow">→</span>
             </a>
         </div>

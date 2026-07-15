@@ -27,3 +27,4 @@ docker-compose.override.yml
 docker/mysql/data/
 docker/redis/data/
 *.pid
+mysql-data/
